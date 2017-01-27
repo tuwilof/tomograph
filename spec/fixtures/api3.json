@@ -1,0 +1,110 @@
+[
+  {
+    "path": "/sessions",
+    "method": "POST",
+    "request": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "login": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "captcha": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "login",
+        "password"
+      ]
+    },
+    "responses": [
+      {
+        "status": "401",
+        "body": {}
+      },
+      {
+        "status": "429",
+        "body": {}
+      },
+      {
+        "status": "201",
+        "body": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "type": "object",
+          "properties": {
+            "confirmation": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "operation": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "type",
+                "operation"
+              ]
+            },
+            "captcha": {
+              "type": "string"
+            },
+            "captcha_does_not_match": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "path": "/sessions/{id}",
+    "method": "DELETE",
+    "request": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "status"
+      ]
+    },
+    "responses": [
+      {
+        "status": "401",
+        "body": {}
+      },
+      {
+        "status": "423",
+        "body": {}
+      },
+      {
+        "status": "200",
+        "body": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "status"
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,23 @@
+FORMAT: 1A
+HOST: http://test.local
+
+# project
+
+Project
+
+# Group project
+
+Project
+
+## Authentication [/sessions]
+
+### Sign Out [DELETE /sessions/{id}]
+
++ Request (application/json)
+
++ Parameters
+ + id (required, number, `550e8400-e29b-41d4-a716-446655440000`) - ID session authorization
+
++ Response 200
+    + Attributes
+        + status: ok (required, fixed) - normal response

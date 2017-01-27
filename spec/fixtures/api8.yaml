@@ -1,0 +1,115 @@
+element: "parseResult"
+content:
+  -
+    element: "category"
+    meta:
+      classes:
+        - "api"
+      title: "project"
+    attributes:
+      meta:
+        -
+          element: "member"
+          meta:
+            classes:
+              - "user"
+          content:
+            key:
+              element: "string"
+              content: "FORMAT"
+            value:
+              element: "string"
+              content: "1A"
+        -
+          element: "member"
+          meta:
+            classes:
+              - "user"
+          content:
+            key:
+              element: "string"
+              content: "HOST"
+            value:
+              element: "string"
+              content: "http://test.local"
+    content:
+      -
+        element: "copy"
+        content: "Project\n\n"
+      -
+        element: "category"
+        meta:
+          classes:
+            - "resourceGroup"
+          title: "project"
+        content:
+          -
+            element: "copy"
+            content: "Project\n\n"
+          -
+            element: "resource"
+            meta:
+              title: "Authentication"
+            attributes:
+              href: "/sessions"
+            content:
+              -
+                element: "transition"
+                meta:
+                  title: "Sign Out"
+                attributes:
+                  href: "/sessions/{id}"
+                  hrefVariables:
+                    element: "hrefVariables"
+                    content:
+                      -
+                        element: "member"
+                        attributes:
+                          typeAttributes:
+                            - "required"
+                        content:
+                          key:
+                            element: "string"
+                            content: "id"
+                          value:
+                            element: "number"
+                            content: inf
+                content:
+                  -
+                    element: "httpTransaction"
+                    content:
+                      -
+                        element: "httpRequest"
+                        attributes:
+                          method: "DELETE"
+                          title: ""
+                          headers:
+                            element: "httpHeaders"
+                            content:
+                              -
+                                element: "member"
+                                content:
+                                  key:
+                                    element: "string"
+                                    content: "Content-Type"
+                                  value:
+                                    element: "string"
+                                    content: "application/json"
+                        content: []
+                      -
+                        element: "httpResponse"
+                        attributes:
+                          statusCode: "200"
+                          headers:
+                            element: "httpHeaders"
+                            content:
+                              -
+                                element: "member"
+                                content:
+                                  key:
+                                    element: "string"
+                                    content: "Content-Type"
+                                  value:
+                                    element: "string"
+                                    content: "application/json"
+                        content: []

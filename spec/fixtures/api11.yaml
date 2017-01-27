@@ -1,0 +1,99 @@
+element: "parseResult"
+content:
+  -
+    element: "category"
+    meta:
+      classes:
+        - "api"
+      title: "project"
+    attributes:
+      meta:
+        -
+          element: "member"
+          meta:
+            classes:
+              - "user"
+          content:
+            key:
+              element: "string"
+              content: "FORMAT"
+            value:
+              element: "string"
+              content: "1A"
+        -
+          element: "member"
+          meta:
+            classes:
+              - "user"
+          content:
+            key:
+              element: "string"
+              content: "HOST"
+            value:
+              element: "string"
+              content: "http://test.local"
+    content:
+      -
+        element: "category"
+        meta:
+          classes:
+            - "resourceGroup"
+          title: "project"
+        content:
+          -
+            element: "copy"
+            content: "Project\n\n"
+          -
+            element: "resource"
+            meta:
+              title: "Authentication"
+            attributes:
+              href: "/sessions"
+            content:
+              -
+                element: "transition"
+                meta:
+                  title: "Sign In"
+                content:
+                  -
+                    element: "copy"
+                    content: "Comment\n\n"
+                  -
+                    element: "httpTransaction"
+                    content:
+                      -
+                        element: "httpRequest"
+                        attributes:
+                          method: "POST"
+                          title: ""
+                          headers:
+                            element: "httpHeaders"
+                            content:
+                              -
+                                element: "member"
+                                content:
+                                  key:
+                                    element: "string"
+                                    content: "Content-Type"
+                                  value:
+                                    element: "string"
+                                    content: "application/json"
+                        content: []
+                      -
+                        element: "httpResponse"
+                        content: []
+  -
+    element: "annotation"
+    meta:
+      classes:
+        - "warning"
+    attributes:
+      code: 6
+      sourceMap:
+        -
+          element: "sourceMap"
+          content:
+            -
+              - 104
+              - 19
+    content: "action is missing a response for a request"

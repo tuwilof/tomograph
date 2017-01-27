@@ -1,0 +1,39 @@
+[
+  {
+    "path": "/recommendation",
+    "method": "GET",
+    "request": {},
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "type": "object",
+          "properties": {
+            "tv_series": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "tv_series"
+          ]
+        }
+      },
+      {
+        "status": "200",
+        "body": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "type": "object",
+          "properties": {
+            "cinema": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "cinema"
+          ]
+        }
+      }
+    ]
+  }
+]

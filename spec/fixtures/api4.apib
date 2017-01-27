@@ -1,0 +1,77 @@
+FORMAT: 1A
+HOST: http://test.local
+
+# project
+
+# Group project
+
+Project
+
+## Authentication [/sessions]
+
+### Sign In [POST]
+
++ Request (application/json)
+
+    + Attributes
+     + login (string, required)
+     + password (string, required)
+     + captcha (string, optional)
+
++ Response 401 (application/json)
+
++ Response 429 (application/json)
+
++ Response 201 (application/json)
+
+    + Attributes
+     + confirmation (Confirmation, optional)
+     + captcha (string, optional)
+     + captcha_does_not_match (boolean, optional)
+
+
+### Sign Out [DELETE /sessions/{id}]
+
++ Request (application/json)
+
+    + Attributes
+     + status (string, required)
+
++ Parameters
+ + id (required, number, `550e8400-e29b-41d4-a716-446655440000`) - ID session authorization
+
++ Response 401 (application/json)
+
++ Response 423 (application/json)
+
++ Response 200 (application/json)
+
+    + Attributes
+     + status (string, required)
+
+
+# User [/users]
+
+### Sign up [POST]
+
++ Request (application/json)
+
+    + Attributes
+     + login (string, required)
+     + password (string, required)
+     + confirm_password (string, required)
+
++ Response 401 (application/json)
+
++ Response 201 (application/json)
+
+    + Attributes
+     + status (string, required)
+
+
+# Data Structures
+
+## Confirmation (object)
+  + id (string, required)
+  + type (string, required)
+  + operation (string, required)

@@ -1,0 +1,26 @@
+FORMAT: 1A
+HOST: http://test.local
+
+# project
+
+Project
+
+# Group project
+
+Project
+
+## Authentication [/sessions]
+
+### Sign Out [DELETE]
+
++ Response 200 (multipart/form-data;boundary=BOUNDARY)
+    + Attributes
+        + example (string, required)
+    + Body
+        --BOUNDARY
+        Content-Disposition: form-data; filename="$filename"
+        Content-Type: $mimetype
+        Content-Transfer-Encoding: binary
+
+        $binarydata
+        --BOUNDARY--

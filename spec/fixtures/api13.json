@@ -1,0 +1,13 @@
+[
+  {
+    "path": "/sessions/{id}",
+    "method": "DELETE",
+    "request": {},
+    "responses": [
+      {
+        "status": "200",
+        "body": {}
+      }
+    ]
+  }
+]
