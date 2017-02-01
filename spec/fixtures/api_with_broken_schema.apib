@@ -1,0 +1,49 @@
+ORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# Polls
+
+Polls is a simple API allowing consumers to view polls and vote in them. You can view this documentation over at [Apiary](http://docs.pollsapi.apiary.io).
+
+
+## Questions Collection [/questions]
+
+### Create a New Question [POST]
+
+You may create your own question using this action. It takes a JSON object containing a question and a collection of answers in the form of choices.
+
++ question (string) - The question
++ choices (array[string]) - A collection of choices.
+
++ Request (application/json)
+
+    + Body 
+    
+            {
+              "question": "Favourite programming language?",
+              "choices": [
+                  "Swift",
+                  "Python",
+                  "Objective-C",
+                  "Ruby"
+              ]
+            }
+     
+
++ Response 201 (application/json)
+
+    + Schema
+
+            {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                   "question": {
+                     "type": "string"
+                   },
+                   "published_at": {
+                     "type": "string"
+                   },
+                   "url": {
+                     "type": "string"
+
