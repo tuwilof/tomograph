@@ -1,0 +1,13 @@
+[
+  {
+    "path": "/questions",
+    "method": "POST",
+    "request": {},
+    "responses": [
+      {
+        "status": "201",
+        "body": {}
+      }
+    ]
+  }
+]

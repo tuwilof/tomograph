@@ -1,0 +1,37 @@
+FORMAT: 1A
+HOST: http://test.local
+
+# project
+
+# Group project
+
+Project
+
+## Authentication [/sessions]
+
+Authentication
+
+### Sign In [POST]
+
++ Request (application/json)
+
+    + Attributes
+     + login (string, required)
+     + password (string, required)
+     + captcha (string, optional)
+     
+    + Body
+          ```
+          {
+              "login": "tester",
+              "password": "test"
+          }
+          ```
+
++ Response 201 (application/json)
+
+    + Attributes
+     + captcha (string, optional)
+     + captcha_does_not_match (boolean, optional)
+
+

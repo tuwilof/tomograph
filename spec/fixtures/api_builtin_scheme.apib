@@ -1,0 +1,109 @@
+ORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# Polls
+
+Polls is a simple API allowing consumers to view polls and vote in them. You can view this documentation over at [Apiary](http://docs.pollsapi.apiary.io).
+
+
+## Questions Collection [/questions]
+
+### Create a New Question [POST]
+
+You may create your own question using this action. It takes a JSON object containing a question and a collection of answers in the form of choices.
+
++ question (string) - The question
++ choices (array[string]) - A collection of choices.
+
++ Request (application/json)
+
+    + Body 
+    
+            {
+              "question": "Favourite programming language?",
+              "choices": [
+                  "Swift",
+                  "Python",
+                  "Objective-C",
+                  "Ruby"
+              ]
+            }
+     
+    + Schema
+    
+            {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "question": {
+                  "type": "string"
+                },
+                "choices": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "minItems": 2
+                 }
+              }
+            }
+    
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2014-11-11T08:40:51.620Z",
+                "url": "/questions/2",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "url": "/questions/2/choices/1",
+                        "votes": 0
+                    }, {
+                        "choice": "Python",
+                        "url": "/questions/2/choices/2",
+                        "votes": 0
+                    }, {
+                        "choice": "Objective-C",
+                        "url": "/questions/2/choices/3",
+                        "votes": 0
+                    }, {
+                        "choice": "Ruby",
+                        "url": "/questions/2/choices/4",
+                        "votes": 0
+                    }
+                ]
+            }
+
+    + Schema
+
+            {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                   "question": {
+                     "type": "string"
+                   },
+                   "published_at": {
+                     "type": "string"
+                   },
+                   "url": {
+                     "type": "string"
+                   },
+                   "choices": {
+                     "type": "array",
+                     "items": {
+                       "type": "string"
+                     },
+                     "minItems": 2
+                   }
+                 }
+            }
+

@@ -6,27 +6,55 @@ module Tomograph
       def json
         single_sharp = find_resource
 
-        res = Array.new(single_sharp['content'].inject([]) do |result, controller|
-          next result if controller['content'].is_a? String # skip header
-          result.push(controller['content'].inject([]) do |actions, action|
-            actions.push(action(controller, action))
-          end).flatten
-        end)
-        MultiJson.dump(res)
+        result = single_sharp['content'].inject([]) do |result, resource|
+          next result if text_node?(resource)
+
+          result.concat(extract_actions(resource))
+        end
+        MultiJson.dump(result)
       end
 
       def delete_query_and_last_slash(path)
         path = delete_till_the_end(path, '{&')
         path = delete_till_the_end(path, '{?')
-        path = remove_the_slash_at_the_end(path)
-        path
+
+        remove_the_slash_at_the_end(path)
       end
 
       private
 
+      def extract_actions(resource)
+        actions = []
+        resource_path = resource['attributes'] && resource['attributes']['href']
+
+        transitions = resource['content']
+        transitions.each do |transition|
+          next unless transition['element'] == 'transition'
+
+          path = transition['attributes'] && transition['attributes']['href'] || resource_path
+
+          transition['content'].each do |content|
+            next unless content['element'] == 'httpTransaction'
+
+            action = build_action(content, path)
+            actions << action if action
+          end
+        end
+
+        actions.group_by { |action| action['method'] + action['path'] }.map do |_key, resource_actions|
+          # because in yaml a response has a copy of the same request we can only use the first
+          {
+            'path' => resource_actions.first['path'],
+            'method' => resource_actions.first['method'],
+            'request' => resource_actions.first['request'],
+            'responses' => resource_actions.flat_map { |action| action['responses'] }.compact
+          }
+        end
+      end
+
       def find_resource
         documentation['content'][0]['content'].find do |resource|
-          !resource['content'].is_a?(String) && # skip description
+          !text_node?(resource) &&
             resource['meta']['classes'][0] == 'resourceGroup' # skip Data Structures
         end
       end
@@ -50,56 +78,55 @@ module Tomograph
         end
       end
 
-      def action(controller, action)
-        path = action['attributes']['href'] unless action['attributes'].nil?
-        path ||= controller['attributes']['href']
-        action_to_hash(action, path)
+      def build_action(content, path)
+        return if text_node?(content)
+
+        action_to_hash(content['content'], path)
       end
 
-      def action_to_hash(action, path)
+      def action_to_hash(actions, path)
         {
           'path' => "#{Tomograph.configuration.prefix}#{delete_query_and_last_slash(path)}",
-          'method' => action['content'].last['content'][0]['attributes']['method'],
-          'request' => request(action),
-          'responses' => responses(action)
+          'method' => actions.first['attributes']['method'],
+          'request' => request(actions),
+          'responses' => responses(actions)
         }
       end
 
-      def request(action)
-        return {} if find_action?(action).nil?
-        begin
-          MultiJson.load(find_action?(action)['content'])
-        rescue MultiJson::ParseError
-          {}
-        end
+      def request(actions)
+        request_action = actions.find {|el| el['element'] === 'httpRequest' }
+        json_schema(request_action['content'])
       end
 
-      def find_action?(action)
-        action['content'].last['content'].first['content'].last
+      def json_schema?(action)
+        action && action['element'] == 'asset' && action['attributes']['contentType'] == 'application/schema+json'
       end
 
-      def responses(action)
-        action['content'].inject([]) do |responses, response|
-          next responses if response['content'].is_a? String # skip comment
+      def responses(actions)
+        response_actions = actions.select {|el| el['element'] === 'httpResponse' }
 
-          next responses if response['content'][1]['attributes'].nil? # skip if responses nil
-          responses.push(response(response))
-        end
+        response_actions.map do |response|
+          return unless response['attributes'] # if no response
+
+          {
+            'status' => response['attributes']['statusCode'],
+            'body' => json_schema(response['content'])
+          }
+        end.compact
       end
 
-      def response(response)
-        {
-          'status' => response['content'][1]['attributes']['statusCode'],
-          'body' => json_schema(response)
-        }
-      end
+      def json_schema(actions)
+        schema_node = actions.find {|action| json_schema?(action) }
+        return {} unless schema_node
 
-      def json_schema(response)
-        json_schema = response['content'][1]['content']
-        return {} if json_schema.size == 1
-        return {} if json_schema.empty?
-        return MultiJson.load(json_schema[2]['content']) if json_schema[2]
+        MultiJson.load(schema_node['content'])
+      rescue MultiJson::ParseError => e
+        puts "[Tomograph] Error while parsing #{ e }. skipping..."
         {}
+      end
+
+      def text_node?(node)
+        node['element'] == 'copy' # Element is a human readable text
       end
     end
   end

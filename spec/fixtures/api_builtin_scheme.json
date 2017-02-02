@@ -1,0 +1,49 @@
+[
+  {
+    "path": "/questions",
+    "method": "POST",
+    "request": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "question": {
+          "type": "string"
+        },
+        "choices": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 2
+        }
+      }
+    },
+    "responses": [
+      {
+        "status": "201",
+        "body": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "type": "object",
+          "properties": {
+            "question": {
+              "type": "string"
+            },
+            "published_at": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "choices": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 2
+            }
+          }
+        }
+      }
+    ]
+  }
+]
