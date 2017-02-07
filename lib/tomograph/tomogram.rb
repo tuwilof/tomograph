@@ -4,12 +4,15 @@ module Tomograph
   class Tomogram < String
     class << self
       def json
-        single_sharp = find_resource
+        single_sharps = find_resource
 
-        result = single_sharp['content'].inject([]) do |result, resource|
-          next result if text_node?(resource)
+        result = []
+        single_sharps.map do |single_sharp|
+          result += single_sharp['content'].inject([]) do |result, resource|
+            next result if text_node?(resource)
 
-          result.concat(extract_actions(resource))
+            result.concat(extract_actions(resource))
+          end
         end
         MultiJson.dump(result)
       end
@@ -53,7 +56,7 @@ module Tomograph
       end
 
       def find_resource
-        documentation['content'][0]['content'].find do |resource|
+        documentation['content'][0]['content'].find_all do |resource|
           !text_node?(resource) &&
             resource['meta']['classes'][0] == 'resourceGroup' # skip Data Structures
         end

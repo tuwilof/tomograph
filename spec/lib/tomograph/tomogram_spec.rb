@@ -55,6 +55,19 @@ RSpec.describe Tomograph::Tomogram do
       it 'parses documents' do
         expect(subject).to eq(parsed)
       end
+
+      context 'and separated data structures' do
+        let(:json_schema) { 'spec/fixtures/separated_data_structures.json' }
+
+        before do
+          allow(Tomograph).to receive(:configuration)
+            .and_return(double(documentation: 'separated_data_structures.yaml', prefix: ''))
+        end
+
+        it 'parses documents' do
+          expect(subject).to eq(parsed)
+        end
+      end
     end
 
     context 'blank request' do
