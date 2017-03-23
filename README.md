@@ -14,7 +14,7 @@ require 'tomograph'
 
 ### documentation
 
-For gem needed by a ```drafter``` generate and save ```yaml``` file, and then turn it on config.
+For gem needed by a [drafter](https://github.com/apiaryio/drafter) generate and save ```yaml``` file, and then turn it on config.
 ```
 drafter doc/api.apib -o doc/api.yaml
 ```
@@ -33,7 +33,12 @@ Tomograph::Tomogram.json
 
 API tomogram return to json format.
 
+### drafter_yaml
+
+String with yaml from drafter.
+
 ### prefix
+
 Default empty String. This is prefix for url if in docimentation URI short .
 
 ## License
