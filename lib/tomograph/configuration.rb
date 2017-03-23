@@ -1,7 +1,8 @@
 module Tomograph
   class Configuration
     attr_accessor :documentation,
-                  :prefix
+                  :prefix,
+                  :drafter_yaml
 
     def initialize
       @prefix = ''

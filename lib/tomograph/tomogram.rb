@@ -63,7 +63,11 @@ module Tomograph
       end
 
       def documentation
-        YAML.load(File.read("#{Rails.root}/#{Tomograph.configuration.documentation}"))
+        if Tomograph.configuration.drafter_yaml
+          YAML.load(Tomograph.configuration.drafter_yaml)
+        else
+          YAML.load(File.read("#{Rails.root}/#{Tomograph.configuration.documentation}"))
+        end
       end
 
       def delete_till_the_end(path, beginning_with)
