@@ -1,7 +1,8 @@
 require 'multi_json'
+require 'tomograph/request'
 
 module Tomograph
-  class Tomogram < String
+  class Tomogram
     def json
       @result ||= find_resource.inject([]) do |result, single_sharp|
         result += single_sharp['content'].inject([]) do |result, resource|
