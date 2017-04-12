@@ -3,14 +3,17 @@ require 'tomograph/request'
 
 module Tomograph
   class Tomogram
-    def json
-      @result ||= find_resource.inject([]) do |result, single_sharp|
+    def initialize
+      @result = find_resource.inject([]) do |result, single_sharp|
         result += single_sharp['content'].inject([]) do |result, resource|
           next result if text_node?(resource)
 
           result.concat(extract_actions(resource))
         end
       end
+    end
+
+    def json
       MultiJson.dump(@result)
     end
 

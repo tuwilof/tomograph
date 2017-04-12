@@ -178,6 +178,10 @@ RSpec.describe Tomograph::Tomogram do
   end
 
   describe '#delete_query_and_last_slash' do
+    before do
+      allow_any_instance_of(described_class).to receive(:find_resource).and_return([])
+    end
+
     context 'if without query' do
       let(:path) { '/status/' }
       let(:stump) { '/status' }
