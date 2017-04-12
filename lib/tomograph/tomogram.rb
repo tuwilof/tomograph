@@ -3,10 +3,11 @@ require 'tomograph/request'
 
 module Tomograph
   class Tomogram
-    def initialize(documentation: nil, prefix: '', drafter_yaml: nil)
-      @documentation = documentation
-      @prefix = prefix
+    def initialize(apib_path: nil, drafter_yaml_path: nil, drafter_yaml: nil, prefix: '')
+      @apib_path = apib_path
+      @drafter_yaml_path = drafter_yaml_path
       @drafter_yaml = drafter_yaml
+      @prefix = prefix
       docs = find_resource.inject([]) do |result, single_sharp|
         result += single_sharp['content'].inject([]) do |result, resource|
           next result if text_node?(resource)
@@ -93,10 +94,12 @@ module Tomograph
     end
 
     def documentation
-      if @drafter_yaml
+      if @apib_path
+        `drafter #{@apib_path}`
+      elsif @drafter_yaml
         YAML.load(@drafter_yaml)
       else
-        YAML.load(File.read("#{Rails.root}/#{@documentation}"))
+        YAML.load(File.read("#{Rails.root}/#{@drafter_yaml_path}"))
       end
     end
 
