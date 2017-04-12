@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.describe Tomograph::Tomogram do
   describe '#json' do
-    subject { JSON.parse(described_class.json) }
+    subject { JSON.parse(described_class.new.json) }
     let(:parsed) { MultiJson.load(File.read(json_schema)) }
     let(:documentation) { nil }
 
@@ -183,7 +183,7 @@ RSpec.describe Tomograph::Tomogram do
       let(:stump) { '/status' }
 
       it 'no changes' do
-        expect(described_class.delete_query_and_last_slash(path)).to eq(stump)
+        expect(described_class.new.delete_query_and_last_slash(path)).to eq(stump)
       end
     end
 
@@ -193,8 +193,8 @@ RSpec.describe Tomograph::Tomogram do
       let(:stump) { '/status' }
 
       it 'delete query' do
-        expect(described_class.delete_query_and_last_slash(path1)).to eq(stump)
-        expect(described_class.delete_query_and_last_slash(path2)).to eq(stump)
+        expect(described_class.new.delete_query_and_last_slash(path1)).to eq(stump)
+        expect(described_class.new.delete_query_and_last_slash(path2)).to eq(stump)
       end
 
       context 'and a parameter' do
@@ -203,8 +203,8 @@ RSpec.describe Tomograph::Tomogram do
         let(:stump) { '/users/{id}/pokemons' }
 
         it 'delete query' do
-          expect(described_class.delete_query_and_last_slash(path1)).to eq(stump)
-          expect(described_class.delete_query_and_last_slash(path2)).to eq(stump)
+          expect(described_class.new.delete_query_and_last_slash(path1)).to eq(stump)
+          expect(described_class.new.delete_query_and_last_slash(path2)).to eq(stump)
         end
       end
     end
