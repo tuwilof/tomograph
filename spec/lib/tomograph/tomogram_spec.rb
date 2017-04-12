@@ -178,6 +178,7 @@ RSpec.describe Tomograph::Tomogram do
   describe '#delete_query_and_last_slash' do
     before do
       allow_any_instance_of(described_class).to receive(:find_resource).and_return([])
+      allow(Tomograph::Documentation).to receive(:new).and_return(double(to_hash: {'content' => [{'content' => {}}]}))
     end
 
     context 'if without query' do
@@ -222,6 +223,7 @@ RSpec.describe Tomograph::Tomogram do
       allow(Rails).to receive(:root).and_return("#{ENV['RBENV_DIR']}/spec/fixtures")
       allow(Tomograph).to receive(:configuration).and_return(
         double(documentation: documentation, prefix: '', drafter_yaml: nil))
+      allow(Tomograph::Documentation).to receive(:new).and_return(double(to_hash: {'content' => [{'content' => {}}]}))
     end
     let(:json_schema) {'spec/fixtures/api2.json'}
     let(:documentation) {'api2.yaml'}

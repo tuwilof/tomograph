@@ -1,12 +1,15 @@
 require 'multi_json'
 require 'tomograph/request'
+require 'tomograph/documentation'
 
 module Tomograph
   class Tomogram
     def initialize(apib_path: nil, drafter_yaml_path: nil, drafter_yaml: nil, prefix: '')
-      @apib_path = apib_path
-      @drafter_yaml_path = drafter_yaml_path
-      @drafter_yaml = drafter_yaml
+      @documentation = Documentation.new(
+        apib_path: apib_path,
+        drafter_yaml: drafter_yaml,
+        drafter_yaml_path: drafter_yaml_path
+      ).to_hash
       @prefix = prefix
       docs = find_resource.inject([]) do |result, single_sharp|
         result += single_sharp['content'].inject([]) do |result, resource|
@@ -87,19 +90,9 @@ module Tomograph
     end
 
     def find_resource
-      documentation['content'][0]['content'].find_all do |resource|
+      @documentation['content'][0]['content'].find_all do |resource|
         !text_node?(resource) &&
           resource['meta']['classes'][0] == 'resourceGroup' # skip Data Structures
-      end
-    end
-
-    def documentation
-      if @apib_path
-        `drafter #{@apib_path}`
-      elsif @drafter_yaml
-        YAML.load(@drafter_yaml)
-      else
-        YAML.load(File.read("#{Rails.root}/#{@drafter_yaml_path}"))
       end
     end
 
