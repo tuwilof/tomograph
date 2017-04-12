@@ -3,17 +3,14 @@ require 'multi_json'
 module Tomograph
   class Tomogram < String
     def json
-      single_sharps = find_resource
-
-      result = []
-      single_sharps.map do |single_sharp|
+      @result ||= find_resource.inject([]) do |result, single_sharp|
         result += single_sharp['content'].inject([]) do |result, resource|
           next result if text_node?(resource)
 
           result.concat(extract_actions(resource))
         end
       end
-      MultiJson.dump(result)
+      MultiJson.dump(@result)
     end
 
     def delete_query_and_last_slash(path)
