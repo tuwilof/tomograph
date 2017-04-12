@@ -177,7 +177,7 @@ RSpec.describe Tomograph::Tomogram do
 
   describe '#delete_query_and_last_slash' do
     before do
-      allow_any_instance_of(described_class).to receive(:find_resource).and_return([])
+      allow(Tomograph::Resources).to receive(:new).and_return(double(to_hash: []))
       allow(Tomograph::Documentation).to receive(:new).and_return(double(to_hash: {'content' => [{'content' => {}}]}))
     end
 
@@ -229,7 +229,7 @@ RSpec.describe Tomograph::Tomogram do
     let(:documentation) {'api2.yaml'}
 
     before do
-      allow_any_instance_of(described_class).to receive(:find_resource).and_return(double(inject: tomogram))
+      allow(Tomograph::Resources).to receive(:new).and_return(double(to_hash: double(inject: tomogram)))
     end
 
     context 'if not found in the tomogram' do

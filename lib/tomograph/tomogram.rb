@@ -1,6 +1,7 @@
 require 'multi_json'
 require 'tomograph/request'
 require 'tomograph/documentation'
+require 'tomograph/resources'
 
 module Tomograph
   class Tomogram
@@ -11,7 +12,7 @@ module Tomograph
         drafter_yaml_path: drafter_yaml_path
       ).to_hash
       @prefix = prefix
-      docs = find_resource.inject([]) do |result, single_sharp|
+      docs = Resources.new(@documentation).to_hash.inject([]) do |result, single_sharp|
         result += single_sharp['content'].inject([]) do |result, resource|
           next result if text_node?(resource)
 
@@ -86,13 +87,6 @@ module Tomograph
           'request' => resource_actions.first['request'],
           'responses' => resource_actions.flat_map {|action| action['responses']}.compact
         }
-      end
-    end
-
-    def find_resource
-      @documentation['content'][0]['content'].find_all do |resource|
-        !text_node?(resource) &&
-          resource['meta']['classes'][0] == 'resourceGroup' # skip Data Structures
       end
     end
 
