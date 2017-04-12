@@ -3,7 +3,10 @@ require 'tomograph/request'
 
 module Tomograph
   class Tomogram
-    def initialize
+    def initialize(documentation: nil, prefix: '', drafter_yaml: nil)
+      @documentation = documentation
+      @prefix = prefix
+      @drafter_yaml = drafter_yaml
       docs = find_resource.inject([]) do |result, single_sharp|
         result += single_sharp['content'].inject([]) do |result, resource|
           next result if text_node?(resource)
@@ -71,13 +74,13 @@ module Tomograph
         end
       end
 
-      actions.group_by { |action| action['method'] + action['path'] }.map do |_key, resource_actions|
+      actions.group_by {|action| action['method'] + action['path']}.map do |_key, resource_actions|
         # because in yaml a response has a copy of the same request we can only use the first
         {
           'path' => resource_actions.first['path'],
           'method' => resource_actions.first['method'],
           'request' => resource_actions.first['request'],
-          'responses' => resource_actions.flat_map { |action| action['responses'] }.compact
+          'responses' => resource_actions.flat_map {|action| action['responses']}.compact
         }
       end
     end
@@ -90,10 +93,10 @@ module Tomograph
     end
 
     def documentation
-      if Tomograph.configuration.drafter_yaml
-        YAML.load(Tomograph.configuration.drafter_yaml)
+      if @drafter_yaml
+        YAML.load(@drafter_yaml)
       else
-        YAML.load(File.read("#{Rails.root}/#{Tomograph.configuration.documentation}"))
+        YAML.load(File.read("#{Rails.root}/#{@documentation}"))
       end
     end
 
@@ -120,7 +123,7 @@ module Tomograph
 
     def action_to_hash(actions, path)
       {
-        'path' => "#{Tomograph.configuration.prefix}#{delete_query_and_last_slash(path)}",
+        'path' => "#{@prefix}#{delete_query_and_last_slash(path)}",
         'method' => actions.first['attributes']['method'],
         'request' => request(actions),
         'responses' => responses(actions)
@@ -128,7 +131,7 @@ module Tomograph
     end
 
     def request(actions)
-      request_action = actions.find { |el| el['element'] === 'httpRequest' }
+      request_action = actions.find {|el| el['element'] === 'httpRequest'}
       json_schema(request_action['content'])
     end
 
@@ -137,7 +140,7 @@ module Tomograph
     end
 
     def responses(actions)
-      response_actions = actions.select { |el| el['element'] === 'httpResponse' }
+      response_actions = actions.select {|el| el['element'] === 'httpResponse'}
 
       response_actions.map do |response|
         return unless response['attributes'] # if no response
@@ -150,7 +153,7 @@ module Tomograph
     end
 
     def json_schema(actions)
-      schema_node = actions.find { |action| json_schema?(action) }
+      schema_node = actions.find {|action| json_schema?(action)}
       return {} unless schema_node
 
       MultiJson.load(schema_node['content'])

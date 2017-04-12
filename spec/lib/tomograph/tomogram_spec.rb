@@ -2,14 +2,12 @@ require 'spec_helper'
 
 RSpec.describe Tomograph::Tomogram do
   describe '#json' do
-    subject {JSON.parse(described_class.new.json)}
+    subject {JSON.parse(described_class.new(documentation: documentation, prefix: '', drafter_yaml: nil).json)}
     let(:parsed) {MultiJson.load(File.read(json_schema))}
     let(:documentation) {nil}
 
     before do
       allow(Rails).to receive(:root).and_return("#{ENV['RBENV_DIR']}/spec/fixtures")
-      allow(Tomograph).to receive(:configuration).and_return(
-        double(documentation: documentation, prefix: '', drafter_yaml: nil))
     end
 
     context 'if one action' do
