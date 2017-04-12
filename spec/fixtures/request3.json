@@ -1,0 +1,33 @@
+{
+  "path": "/users/{user_id}/pokemons",
+  "method": "GET",
+  "request": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "type": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "type"
+    ]
+  },
+  "responses": [
+    {
+      "status": "200",
+      "body": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "quantity": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "quantity"
+        ]
+      }
+    }
+  ]
+}

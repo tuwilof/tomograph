@@ -1,0 +1,41 @@
+{
+  "path": "/sessions/{id}",
+  "method": "DELETE",
+  "request": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "status": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "status"
+    ]
+  },
+  "responses": [
+    {
+      "status": "401",
+      "body": {}
+    },
+    {
+      "status": "423",
+      "body": {}
+    },
+    {
+      "status": "200",
+      "body": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      }
+    }
+  ]
+}

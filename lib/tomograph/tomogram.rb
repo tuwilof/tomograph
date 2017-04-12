@@ -14,10 +14,18 @@ module Tomograph
       @result = Array.new(docs.inject([]) do |res, doc|
         res.push(Request.new.merge(doc))
       end)
+      compile_path_patterns
     end
 
     def json
-      MultiJson.dump(@result)
+      MultiJson.dump(@result.map do |res|
+        {
+          'path' => res['path'],
+          'method' => res['method'],
+          'request' => res['request'],
+          'responses' => res['responses']
+        }
+      end)
     end
 
     def delete_query_and_last_slash(path)
@@ -25,6 +33,22 @@ module Tomograph
       path = delete_till_the_end(path, '{?')
 
       remove_the_slash_at_the_end(path)
+    end
+
+    def find_request(method:, path:)
+      path = find_request_path(method: method, path: path)
+      @result.find do |doc|
+        doc['path'] == path && doc['method'] == method
+      end
+    end
+
+    def compile_path_patterns
+      @result.each do |action|
+        next unless (path = action['path'])
+
+        regexp = compile_path_pattern(path)
+        action['path_regexp'] = regexp
+      end
     end
 
     private
@@ -137,6 +161,62 @@ module Tomograph
 
     def text_node?(node)
       node['element'] == 'copy' # Element is a human readable text
+    end
+
+    def compile_path_pattern(path)
+      str = Regexp.escape(path)
+      str = str.gsub(/\\{\w+\\}/, '[^&=\/]+')
+      str = "\\A#{ str }\\z"
+      Regexp.new(str)
+    end
+
+    def find_request_path(method:, path:)
+      return '' unless path && path.size > 0
+
+      path = normalize_path(path)
+
+      action = search_for_an_exact_match(method, path, @result)
+      return action['path'] if action
+
+      action = search_with_parameter(method, path, @result)
+      return action['path'] if action
+
+      ''
+    end
+
+    def normalize_path(path)
+      path = cut_off_query_params(path)
+      remove_the_slash_at_the_end2(path)
+    end
+
+    def remove_the_slash_at_the_end2(path)
+      return path[0..-2] if path[-1] == '/'
+      path
+    end
+
+    def cut_off_query_params(path)
+      path.gsub(/\?.*\z/, '')
+    end
+
+    def search_for_an_exact_match(method, path, documentation)
+      documentation.find do |action|
+        action['path'] == path && action['method'] == method
+      end
+    end
+
+    def search_with_parameter(method, path, documentation)
+      documentation = actions_with_same_method(documentation, method)
+
+      documentation.find do |action|
+        next unless regexp = action['path_regexp']
+        regexp =~ path
+      end
+    end
+
+    def actions_with_same_method(documentation, method)
+      documentation.find_all do |doc|
+        doc['method'] == method
+      end
     end
   end
 end
