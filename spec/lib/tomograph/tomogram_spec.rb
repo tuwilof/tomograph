@@ -175,44 +175,6 @@ RSpec.describe Tomograph::Tomogram do
     end
   end
 
-  describe '#delete_query_and_last_slash' do
-    before do
-      allow(Tomograph::Resources).to receive(:new).and_return(double(to_hash: []))
-      allow(Tomograph::Documentation).to receive(:new).and_return(double(to_hash: {'content' => [{'content' => {}}]}))
-    end
-
-    context 'if without query' do
-      let(:path) {'/status/'}
-      let(:stump) {'/status'}
-
-      it 'no changes' do
-        expect(described_class.new.delete_query_and_last_slash(path)).to eq(stump)
-      end
-    end
-
-    context 'if there is' do
-      let(:path1) {'/status/{&search}{&page}'}
-      let(:path2) {'/status/{?search,page}'}
-      let(:stump) {'/status'}
-
-      it 'delete query' do
-        expect(described_class.new.delete_query_and_last_slash(path1)).to eq(stump)
-        expect(described_class.new.delete_query_and_last_slash(path2)).to eq(stump)
-      end
-
-      context 'and a parameter' do
-        let(:path1) {'/users/{id}/pokemons/{&search}{&page}'}
-        let(:path2) {'/users/{id}/pokemons/{?search,page}'}
-        let(:stump) {'/users/{id}/pokemons'}
-
-        it 'delete query' do
-          expect(described_class.new.delete_query_and_last_slash(path1)).to eq(stump)
-          expect(described_class.new.delete_query_and_last_slash(path2)).to eq(stump)
-        end
-      end
-    end
-  end
-
   describe '#find_request' do
     let(:method) {'POST'}
     let(:tomogram) {[{}]}

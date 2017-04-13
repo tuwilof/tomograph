@@ -2,6 +2,7 @@ require 'multi_json'
 require 'tomograph/request'
 require 'tomograph/documentation'
 require 'tomograph/resources'
+require 'tomograph/path'
 
 module Tomograph
   class Tomogram
@@ -34,13 +35,6 @@ module Tomograph
           'responses' => res['responses']
         }
       end)
-    end
-
-    def delete_query_and_last_slash(path)
-      path = delete_till_the_end(path, '{&')
-      path = delete_till_the_end(path, '{?')
-
-      remove_the_slash_at_the_end(path)
     end
 
     def find_request(method:, path:)
@@ -90,21 +84,6 @@ module Tomograph
       end
     end
 
-    def delete_till_the_end(path, beginning_with)
-      path_index = path.index(beginning_with)
-      path_index ||= 0
-      path_index -= 1
-      path.slice(0..path_index)
-    end
-
-    def remove_the_slash_at_the_end(path)
-      if path[-1] == '/'
-        path[0..-2]
-      else
-        path
-      end
-    end
-
     def build_action(content, path)
       return if text_node?(content)
 
@@ -113,7 +92,7 @@ module Tomograph
 
     def action_to_hash(actions, path)
       {
-        'path' => "#{@prefix}#{delete_query_and_last_slash(path)}",
+        'path' => "#{@prefix}#{Path.new(path)}",
         'method' => actions.first['attributes']['method'],
         'request' => request(actions),
         'responses' => responses(actions)
