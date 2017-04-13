@@ -3,6 +3,7 @@ require 'tomograph/request'
 require 'tomograph/documentation'
 require 'tomograph/resources'
 require 'tomograph/path'
+require 'tomograph/json_schema'
 
 module Tomograph
   class Tomogram
@@ -101,11 +102,7 @@ module Tomograph
 
     def request(actions)
       request_action = actions.find {|el| el['element'] === 'httpRequest'}
-      json_schema(request_action['content'])
-    end
-
-    def json_schema?(action)
-      action && action['element'] == 'asset' && action['attributes']['contentType'] == 'application/schema+json'
+      JsonSchema.new(request_action['content']).to_hash
     end
 
     def responses(actions)
@@ -116,19 +113,9 @@ module Tomograph
 
         {
           'status' => response['attributes']['statusCode'],
-          'body' => json_schema(response['content'])
+          'body' => JsonSchema.new(response['content']).to_hash
         }
       end.compact
-    end
-
-    def json_schema(actions)
-      schema_node = actions.find {|action| json_schema?(action)}
-      return {} unless schema_node
-
-      MultiJson.load(schema_node['content'])
-    rescue MultiJson::ParseError => e
-      puts "[Tomograph] Error while parsing #{ e }. skipping..."
-      {}
     end
 
     def text_node?(node)
