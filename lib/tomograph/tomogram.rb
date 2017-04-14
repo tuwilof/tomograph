@@ -13,14 +13,20 @@ module Tomograph
         drafter_yaml_path: drafter_yaml_path
       )
       @prefix = prefix
-      docs = @documentation.groups.inject([]) do |result, resources|
-        result += resources.inject([]) do |result, resource|
-          result.concat(extract_actions(resource))
+      @result = @documentation.to_hash['content'][0]['content'].inject([]) do |result_resources, group|
+        if group['element'] == 'copy' || # Element is a human readable text
+          group['meta']['classes'][0] != 'resourceGroup' # skip Data Structures
+          next result_resources
+        end
+
+        result_resources + group['content'].inject([]) do |result_actions, resource|
+          if resource['element'] == 'copy' # Element is a human readable text
+            next result_actions
+          end
+
+          result_actions + actions(resource)
         end
       end
-      @result = Array.new(docs.inject([]) do |res, doc|
-        res.push(Request.new.merge(doc))
-      end)
       compile_path_patterns
     end
 
@@ -53,8 +59,8 @@ module Tomograph
 
     private
 
-    def extract_actions(resource)
-      actions = []
+    def actions(resource)
+      result_actions = []
       resource_path = resource['attributes'] && resource['attributes']['href']
 
       transitions = resource['content']
@@ -67,18 +73,20 @@ module Tomograph
           next unless content['element'] == 'httpTransaction'
 
           action = Tomograph::Action.new(content, path).to_hash
-          actions << action if action
+          result_actions << action if action
         end
       end
 
-      actions.group_by {|action| action['method'] + action['path']}.map do |_key, resource_actions|
+      result_actions.group_by {|action| action['method'] + action['path']}.map do |_key, resource_actions|
         # because in yaml a response has a copy of the same request we can only use the first
-        {
-          'path' => resource_actions.first['path'],
-          'method' => resource_actions.first['method'],
-          'request' => resource_actions.first['request'],
-          'responses' => resource_actions.flat_map {|action| action['responses']}.compact
-        }
+        Request.new.merge(
+          {
+            'path' => resource_actions.first['path'],
+            'method' => resource_actions.first['method'],
+            'request' => resource_actions.first['request'],
+            'responses' => resource_actions.flat_map {|action| action['responses']}.compact
+          }
+        )
       end
     end
 

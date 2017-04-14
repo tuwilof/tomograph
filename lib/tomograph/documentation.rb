@@ -10,15 +10,8 @@ module Tomograph
       end
     end
 
-    def groups
-      @groups ||= @documentation['content'][0]['content'].map do |group|
-        if group['element'] != 'copy' && # Element is a human readable text
-          group['meta']['classes'][0] == 'resourceGroup' # skip Data Structures
-          group['content'].find_all do |resources|
-            resources['element'] != 'copy' # Element is a human readable text
-          end
-        end
-      end.compact
+    def to_hash
+      @documentation
     end
   end
 end

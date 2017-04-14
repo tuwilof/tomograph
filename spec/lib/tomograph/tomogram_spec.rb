@@ -186,7 +186,7 @@ RSpec.describe Tomograph::Tomogram do
       allow(Tomograph).to receive(:configuration).and_return(
         double(documentation: documentation, prefix: '', drafter_yaml: nil))
       allow(Tomograph::Documentation).to receive(:new).and_return(double(to_hash: {'content' => [{'content' => {}}]},
-        groups: double(inject: tomogram)))
+        to_hash: {'content' => [{'content' => double(inject: tomogram)}]}))
     end
     let(:json_schema) {'spec/fixtures/api2.json'}
     let(:documentation) {'api2.yaml'}
