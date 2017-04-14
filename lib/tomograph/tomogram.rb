@@ -4,6 +4,7 @@ require 'tomograph/documentation'
 require 'tomograph/resources'
 require 'tomograph/path'
 require 'tomograph/json_schema'
+require 'tomograph/request/json_schema'
 
 module Tomograph
   class Tomogram
@@ -95,14 +96,9 @@ module Tomograph
       {
         'path' => "#{@prefix}#{Path.new(path)}",
         'method' => actions.first['attributes']['method'],
-        'request' => request(actions),
+        'request' => Tomograph::Request::JsonSchema.new(actions).to_hash,
         'responses' => responses(actions)
       }
-    end
-
-    def request(actions)
-      request_action = actions.find {|el| el['element'] === 'httpRequest'}
-      JsonSchema.new(request_action['content']).to_hash
     end
 
     def responses(actions)
