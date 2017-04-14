@@ -5,28 +5,35 @@ require 'tomograph/response/json_schema'
 module Tomograph
   class Action
     def initialize(content, path)
-      return if content['element'] == 'copy' # Element is a human readable text
-
-      @action = action_to_hash(content['content'], path)
+      @content = content['content']
+      @source_path = path
     end
 
-    def action_to_hash(actions, path)
-      {
-        'path' => "#{@prefix}#{Tomograph::Path.new(path)}",
-        'method' => actions.first['attributes']['method'],
-        'request' => Tomograph::Request::JsonSchema.new(actions).to_hash,
-        'responses' => responses(actions)
-      }
+    def path
+      @path ||= "#{@prefix}#{Tomograph::Path.new(@source_path)}"
     end
 
-    def responses(actions)
-      actions.select {|response| Tomograph::Response::JsonSchema.valid?(response)}.map do |response|
+    def method
+      @content.first['attributes']['method']
+    end
+
+    def request
+      Tomograph::Request::JsonSchema.new(@content).to_hash
+    end
+
+    def responses
+      @responses ||= @content.select {|response| Tomograph::Response::JsonSchema.valid?(response)}.map do |response|
         Tomograph::Response::JsonSchema.new(response).to_hash
       end
     end
 
     def to_hash
-      @action
+      @action ||= {
+        'path' => path,
+        'method' => method,
+        'request' => request,
+        'responses' => responses
+      }
     end
   end
 end

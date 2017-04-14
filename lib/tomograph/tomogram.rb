@@ -63,8 +63,7 @@ module Tomograph
       result_actions = []
       resource_path = resource['attributes'] && resource['attributes']['href']
 
-      transitions = resource['content']
-      transitions.each do |transition|
+      resource['content'].each do |transition|
         next unless transition['element'] == 'transition'
 
         path = transition['attributes'] && transition['attributes']['href'] || resource_path
@@ -72,8 +71,7 @@ module Tomograph
         transition['content'].each do |content|
           next unless content['element'] == 'httpTransaction'
 
-          action = Tomograph::Action.new(content, path).to_hash
-          result_actions << action if action
+          result_actions.push(Tomograph::Action.new(content, path).to_hash)
         end
       end
 
@@ -88,10 +86,6 @@ module Tomograph
           }
         )
       end
-    end
-
-    def text_node?(node)
-      node['element'] == 'copy' # Element is a human readable text
     end
 
     def compile_path_pattern(path)
