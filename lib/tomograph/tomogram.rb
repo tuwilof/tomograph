@@ -11,12 +11,10 @@ module Tomograph
         apib_path: apib_path,
         drafter_yaml: drafter_yaml,
         drafter_yaml_path: drafter_yaml_path
-      ).to_hash
+      )
       @prefix = prefix
-      docs = Resources.new(@documentation).to_hash.inject([]) do |result, single_sharp|
-        result += single_sharp['content'].inject([]) do |result, resource|
-          next result if text_node?(resource)
-
+      docs = @documentation.groups.inject([]) do |result, resources|
+        result += resources.inject([]) do |result, resource|
           result.concat(extract_actions(resource))
         end
       end
