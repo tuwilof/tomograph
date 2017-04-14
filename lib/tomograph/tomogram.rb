@@ -5,6 +5,7 @@ require 'tomograph/resources'
 require 'tomograph/path'
 require 'tomograph/json_schema'
 require 'tomograph/request/json_schema'
+require 'tomograph/response/json_schema'
 
 module Tomograph
   class Tomogram
@@ -102,16 +103,9 @@ module Tomograph
     end
 
     def responses(actions)
-      response_actions = actions.select {|el| el['element'] === 'httpResponse'}
-
-      response_actions.map do |response|
-        return unless response['attributes'] # if no response
-
-        {
-          'status' => response['attributes']['statusCode'],
-          'body' => JsonSchema.new(response['content']).to_hash
-        }
-      end.compact
+      actions.select {|response| Tomograph::Response::JsonSchema.valid?(response)}.map do |response|
+        Tomograph::Response::JsonSchema.new(response).to_hash
+      end
     end
 
     def text_node?(node)
