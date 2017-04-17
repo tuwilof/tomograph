@@ -2,6 +2,7 @@ require 'multi_json'
 require 'tomograph/documentation'
 require 'tomograph/resources'
 require 'tomograph/action'
+require 'tomograph/path'
 
 module Tomograph
   class Tomogram
@@ -70,7 +71,7 @@ module Tomograph
     def find_request_path(method:, path:)
       return '' unless path && path.size > 0
 
-      path = normalize_path(path)
+      path = Tomograph::Path.new(path).to_s
 
       action = search_for_an_exact_match(method, path, @result)
       return action.path if action
@@ -79,20 +80,6 @@ module Tomograph
       return action.path if action
 
       ''
-    end
-
-    def normalize_path(path)
-      path = cut_off_query_params(path)
-      remove_the_slash_at_the_end2(path)
-    end
-
-    def remove_the_slash_at_the_end2(path)
-      return path[0..-2] if path[-1] == '/'
-      path
-    end
-
-    def cut_off_query_params(path)
-      path.gsub(/\?.*\z/, '')
     end
 
     def search_for_an_exact_match(method, path, documentation)
