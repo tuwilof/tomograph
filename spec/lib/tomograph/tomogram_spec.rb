@@ -177,7 +177,7 @@ RSpec.describe Tomograph::Tomogram do
 
   describe '#find_request' do
     let(:method) {'POST'}
-    let(:tomogram) {[{}]}
+    let(:tomogram) {[double(path: nil, method: nil)]}
     let(:path) {'/status'}
 
     let(:parsed) {MultiJson.load(File.read(json_schema))}
@@ -198,15 +198,15 @@ RSpec.describe Tomograph::Tomogram do
     end
 
     context 'if found in the tomogram' do
-      let(:request1) {{'path' => '/status', 'method' => 'POST'}}
-      let(:request2) {{'path' => '/status/{id}/test/{tid}.json', 'method' => 'DELETE'}}
+      let(:request1) {double(path: '/status', method: 'POST', set_path_regexp: nil, path_regexp: nil)}
+      let(:request2) {double(path: '/status/{id}/test/{tid}.json', method: 'DELETE', set_path_regexp: nil, path_regexp: Regexp.new("."))}
       let(:tomogram) do
         [
           # Should not find these
-          {'path' => '/status', 'method' => 'GET'},
-          {'path' => '/status/{id}/test/{tid}.json', 'method' => 'GET'},
-          {'path' => '/status/{id}/test/{tid}.csv', 'method' => 'DELETE'},
-          {'path' => '/status/{id}/test/', 'method' => 'DELETE'},
+          double(path: '/status', method: 'GET', set_path_regexp: nil, path_regexp: nil),
+          double(path: '/status/{id}/test/{tid}.json', method: 'GET', set_path_regexp: nil, path_regexp: nil),
+          double(path: '/status/{id}/test/{tid}.csv', method: 'DELETE', set_path_regexp: nil, path_regexp: nil),
+          double(path: '/status/{id}/test/', method: 'DELETE', set_path_regexp: nil, path_regexp: nil),
           # Should find these
           request1,
           request2
@@ -217,7 +217,7 @@ RSpec.describe Tomograph::Tomogram do
         let(:path) {'/status/'}
 
         it 'return path withoud slash at the end' do
-          expect(subject.find_request(method: method, path: path)).to include(request1)
+          expect(subject.find_request(method: method, path: path)).to eq(request1)
         end
       end
 
@@ -225,13 +225,13 @@ RSpec.describe Tomograph::Tomogram do
         let(:path) {'/status/?a=b&c=d'}
 
         it 'ignores query parameters' do
-          expect(subject.find_request(method: method, path: path)).to include(request1)
+          expect(subject.find_request(method: method, path: path)).to eq(request1)
         end
       end
 
       context 'without parameters' do
         it 'return path' do
-          expect(subject.find_request(method: method, path: path)).to include(request1)
+          expect(subject.find_request(method: method, path: path)).to eq(request1)
         end
       end
 
@@ -240,15 +240,45 @@ RSpec.describe Tomograph::Tomogram do
         let(:method) {'DELETE'}
 
         it 'returns the modified path' do
-          expect(subject.find_request(method: method, path: path)).to include(request2)
+          expect(subject.find_request(method: method, path: path)).to eq(request2)
         end
       end
     end
 
     context 'if inserted' do
-      let(:request1) {MultiJson.load(File.read('spec/fixtures/request1.json'))}
-      let(:request2) {MultiJson.load(File.read('spec/fixtures/request2.json'))}
-      let(:request3) {MultiJson.load(File.read('spec/fixtures/request3.json'))}
+      let(:req1) {MultiJson.load(File.read('spec/fixtures/request1.json'))}
+      let(:req2) {MultiJson.load(File.read('spec/fixtures/request2.json'))}
+      let(:req3) {MultiJson.load(File.read('spec/fixtures/request3.json'))}
+      let(:request1) {
+        double(
+          path: req1['path'],
+          method: req1['method'],
+          request: req1['request'],
+          responses: req1['responses'],
+          set_path_regexp: nil,
+          path_regexp: nil
+        )
+      }
+      let(:request2) {
+        double(
+          path: req2['path'],
+          method: req2['method'],
+          request: req2['request'],
+          responses: req2['responses'],
+          set_path_regexp: nil,
+          path_regexp: nil
+        )
+      }
+      let(:request3) {
+        double(
+          path: req3['path'],
+          method: req3['method'],
+          request: req3['request'],
+          responses: req3['responses'],
+          set_path_regexp: nil,
+          path_regexp: Regexp.new(".")
+        )
+      }
       let(:tomogram) do
         [
           request1,
@@ -260,7 +290,7 @@ RSpec.describe Tomograph::Tomogram do
       let(:method) {'GET'}
 
       it 'returns the modified path' do
-        expect(subject.find_request(method: method, path: path)).to include(request3)
+        expect(subject.find_request(method: method, path: path)).to eq(request3)
       end
     end
   end

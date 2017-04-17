@@ -1,5 +1,4 @@
 require 'multi_json'
-require 'tomograph/request'
 require 'tomograph/documentation'
 require 'tomograph/resources'
 require 'tomograph/action'
@@ -37,10 +36,10 @@ module Tomograph
     def json
       MultiJson.dump(@result.map do |res|
         {
-          'path' => res['path'],
-          'method' => res['method'],
-          'request' => res['request'],
-          'responses' => res['responses']
+          'path' => res.path,
+          'method' => res.method,
+          'request' => res.request,
+          'responses' => res.responses
         }
       end)
     end
@@ -48,16 +47,16 @@ module Tomograph
     def find_request(method:, path:)
       path = find_request_path(method: method, path: path)
       @result.find do |doc|
-        doc['path'] == path && doc['method'] == method
+        doc.path == path && doc.method == method
       end
     end
 
     def compile_path_patterns
       @result.each do |action|
-        next unless (path = action['path'])
+        next unless (path = action.path)
 
         regexp = compile_path_pattern(path)
-        action['path_regexp'] = regexp
+        action.set_path_regexp(regexp)
       end
     end
 
@@ -75,21 +74,15 @@ module Tomograph
         transition['content'].each do |content|
           next unless content['element'] == 'httpTransaction'
 
-          result_actions.push(Tomograph::Action.new(content, path, @prefix).to_hash)
+          result_actions.push(Tomograph::Action.new(content, path, @prefix))
+          result_actions
         end
       end
 
-      result_actions.group_by {|action| action['method'] + action['path']}.map do |_key, resource_actions|
-        # because in yaml a response has a copy of the same request we can only use the first
-        Request.new.merge(
-          {
-            'path' => resource_actions.first['path'],
-            'method' => resource_actions.first['method'],
-            'request' => resource_actions.first['request'],
-            'responses' => resource_actions.flat_map {|action| action['responses']}.compact
-          }
-        )
-      end
+      result_actions.group_by {|action| action.method + action.path}.map do |_key, related_actions|
+        related_actions.first.add_responses(related_actions.map{|acts| acts.responses}.flatten)
+        related_actions.first
+      end.flatten
     end
 
     def compile_path_pattern(path)
@@ -105,10 +98,10 @@ module Tomograph
       path = normalize_path(path)
 
       action = search_for_an_exact_match(method, path, @result)
-      return action['path'] if action
+      return action.path if action
 
       action = search_with_parameter(method, path, @result)
-      return action['path'] if action
+      return action.path if action
 
       ''
     end
@@ -129,7 +122,7 @@ module Tomograph
 
     def search_for_an_exact_match(method, path, documentation)
       documentation.find do |action|
-        action['path'] == path && action['method'] == method
+        action.path == path && action.method == method
       end
     end
 
@@ -137,14 +130,14 @@ module Tomograph
       documentation = actions_with_same_method(documentation, method)
 
       documentation.find do |action|
-        next unless regexp = action['path_regexp']
+        next unless regexp = action.path_regexp
         regexp =~ path
       end
     end
 
     def actions_with_same_method(documentation, method)
       documentation.find_all do |doc|
-        doc['method'] == method
+        doc.method == method
       end
     end
   end

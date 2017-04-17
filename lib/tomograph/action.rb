@@ -28,6 +28,10 @@ module Tomograph
       end
     end
 
+    def add_responses(re_responses)
+      @responses = re_responses
+    end
+
     def to_hash
       @action ||= {
         'path' => path,
@@ -35,6 +39,20 @@ module Tomograph
         'request' => request,
         'responses' => responses
       }
+    end
+
+    def find_responses(status:)
+      to_hash['responses'].find_all do |response|
+        response['status'] == status.to_s
+      end
+    end
+
+    def set_path_regexp(regexp)
+      @regexp = regexp
+    end
+
+    def path_regexp
+      @regexp
     end
   end
 end
