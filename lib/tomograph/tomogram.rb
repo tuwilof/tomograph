@@ -75,7 +75,7 @@ module Tomograph
         transition['content'].each do |content|
           next unless content['element'] == 'httpTransaction'
 
-          result_actions.push(Tomograph::Action.new(content, path).to_hash)
+          result_actions.push(Tomograph::Action.new(content, path, @prefix).to_hash)
         end
       end
 
