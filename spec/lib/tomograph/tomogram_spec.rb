@@ -198,15 +198,15 @@ RSpec.describe Tomograph::Tomogram do
     end
 
     context 'if found in the tomogram' do
-      let(:request1) {double(path: '/status', method: 'POST', set_path_regexp: nil, path_regexp: nil)}
-      let(:request2) {double(path: '/status/{id}/test/{tid}.json', method: 'DELETE', set_path_regexp: nil, path_regexp: Regexp.new("."))}
+      let(:request1) {double(path: '/status', method: 'POST', path_regexp: nil)}
+      let(:request2) {double(path: '/status/{id}/test/{tid}.json', method: 'DELETE', path_regexp: Regexp.new("."))}
       let(:tomogram) do
         [
           # Should not find these
-          double(path: '/status', method: 'GET', set_path_regexp: nil, path_regexp: nil),
-          double(path: '/status/{id}/test/{tid}.json', method: 'GET', set_path_regexp: nil, path_regexp: nil),
-          double(path: '/status/{id}/test/{tid}.csv', method: 'DELETE', set_path_regexp: nil, path_regexp: nil),
-          double(path: '/status/{id}/test/', method: 'DELETE', set_path_regexp: nil, path_regexp: nil),
+          double(path: '/status', method: 'GET', path_regexp: nil),
+          double(path: '/status/{id}/test/{tid}.json', method: 'GET', path_regexp: nil),
+          double(path: '/status/{id}/test/{tid}.csv', method: 'DELETE', path_regexp: nil),
+          double(path: '/status/{id}/test/', method: 'DELETE', path_regexp: nil),
           # Should find these
           request1,
           request2
@@ -255,7 +255,6 @@ RSpec.describe Tomograph::Tomogram do
           method: req1['method'],
           request: req1['request'],
           responses: req1['responses'],
-          set_path_regexp: nil,
           path_regexp: nil
         )
       }
@@ -265,7 +264,6 @@ RSpec.describe Tomograph::Tomogram do
           method: req2['method'],
           request: req2['request'],
           responses: req2['responses'],
-          set_path_regexp: nil,
           path_regexp: nil
         )
       }
@@ -275,7 +273,6 @@ RSpec.describe Tomograph::Tomogram do
           method: req3['method'],
           request: req3['request'],
           responses: req3['responses'],
-          set_path_regexp: nil,
           path_regexp: Regexp.new(".")
         )
       }

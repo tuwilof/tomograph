@@ -15,11 +15,11 @@ module Tomograph
     end
 
     def method
-      @content.first['attributes']['method']
+      @method ||= @content.first['attributes']['method']
     end
 
     def request
-      Tomograph::Request::JsonSchema.new(@content).to_hash
+      @request ||= Tomograph::Request::JsonSchema.new(@content).to_hash
     end
 
     def responses
@@ -47,12 +47,13 @@ module Tomograph
       end
     end
 
-    def set_path_regexp(regexp)
-      @regexp = regexp
-    end
-
     def path_regexp
-      @regexp
+      return @regexp if @regexp
+
+      str = Regexp.escape(path)
+      str = str.gsub(/\\{\w+\\}/, '[^&=\/]+')
+      str = "\\A#{ str }\\z"
+      @regexp = Regexp.new(str)
     end
   end
 end

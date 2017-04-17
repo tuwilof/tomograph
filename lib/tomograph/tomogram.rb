@@ -26,7 +26,6 @@ module Tomograph
           result_actions + actions(resource)
         end
       end
-      compile_path_patterns
     end
 
     def to_hash
@@ -34,13 +33,8 @@ module Tomograph
     end
 
     def json
-      MultiJson.dump(@result.map do |res|
-        {
-          'path' => res.path,
-          'method' => res.method,
-          'request' => res.request,
-          'responses' => res.responses
-        }
+      MultiJson.dump(@result.map do |action|
+        action.to_hash
       end)
     end
 
@@ -51,23 +45,13 @@ module Tomograph
       end
     end
 
-    def compile_path_patterns
-      @result.each do |action|
-        next unless (path = action.path)
-
-        regexp = compile_path_pattern(path)
-        action.set_path_regexp(regexp)
-      end
-    end
-
     private
 
     def actions(resource)
-      result_actions = []
       resource_path = resource['attributes'] && resource['attributes']['href']
 
-      resource['content'].each do |transition|
-        next unless transition['element'] == 'transition'
+      resource['content'].inject([]) do |result_actions, transition|
+        next result_actions unless transition['element'] == 'transition'
 
         path = transition['attributes'] && transition['attributes']['href'] || resource_path
 
@@ -75,21 +59,12 @@ module Tomograph
           next unless content['element'] == 'httpTransaction'
 
           result_actions.push(Tomograph::Action.new(content, path, @prefix))
-          result_actions
         end
-      end
-
-      result_actions.group_by {|action| action.method + action.path}.map do |_key, related_actions|
-        related_actions.first.add_responses(related_actions.map{|acts| acts.responses}.flatten)
+        result_actions
+      end.group_by {|action| action.method + action.path}.map do |_key, related_actions|
+        related_actions.first.add_responses(related_actions.map {|acts| acts.responses}.flatten)
         related_actions.first
       end.flatten
-    end
-
-    def compile_path_pattern(path)
-      str = Regexp.escape(path)
-      str = str.gsub(/\\{\w+\\}/, '[^&=\/]+')
-      str = "\\A#{ str }\\z"
-      Regexp.new(str)
     end
 
     def find_request_path(method:, path:)
