@@ -30,6 +30,10 @@ module Tomograph
       compile_path_patterns
     end
 
+    def to_hash
+      @result
+    end
+
     def json
       MultiJson.dump(@result.map do |res|
         {
