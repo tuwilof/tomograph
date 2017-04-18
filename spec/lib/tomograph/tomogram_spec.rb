@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.describe Tomograph::Tomogram do
   describe '#json' do
-    subject {JSON.parse(described_class.new(drafter_yaml_path: documentation, prefix: '', drafter_yaml: nil).json)}
+    subject {JSON.parse(described_class.new(drafter_yaml_path: documentation, prefix: '', drafter_yaml: nil).to_json)}
     let(:parsed) {MultiJson.load(File.read(json_schema))}
     let(:documentation) {nil}
 
