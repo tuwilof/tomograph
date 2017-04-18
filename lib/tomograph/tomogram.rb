@@ -31,24 +31,22 @@ module Tomograph
     def tomogram
       return @tomogram if @tomogram
 
-      @tomogram = @documentation.resources.inject([]) do |result_resources, resource|
-        result_resources + actions_of_resource(resource)
+      actions = @documentation.resources.inject([]) do |result_resources, resource|
+        result_resources + actions_of_resource(resource, resource_path(resource))
       end
+      @tomogram = combine_by_responses(actions)
     end
 
-    def actions_of_resource(resource)
-      resource_path = resource_path(resource)
-      actions = resource['content'].inject([]) do |result_transition, transition|
+    def actions_of_resource(resource, resource_path)
+      resource['content'].inject([]) do |result_transition, transition|
         next result_transition unless transition?(transition)
-        result_transition + actions_of_transition(transition, resource_path)
+        result_transition + actions_of_transition(transition, transition_path(transition, resource_path))
       end
-      combine_by_responses(actions)
     end
 
-    def actions_of_transition(transition, resource_path)
-      transition_path = transition_path(transition, resource_path)
+    def actions_of_transition(transition, transition_path)
       transition['content'].inject([]) do |result_content, content|
-        next result_content unless content['element'] == 'httpTransaction'
+        next result_content unless content?(content)
         result_content.push(Tomograph::Tomogram::Action.new(content, transition_path, @prefix))
       end
     end
@@ -70,6 +68,10 @@ module Tomograph
 
     def transition_path(transition, resource_path)
       transition['attributes'] && transition['attributes']['href'] || resource_path
+    end
+
+    def content?(content)
+      content['element'] == 'httpTransaction'
     end
   end
 end
