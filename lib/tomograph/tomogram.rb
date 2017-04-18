@@ -1,16 +1,12 @@
 require 'multi_json'
-require 'tomograph/documentation'
-require 'tomograph/action'
+require 'tomograph/tomogram/action'
 require 'tomograph/path'
+require 'tomograph/api_blueprint/yaml'
 
 module Tomograph
   class Tomogram
     def initialize(apib_path: nil, drafter_yaml_path: nil, drafter_yaml: nil, prefix: '')
-      @documentation = Documentation.new(
-        apib_path: apib_path,
-        drafter_yaml: drafter_yaml,
-        drafter_yaml_path: drafter_yaml_path
-      )
+      @documentation = Tomograph::ApiBlueprint::Yaml.new(apib_path, drafter_yaml, drafter_yaml_path)
       @prefix = prefix
     end
 
@@ -57,12 +53,12 @@ module Tomograph
       transition_path = transition_path(transition, resource_path)
       transition['content'].inject([]) do |result_content, content|
         next result_content unless content['element'] == 'httpTransaction'
-        result_content.push(Tomograph::Action.new(content, transition_path, @prefix))
+        result_content.push(Tomograph::Tomogram::Action.new(content, transition_path, @prefix))
       end
     end
 
     def combine_by_responses(actions)
-      actions.group_by { |action| action.method + action.path }.map do |_key, related_actions|
+      actions.group_by {|action| action.method + action.path}.map do |_key, related_actions|
         related_actions.first.add_responses(related_actions.map(&:responses).flatten)
         related_actions.first
       end.flatten
