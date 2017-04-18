@@ -29,14 +29,10 @@ module Tomograph
     private
 
     def tomogram
-      @tomogram ||= groups.inject([]) do |result_resources, group|
-        next result_resources unless group?(group)
+      return @tomogram if @tomogram
 
-        result_resources + resources(group).inject([]) do |result_actions, resource|
-          next result_actions unless resource?(resource)
-
-          result_actions + actions_of_resource(resource)
-        end
+      @tomogram = @documentation.resources.inject([]) do |result_resources, resource|
+        result_resources + actions_of_resource(resource)
       end
     end
 
@@ -62,23 +58,6 @@ module Tomograph
         related_actions.first.add_responses(related_actions.map(&:responses).flatten)
         related_actions.first
       end.flatten
-    end
-
-    def groups
-      @documentation.to_hash['content'][0]['content']
-    end
-
-    def group?(group)
-      group['element'] != 'copy' && # Element is a human readable text
-        group['meta']['classes'][0] == 'resourceGroup' # skip Data Structures
-    end
-
-    def resources(group)
-      group['content']
-    end
-
-    def resource?(resource)
-      resource['element'] != 'copy' # Element is a human readable text
     end
 
     def resource_path(resource)

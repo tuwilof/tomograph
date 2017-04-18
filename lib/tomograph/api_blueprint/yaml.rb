@@ -11,8 +11,29 @@ module Tomograph
         end
       end
 
-      def to_hash
-        @documentation
+      def groups
+        @groups ||= @documentation.to_hash['content'][0]['content'].inject([]) do |result_groups, group|
+          next result_groups unless group?(group)
+          result_groups.push(group)
+        end
+      end
+
+      def group?(group)
+        group['element'] != 'copy' && # Element is a human readable text
+          group['meta']['classes'][0] == 'resourceGroup' # skip Data Structures
+      end
+
+      def resources
+        @resources ||= groups.inject([]) do |result_groups, group|
+          result_groups.push(group['content'].inject([]) do |result_resources, resource|
+            next result_resources unless resource?(resource)
+            result_resources.push(resource)
+          end)
+        end.flatten
+      end
+
+      def resource?(resource)
+        resource['element'] != 'copy' # Element is a human readable text
       end
     end
   end
