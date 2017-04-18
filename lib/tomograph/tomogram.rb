@@ -1,6 +1,5 @@
 require 'multi_json'
 require 'tomograph/documentation'
-require 'tomograph/resources'
 require 'tomograph/action'
 require 'tomograph/path'
 

@@ -4,9 +4,9 @@ require 'tomograph/response/json_schema'
 
 module Tomograph
   class Action
-    def initialize(content, path, prefix)
+    def initialize(content, source_path, prefix)
       @content = content['content']
-      @source_path = path
+      @source_path = source_path
       @prefix = prefix
     end
 
