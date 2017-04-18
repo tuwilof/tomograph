@@ -21,9 +21,10 @@ module Tomograph
     end
 
     def find_request(method:, path:)
-      path = find_request_path(method: method, path: path)
-      tomogram.find do |doc|
-        doc.path == path && doc.method == method
+      path = Tomograph::Path.new(path).to_s
+
+      tomogram.find do |action|
+        action.method == method && action.match_path(path)
       end
     end
 
@@ -64,41 +65,6 @@ module Tomograph
         related_actions.first.add_responses(related_actions.map {|acts| acts.responses}.flatten)
         related_actions.first
       end.flatten
-    end
-
-    def find_request_path(method:, path:)
-      return '' unless path && path.size > 0
-
-      path = Tomograph::Path.new(path).to_s
-
-      action = search_for_an_exact_match(method, path, tomogram)
-      return action.path if action
-
-      action = search_with_parameter(method, path, tomogram)
-      return action.path if action
-
-      ''
-    end
-
-    def search_for_an_exact_match(method, path, documentation)
-      documentation.find do |action|
-        action.path == path && action.method == method
-      end
-    end
-
-    def search_with_parameter(method, path, documentation)
-      documentation = actions_with_same_method(documentation, method)
-
-      documentation.find do |action|
-        next unless regexp = action.path_regexp
-        regexp =~ path
-      end
-    end
-
-    def actions_with_same_method(documentation, method)
-      documentation.find_all do |doc|
-        doc.method == method
-      end
     end
   end
 end

@@ -1,6 +1,10 @@
 module Tomograph
   class Path
     def initialize(path)
+      unless path && path.size > 0
+        @path = ''
+        return
+      end
       @path = path
       @path = delete_till_the_end('{&')
       @path = delete_till_the_end('{?')

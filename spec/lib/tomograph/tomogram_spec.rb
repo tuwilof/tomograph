@@ -192,21 +192,27 @@ RSpec.describe Tomograph::Tomogram do
     let(:documentation) {'api2.yaml'}
 
     context 'if not found in the tomogram' do
-      it 'returns an empty string' do
+      it 'returns nil' do
         expect(subject.find_request(method: method, path: path)).to eq(nil)
       end
     end
 
+    context 'without path' do
+      it 'returns nil' do
+        expect(subject.find_request(method: method, path: nil)).to eq(nil)
+      end
+    end
+
     context 'if found in the tomogram' do
-      let(:request1) {double(path: '/status', method: 'POST', path_regexp: nil)}
-      let(:request2) {double(path: '/status/{id}/test/{tid}.json', method: 'DELETE', path_regexp: Regexp.new("."))}
+      let(:request1) {double(path: '/status', method: 'POST', match_path: true)}
+      let(:request2) {double(path: '/status/{id}/test/{tid}.json', method: 'DELETE', match_path: true)}
       let(:tomogram) do
         [
           # Should not find these
-          double(path: '/status', method: 'GET', path_regexp: nil),
-          double(path: '/status/{id}/test/{tid}.json', method: 'GET', path_regexp: nil),
-          double(path: '/status/{id}/test/{tid}.csv', method: 'DELETE', path_regexp: nil),
-          double(path: '/status/{id}/test/', method: 'DELETE', path_regexp: nil),
+          double(path: '/status', method: 'GET', match_path: false),
+          double(path: '/status/{id}/test/{tid}.json', method: 'GET', match_path: false),
+          double(path: '/status/{id}/test/{tid}.csv', method: 'DELETE', match_path: false),
+          double(path: '/status/{id}/test/', method: 'DELETE', match_path: false),
           # Should find these
           request1,
           request2
@@ -255,7 +261,7 @@ RSpec.describe Tomograph::Tomogram do
           method: req1['method'],
           request: req1['request'],
           responses: req1['responses'],
-          path_regexp: nil
+          match_path: false
         )
       }
       let(:request2) {
@@ -264,7 +270,7 @@ RSpec.describe Tomograph::Tomogram do
           method: req2['method'],
           request: req2['request'],
           responses: req2['responses'],
-          path_regexp: nil
+          match_path: false
         )
       }
       let(:request3) {
@@ -273,7 +279,7 @@ RSpec.describe Tomograph::Tomogram do
           method: req3['method'],
           request: req3['request'],
           responses: req3['responses'],
-          path_regexp: Regexp.new(".")
+          match_path: true
         )
       }
       let(:tomogram) do

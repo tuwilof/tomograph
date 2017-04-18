@@ -47,13 +47,14 @@ module Tomograph
       end
     end
 
-    def path_regexp
-      return @regexp if @regexp
+    def match_path(find_path)
+      return @regexp =~ find_path if @regexp
 
       str = Regexp.escape(path)
       str = str.gsub(/\\{\w+\\}/, '[^&=\/]+')
       str = "\\A#{ str }\\z"
       @regexp = Regexp.new(str)
+      @regexp =~ find_path
     end
   end
 end
