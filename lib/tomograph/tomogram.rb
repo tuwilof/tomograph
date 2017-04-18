@@ -33,37 +33,68 @@ module Tomograph
     private
 
     def tomogram
-      @tomogram ||= @documentation.to_hash['content'][0]['content'].inject([]) do |result_resources, group|
-        if group['element'] == 'copy' || # Element is a human readable text
-           group['meta']['classes'][0] != 'resourceGroup' # skip Data Structures
-          next result_resources
-        end
+      @tomogram ||= groups.inject([]) do |result_resources, group|
+        next result_resources unless group?(group)
 
-        result_resources + group['content'].inject([]) do |result_actions, resource|
-          next result_actions if resource['element'] == 'copy' # Element is a human readable text
+        result_resources + resources(group).inject([]) do |result_actions, resource|
+          next result_actions unless resource?(resource)
 
-          result_actions + actions(resource)
+          result_actions + actions_of_resource(resource)
         end
       end
     end
 
-    def actions(resource)
-      resource_path = resource['attributes'] && resource['attributes']['href']
+    def actions_of_resource(resource)
+      resource_path = resource_path(resource)
+      actions = resource['content'].inject([]) do |result_transition, transition|
+        next result_transition unless transition?(transition)
+        result_transition + actions_of_transition(transition, resource_path)
+      end
+      combine_by_responses(actions)
+    end
 
-      resource['content'].each_with_object([]) do |transition, result_actions|
-        next result_actions unless transition['element'] == 'transition'
+    def actions_of_transition(transition, resource_path)
+      transition_path = transition_path(transition, resource_path)
+      transition['content'].inject([]) do |result_content, content|
+        next result_content unless content['element'] == 'httpTransaction'
+        result_content.push(Tomograph::Action.new(content, transition_path, @prefix))
+      end
+    end
 
-        path = transition['attributes'] && transition['attributes']['href'] || resource_path
-
-        transition['content'].each do |content|
-          next unless content['element'] == 'httpTransaction'
-
-          result_actions.push(Tomograph::Action.new(content, path, @prefix))
-        end
-      end.group_by { |action| action.method + action.path }.map do |_key, related_actions|
+    def combine_by_responses(actions)
+      actions.group_by { |action| action.method + action.path }.map do |_key, related_actions|
         related_actions.first.add_responses(related_actions.map(&:responses).flatten)
         related_actions.first
       end.flatten
+    end
+
+    def groups
+      @documentation.to_hash['content'][0]['content']
+    end
+
+    def group?(group)
+      group['element'] != 'copy' && # Element is a human readable text
+        group['meta']['classes'][0] == 'resourceGroup' # skip Data Structures
+    end
+
+    def resources(group)
+      group['content']
+    end
+
+    def resource?(resource)
+      resource['element'] != 'copy' # Element is a human readable text
+    end
+
+    def resource_path(resource)
+      resource['attributes'] && resource['attributes']['href']
+    end
+
+    def transition?(transition)
+      transition['element'] == 'transition'
+    end
+
+    def transition_path(transition, resource_path)
+      transition['attributes'] && transition['attributes']['href'] || resource_path
     end
   end
 end
