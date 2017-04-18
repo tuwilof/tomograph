@@ -4,13 +4,13 @@ require 'tomograph/path'
 RSpec.describe Tomograph::Path do
   describe '#to_s' do
     before do
-      #allow(Tomograph::Resources).to receive(:new).and_return(double(to_hash: []))
-      #allow(Tomograph::Documentation).to receive(:new).and_return(double(to_hash: {'content' => [{'content' => {}}]}))
+      # allow(Tomograph::Resources).to receive(:new).and_return(double(to_hash: []))
+      # allow(Tomograph::Documentation).to receive(:new).and_return(double(to_hash: {'content' => [{'content' => {}}]}))
     end
 
     context 'if without query' do
-      let(:path) {'/status/'}
-      let(:stump) {'/status'}
+      let(:path) { '/status/' }
+      let(:stump) { '/status' }
 
       it 'no changes' do
         expect(described_class.new(path).to_s).to eq(stump)
@@ -18,9 +18,9 @@ RSpec.describe Tomograph::Path do
     end
 
     context 'if there is' do
-      let(:path1) {'/status/{&search}{&page}'}
-      let(:path2) {'/status/{?search,page}'}
-      let(:stump) {'/status'}
+      let(:path1) { '/status/{&search}{&page}' }
+      let(:path2) { '/status/{?search,page}' }
+      let(:stump) { '/status' }
 
       it 'delete query' do
         expect(described_class.new(path1).to_s).to eq(stump)
@@ -28,9 +28,9 @@ RSpec.describe Tomograph::Path do
       end
 
       context 'and a parameter' do
-        let(:path1) {'/users/{id}/pokemons/{&search}{&page}'}
-        let(:path2) {'/users/{id}/pokemons/{?search,page}'}
-        let(:stump) {'/users/{id}/pokemons'}
+        let(:path1) { '/users/{id}/pokemons/{&search}{&page}' }
+        let(:path2) { '/users/{id}/pokemons/{?search,page}' }
+        let(:stump) { '/users/{id}/pokemons' }
 
         it 'delete query' do
           expect(described_class.new(path1).to_s).to eq(stump)

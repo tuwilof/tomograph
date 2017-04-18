@@ -4,7 +4,7 @@ module Tomograph
   class Request
     class JsonSchema
       def initialize(actions)
-        request_action = actions.find {|el| el['element'] === 'httpRequest'}
+        request_action = actions.find { |el| el['element'] === 'httpRequest' }
         @json_schema = Tomograph::JsonSchema.new(request_action['content']).to_hash
       end
 

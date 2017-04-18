@@ -1,7 +1,7 @@
 module Tomograph
   class JsonSchema
     def initialize(actions)
-      schema_node = actions.find {|action| self.valid?(action)}
+      schema_node = actions.find { |action| valid?(action) }
       unless schema_node
         @json_schema = {}
         return
@@ -9,7 +9,7 @@ module Tomograph
 
       @json_schema = MultiJson.load(schema_node['content'])
     rescue MultiJson::ParseError => e
-      puts "[Tomograph] Error while parsing #{ e }. skipping..."
+      puts "[Tomograph] Error while parsing #{e}. skipping..."
       @json_schema = {}
     end
 

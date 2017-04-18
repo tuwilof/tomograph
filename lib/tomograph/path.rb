@@ -1,7 +1,7 @@
 module Tomograph
   class Path
     def initialize(path)
-      unless path && path.size > 0
+      unless path && !path.empty?
         @path = ''
         return
       end

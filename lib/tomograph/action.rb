@@ -23,7 +23,7 @@ module Tomograph
     end
 
     def responses
-      @responses ||= @content.select {|response| Tomograph::Response::JsonSchema.valid?(response)}.map do |response|
+      @responses ||= @content.select { |response| Tomograph::Response::JsonSchema.valid?(response) }.map do |response|
         Tomograph::Response::JsonSchema.new(response).to_hash
       end
     end
@@ -52,7 +52,7 @@ module Tomograph
 
       str = Regexp.escape(path)
       str = str.gsub(/\\{\w+\\}/, '[^&=\/]+')
-      str = "\\A#{ str }\\z"
+      str = "\\A#{str}\\z"
       @regexp = Regexp.new(str)
       @regexp =~ find_path
     end
