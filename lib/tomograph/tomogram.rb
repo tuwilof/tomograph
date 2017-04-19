@@ -4,8 +4,8 @@ require 'tomograph/api_blueprint/yaml'
 
 module Tomograph
   class Tomogram
-    def initialize(prefix: '', apib_path: nil, drafter_yaml_path: nil, drafter_yaml: nil)
-      @documentation = Tomograph::ApiBlueprint::Yaml.new(prefix, apib_path, drafter_yaml, drafter_yaml_path)
+    def initialize(prefix: '', apib_path: nil, drafter_yaml_path: nil)
+      @documentation = Tomograph::ApiBlueprint::Yaml.new(prefix, apib_path, drafter_yaml_path)
       @prefix = prefix
     end
 
