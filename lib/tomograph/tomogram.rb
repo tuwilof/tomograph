@@ -31,17 +31,10 @@ module Tomograph
     def tomogram
       return @tomogram if @tomogram
 
-      actions = @documentation.resources.inject([]) do |result_resources, resource|
-        result_resources + actions_of_resource(resource, resource_path(resource))
+      actions = @documentation.transitions.inject([]) do |result_transition, transition|
+        result_transition + actions_of_transition(transition['transition'], transition['transition_path'])
       end
       @tomogram = combine_by_responses(actions)
-    end
-
-    def actions_of_resource(resource, resource_path)
-      resource['content'].inject([]) do |result_transition, transition|
-        next result_transition unless transition?(transition)
-        result_transition + actions_of_transition(transition, transition_path(transition, resource_path))
-      end
     end
 
     def actions_of_transition(transition, transition_path)
@@ -56,18 +49,6 @@ module Tomograph
         related_actions.first.add_responses(related_actions.map(&:responses).flatten)
         related_actions.first
       end.flatten
-    end
-
-    def resource_path(resource)
-      resource['attributes'] && resource['attributes']['href']
-    end
-
-    def transition?(transition)
-      transition['element'] == 'transition'
-    end
-
-    def transition_path(transition, resource_path)
-      transition['attributes'] && transition['attributes']['href'] || resource_path
     end
 
     def content?(content)

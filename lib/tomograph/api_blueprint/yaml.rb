@@ -12,7 +12,7 @@ module Tomograph
       end
 
       def groups
-        @groups ||= @documentation.to_hash['content'][0]['content'].inject([]) do |result_groups, group|
+        @groups ||= @documentation['content'][0]['content'].inject([]) do |result_groups, group|
           next result_groups unless group?(group)
           result_groups.push(group)
         end
@@ -27,13 +27,36 @@ module Tomograph
         @resources ||= groups.inject([]) do |result_groups, group|
           result_groups.push(group['content'].inject([]) do |result_resources, resource|
             next result_resources unless resource?(resource)
-            result_resources.push(resource)
+            result_resources.push({'resource' => resource, 'resource_path' => resource_path(resource)})
           end)
         end.flatten
       end
 
       def resource?(resource)
         resource['element'] != 'copy' # Element is a human readable text
+      end
+
+      def resource_path(resource)
+        resource['attributes'] && resource['attributes']['href']
+      end
+
+      def transitions
+        @transitions ||= resources.inject([]) do |result_resources, resource|
+          result_resources.push(resource['resource']['content'].inject([]) do |result_transitions, transition|
+            next result_transitions unless transition?(transition)
+            result_transitions.push({
+              'transition' => transition,
+              'transition_path' => transition_path(transition, resource['resource_path'])})
+          end)
+        end.flatten
+      end
+
+      def transition?(transition)
+        transition['element'] == 'transition'
+      end
+
+      def transition_path(transition, resource_path)
+        transition['attributes'] && transition['attributes']['href'] || resource_path
       end
     end
   end
