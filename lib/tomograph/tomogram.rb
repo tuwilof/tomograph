@@ -1,6 +1,7 @@
 require 'multi_json'
 require 'tomograph/path'
 require 'tomograph/api_blueprint/yaml'
+require 'tomograph/tomogram/action'
 
 module Tomograph
   class Tomogram
@@ -38,8 +39,12 @@ module Tomograph
 
     def combine_by_responses(actions)
       actions.group_by {|action| "#{action.method} #{action.path}"}.map do |_key, related_actions|
-        related_actions.first.add_responses(related_actions.map(&:responses).flatten)
-        related_actions.first
+        Tomograph::Tomogram::Action.new(
+          path: related_actions.first.path.to_s,
+          method: related_actions.first.method,
+          request: related_actions.first.request,
+          responses: related_actions.map(&:responses).flatten
+        )
       end.flatten
     end
   end

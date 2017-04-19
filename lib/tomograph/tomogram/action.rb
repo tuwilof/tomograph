@@ -31,10 +31,6 @@ module Tomograph
         self
       end
 
-      def add_responses(re_responses)
-        @responses = re_responses
-      end
-
       def find_responses(status:)
         to_hash['responses'].find_all do |response|
           response['status'] == status.to_s
