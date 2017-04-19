@@ -1,3 +1,5 @@
+require 'tomograph/api_blueprint/yaml/action'
+
 module Tomograph
   module ApiBlueprint
     class Yaml
@@ -63,7 +65,8 @@ module Tomograph
         @actions ||= transitions.inject([]) do |result_transition, transition|
           result_transition.push(transition['transition']['content'].inject([]) do |result_contents, content|
             next result_contents unless action?(content)
-            result_contents.push({'content' => content['content'], 'transition_path' => transition['transition_path']})
+            result_contents.push(Tomograph::ApiBlueprint::Yaml::Action.new(
+              content['content'], transition['transition_path']))
           end)
         end.flatten
       end

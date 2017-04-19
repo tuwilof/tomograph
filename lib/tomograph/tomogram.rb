@@ -1,5 +1,4 @@
 require 'multi_json'
-require 'tomograph/tomogram/action'
 require 'tomograph/path'
 require 'tomograph/api_blueprint/yaml'
 
@@ -32,13 +31,13 @@ module Tomograph
       return @tomogram if @tomogram
 
       actions = @documentation.actions.inject([]) do |result, action|
-        result.push(Tomograph::Tomogram::Action.new(action, @prefix))
+        result.push(action.to_tomogram.add_prefix(@prefix))
       end
       @tomogram = combine_by_responses(actions)
     end
 
     def combine_by_responses(actions)
-      actions.group_by {|action| action.method + action.path}.map do |_key, related_actions|
+      actions.group_by {|action| "#{action.method} #{action.path}"}.map do |_key, related_actions|
         related_actions.first.add_responses(related_actions.map(&:responses).flatten)
         related_actions.first
       end.flatten

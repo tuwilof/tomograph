@@ -3,49 +3,36 @@ require 'tomograph/path'
 module Tomograph
   class Tomogram
     class Action
-      def initialize(action, prefix)
-        @content = action['content']
-        @source_path = action['transition_path']
-        @prefix = prefix
+      def initialize(path:, method:, request:, responses:)
+        @path ||= "#{Tomograph::Path.new(path)}"
+        @method ||= method
+        @request ||= request
+        @responses ||= responses
       end
 
       def path
-        @path ||= "#{@prefix}#{Tomograph::Path.new(@source_path)}"
+        @path
       end
 
       def method
-        @method ||= @content.first['attributes']['method']
+        @method
       end
 
       def request
-        return @request if @request
-
-        request_action = @content.find {|el| el['element'] == 'httpRequest'}
-        @request = json_schema(request_action['content'])
+        @request
       end
 
       def responses
-        return @responses if @responses
+        @responses
+      end
 
-        @responses = @content.select {|response| response['element'] == 'httpResponse' && response['attributes']}.map do |response|
-          {
-            'status' => response['attributes']['statusCode'],
-            'body' => json_schema(response['content'])
-          }
-        end
+      def add_prefix(prefix)
+        @path = "#{prefix}#{@path}"
+        self
       end
 
       def add_responses(re_responses)
         @responses = re_responses
-      end
-
-      def to_hash
-        @action ||= {
-          'path' => path,
-          'method' => method,
-          'request' => request,
-          'responses' => responses
-        }
       end
 
       def find_responses(status:)
@@ -64,16 +51,13 @@ module Tomograph
         @regexp =~ find_path
       end
 
-      def json_schema(actions)
-        schema_node = actions.find {|action| action && action['element'] == 'asset' && action['attributes']['contentType'] == 'application/schema+json'}
-        unless schema_node
-          return {}
-        end
-
-        MultiJson.load(schema_node['content'])
-      rescue MultiJson::ParseError => e
-        puts "[Tomograph] Error while parsing #{e}. skipping..."
-        {}
+      def to_hash
+        @action ||= {
+          'path' => path,
+          'method' => method,
+          'request' => request,
+          'responses' => responses
+        }
       end
     end
   end
