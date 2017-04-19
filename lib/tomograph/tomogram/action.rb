@@ -3,6 +3,8 @@ require 'tomograph/path'
 module Tomograph
   class Tomogram
     class Action
+      attr_reader :path, :method, :request, :responses
+
       def initialize(path:, method:, request:, responses:)
         @path ||= Tomograph::Path.new(path)
         @method ||= method
@@ -11,7 +13,7 @@ module Tomograph
       end
 
       def self.merge(actions)
-        actions.group_by {|action| "#{action.method} #{action.path}"}.map do |_key, related_actions|
+        actions.group_by { |action| "#{action.method} #{action.path}" }.map do |_key, related_actions|
           new(
             path: related_actions.first.path.to_s,
             method: related_actions.first.method,
@@ -19,22 +21,6 @@ module Tomograph
             responses: related_actions.map(&:responses).flatten
           )
         end.flatten
-      end
-
-      def path
-        @path
-      end
-
-      def method
-        @method
-      end
-
-      def request
-        @request
-      end
-
-      def responses
-        @responses
       end
 
       def add_prefix(prefix)

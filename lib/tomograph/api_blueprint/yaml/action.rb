@@ -9,9 +9,7 @@ module Tomograph
           @path = path
         end
 
-        def path
-          @path
-        end
+        attr_reader :path
 
         def method
           @method ||= @content.first['attributes']['method']
@@ -20,15 +18,15 @@ module Tomograph
         def request
           return @request if @request
 
-          request_action = @content.find {|el| el['element'] == 'httpRequest'}
+          request_action = @content.find { |el| el['element'] == 'httpRequest' }
           @request = json_schema(request_action['content'])
         end
 
         def json_schema(actions)
-          schema_node = actions.find {|action| action && action['element'] == 'asset' && action['attributes']['contentType'] == 'application/schema+json'}
-          unless schema_node
-            return {}
+          schema_node = actions.find do |action|
+            action && action['element'] == 'asset' && action['attributes']['contentType'] == 'application/schema+json'
           end
+          return {} unless schema_node
 
           MultiJson.load(schema_node['content'])
         rescue MultiJson::ParseError => e
@@ -39,7 +37,10 @@ module Tomograph
         def responses
           return @responses if @responses
 
-          @responses = @content.select {|response| response['element'] == 'httpResponse' && response['attributes']}.map do |response|
+          @responses = @content.select do |response|
+            response['element'] == 'httpResponse' && response['attributes']
+          end
+          @responses = @responses.map do |response|
             {
               'status' => response['attributes']['statusCode'],
               'body' => json_schema(response['content'])

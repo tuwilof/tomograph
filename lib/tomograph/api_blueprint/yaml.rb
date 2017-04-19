@@ -7,10 +7,10 @@ module Tomograph
       def initialize(prefix, apib_path, drafter_yaml_path)
         @prefix = prefix
         @documentation = if apib_path
-          `drafter #{apib_path}`
-        else
-          YAML.safe_load(File.read("#{Rails.root}/#{drafter_yaml_path}"))
-        end
+                           `drafter #{apib_path}`
+                         else
+                           YAML.safe_load(File.read("#{Rails.root}/#{drafter_yaml_path}"))
+                         end
       end
 
       def groups
@@ -29,7 +29,7 @@ module Tomograph
         @resources ||= groups.inject([]) do |result_groups, group|
           result_groups.push(group['content'].inject([]) do |result_resources, resource|
             next result_resources unless resource?(resource)
-            result_resources.push({'resource' => resource, 'resource_path' => resource_path(resource)})
+            result_resources.push('resource' => resource, 'resource_path' => resource_path(resource))
           end)
         end.flatten
       end
@@ -46,9 +46,8 @@ module Tomograph
         @transitions ||= resources.inject([]) do |result_resources, resource|
           result_resources.push(resource['resource']['content'].inject([]) do |result_transitions, transition|
             next result_transitions unless transition?(transition)
-            result_transitions.push({
-              'transition' => transition,
-              'transition_path' => transition_path(transition, resource['resource_path'])})
+            result_transitions.push('transition' => transition,
+                                    'transition_path' => transition_path(transition, resource['resource_path']))
           end)
         end.flatten
       end
@@ -66,7 +65,8 @@ module Tomograph
           result_transition.push(transition['transition']['content'].inject([]) do |result_contents, content|
             next result_contents unless action?(content)
             result_contents.push(Tomograph::ApiBlueprint::Yaml::Action.new(
-              content['content'], transition['transition_path']))
+                                   content['content'], transition['transition_path']
+            ))
           end)
         end.flatten
       end
@@ -79,7 +79,8 @@ module Tomograph
         @tomogram ||= Tomograph::Tomogram::Action.merge(
           actions.inject([]) do |result, action|
             result.push(action.to_tomogram.add_prefix(@prefix))
-          end)
+          end
+        )
       end
     end
   end
