@@ -12,6 +12,19 @@ module Tomograph
       @path = remove_the_slash_at_the_end
     end
 
+    def match(find_path)
+      regexp =~ find_path
+    end
+
+    def regexp
+      return @regexp if @regexp
+
+      str = Regexp.escape(to_s)
+      str = str.gsub(/\\{\w+\\}/, '[^&=\/]+')
+      str = "\\A#{str}\\z"
+      @regexp = Regexp.new(str)
+    end
+
     def to_s
       @path
     end

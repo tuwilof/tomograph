@@ -21,7 +21,7 @@ module Tomograph
       path = Tomograph::Path.new(path).to_s
 
       tomogram.find do |action|
-        action.method == method && action.match_path(path)
+        action.method == method && action.path.match(path)
       end
     end
 
