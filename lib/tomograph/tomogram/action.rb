@@ -3,9 +3,9 @@ require 'tomograph/path'
 module Tomograph
   class Tomogram
     class Action
-      def initialize(content, source_path, prefix)
-        @content = content['content']
-        @source_path = source_path
+      def initialize(action, prefix)
+        @content = action['content']
+        @source_path = action['transition_path']
         @prefix = prefix
       end
 

@@ -31,17 +31,10 @@ module Tomograph
     def tomogram
       return @tomogram if @tomogram
 
-      actions = @documentation.transitions.inject([]) do |result_transition, transition|
-        result_transition + actions_of_transition(transition['transition'], transition['transition_path'])
+      actions = @documentation.actions.inject([]) do |result, action|
+        result.push(Tomograph::Tomogram::Action.new(action, @prefix))
       end
       @tomogram = combine_by_responses(actions)
-    end
-
-    def actions_of_transition(transition, transition_path)
-      transition['content'].inject([]) do |result_content, content|
-        next result_content unless content?(content)
-        result_content.push(Tomograph::Tomogram::Action.new(content, transition_path, @prefix))
-      end
     end
 
     def combine_by_responses(actions)
@@ -49,10 +42,6 @@ module Tomograph
         related_actions.first.add_responses(related_actions.map(&:responses).flatten)
         related_actions.first
       end.flatten
-    end
-
-    def content?(content)
-      content['element'] == 'httpTransaction'
     end
   end
 end

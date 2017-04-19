@@ -58,6 +58,19 @@ module Tomograph
       def transition_path(transition, resource_path)
         transition['attributes'] && transition['attributes']['href'] || resource_path
       end
+
+      def actions
+        @actions ||= transitions.inject([]) do |result_transition, transition|
+          result_transition.push(transition['transition']['content'].inject([]) do |result_contents, content|
+            next result_contents unless action?(content)
+            result_contents.push({'content' => content['content'], 'transition_path' => transition['transition_path']})
+          end)
+        end.flatten
+      end
+
+      def action?(content)
+        content['element'] == 'httpTransaction'
+      end
     end
   end
 end
