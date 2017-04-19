@@ -186,8 +186,7 @@ RSpec.describe Tomograph::Tomogram do
       allow(Tomograph).to receive(:configuration).and_return(
         double(documentation: documentation, prefix: '', drafter_yaml: nil)
       )
-      allow(Tomograph::ApiBlueprint::Yaml).to receive(:new).and_return(double(actions: []))
-      allow(subject).to receive(:combine_by_responses).and_return(tomogram)
+      allow(Tomograph::ApiBlueprint::Yaml).to receive(:new).and_return(double(to_tomogram: tomogram))
     end
     let(:json_schema) {'spec/fixtures/api2.json'}
     let(:documentation) {'api2.yaml'}

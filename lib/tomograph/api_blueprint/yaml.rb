@@ -1,9 +1,11 @@
 require 'tomograph/api_blueprint/yaml/action'
+require 'tomograph/tomogram/action'
 
 module Tomograph
   module ApiBlueprint
     class Yaml
-      def initialize(apib_path, drafter_yaml, drafter_yaml_path)
+      def initialize(prefix, apib_path, drafter_yaml, drafter_yaml_path)
+        @prefix = prefix
         @documentation = if apib_path
           `drafter #{apib_path}`
         elsif drafter_yaml
@@ -73,6 +75,13 @@ module Tomograph
 
       def action?(content)
         content['element'] == 'httpTransaction'
+      end
+
+      def to_tomogram
+        @tomogram ||= Tomograph::Tomogram::Action.merge(
+          actions.inject([]) do |result, action|
+            result.push(action.to_tomogram.add_prefix(@prefix))
+          end)
       end
     end
   end
