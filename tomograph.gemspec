@@ -8,7 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors        = ['d.efimov']
   spec.email          = ['d.efimov@fun-box.ru']
 
-  spec.summary        = 'Parser API Blueprint specifications'
+  spec.summary        = 'Convert API Blueprint to JSON Schema and search'
+  spec.homepage       = 'https://github.com/funbox/tomograph'
   spec.license        = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
