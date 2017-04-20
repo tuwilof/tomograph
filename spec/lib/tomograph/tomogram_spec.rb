@@ -169,6 +169,8 @@ RSpec.describe Tomograph::Tomogram do
       let(:json_schema) { 'spec/fixtures/api_with_broken_schema.json' }
       let(:documentation) { 'api_with_broken_schema.yaml' }
 
+      before { allow_any_instance_of(Kernel).to receive(:puts) }
+
       it 'parses documents' do
         expect(subject).to eq(parsed)
       end
