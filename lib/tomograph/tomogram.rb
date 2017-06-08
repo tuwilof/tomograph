@@ -24,5 +24,9 @@ module Tomograph
         action.method == method && action.path.match(path)
       end
     end
+
+    def to_resources
+      @documentation.to_resources
+    end
   end
 end

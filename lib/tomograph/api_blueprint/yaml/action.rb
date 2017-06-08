@@ -48,12 +48,6 @@ module Tomograph
             }
           end
         end
-
-        def to_tomogram
-          Tomograph::Tomogram::Action.new(
-            path: path, method: method, request: request, responses: responses
-          )
-        end
       end
     end
   end

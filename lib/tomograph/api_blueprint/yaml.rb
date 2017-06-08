@@ -82,7 +82,8 @@ module Tomograph
             path: "#{@prefix}#{related_actions.first.path.to_s}",
             method: related_actions.first.method,
             request: related_actions.first.request,
-            responses: related_actions.map(&:responses).flatten
+            responses: related_actions.map(&:responses).flatten,
+            resource: related_actions.first.resource
           }
         end.flatten
       end
@@ -95,6 +96,21 @@ module Tomograph
         @tomogram ||= actions.inject([]) do |result, action|
           result.push(Tomograph::Tomogram::Action.new(action))
         end
+      end
+
+      def to_resources
+        @resources ||= actions.group_by {|action| action[:resource]}.map do |_key, related_actions|
+          requests = related_actions.map do |action|
+            {
+              method: action[:method],
+              path: action[:path]
+            }
+          end
+          {
+            resource: related_actions.first[:resource],
+            requests: requests
+          }
+        end.flatten
       end
     end
   end

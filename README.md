@@ -190,6 +190,10 @@ Path to API Blueprint documentation pre-parsed with `drafter` and saved to a YAM
 
 Default empty String. Prefix of API requests. Example: `'/api'`.
 
+### to_resources
+
+Array resource with requests.
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
