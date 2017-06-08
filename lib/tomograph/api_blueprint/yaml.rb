@@ -77,6 +77,14 @@ module Tomograph
             ))
           end)
         end.flatten
+          .group_by {|action| "#{action.method} #{action.path}"}.map do |_key, related_actions|
+          {
+            path: "#{@prefix}#{related_actions.first.path.to_s}",
+            method: related_actions.first.method,
+            request: related_actions.first.request,
+            responses: related_actions.map(&:responses).flatten
+          }
+        end.flatten
       end
 
       def action?(content)
@@ -84,11 +92,9 @@ module Tomograph
       end
 
       def to_tomogram
-        @tomogram ||= Tomograph::Tomogram::Action.merge(
-          actions.inject([]) do |result, action|
-            result.push(action.to_tomogram.add_prefix(@prefix))
-          end
-        )
+        @tomogram ||= actions.inject([]) do |result, action|
+          result.push(Tomograph::Tomogram::Action.new(action))
+        end
       end
     end
   end
