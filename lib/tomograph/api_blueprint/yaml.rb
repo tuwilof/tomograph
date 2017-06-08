@@ -46,8 +46,14 @@ module Tomograph
         @transitions ||= resources.inject([]) do |result_resources, resource|
           result_resources.push(resource['resource']['content'].inject([]) do |result_transitions, transition|
             next result_transitions unless transition?(transition)
-            result_transitions.push('transition' => transition,
-                                    'transition_path' => transition_path(transition, resource['resource_path']))
+            result_transitions.push(
+              'transition' => transition,
+              'transition_path' => transition_path(
+                transition,
+                resource['resource_path']
+              ),
+              'resource_name' => resource['resource']['meta']['title']
+            )
           end)
         end.flatten
       end
@@ -65,7 +71,9 @@ module Tomograph
           result_transition.push(transition['transition']['content'].inject([]) do |result_contents, content|
             next result_contents unless action?(content)
             result_contents.push(Tomograph::ApiBlueprint::Yaml::Action.new(
-                                   content['content'], transition['transition_path']
+              content['content'],
+              transition['transition_path'],
+              transition['resource_name']
             ))
           end)
         end.flatten

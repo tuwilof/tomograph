@@ -4,12 +4,13 @@ module Tomograph
   module ApiBlueprint
     class Yaml
       class Action
-        def initialize(content, path)
+        def initialize(content, path, resource)
           @content = content
           @path = path
+          @resource = resource
         end
 
-        attr_reader :path
+        attr_reader :path, :resource
 
         def method
           @method ||= @content.first['attributes']['method']
