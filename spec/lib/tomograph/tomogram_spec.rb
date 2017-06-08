@@ -299,7 +299,7 @@ RSpec.describe Tomograph::Tomogram do
 
   describe '#to_resources' do
     subject {described_class.new(drafter_yaml_path: documentation, prefix: '').to_resources}
-    let(:parsed) {[{:resource => '/sessions', :requests => [{:method => 'POST', :path => '/sessions'}]}]}
+    let(:parsed) {[{:resource=>"/sessions", :requests=>["POST /sessions"]}]}
     let(:documentation) {nil}
 
     before do
