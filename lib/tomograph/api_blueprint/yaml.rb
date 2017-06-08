@@ -52,7 +52,7 @@ module Tomograph
                 transition,
                 resource['resource_path']
               ),
-              'resource_name' => resource['resource']['meta']['title']
+              'resource' => resource['resource_path']
             )
           end)
         end.flatten
@@ -73,7 +73,7 @@ module Tomograph
             result_contents.push(Tomograph::ApiBlueprint::Yaml::Action.new(
               content['content'],
               transition['transition_path'],
-              transition['resource_name']
+              transition['resource']
             ))
           end)
         end.flatten

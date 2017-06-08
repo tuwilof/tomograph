@@ -298,16 +298,16 @@ RSpec.describe Tomograph::Tomogram do
   end
 
   describe '#to_resources' do
-    subject { described_class.new(drafter_yaml_path: documentation, prefix: '').to_resources }
-    let(:parsed) { [{:resource=>"Authentication", :requests=>[{:method=>"POST", :path=>"/sessions"}]}] }
-    let(:documentation) { nil }
+    subject {described_class.new(drafter_yaml_path: documentation, prefix: '').to_resources}
+    let(:parsed) {[{:resource => '/sessions', :requests => [{:method => 'POST', :path => '/sessions'}]}]}
+    let(:documentation) {nil}
 
     before do
       allow(Rails).to receive(:root).and_return("#{ENV['RBENV_DIR']}/spec/fixtures")
     end
 
     context 'if one action' do
-      let(:documentation) { 'api2.yaml' }
+      let(:documentation) {'api2.yaml'}
 
       it 'parses documents' do
         expect(subject).to eq(parsed)
