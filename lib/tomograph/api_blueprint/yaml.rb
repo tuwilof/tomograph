@@ -7,10 +7,10 @@ module Tomograph
       def initialize(prefix, apib_path, drafter_yaml_path)
         @prefix = prefix
         @documentation = if apib_path
-                           YAML.safe_load(`drafter #{apib_path}`)
-                         else
-                           YAML.safe_load(File.read("#{Rails.root}/#{drafter_yaml_path}"))
-                         end
+          YAML.safe_load(`drafter #{apib_path}`)
+        else
+          YAML.safe_load(File.read("#{Rails.root}/#{drafter_yaml_path}"))
+        end
       end
 
       def groups
@@ -99,15 +99,17 @@ module Tomograph
       end
 
       def to_resources
-        @to_resources ||= actions.group_by {|action| action[:resource]}.map do |_key, related_actions|
-          requests = related_actions.map do |action|
+        return @to_resources if @to_resources
+
+        @to_resources = actions.group_by {|action| action[:resource]}
+        @to_resources = @to_resources.inject({}) do |res, related_actions|
+          requests = related_actions[1].map do |action|
             "#{action[:method]} #{action[:path]}"
           end
-          {
-            resource: related_actions.first[:resource],
-            requests: requests
-          }
-        end.flatten
+          res.merge(
+            related_actions[1].first[:resource] => requests
+          )
+        end
       end
     end
   end
