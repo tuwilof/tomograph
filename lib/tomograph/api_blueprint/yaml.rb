@@ -99,7 +99,7 @@ module Tomograph
       end
 
       def to_resources
-        @resources ||= actions.group_by {|action| action[:resource]}.map do |_key, related_actions|
+        @to_resources ||= actions.group_by {|action| action[:resource]}.map do |_key, related_actions|
           requests = related_actions.map do |action|
             "#{action[:method]} #{action[:path]}"
           end
