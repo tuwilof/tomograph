@@ -7,10 +7,10 @@ module Tomograph
       def initialize(prefix, apib_path, drafter_yaml_path)
         @prefix = prefix
         @documentation = if apib_path
-          YAML.safe_load(`drafter #{apib_path}`)
-        else
-          YAML.safe_load(File.read("#{Rails.root}/#{drafter_yaml_path}"))
-        end
+                           YAML.safe_load(`drafter #{apib_path}`)
+                         else
+                           YAML.safe_load(File.read("#{Rails.root}/#{drafter_yaml_path}"))
+                         end
       end
 
       def groups
@@ -46,14 +46,7 @@ module Tomograph
         @transitions ||= resources.inject([]) do |result_resources, resource|
           result_resources.push(resource['resource']['content'].inject([]) do |result_transitions, transition|
             next result_transitions unless transition?(transition)
-            result_transitions.push(
-              'transition' => transition,
-              'transition_path' => transition_path(
-                transition,
-                resource['resource_path']
-              ),
-              'resource' => resource['resource_path']
-            )
+            result_transitions.push(transition_hash(transition, resource))
           end)
         end.flatten
       end
@@ -62,34 +55,51 @@ module Tomograph
         transition['element'] == 'transition'
       end
 
+      def transition_hash(transition, resource)
+        {
+          'transition' => transition,
+          'transition_path' => transition_path(transition, resource['resource_path']),
+          'resource' => resource['resource_path']
+        }
+      end
+
       def transition_path(transition, resource_path)
         transition['attributes'] && transition['attributes']['href'] || resource_path
       end
 
-      def actions
-        @actions ||= transitions.inject([]) do |result_transition, transition|
+      def without_group_actions
+        transitions.inject([]) do |result_transition, transition|
           result_transition.push(transition['transition']['content'].inject([]) do |result_contents, content|
             next result_contents unless action?(content)
             result_contents.push(Tomograph::ApiBlueprint::Yaml::Action.new(
-              content['content'],
-              transition['transition_path'],
-              transition['resource']
+                                   content['content'],
+                                   transition['transition_path'],
+                                   transition['resource']
             ))
           end)
-        end.flatten
-          .group_by {|action| "#{action.method} #{action.path}"}.map do |_key, related_actions|
-          {
-            path: "#{@prefix}#{related_actions.first.path.to_s}",
-            method: related_actions.first.method,
-            request: related_actions.first.request,
-            responses: related_actions.map(&:responses).flatten,
-            resource: related_actions.first.resource
-          }
-        end.flatten
+        end
       end
 
       def action?(content)
         content['element'] == 'httpTransaction'
+      end
+
+      def actions
+        @actions ||= without_group_actions
+                     .flatten
+                     .group_by { |action| "#{action.method} #{action.path}" }.map do |_key, related_actions|
+          action_hash(related_actions)
+        end.flatten
+      end
+
+      def action_hash(related_actions)
+        {
+          path: "#{@prefix}#{related_actions.first.path}",
+          method: related_actions.first.method,
+          request: related_actions.first.request,
+          responses: related_actions.map(&:responses).flatten,
+          resource: related_actions.first.resource
+        }
       end
 
       def to_tomogram
@@ -101,14 +111,12 @@ module Tomograph
       def to_resources
         return @to_resources if @to_resources
 
-        @to_resources = actions.group_by {|action| action[:resource]}
+        @to_resources = actions.group_by { |action| action[:resource] }
         @to_resources = @to_resources.inject({}) do |res, related_actions|
           requests = related_actions[1].map do |action|
             "#{action[:method]} #{action[:path]}"
           end
-          res.merge(
-            related_actions[1].first[:resource] => requests
-          )
+          res.merge(related_actions[1].first[:resource] => requests)
         end
       end
     end
