@@ -192,7 +192,13 @@ Default empty String. Prefix of API requests. Example: `'/api'`.
 
 ### to_resources
 
-Array resource with requests.
+Hash resource with requests.
+The result for the example above:
+```ruby
+{
+  '/sessions' => ['POST /sessions']
+}
+```
 
 ## License
 
