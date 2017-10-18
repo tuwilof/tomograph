@@ -28,5 +28,9 @@ module Tomograph
     def to_resources
       @documentation.to_resources
     end
+
+    def prefix_match?(raw_path)
+      raw_path.include?(@prefix)
+    end
   end
 end

@@ -164,6 +164,16 @@ request = tomogram.find_request(method: 'GET', path: '/status/1?qwe=rty')
 responses = request.find_responses(status: '200')
 ```
 
+## Other methods
+
+### prefix_match?
+
+This can be useful if you use a prefix.
+
+```ruby
+tomogram.prefix_match?('http://local/api/v2/users')
+```
+
 ## Params
 
 Example:
