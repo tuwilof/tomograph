@@ -9,6 +9,3 @@ require 'yaml'
 require 'multi_json'
 require 'byebug'
 require 'tomograph'
-
-class Rails
-end

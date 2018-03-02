@@ -9,7 +9,7 @@ module Tomograph
         @documentation = if apib_path
                            YAML.safe_load(`drafter #{apib_path}`)
                          else
-                           YAML.safe_load(File.read("#{Rails.root}/#{drafter_yaml_path}"))
+                           YAML.safe_load(File.read(drafter_yaml_path))
                          end
       end
 

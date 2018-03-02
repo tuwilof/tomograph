@@ -2,13 +2,16 @@ require 'spec_helper'
 
 RSpec.describe Tomograph::Tomogram do
   describe '#json' do
-    subject { JSON.parse(described_class.new(drafter_yaml_path: documentation, prefix: '').to_json) }
+    subject do
+      JSON.parse(
+        described_class.new(
+          drafter_yaml_path: "#{ENV['RBENV_DIR']}/spec/fixtures/#{documentation}",
+          prefix: ''
+        ).to_json
+      )
+    end
     let(:parsed) { MultiJson.load(File.read(json_schema)) }
     let(:documentation) { nil }
-
-    before do
-      allow(Rails).to receive(:root).and_return("#{ENV['RBENV_DIR']}/spec/fixtures")
-    end
 
     context 'if one action' do
       let(:json_schema) { 'spec/fixtures/api2.json' }
@@ -184,7 +187,6 @@ RSpec.describe Tomograph::Tomogram do
 
     let(:parsed) { MultiJson.load(File.read(json_schema)) }
     before do
-      allow(Rails).to receive(:root).and_return("#{ENV['RBENV_DIR']}/spec/fixtures")
       allow(Tomograph).to receive(:configuration).and_return(
         double(documentation: documentation, prefix: '', drafter_yaml: nil)
       )
@@ -298,13 +300,14 @@ RSpec.describe Tomograph::Tomogram do
   end
 
   describe '#to_resources' do
-    subject { described_class.new(drafter_yaml_path: documentation, prefix: '').to_resources }
+    subject do
+      described_class.new(
+        drafter_yaml_path: "#{ENV['RBENV_DIR']}/spec/fixtures/#{documentation}",
+        prefix: ''
+      ).to_resources
+    end
     let(:parsed) { { '/sessions' => ['POST /sessions'] } }
     let(:documentation) { nil }
-
-    before do
-      allow(Rails).to receive(:root).and_return("#{ENV['RBENV_DIR']}/spec/fixtures")
-    end
 
     context 'if one action' do
       let(:documentation) { 'api2.yaml' }
