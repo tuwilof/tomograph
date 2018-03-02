@@ -1,3 +1,4 @@
+require 'yaml'
 require 'tomograph/api_blueprint/yaml/action'
 require 'tomograph/tomogram/action'
 
