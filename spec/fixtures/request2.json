@@ -1,6 +1,7 @@
 {
   "path": "/sessions/{id}",
   "method": "DELETE",
+  "content-type": "application/json",
   "request": {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
@@ -16,14 +17,17 @@
   "responses": [
     {
       "status": "401",
+      "content-type": "application/json",
       "body": {}
     },
     {
       "status": "423",
+      "content-type": "application/json",
       "body": {}
     },
     {
       "status": "200",
+      "content-type": "application/json",
       "body": {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",

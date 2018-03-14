@@ -2,10 +2,12 @@
   {
     "path": "/recommendation",
     "method": "GET",
+    "content-type": null,
     "request": {},
     "responses": [
       {
         "status": "200",
+        "content-type": "application/json",
         "body": {
           "$schema": "http://json-schema.org/draft-04/schema#",
           "type": "object",
@@ -21,6 +23,7 @@
       },
       {
         "status": "200",
+        "content-type": "application/json",
         "body": {
           "$schema": "http://json-schema.org/draft-04/schema#",
           "type": "object",

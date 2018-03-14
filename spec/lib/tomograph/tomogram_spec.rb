@@ -178,6 +178,15 @@ RSpec.describe Tomograph::Tomogram do
         expect(subject).to eq(parsed)
       end
     end
+
+    context 'content-type' do
+      let(:json_schema) { 'spec/fixtures/content_type.json' }
+      let(:documentation) { 'content_type.yaml' }
+
+      it 'parses documents' do
+        expect(subject).to eq(parsed)
+      end
+    end
   end
 
   describe '#find_request' do

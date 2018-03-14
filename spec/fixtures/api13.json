@@ -2,10 +2,12 @@
   {
     "path": "/sessions/{id}",
     "method": "DELETE",
+    "content-type": "application/json",
     "request": {},
     "responses": [
       {
         "status": "200",
+        "content-type": null,
         "body": {}
       }
     ]
