@@ -17,11 +17,11 @@ module Tomograph
       MultiJson.dump(to_hash)
     end
 
-    def find_request(method:, path:)
+    def find_request(method:, path:, content_type:)
       path = Tomograph::Path.new(path).to_s
 
       @documentation.to_tomogram.find do |action|
-        action.method == method && action.path.match(path)
+        action.method == method && action.path.match(path) && action.content_type == content_type
       end
     end
 
