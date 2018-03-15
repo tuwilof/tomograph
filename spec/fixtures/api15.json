@@ -2,10 +2,12 @@
   {
     "path": "/sessions",
     "method": "DELETE",
+    "content-type": null,
     "request": {},
     "responses": [
       {
         "status": "200",
+        "content-type": "multipart/form-data;boundary=BOUNDARY",
         "body": {}
       }
     ]

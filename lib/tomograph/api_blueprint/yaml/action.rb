@@ -16,6 +16,11 @@ module Tomograph
           @method ||= @content.first['attributes']['method']
         end
 
+        def content_type
+          @content_type ||= @content.first['attributes'].has_key?('headers') ?
+            @content.first['attributes']['headers']['content'][0]['content']['value']['content'] : nil
+        end
+
         def request
           return @request if @request
 
@@ -44,7 +49,9 @@ module Tomograph
           @responses = @responses.map do |response|
             {
               'status' => response['attributes']['statusCode'],
-              'body' => json_schema(response['content'])
+              'body' => json_schema(response['content']),
+              'content-type' => response['attributes'].has_key?('headers') ?
+                response['attributes']['headers']['content'][0]['content']['value']['content'] : nil
             }
           end
         end

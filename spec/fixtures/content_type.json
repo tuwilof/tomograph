@@ -1,13 +1,13 @@
 [
   {
     "path": "/sessions",
-    "method": "DELETE",
-    "content-type": "multipart/form-data;boundary=BOUNDARY",
+    "method": "POST",
+    "content-type": "application/json",
     "request": {},
     "responses": [
       {
         "status": "200",
-        "content-type": null,
+        "content-type": "application/json",
         "body": {}
       }
     ]

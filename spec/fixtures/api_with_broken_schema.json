@@ -2,10 +2,12 @@
   {
     "path": "/questions",
     "method": "POST",
+    "content-type": "application/json",
     "request": {},
     "responses": [
       {
         "status": "201",
+        "content-type": "application/json",
         "body": {}
       }
     ]

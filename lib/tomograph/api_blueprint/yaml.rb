@@ -97,6 +97,7 @@ module Tomograph
         {
           path: "#{@prefix}#{related_actions.first.path}",
           method: related_actions.first.method,
+          content_type: related_actions.first.content_type,
           request: related_actions.first.request,
           responses: related_actions.map(&:responses).flatten,
           resource: related_actions.first.resource

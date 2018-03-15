@@ -1,6 +1,7 @@
 {
   "path": "/users/{user_id}/pokemons",
   "method": "GET",
+  "content-type": "application/json",
   "request": {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
@@ -16,6 +17,7 @@
   "responses": [
     {
       "status": "200",
+      "content-type": "application/json",
       "body": {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
