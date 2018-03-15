@@ -193,6 +193,7 @@ RSpec.describe Tomograph::Tomogram do
     let(:method) { 'POST' }
     let(:tomogram) { [double(path: nil, method: nil)] }
     let(:path) { '/status' }
+    let(:content_type) { 'application/json' }
 
     let(:parsed) { MultiJson.load(File.read(json_schema)) }
     before do
@@ -206,19 +207,19 @@ RSpec.describe Tomograph::Tomogram do
 
     context 'if not found in the tomogram' do
       it 'returns nil' do
-        expect(subject.find_request(method: method, path: path)).to eq(nil)
+        expect(subject.find_request(method: method, path: path, content_type: content_type)).to eq(nil)
       end
     end
 
     context 'without path' do
       it 'returns nil' do
-        expect(subject.find_request(method: method, path: nil)).to eq(nil)
+        expect(subject.find_request(method: method, path: nil, content_type: content_type)).to eq(nil)
       end
     end
 
     context 'if found in the tomogram' do
-      let(:request1) { double(method: 'POST', path: double(match: true, to_s: '/status')) }
-      let(:request2) { double(method: 'DELETE', path: double(match: true, to_s: '/status/{id}/test/{tid}.json')) }
+      let(:request1) { double(method: 'POST', path: double(match: true, to_s: '/status'), content_type: 'application/json' ) }
+      let(:request2) { double(method: 'DELETE', path: double(match: true, to_s: '/status/{id}/test/{tid}.json'), content_type: 'application/json') }
       let(:tomogram) do
         [
           # Should not find these
@@ -236,7 +237,7 @@ RSpec.describe Tomograph::Tomogram do
         let(:path) { '/status/' }
 
         it 'return path withoud slash at the end' do
-          expect(subject.find_request(method: method, path: path)).to eq(request1)
+          expect(subject.find_request(method: method, path: path, content_type: content_type)).to eq(request1)
         end
       end
 
@@ -244,13 +245,13 @@ RSpec.describe Tomograph::Tomogram do
         let(:path) { '/status/?a=b&c=d' }
 
         it 'ignores query parameters' do
-          expect(subject.find_request(method: method, path: path)).to eq(request1)
+          expect(subject.find_request(method: method, path: path, content_type: content_type)).to eq(request1)
         end
       end
 
       context 'without parameters' do
         it 'return path' do
-          expect(subject.find_request(method: method, path: path)).to eq(request1)
+          expect(subject.find_request(method: method, path: path, content_type: content_type)).to eq(request1)
         end
       end
 
@@ -259,7 +260,7 @@ RSpec.describe Tomograph::Tomogram do
         let(:method) { 'DELETE' }
 
         it 'returns the modified path' do
-          expect(subject.find_request(method: method, path: path)).to eq(request2)
+          expect(subject.find_request(method: method, path: path, content_type: content_type)).to eq(request2)
         end
       end
     end
@@ -272,6 +273,7 @@ RSpec.describe Tomograph::Tomogram do
         double(
           path: req1['path'],
           method: req1['method'],
+          content_type: 'application/json',
           request: req1['request'],
           responses: req1['responses']
         )
@@ -280,6 +282,7 @@ RSpec.describe Tomograph::Tomogram do
         double(
           path: req2['path'],
           method: req2['method'],
+          content_type: 'application/json',
           request: req2['request'],
           responses: req2['responses']
         )
@@ -287,6 +290,7 @@ RSpec.describe Tomograph::Tomogram do
       let(:request3) do
         double(
           method: req3['method'],
+          content_type: 'application/json',
           request: req3['request'],
           responses: req3['responses'],
           path: double(match: true, to_s: req3['path'])
@@ -303,7 +307,7 @@ RSpec.describe Tomograph::Tomogram do
       let(:method) { 'GET' }
 
       it 'returns the modified path' do
-        expect(subject.find_request(method: method, path: path)).to eq(request3)
+        expect(subject.find_request(method: method, path: path, content_type: content_type)).to eq(request3)
       end
     end
   end
