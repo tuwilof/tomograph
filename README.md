@@ -82,6 +82,7 @@ Example output:
   {
     "path": "/sessions",
     "method": "POST",
+    "content-type": "application/json",
     "request": {
       "$schema": "http://json-schema.org/draft-04/schema#",
       "type": "object",
@@ -104,14 +105,17 @@ Example output:
     "responses": [
       {
         "status": "401",
+        "content-type": "application/json",
         "body": {}
       },
       {
         "status": "429",
+        "content-type": "application/json",
         "body": {}
       },
       {
         "status": "201",
+        "content-type": "application/json",
         "body": {
           "$schema": "http://json-schema.org/draft-04/schema#",
           "type": "object",
