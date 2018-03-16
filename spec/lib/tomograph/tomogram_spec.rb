@@ -5,7 +5,7 @@ RSpec.describe Tomograph::Tomogram do
     subject do
       JSON.parse(
         described_class.new(
-          drafter_yaml_path: "#{ENV['RBENV_DIR']}/spec/fixtures/#{documentation}",
+          drafter_yaml_path: File.expand_path("spec/fixtures/#{documentation}"),
           prefix: ''
         ).to_json
       )
