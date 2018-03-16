@@ -438,7 +438,7 @@ RSpec.describe Tomograph::Tomogram do
   describe '#to_resources' do
     subject do
       described_class.new(
-        drafter_yaml_path: "#{ENV['RBENV_DIR']}/spec/fixtures/#{documentation}",
+        drafter_yaml_path: File.expand_path("spec/fixtures/#{documentation}"),
         prefix: ''
       ).to_resources
     end
