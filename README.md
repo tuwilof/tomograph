@@ -168,6 +168,12 @@ Example output:
 request = tomogram.find_request(method: 'GET', path: '/status/1?qwe=rty')
 ```
 
+### find_request
+
+```ruby
+request = tomogram.find_request_with_content_type(method: 'GET', path: '/status/1?qwe=rty', content_type: 'application/json')
+```
+
 ### find_responses
 
 
