@@ -1,5 +1,7 @@
 # tomograph
 
+[![Build Status](https://travis-ci.org/funbox/tomograph.svg?branch=master)](https://travis-ci.org/funbox/tomograph)
+
 Convert API Blueprint to JSON Schema and search.
 
 ## Installation
