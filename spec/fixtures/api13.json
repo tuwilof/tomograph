@@ -3,13 +3,16 @@
     "path": "/sessions/{id}",
     "method": "DELETE",
     "content-type": "application/json",
-    "request": {},
+    "request": {
+    },
     "responses": [
       {
         "status": "200",
-        "content-type": null,
-        "body": {}
+        "body": {
+        },
+        "content-type": null
       }
-    ]
+    ],
+    "resource": "/sessions"
   }
 ]

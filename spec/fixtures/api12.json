@@ -3,11 +3,11 @@
     "path": "/recommendation",
     "method": "GET",
     "content-type": null,
-    "request": {},
+    "request": {
+    },
     "responses": [
       {
         "status": "200",
-        "content-type": "application/json",
         "body": {
           "$schema": "http://json-schema.org/draft-04/schema#",
           "type": "object",
@@ -19,11 +19,11 @@
           "required": [
             "tv_series"
           ]
-        }
+        },
+        "content-type": "application/json"
       },
       {
         "status": "200",
-        "content-type": "application/json",
         "body": {
           "$schema": "http://json-schema.org/draft-04/schema#",
           "type": "object",
@@ -35,8 +35,10 @@
           "required": [
             "cinema"
           ]
-        }
+        },
+        "content-type": "application/json"
       }
-    ]
+    ],
+    "resource": "/recommendation"
   }
 ]

@@ -3,13 +3,16 @@
     "path": "/sessions",
     "method": "DELETE",
     "content-type": null,
-    "request": {},
+    "request": {
+    },
     "responses": [
       {
         "status": "200",
-        "content-type": "multipart/form-data;boundary=BOUNDARY",
-        "body": {}
+        "body": {
+        },
+        "content-type": "multipart/form-data;boundary=BOUNDARY"
       }
-    ]
+    ],
+    "resource": "/sessions"
   }
 ]
