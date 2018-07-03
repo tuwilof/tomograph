@@ -25,17 +25,18 @@
     "responses": [
       {
         "status": "401",
-        "content-type": "application/json",
-        "body": {}
+        "body": {
+        },
+        "content-type": "application/json"
       },
       {
         "status": "429",
-        "content-type": "application/json",
-        "body": {}
+        "body": {
+        },
+        "content-type": "application/json"
       },
       {
         "status": "201",
-        "content-type": "application/json",
         "body": {
           "$schema": "http://json-schema.org/draft-04/schema#",
           "type": "object",
@@ -66,9 +67,11 @@
               "type": "boolean"
             }
           }
-        }
+        },
+        "content-type": "application/json"
       }
-    ]
+    ],
+    "resource": "/sessions"
   },
   {
     "path": "/sessions/{id}",
@@ -89,17 +92,18 @@
     "responses": [
       {
         "status": "401",
-        "content-type": "application/json",
-        "body": {}
+        "body": {
+        },
+        "content-type": "application/json"
       },
       {
         "status": "423",
-        "content-type": "application/json",
-        "body": {}
+        "body": {
+        },
+        "content-type": "application/json"
       },
       {
         "status": "200",
-        "content-type": "application/json",
         "body": {
           "$schema": "http://json-schema.org/draft-04/schema#",
           "type": "object",
@@ -111,8 +115,10 @@
           "required": [
             "status"
           ]
-        }
+        },
+        "content-type": "application/json"
       }
-    ]
+    ],
+    "resource": "/sessions"
   }
 ]

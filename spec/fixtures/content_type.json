@@ -3,13 +3,16 @@
     "path": "/sessions",
     "method": "POST",
     "content-type": "application/json",
-    "request": {},
+    "request": {
+    },
     "responses": [
       {
         "status": "200",
-        "content-type": "application/json",
-        "body": {}
+        "body": {
+        },
+        "content-type": "application/json"
       }
-    ]
+    ],
+    "resource": "/sessions"
   }
 ]

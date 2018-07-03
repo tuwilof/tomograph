@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe Tomograph::Tomogram do
-  describe '#json' do
+  describe '#to_json' do
     subject do
       JSON.parse(
         described_class.new(

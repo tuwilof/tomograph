@@ -22,7 +22,6 @@
     "responses": [
       {
         "status": "201",
-        "content-type": "application/json",
         "body": {
           "$schema": "http://json-schema.org/draft-04/schema#",
           "type": "object",
@@ -44,8 +43,10 @@
               "minItems": 2
             }
           }
-        }
+        },
+        "content-type": "application/json"
       }
-    ]
+    ],
+    "resource": "/questions"
   }
 ]

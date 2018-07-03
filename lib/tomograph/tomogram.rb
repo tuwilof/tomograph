@@ -1,11 +1,16 @@
 require 'multi_json'
 require 'tomograph/path'
+require 'tomograph/api_blueprint/json_schema'
 require 'tomograph/api_blueprint/yaml'
 
 module Tomograph
   class Tomogram
-    def initialize(prefix: '', apib_path: nil, drafter_yaml_path: nil)
-      @documentation = Tomograph::ApiBlueprint::Yaml.new(prefix, apib_path, drafter_yaml_path)
+    def initialize(prefix: '', apib_path: nil, drafter_yaml_path: nil, tomogram_json_path: nil)
+      @documentation = if tomogram_json_path
+                         Tomograph::ApiBlueprint::JsonSchema.new(prefix, tomogram_json_path)
+                       else
+                         Tomograph::ApiBlueprint::Yaml.new(prefix, apib_path, drafter_yaml_path)
+                       end
       @prefix = prefix
     end
 

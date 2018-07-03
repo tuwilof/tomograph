@@ -11,11 +11,39 @@ include Methadone::CLILogging
 
 version Tomograph::VERSION
 description 'Converts API Blueprint to JSON Schema'
-arg :input, 'path/to/doc.apib'
+on('-f INPUT_FORMAT', '--format', 'Force input format: "apib" or "yaml". Default: detect by file extension.')
+arg :input, 'path/to/doc.apib (API Blueprint) or path/to/doc.yaml (API Elements)'
 arg :output, 'path/to/doc.json'
 
 main do |input, output|
-  tomogram = Tomograph::Tomogram.new(apib_path: input)
+  opt_format = options['format']
+  format = case opt_format && opt_format.downcase
+           when 'apib'
+             :apib
+           when 'yaml'
+             :yaml
+           when nil
+             case File.extname(input).downcase
+             when '.apib'
+               :apib
+             when '.yaml'
+               :yaml
+             else
+               fail 'Unsupported input file extension!'
+             end
+           else
+             fail 'Unsupported input format!'
+           end
+
+  format_key = case format
+               when :apib
+                 :apib_path
+               when :yaml
+                 :drafter_yaml_path
+               else
+                 fail 'Unimplemented!'
+               end
+  tomogram = Tomograph::Tomogram.new({format_key => input})
   File.open(output, 'w') do |f|
     f.write(tomogram.to_json)
   end

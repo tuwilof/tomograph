@@ -9,7 +9,7 @@ module Tomograph
         @prefix = prefix
         @documentation = if apib_path
                            YAML.safe_load(`drafter #{apib_path}`)
-                         else
+                         elsif drafter_yaml_path
                            YAML.safe_load(File.read(drafter_yaml_path))
                          end
       end

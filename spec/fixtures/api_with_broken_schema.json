@@ -3,13 +3,16 @@
     "path": "/questions",
     "method": "POST",
     "content-type": "application/json",
-    "request": {},
+    "request": {
+    },
     "responses": [
       {
         "status": "201",
-        "content-type": "application/json",
-        "body": {}
+        "body": {
+        },
+        "content-type": "application/json"
       }
-    ]
+    ],
+    "resource": "/questions"
   }
 ]
