@@ -14,7 +14,7 @@ module Tomograph
     end
 
     def to_json
-      MultiJson.dump(to_hash)
+      MultiJson.dump(to_hash, pretty: true)
     end
 
     def find_request(method:, path:)

@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+
+require 'methadone'
+
+require 'tomograph'
+require 'tomograph/version'
+
+
+include Methadone::Main
+include Methadone::CLILogging
+
+version Tomograph::VERSION
+description 'Converts API Blueprint to JSON Schema'
+arg :input, 'path/to/doc.apib'
+arg :output, 'path/to/doc.json'
+
+main do |input, output|
+  tomogram = Tomograph::Tomogram.new(apib_path: input)
+  File.open(output, 'w') do |f|
+    f.write(tomogram.to_json)
+  end
+  0
+end
+
+go!

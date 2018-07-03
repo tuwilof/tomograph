@@ -1,4 +1,5 @@
 .idea/
+/pkg/
 .byebug_history
 Gemfile.lock
 coverage
