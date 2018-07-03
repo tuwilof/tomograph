@@ -35,6 +35,18 @@ require 'tomograph'
 tomogram = Tomograph::Tomogram.new(apib_path: '/path/to/doc.apib')
 ```
 
+### Command line tool
+
+The command line tool allows you to convert files from API Blueprint or API Elements to JSON Schema.
+```
+tomograph doc.apib doc.json
+```
+See
+```
+tomograph -h
+```
+for details on usage.
+
 ## Convert
 
 ```ruby
