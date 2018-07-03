@@ -5,9 +5,9 @@ require 'tomograph/api_blueprint/yaml'
 
 module Tomograph
   class Tomogram
-    def initialize(prefix: '', apib_path: nil, drafter_yaml_path: nil, json_schema_path: nil)
-      @documentation = if json_schema_path
-                         Tomograph::ApiBlueprint::JsonSchema.new(prefix, json_schema_path)
+    def initialize(prefix: '', apib_path: nil, drafter_yaml_path: nil, tomogram_json_path: nil)
+      @documentation = if tomogram_json_path
+                         Tomograph::ApiBlueprint::JsonSchema.new(prefix, tomogram_json_path)
                        else
                          Tomograph::ApiBlueprint::Yaml.new(prefix, apib_path, drafter_yaml_path)
                        end
