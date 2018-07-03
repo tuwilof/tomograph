@@ -205,6 +205,12 @@ or
 Tomograph::Tomogram.new(prefix: '/api/v2', drafter_yaml_path: '/path/to/doc.yaml')
 ```
 
+or
+
+```ruby
+Tomograph::Tomogram.new(prefix: '/api/v2', tomogram_json_path: '/path/to/doc.json')
+```
+
 ### apib_path
 
 Path to API Blueprint documentation. There must be an installed [drafter](https://github.com/apiaryio/drafter) to parse it.
@@ -212,6 +218,10 @@ Path to API Blueprint documentation. There must be an installed [drafter](https:
 ### drafter_yaml_path
 
 Path to API Blueprint documentation pre-parsed with `drafter` and saved to a YAML file.
+
+### tomogram_json_path
+
+Path to API Blueprint documentation converted with `tomograph` to a JSON file.
 
 ### prefix
 
