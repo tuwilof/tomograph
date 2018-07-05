@@ -22,7 +22,7 @@ module Tomograph
 
       def to_hash
         @action ||= {
-          'path' => path.to_s,
+          'path' => path,
           'method' => method,
           'content-type' => content_type,
           'request' => request,
