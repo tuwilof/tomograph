@@ -1,5 +1,16 @@
 # Change log
 
+### 2.2.0 - 2018-07-05
+
+* API changes
+  * Tomogram: add to_a method
+* deprecations
+  * Tomogram: to_hash method
+* features
+  * add command-line tool
+  * include Action's "resource" in serialization to JSON
+  * add support for loading Tomogram JSON
+
 ### 2.1.0 - 2018-03-16
 
 * features
