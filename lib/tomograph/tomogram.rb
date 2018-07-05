@@ -5,6 +5,8 @@ require 'tomograph/api_blueprint/yaml'
 
 module Tomograph
   class Tomogram
+    extend Gem::Deprecate
+
     def initialize(prefix: '', apib_path: nil, drafter_yaml_path: nil, tomogram_json_path: nil)
       @documentation = if tomogram_json_path
                          Tomograph::ApiBlueprint::JsonSchema.new(prefix, tomogram_json_path)
@@ -21,6 +23,7 @@ module Tomograph
     def to_hash
       to_a.map(&:to_hash)
     end
+    deprecate :to_hash, 'to_a with method access', 2018, 8
 
     def to_json
       MultiJson.dump(to_a.map(&:to_hash), pretty: true)
