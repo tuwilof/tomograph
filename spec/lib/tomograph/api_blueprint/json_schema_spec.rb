@@ -60,10 +60,6 @@ RSpec.describe Tomograph::ApiBlueprint::JsonSchema do
       {"/sessions"=>["POST /sessions", "DELETE /sessions/{id}"]}
     end
 
-    it 'produces correct Tomogram' do
-      expect(subject.to_tomogram.map(&:to_hash)).to eq(tomogram_hash)
-    end
-
     it 'produces correct resource map' do
       expect(subject.to_resources).to eq(resource_map)
     end
