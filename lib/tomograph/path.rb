@@ -1,5 +1,7 @@
 module Tomograph
   class Path
+    attr_reader :path
+
     def initialize(path)
       unless path && !path.empty?
         @path = ''
@@ -27,6 +29,10 @@ module Tomograph
 
     def to_s
       @path
+    end
+
+    def ==(other)
+      other.instance_of? self.class and other.path == path
     end
 
     private
