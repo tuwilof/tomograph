@@ -26,7 +26,7 @@ module Tomograph
         @to_resources = @documentation.group_by { |action| action['resource'] }
         @to_resources = @to_resources.each_with_object({}) do |(resource, actions), resource_map|
           requests = actions.map do |action|
-            "#{action['method']} #{action['path']}"
+            "#{action['method']} #{@prefix}#{action['path']}"
           end
           resource_map[resource] = requests
         end

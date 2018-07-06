@@ -9,10 +9,10 @@ RSpec.describe Tomograph::ApiBlueprint::Yaml do
   end
 
   context 'given YAML with two actions' do
-    subject { described_class.new('', nil, input_file) }
+    subject { described_class.new('/api/v1', nil, input_file) }
     let(:input_file) { 'spec/fixtures/api3.yaml' }
     let(:tomogram_hash) do
-      [{"path"=>Tomograph::Path.new("/sessions"),
+      [{"path"=>Tomograph::Path.new("/api/v1/sessions"),
         "method"=>"POST",
         "content-type"=>"application/json",
         "request"=>
@@ -42,7 +42,7 @@ RSpec.describe Tomograph::ApiBlueprint::Yaml do
             "captcha_does_not_match"=>{"type"=>"boolean"}}},
           "content-type"=>"application/json"}],
         "resource"=>"/sessions"},
-       {"path"=>Tomograph::Path.new("/sessions/{id}"),
+       {"path"=>Tomograph::Path.new("/api/v1/sessions/{id}"),
         "method"=>"DELETE",
         "content-type"=>"application/json",
         "request"=>
@@ -63,7 +63,7 @@ RSpec.describe Tomograph::ApiBlueprint::Yaml do
         "resource"=>"/sessions"}]
     end
     let(:resource_map) do
-      {"/sessions"=>["POST /sessions", "DELETE /sessions/{id}"]}
+      {"/sessions"=>["POST /api/v1/sessions", "DELETE /api/v1/sessions/{id}"]}
     end
 
     it 'produces correct Tomogram' do
