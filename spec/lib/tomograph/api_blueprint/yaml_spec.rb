@@ -12,7 +12,7 @@ RSpec.describe Tomograph::ApiBlueprint::Yaml do
     subject { described_class.new('', nil, input_file) }
     let(:input_file) { 'spec/fixtures/api3.yaml' }
     let(:tomogram_hash) do
-      [{"path"=>"/sessions",
+      [{"path"=>Tomograph::Path.new("/sessions"),
         "method"=>"POST",
         "content-type"=>"application/json",
         "request"=>
@@ -42,7 +42,7 @@ RSpec.describe Tomograph::ApiBlueprint::Yaml do
             "captcha_does_not_match"=>{"type"=>"boolean"}}},
           "content-type"=>"application/json"}],
         "resource"=>"/sessions"},
-       {"path"=>"/sessions/{id}",
+       {"path"=>Tomograph::Path.new("/sessions/{id}"),
         "method"=>"DELETE",
         "content-type"=>"application/json",
         "request"=>
