@@ -6,7 +6,7 @@ RSpec.describe Tomograph::ApiBlueprint::JsonSchema do
     subject { described_class.new('', input_file) }
     let(:input_file) { 'spec/fixtures/api3.json' }
     let(:tomogram_hash) do
-      [{"path"=>"/sessions",
+      [{"path"=>Tomograph::Path.new("/sessions"),
         "method"=>"POST",
         "content-type"=>"application/json",
         "request"=>
@@ -36,7 +36,7 @@ RSpec.describe Tomograph::ApiBlueprint::JsonSchema do
             "captcha_does_not_match"=>{"type"=>"boolean"}}},
           "content-type"=>"application/json"}],
         "resource"=>"/sessions"},
-       {"path"=>"/sessions/{id}",
+       {"path"=>Tomograph::Path.new("/sessions/{id}"),
         "method"=>"DELETE",
         "content-type"=>"application/json",
         "request"=>
@@ -58,6 +58,10 @@ RSpec.describe Tomograph::ApiBlueprint::JsonSchema do
     end
     let(:resource_map) do
       {"/sessions"=>["POST /sessions", "DELETE /sessions/{id}"]}
+    end
+
+    it 'produces correct Tomogram' do
+      expect(subject.to_tomogram.map(&:to_hash)).to eq(tomogram_hash)
     end
 
     it 'produces correct resource map' do
