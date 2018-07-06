@@ -3,10 +3,10 @@ require 'tomograph/api_blueprint/json_schema'
 
 RSpec.describe Tomograph::ApiBlueprint::JsonSchema do
   context 'given JSON with two actions' do
-    subject { described_class.new('', input_file) }
+    subject { described_class.new('/api/v1', input_file) }
     let(:input_file) { 'spec/fixtures/api3.json' }
     let(:tomogram_hash) do
-      [{"path"=>"/sessions",
+      [{"path"=>Tomograph::Path.new("/api/v1/sessions"),
         "method"=>"POST",
         "content-type"=>"application/json",
         "request"=>
@@ -36,7 +36,7 @@ RSpec.describe Tomograph::ApiBlueprint::JsonSchema do
             "captcha_does_not_match"=>{"type"=>"boolean"}}},
           "content-type"=>"application/json"}],
         "resource"=>"/sessions"},
-       {"path"=>"/sessions/{id}",
+       {"path"=>Tomograph::Path.new("/api/v1/sessions/{id}"),
         "method"=>"DELETE",
         "content-type"=>"application/json",
         "request"=>
@@ -57,7 +57,11 @@ RSpec.describe Tomograph::ApiBlueprint::JsonSchema do
         "resource"=>"/sessions"}]
     end
     let(:resource_map) do
-      {"/sessions"=>["POST /sessions", "DELETE /sessions/{id}"]}
+      {"/sessions"=>["POST /api/v1/sessions", "DELETE /api/v1/sessions/{id}"]}
+    end
+
+    it 'produces correct Tomogram' do
+      expect(subject.to_tomogram.map(&:to_hash)).to eq(tomogram_hash)
     end
 
     it 'produces correct resource map' do

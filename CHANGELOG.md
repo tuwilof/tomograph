@@ -1,5 +1,10 @@
 # Change log
 
+### 2.2.1 - 2018-07-06
+
+* bug fixes
+  * fix path missing prefix in Tomogram JSON to_resources
+
 ### 2.2.0 - 2018-07-05
 
 * API changes
