@@ -14,6 +14,16 @@ description 'Converts API Blueprint to JSON Schema'
 on('-f INPUT_FORMAT', '--format', 'Force input format: "apib" or "yaml". Default: detect by file extension.')
 arg :input, 'path/to/doc.apib (API Blueprint) or path/to/doc.yaml (API Elements)'
 arg :output, 'path/to/doc.json'
+on('--exclude-description', 'Exclude "description" keys.')
+
+def prune!(obj, unwanted_key)
+  if obj.is_a?(Hash)
+    obj.delete(unwanted_key)
+    obj.each_value { |value| prune!(value, unwanted_key) }
+  elsif obj.is_a?(Array)
+    obj.each { |value| prune!(value, unwanted_key) }
+  end
+end
 
 main do |input, output|
   opt_format = options['format']
@@ -34,7 +44,6 @@ main do |input, output|
            else
              fail 'Unsupported input format!'
            end
-
   format_key = case format
                when :apib
                  :apib_path
@@ -44,8 +53,15 @@ main do |input, output|
                  fail 'Unimplemented!'
                end
   tomogram = Tomograph::Tomogram.new({format_key => input})
-  File.open(output, 'w') do |f|
-    f.write(tomogram.to_json)
+  json = if options['exclude-description']
+           actions = tomogram.to_a.map(&:to_hash)
+           prune!(actions, 'description')
+           MultiJson.dump(actions, pretty: true)
+         else
+           tomogram.to_json
+         end
+  File.open(output, 'w') do |file|
+    file.write(json)
   end
   0
 end
