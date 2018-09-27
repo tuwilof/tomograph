@@ -1,5 +1,10 @@
 # Change log
 
+### 2.3.0 - 2018-09-27
+
+* features
+  * add exclude-description option for command-line tool
+
 ### 2.2.1 - 2018-07-06
 
 * bug fixes
