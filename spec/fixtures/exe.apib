@@ -1,0 +1,38 @@
+FORMAT: 1A
+HOST: http://test.local
+
+# project
+
+# Group project
+
+Project
+
+## Authentication [/sessions]
+
+### Sign In [POST]
+
++ Request (application/json)
+
+    + Attributes
+     + login (string, required) - login description text абв
+     + password (string, required) - password description text
+     + captcha (string, optional) - captcha description text
+
++ Response 401 (application/json)
+
++ Response 429 (application/json)
+
++ Response 201 (application/json)
+
+    + Attributes
+     + confirmation (Confirmation, optional) - description text
+     + captcha (string, optional) - description text
+     + captcha_does_not_match (boolean, optional) - description text
+
+
+# Data Structures
+
+## Confirmation (object)
+  + id (string, required) - description text
+  + type (string, required) - description text
+  + operation (string, required) - description text

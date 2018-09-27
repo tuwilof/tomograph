@@ -1,0 +1,85 @@
+[
+  {
+    "path": "/sessions",
+    "method": "POST",
+    "content-type": "application/json",
+    "request": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "login": {
+          "type": "string",
+          "description": "login description text абв"
+        },
+        "password": {
+          "type": "string",
+          "description": "password description text"
+        },
+        "captcha": {
+          "type": "string",
+          "description": "captcha description text"
+        }
+      },
+      "required": [
+        "login",
+        "password"
+      ]
+    },
+    "responses": [
+      {
+        "status": "401",
+        "body": {
+        },
+        "content-type": "application/json"
+      },
+      {
+        "status": "429",
+        "body": {
+        },
+        "content-type": "application/json"
+      },
+      {
+        "status": "201",
+        "body": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "type": "object",
+          "properties": {
+            "confirmation": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "description text"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "description text"
+                },
+                "operation": {
+                  "type": "string",
+                  "description": "description text"
+                }
+              },
+              "required": [
+                "id",
+                "type",
+                "operation"
+              ],
+              "description": "description text"
+            },
+            "captcha": {
+              "type": "string",
+              "description": "description text"
+            },
+            "captcha_does_not_match": {
+              "type": "boolean",
+              "description": "description text"
+            }
+          }
+        },
+        "content-type": "application/json"
+      }
+    ],
+    "resource": "/sessions"
+  }
+]
