@@ -1,0 +1,46 @@
+{
+  "content-type": "application/json",
+  "request": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "status": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "status"
+    ]
+  },
+  "responses": [
+    {
+      "status": "401",
+      "body": {
+      },
+      "content-type": "application/json"
+    },
+    {
+      "status": "423",
+      "body": {
+      },
+      "content-type": "application/json"
+    },
+    {
+      "status": "200",
+      "body": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "content-type": "application/json"
+    }
+  ],
+  "resource": "/sessions"
+}

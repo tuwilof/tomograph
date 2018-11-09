@@ -1,5 +1,10 @@
 # Change log
 
+###
+
+* features
+  * add '--split' option for command-line tool
+
 ### 2.3.0 - 2018-09-27
 
 * features
