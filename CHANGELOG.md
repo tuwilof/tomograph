@@ -1,6 +1,6 @@
 # Change log
 
-###
+### 2.4.0 - 2018-11-9
 
 * features
   * add '--split' option for command-line tool
