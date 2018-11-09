@@ -1,6 +1,6 @@
 # Change log
 
-###
+### 2.4.1 - 2018-11-9
 
 * bug fixes
   * use parens for IDs in JSON filenames
