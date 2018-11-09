@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+require 'fileutils'
+
 require 'methadone'
 
 require 'tomograph'
@@ -12,9 +14,10 @@ include Methadone::CLILogging
 version Tomograph::VERSION
 description 'Converts API Blueprint to JSON Schema'
 on('-f INPUT_FORMAT', '--format', 'Force input format: "apib" or "yaml". Default: detect by file extension.')
-arg :input, 'path/to/doc.apib (API Blueprint) or path/to/doc.yaml (API Elements)'
-arg :output, 'path/to/doc.json'
 on('--exclude-description', 'Exclude "description" keys.')
+on('--split', 'Split output into files by method.')
+arg :input, 'path/to/doc.apib (API Blueprint) or path/to/doc.yaml (API Elements)'
+arg :output, 'path/to/doc.json or path/to/dir if --split is used.'
 
 def prune!(obj, unwanted_key)
   if obj.is_a?(Hash)
@@ -25,43 +28,63 @@ def prune!(obj, unwanted_key)
   end
 end
 
+def guess_format(opt_format, input)
+  case opt_format && opt_format.downcase
+  when 'apib'
+    :apib
+  when 'yaml'
+    :yaml
+  when nil
+    case File.extname(input).downcase
+    when '.apib'
+      :apib
+    when '.yaml', '.yml'
+      :yaml
+    else
+      fail 'Unsupported input file extension!'
+    end
+  else
+    fail 'Unsupported input format!'
+  end
+end
+
+def write_split_json(actions, output)
+  FileUtils.mkdir_p(output)
+  actions.clone.each do |action|
+    json_name = "#{action.delete("path").to_s} #{action.delete("method")}".gsub('/', ':') +
+      '.json'
+    write_json(action, File.join(output, json_name))
+  end
+end
+
+def write_json(obj, path)
+  json = MultiJson.dump(obj, pretty: true)
+  File.open(path, 'w') do |file|
+    file.write(json)
+  end
+end
+
 main do |input, output|
-  opt_format = options['format']
-  format = case opt_format && opt_format.downcase
-           when 'apib'
-             :apib
-           when 'yaml'
-             :yaml
-           when nil
-             case File.extname(input).downcase
-             when '.apib'
-               :apib
-             when '.yaml'
-               :yaml
-             else
-               fail 'Unsupported input file extension!'
-             end
-           else
-             fail 'Unsupported input format!'
-           end
+  format = guess_format(options['format'], input)
   format_key = case format
                when :apib
                  :apib_path
                when :yaml
                  :drafter_yaml_path
                else
-                 fail 'Unimplemented!'
+                 fail NotImplementedError
                end
-  tomogram = Tomograph::Tomogram.new({format_key => input})
-  json = if options['exclude-description']
-           actions = tomogram.to_a.map(&:to_hash)
-           prune!(actions, 'description')
-           MultiJson.dump(actions, pretty: true)
-         else
-           tomogram.to_json
-         end
-  File.open(output, 'w') do |file|
-    file.write(json)
+  tomogram = Tomograph::Tomogram.new(format_key => input)
+  actions = tomogram.to_a.map(&:to_hash)
+
+  if options['exclude-description']
+    prune!(actions, 'description')
+  end
+
+  if options['split']
+    write_split_json(actions, output)
+  else
+    write_json(actions, output)
   end
   0
 end
