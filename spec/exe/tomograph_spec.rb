@@ -43,13 +43,13 @@ RSpec.describe 'tomograph' do
     let(:options) { '--split' }
     let(:input_path) { 'spec/fixtures/exe-split.yaml' }
     let(:sessions_POST_path) { 'spec/fixtures/exe-split-:sessions POST.json' }
-    let(:sessions_DELETE_path) { 'spec/fixtures/exe-split-:sessions:{id} DELETE.json' }
+    let(:sessions_DELETE_path) { 'spec/fixtures/exe-split-:sessions:(id) DELETE.json' }
     let(:output_path) { Dir.mktmpdir }
 
     it 'produces correct json' do
       expect(run_tomograph).to be_truthy
       expect(json_read(output_path, ':sessions POST.json')).to eq(json_read(sessions_POST_path))
-      expect(json_read(output_path, ':sessions:{id} DELETE.json')).to eq(json_read(sessions_DELETE_path))
+      expect(json_read(output_path, ':sessions:(id) DELETE.json')).to eq(json_read(sessions_DELETE_path))
       expect(Dir.entries(output_path).count).to eq(4)
     end
 
