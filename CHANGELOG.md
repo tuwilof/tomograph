@@ -1,6 +1,6 @@
 # Change log
 
-###
+### 2.4.2 - 2018-11-29
 
 * bug fixes
   * replace '/' with '#' in filenames in JSON split mode
