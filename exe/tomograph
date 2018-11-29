@@ -52,7 +52,7 @@ def write_split_json(actions, output)
   FileUtils.mkdir_p(output)
   actions.clone.each do |action|
     json_name = "#{action.delete("path").to_s} #{action.delete("method")}.json"
-    [['/', ':'],
+    [['/', '#'],
      ['{', '('],
      ['}', ')']].each do |pattern, replacement|
       json_name.gsub!(pattern, replacement)
