@@ -10,7 +10,7 @@ RSpec.describe Tomograph::ApiBlueprint::Yaml do
 
   context 'given YAML with two actions' do
     subject { described_class.new('/api/v1', nil, input_file) }
-    let(:input_file) { 'spec/fixtures/api3.yaml' }
+    let(:input_file) { 'spec/fixtures/drafter_3/api3.yaml' }
     let(:tomogram_hash) do
       [{"path"=>Tomograph::Path.new("/api/v1/sessions"),
         "method"=>"POST",

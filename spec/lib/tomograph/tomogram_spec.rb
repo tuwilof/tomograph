@@ -5,7 +5,7 @@ RSpec.describe Tomograph::Tomogram do
     subject do
       JSON.parse(
         described_class.new(
-          drafter_yaml_path: File.expand_path("spec/fixtures/#{documentation}"),
+          drafter_yaml_path: File.expand_path("spec/fixtures/drafter_3/#{documentation}"),
           prefix: ''
         ).to_json
       )
@@ -438,7 +438,7 @@ RSpec.describe Tomograph::Tomogram do
   describe '#to_resources' do
     subject do
       described_class.new(
-        drafter_yaml_path: File.expand_path("spec/fixtures/#{documentation}"),
+        drafter_yaml_path: File.expand_path("spec/fixtures/drafter_3/#{documentation}"),
         prefix: ''
       ).to_resources
     end
