@@ -4,68 +4,97 @@ content:
     element: "category"
     meta:
       classes:
-        - "api"
-      title: "project"
+        element: "array"
+        content:
+          -
+            element: "string"
+            content: "api"
+      title:
+        element: "string"
+        content: "project"
     attributes:
-      meta:
-        -
-          element: "member"
-          meta:
-            classes:
-              - "user"
-          content:
-            key:
-              element: "string"
-              content: "FORMAT"
-            value:
-              element: "string"
-              content: "1A"
-        -
-          element: "member"
-          meta:
-            classes:
-              - "user"
-          content:
-            key:
-              element: "string"
-              content: "HOST"
-            value:
-              element: "string"
-              content: "http://test.local"
+      metadata:
+        element: "array"
+        content:
+          -
+            element: "member"
+            meta:
+              classes:
+                element: "array"
+                content:
+                  -
+                    element: "string"
+                    content: "user"
+            content:
+              key:
+                element: "string"
+                content: "FORMAT"
+              value:
+                element: "string"
+                content: "1A"
+          -
+            element: "member"
+            meta:
+              classes:
+                element: "array"
+                content:
+                  -
+                    element: "string"
+                    content: "user"
+            content:
+              key:
+                element: "string"
+                content: "HOST"
+              value:
+                element: "string"
+                content: "http://test.local"
     content:
       -
         element: "category"
         meta:
           classes:
-            - "resourceGroup"
-          title: "project"
+            element: "array"
+            content:
+              -
+                element: "string"
+                content: "resourceGroup"
+          title:
+            element: "string"
+            content: "project"
         content:
           -
             element: "copy"
-            content: "Project\n\n"
+            content: "Project"
           -
             element: "resource"
             meta:
-              title: "Authentication"
+              title:
+                element: "string"
+                content: "Authentication"
             attributes:
-              href: "/sessions"
+              href:
+                element: "string"
+                content: "/sessions"
             content:
               -
                 element: "transition"
                 meta:
-                  title: "Sign In"
+                  title:
+                    element: "string"
+                    content: "Sign In"
                 content:
                   -
                     element: "copy"
-                    content: "Comment\n\n"
+                    content: "Comment"
                   -
                     element: "httpTransaction"
                     content:
                       -
                         element: "httpRequest"
                         attributes:
-                          method: "POST"
-                          title: ""
+                          method:
+                            element: "string"
+                            content: "POST"
                           headers:
                             element: "httpHeaders"
                             content:
@@ -86,14 +115,42 @@ content:
     element: "annotation"
     meta:
       classes:
-        - "warning"
+        element: "array"
+        content:
+          -
+            element: "string"
+            content: "warning"
     attributes:
-      code: 6
+      code:
+        element: "number"
+        content: 6
       sourceMap:
-        -
-          element: "sourceMap"
-          content:
-            -
-              - 104
-              - 19
+        element: "array"
+        content:
+          -
+            element: "sourceMap"
+            content:
+              -
+                element: "array"
+                content:
+                  -
+                    element: "number"
+                    attributes:
+                      line:
+                        element: "number"
+                        content: 12
+                      column:
+                        element: "number"
+                        content: 1
+                    content: 104
+                  -
+                    element: "number"
+                    attributes:
+                      line:
+                        element: "number"
+                        content: 12
+                      column:
+                        element: "number"
+                        content: 19
+                    content: 19
     content: "action is missing a response for a request"

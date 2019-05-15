@@ -4,75 +4,114 @@ content:
     element: "category"
     meta:
       classes:
-        - "api"
-      title: "project"
+        element: "array"
+        content:
+          -
+            element: "string"
+            content: "api"
+      title:
+        element: "string"
+        content: "project"
     attributes:
-      meta:
-        -
-          element: "member"
-          meta:
-            classes:
-              - "user"
-          content:
-            key:
-              element: "string"
-              content: "FORMAT"
-            value:
-              element: "string"
-              content: "1A"
-        -
-          element: "member"
-          meta:
-            classes:
-              - "user"
-          content:
-            key:
-              element: "string"
-              content: "HOST"
-            value:
-              element: "string"
-              content: "http://test.local"
+      metadata:
+        element: "array"
+        content:
+          -
+            element: "member"
+            meta:
+              classes:
+                element: "array"
+                content:
+                  -
+                    element: "string"
+                    content: "user"
+            content:
+              key:
+                element: "string"
+                content: "FORMAT"
+              value:
+                element: "string"
+                content: "1A"
+          -
+            element: "member"
+            meta:
+              classes:
+                element: "array"
+                content:
+                  -
+                    element: "string"
+                    content: "user"
+            content:
+              key:
+                element: "string"
+                content: "HOST"
+              value:
+                element: "string"
+                content: "http://test.local"
     content:
       -
         element: "copy"
-        content: "Project\n\n"
+        content: "Project"
       -
         element: "category"
         meta:
           classes:
-            - "resourceGroup"
-          title: "project"
+            element: "array"
+            content:
+              -
+                element: "string"
+                content: "resourceGroup"
+          title:
+            element: "string"
+            content: "project"
         content:
           -
             element: "copy"
-            content: "Project\n\n"
+            content: "Project"
           -
             element: "resource"
             meta:
-              title: "Authentication"
+              title:
+                element: "string"
+                content: "Authentication"
             attributes:
-              href: "/sessions"
+              href:
+                element: "string"
+                content: "/sessions"
             content:
               -
                 element: "transition"
                 meta:
-                  title: "Sign Out"
+                  title:
+                    element: "string"
+                    content: "Sign Out"
                 attributes:
-                  href: "/sessions/{id}"
+                  href:
+                    element: "string"
+                    content: "/sessions/{id}"
                   hrefVariables:
                     element: "hrefVariables"
                     content:
                       -
                         element: "member"
+                        meta:
+                          title:
+                            element: "string"
+                            content: "number"
                         attributes:
                           typeAttributes:
-                            - "required"
+                            element: "array"
+                            content:
+                              -
+                                element: "string"
+                                content: "required"
                         content:
                           key:
                             element: "string"
                             content: "id"
                           value:
-                            element: "number"
+                            element: "string"
+                            content: "550e8400-e29b-41d4-a716-446655440000"
                 content:
                   -
                     element: "httpTransaction"
@@ -80,7 +119,9 @@ content:
                       -
                         element: "httpRequest"
                         attributes:
-                          method: "DELETE"
+                          method:
+                            element: "string"
+                            content: "DELETE"
                           headers:
                             element: "httpHeaders"
                             content:
@@ -97,27 +138,35 @@ content:
                       -
                         element: "httpResponse"
                         attributes:
-                          statusCode: "200"
+                          statusCode:
+                            element: "string"
+                            content: "200"
                         content:
                           -
                             element: "dataStructure"
                             content:
-                              -
-                                element: "object"
-                                content:
-                                  -
-                                    element: "member"
-                                    meta:
-                                      description: "normal response"
-                                    attributes:
-                                      typeAttributes:
-                                        - "required"
-                                        - "fixed"
-                                    content:
-                                      key:
-                                        element: "string"
-                                        content: "status"
-                                      value:
-                                        element: "string"
-                                        content: "ok"
-
+                              element: "object"
+                              content:
+                                -
+                                  element: "member"
+                                  meta:
+                                    description:
+                                      element: "string"
+                                      content: "normal response"
+                                  attributes:
+                                    typeAttributes:
+                                      element: "array"
+                                      content:
+                                        -
+                                          element: "string"
+                                          content: "required"
+                                        -
+                                          element: "string"
+                                          content: "fixed"
+                                  content:
+                                    key:
+                                      element: "string"
+                                      content: "status"
+                                    value:
+                                      element: "string"
+                                      content: "ok"

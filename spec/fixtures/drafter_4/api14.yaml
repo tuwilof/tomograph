@@ -4,59 +4,87 @@ content:
     element: "category"
     meta:
       classes:
-        - "api"
-      title: "project"
+        element: "array"
+        content:
+          -
+            element: "string"
+            content: "api"
+      title:
+        element: "string"
+        content: "project"
     attributes:
-      meta:
-        -
-          element: "member"
-          meta:
-            classes:
-              - "user"
-          content:
-            key:
-              element: "string"
-              content: "FORMAT"
-            value:
-              element: "string"
-              content: "1A"
-        -
-          element: "member"
-          meta:
-            classes:
-              - "user"
-          content:
-            key:
-              element: "string"
-              content: "HOST"
-            value:
-              element: "string"
-              content: "http://test.local"
+      metadata:
+        element: "array"
+        content:
+          -
+            element: "member"
+            meta:
+              classes:
+                element: "array"
+                content:
+                  -
+                    element: "string"
+                    content: "user"
+            content:
+              key:
+                element: "string"
+                content: "FORMAT"
+              value:
+                element: "string"
+                content: "1A"
+          -
+            element: "member"
+            meta:
+              classes:
+                element: "array"
+                content:
+                  -
+                    element: "string"
+                    content: "user"
+            content:
+              key:
+                element: "string"
+                content: "HOST"
+              value:
+                element: "string"
+                content: "http://test.local"
     content:
       -
         element: "copy"
-        content: "Project\n\n"
+        content: "Project"
       -
         element: "category"
         meta:
           classes:
-            - "resourceGroup"
-          title: "project"
+            element: "array"
+            content:
+              -
+                element: "string"
+                content: "resourceGroup"
+          title:
+            element: "string"
+            content: "project"
         content:
           -
             element: "copy"
-            content: "Project\n\n"
+            content: "Project"
           -
             element: "resource"
             meta:
-              title: "Authentication"
+              title:
+                element: "string"
+                content: "Authentication"
             attributes:
-              href: "/sessions"
+              href:
+                element: "string"
+                content: "/sessions"
             content:
               -
                 element: "transition"
                 meta:
-                  title: "Sign Out"
+                  title:
+                    element: "string"
+                    content: "Sign Out"
                 content:
                   -
                     element: "httpTransaction"
@@ -64,7 +92,9 @@ content:
                       -
                         element: "httpRequest"
                         attributes:
-                          method: "DELETE"
+                          method:
+                            element: "string"
+                            content: "DELETE"
                           headers:
                             element: "httpHeaders"
                             content:
@@ -81,76 +111,242 @@ content:
                           -
                             element: "dataStructure"
                             content:
-                              -
-                                element: "object"
-                                content:
-                                  -
-                                    element: "member"
-                                    attributes:
-                                      typeAttributes:
-                                        - "required"
-                                    content:
-                                      key:
-                                        element: "string"
-                                        content: "example"
-                                      value:
-                                        element: "string"
+                              element: "object"
+                              content:
+                                -
+                                  element: "member"
+                                  attributes:
+                                    typeAttributes:
+                                      element: "array"
+                                      content:
+                                        -
+                                          element: "string"
+                                          content: "required"
+                                  content:
+                                    key:
+                                      element: "string"
+                                      content: "example"
+                                    value:
+                                      element: "string"
                           -
                             element: "asset"
                             meta:
                               classes:
-                                - "messageBody"
+                                element: "array"
+                                content:
+                                  -
+                                    element: "string"
+                                    content: "messageBody"
                             attributes:
-                              contentType: "multipart/form-data;boundary=BOUNDARY"
+                              contentType:
+                                element: "string"
+                                content: "multipart/form-data;boundary=BOUNDARY"
                             content: "--BOUNDARY\nContent-Disposition: form-data; filename=\"$filename\"\nContent-Type: $mimetype\nContent-Transfer-Encoding: binary\n$binarydata\n--BOUNDARY--\n"
                       -
                         element: "httpResponse"
                         attributes:
-                          statusCode: "200"
+                          statusCode:
+                            element: "string"
+                            content: "200"
                         content: []
   -
     element: "annotation"
     meta:
       classes:
-        - "warning"
+        element: "array"
+        content:
+          -
+            element: "string"
+            content: "warning"
     attributes:
-      code: 10
+      code:
+        element: "number"
+        content: 10
       sourceMap:
-        -
-          element: "sourceMap"
-          content:
-            -
-              - 246
-              - 5
-            -
-              - 259
-              - 11
-            -
-              - 278
-              - 53
-            -
-              - 339
-              - 24
-            -
-              - 371
-              - 35
+        element: "array"
+        content:
+          -
+            element: "sourceMap"
+            content:
+              -
+                element: "array"
+                content:
+                  -
+                    element: "number"
+                    attributes:
+                      line:
+                        element: "number"
+                        content: 19
+                      column:
+                        element: "number"
+                        content: 7
+                    content: 246
+                  -
+                    element: "number"
+                    attributes:
+                      line:
+                        element: "number"
+                        content: 19
+                      column:
+                        element: "number"
+                        content: 11
+                    content: 5
+              -
+                element: "array"
+                content:
+                  -
+                    element: "number"
+                    attributes:
+                      line:
+                        element: "number"
+                        content: 20
+                      column:
+                        element: "number"
+                        content: 9
+                    content: 259
+                  -
+                    element: "number"
+                    attributes:
+                      line:
+                        element: "number"
+                        content: 20
+                      column:
+                        element: "number"
+                        content: 19
+                    content: 11
+              -
+                element: "array"
+                content:
+                  -
+                    element: "number"
+                    attributes:
+                      line:
+                        element: "number"
+                        content: 21
+                      column:
+                        element: "number"
+                        content: 9
+                    content: 278
+                  -
+                    element: "number"
+                    attributes:
+                      line:
+                        element: "number"
+                        content: 21
+                      column:
+                        element: "number"
+                        content: 61
+                    content: 53
+              -
+                element: "array"
+                content:
+                  -
+                    element: "number"
+                    attributes:
+                      line:
+                        element: "number"
+                        content: 22
+                      column:
+                        element: "number"
+                        content: 9
+                    content: 339
+                  -
+                    element: "number"
+                    attributes:
+                      line:
+                        element: "number"
+                        content: 22
+                      column:
+                        element: "number"
+                        content: 32
+                    content: 24
+              -
+                element: "array"
+                content:
+                  -
+                    element: "number"
+                    attributes:
+                      line:
+                        element: "number"
+                        content: 23
+                      column:
+                        element: "number"
+                        content: 9
+                    content: 371
+                  -
+                    element: "number"
+                    attributes:
+                      line:
+                        element: "number"
+                        content: 24
+                      column:
+                        element: "number"
+                        content: 1
+                    content: 35
     content: "message-body asset is expected to be a pre-formatted code block, separate it by a newline and indent every of its line by 12 spaces or 3 tabs"
   -
     element: "annotation"
     meta:
       classes:
-        - "warning"
+        element: "array"
+        content:
+          -
+            element: "string"
+            content: "warning"
     attributes:
-      code: 10
+      code:
+        element: "number"
+        content: 10
       sourceMap:
-        -
-          element: "sourceMap"
-          content:
-            -
-              - 414
-              - 12
-            -
-              - 434
-              - 13
+        element: "array"
+        content:
+          -
+            element: "sourceMap"
+            content:
+              -
+                element: "array"
+                content:
+                  -
+                    element: "number"
+                    attributes:
+                      line:
+                        element: "number"
+                        content: 25
+                      column:
+                        element: "number"
+                        content: 9
+                    content: 414
+                  -
+                    element: "number"
+                    attributes:
+                      line:
+                        element: "number"
+                        content: 25
+                      column:
+                        element: "number"
+                        content: 20
+                    content: 12
+              -
+                element: "array"
+                content:
+                  -
+                    element: "number"
+                    attributes:
+                      line:
+                        element: "number"
+                        content: 26
+                      column:
+                        element: "number"
+                        content: 9
+                    content: 434
+                  -
+                    element: "number"
+                    attributes:
+                      line:
+                        element: "number"
+                        content: 26
+                      column:
+                        element: "number"
+                        content: 21
+                    content: 13
     content: "message-body asset is expected to be a pre-formatted code block, every of its line indented by exactly 12 spaces or 3 tabs"
-
