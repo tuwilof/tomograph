@@ -14,7 +14,7 @@ RSpec.describe Tomograph::Tomogram do
     let(:documentation) { nil }
 
     context 'if one action' do
-      let(:json_schema) { 'spec/fixtures/api2.json' }
+      let(:json_schema) { 'spec/fixtures/tomogram/api2.json' }
       let(:documentation) { 'api2.yaml' }
 
       it 'parses documents' do
@@ -23,7 +23,7 @@ RSpec.describe Tomograph::Tomogram do
     end
 
     context 'additional desription' do
-      let(:json_schema) { 'spec/fixtures/api16.json' }
+      let(:json_schema) { 'spec/fixtures/tomogram/api16.json' }
       let(:documentation) { 'api16.yaml' }
 
       it 'parses documents' do
@@ -32,7 +32,7 @@ RSpec.describe Tomograph::Tomogram do
     end
 
     context 'if two actions' do
-      let(:json_schema) { 'spec/fixtures/api3.json' }
+      let(:json_schema) { 'spec/fixtures/tomogram/api3.json' }
       let(:documentation) { 'api3.yaml' }
 
       it 'parses documents' do
@@ -41,7 +41,7 @@ RSpec.describe Tomograph::Tomogram do
     end
 
     context 'if two controllers and three actions' do
-      let(:json_schema) { 'spec/fixtures/api4.json' }
+      let(:json_schema) { 'spec/fixtures/tomogram/api4.json' }
       let(:documentation) { 'api4.yaml' }
 
       it 'parses documents' do
@@ -49,7 +49,7 @@ RSpec.describe Tomograph::Tomogram do
       end
 
       context 'and separated data structures' do
-        let(:json_schema) { 'spec/fixtures/separated_data_structures.json' }
+        let(:json_schema) { 'spec/fixtures/tomogram/separated_data_structures.json' }
         let(:documentation) { 'separated_data_structures.yaml' }
 
         it 'parses documents' do
@@ -59,7 +59,7 @@ RSpec.describe Tomograph::Tomogram do
     end
 
     context 'blank request' do
-      let(:json_schema) { 'spec/fixtures/api5.json' }
+      let(:json_schema) { 'spec/fixtures/tomogram/api5.json' }
       let(:documentation) { 'api5.yaml' }
 
       it 'parses documents' do
@@ -68,7 +68,7 @@ RSpec.describe Tomograph::Tomogram do
     end
 
     context 'action with comment' do
-      let(:json_schema) { 'spec/fixtures/api6.json' }
+      let(:json_schema) { 'spec/fixtures/tomogram/api6.json' }
       let(:documentation) { 'api6.yaml' }
 
       it 'parses documents' do
@@ -77,7 +77,7 @@ RSpec.describe Tomograph::Tomogram do
     end
 
     context 'action with his unique path' do
-      let(:json_schema) { 'spec/fixtures/api7.json' }
+      let(:json_schema) { 'spec/fixtures/tomogram/api7.json' }
       let(:documentation) { 'api7.yaml' }
 
       it 'parses documents' do
@@ -87,7 +87,7 @@ RSpec.describe Tomograph::Tomogram do
 
     context 'if there is a description of the project' do
       context 'action with his unique path' do
-        let(:json_schema) { 'spec/fixtures/api8.json' }
+        let(:json_schema) { 'spec/fixtures/tomogram/api8.json' }
         let(:documentation) { 'api8.yaml' }
 
         it 'parses documents' do
@@ -96,7 +96,7 @@ RSpec.describe Tomograph::Tomogram do
       end
 
       context 'action with his unique path' do
-        let(:json_schema) { 'spec/fixtures/api9.json' }
+        let(:json_schema) { 'spec/fixtures/tomogram/api9.json' }
         let(:documentation) { 'api9.yaml' }
 
         it 'parses documents' do
@@ -106,7 +106,7 @@ RSpec.describe Tomograph::Tomogram do
     end
 
     context 'if the structure of the first' do
-      let(:json_schema) { 'spec/fixtures/api10.json' }
+      let(:json_schema) { 'spec/fixtures/tomogram/api10.json' }
       let(:documentation) { 'api10.yaml' }
 
       it 'parses documents' do
@@ -115,7 +115,7 @@ RSpec.describe Tomograph::Tomogram do
     end
 
     context 'if the structure of the first' do
-      let(:json_schema) { 'spec/fixtures/api11.json' }
+      let(:json_schema) { 'spec/fixtures/tomogram/api11.json' }
       let(:documentation) { 'api11.yaml' }
 
       it 'parses documents' do
@@ -124,7 +124,7 @@ RSpec.describe Tomograph::Tomogram do
     end
 
     context 'if two response with the same code' do
-      let(:json_schema) { 'spec/fixtures/api12.json' }
+      let(:json_schema) { 'spec/fixtures/tomogram/api12.json' }
       let(:documentation) { 'api12.yaml' }
 
       it 'parses documents' do
@@ -133,7 +133,7 @@ RSpec.describe Tomograph::Tomogram do
     end
 
     context 'if you forget to specify the type of response' do
-      let(:json_schema) { 'spec/fixtures/api13.json' }
+      let(:json_schema) { 'spec/fixtures/tomogram/api13.json' }
       let(:documentation) { 'api13.yaml' }
 
       it 'parses documents' do
@@ -142,7 +142,7 @@ RSpec.describe Tomograph::Tomogram do
     end
 
     context 'if you with to specify the type of request' do
-      let(:json_schema) { 'spec/fixtures/api14.json' }
+      let(:json_schema) { 'spec/fixtures/tomogram/api14.json' }
       let(:documentation) { 'api14.yaml' }
 
       it 'parses documents' do
@@ -151,7 +151,7 @@ RSpec.describe Tomograph::Tomogram do
     end
 
     context 'if you with to specify the type of response' do
-      let(:json_schema) { 'spec/fixtures/api15.json' }
+      let(:json_schema) { 'spec/fixtures/tomogram/api15.json' }
       let(:documentation) { 'api15.yaml' }
 
       it 'parses documents' do
@@ -160,7 +160,7 @@ RSpec.describe Tomograph::Tomogram do
     end
 
     context 'with request body' do
-      let(:json_schema) { 'spec/fixtures/api_builtin_scheme.json' }
+      let(:json_schema) { 'spec/fixtures/tomogram/api_builtin_scheme.json' }
       let(:documentation) { 'api_builtin_scheme.yaml' }
 
       it 'parses documents' do
@@ -169,7 +169,7 @@ RSpec.describe Tomograph::Tomogram do
     end
 
     context 'with a broken schema' do
-      let(:json_schema) { 'spec/fixtures/api_with_broken_schema.json' }
+      let(:json_schema) { 'spec/fixtures/tomogram/api_with_broken_schema.json' }
       let(:documentation) { 'api_with_broken_schema.yaml' }
 
       before { allow_any_instance_of(Kernel).to receive(:puts) }
@@ -180,7 +180,7 @@ RSpec.describe Tomograph::Tomogram do
     end
 
     context 'content-type' do
-      let(:json_schema) { 'spec/fixtures/content_type.json' }
+      let(:json_schema) { 'spec/fixtures/tomogram/content_type.json' }
       let(:documentation) { 'content_type.yaml' }
 
       it 'parses documents' do
@@ -202,7 +202,7 @@ RSpec.describe Tomograph::Tomogram do
       )
       allow(Tomograph::ApiBlueprint::Yaml).to receive(:new).and_return(double(to_tomogram: tomogram))
     end
-    let(:json_schema) { 'spec/fixtures/api2.json' }
+    let(:json_schema) { 'spec/fixtures/tomogram/api2.json' }
     let(:documentation) { 'api2.yaml' }
 
     context 'if not found in the tomogram' do
@@ -266,9 +266,9 @@ RSpec.describe Tomograph::Tomogram do
     end
 
     context 'if inserted' do
-      let(:req1) { MultiJson.load(File.read('spec/fixtures/request1.json')) }
-      let(:req2) { MultiJson.load(File.read('spec/fixtures/request2.json')) }
-      let(:req3) { MultiJson.load(File.read('spec/fixtures/request3.json')) }
+      let(:req1) { MultiJson.load(File.read('spec/fixtures/tomogram/request1.json')) }
+      let(:req2) { MultiJson.load(File.read('spec/fixtures/tomogram/request2.json')) }
+      let(:req3) { MultiJson.load(File.read('spec/fixtures/tomogram/request3.json')) }
       let(:request1) do
         double(
           path: req1['path'],
@@ -325,7 +325,7 @@ RSpec.describe Tomograph::Tomogram do
       )
       allow(Tomograph::ApiBlueprint::Yaml).to receive(:new).and_return(double(to_tomogram: tomogram))
     end
-    let(:json_schema) { 'spec/fixtures/api2.json' }
+    let(:json_schema) { 'spec/fixtures/tomogram/api2.json' }
     let(:documentation) { 'api2.yaml' }
 
     context 'if not found in the tomogram' do
@@ -389,9 +389,9 @@ RSpec.describe Tomograph::Tomogram do
     end
 
     context 'if inserted' do
-      let(:req1) { MultiJson.load(File.read('spec/fixtures/request1.json')) }
-      let(:req2) { MultiJson.load(File.read('spec/fixtures/request2.json')) }
-      let(:req3) { MultiJson.load(File.read('spec/fixtures/request3.json')) }
+      let(:req1) { MultiJson.load(File.read('spec/fixtures/tomogram/request1.json')) }
+      let(:req2) { MultiJson.load(File.read('spec/fixtures/tomogram/request2.json')) }
+      let(:req3) { MultiJson.load(File.read('spec/fixtures/tomogram/request3.json')) }
       let(:request1) do
         double(
           path: req1['path'],

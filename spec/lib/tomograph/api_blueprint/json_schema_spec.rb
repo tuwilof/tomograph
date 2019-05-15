@@ -4,7 +4,7 @@ require 'tomograph/api_blueprint/json_schema'
 RSpec.describe Tomograph::ApiBlueprint::JsonSchema do
   context 'given JSON with two actions' do
     subject { described_class.new('/api/v1', input_file) }
-    let(:input_file) { 'spec/fixtures/api3.json' }
+    let(:input_file) { 'spec/fixtures/tomogram/api3.json' }
     let(:tomogram_hash) do
       [{"path"=>Tomograph::Path.new("/api/v1/sessions"),
         "method"=>"POST",
