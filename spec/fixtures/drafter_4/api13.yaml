@@ -1,0 +1,172 @@
+element: "parseResult"
+content:
+  -
+    element: "category"
+    meta:
+      classes:
+        element: "array"
+        content:
+          -
+            element: "string"
+            content: "api"
+      title:
+        element: "string"
+        content: "project"
+    attributes:
+      metadata:
+        element: "array"
+        content:
+          -
+            element: "member"
+            meta:
+              classes:
+                element: "array"
+                content:
+                  -
+                    element: "string"
+                    content: "user"
+            content:
+              key:
+                element: "string"
+                content: "FORMAT"
+              value:
+                element: "string"
+                content: "1A"
+          -
+            element: "member"
+            meta:
+              classes:
+                element: "array"
+                content:
+                  -
+                    element: "string"
+                    content: "user"
+            content:
+              key:
+                element: "string"
+                content: "HOST"
+              value:
+                element: "string"
+                content: "http://test.local"
+    content:
+      -
+        element: "copy"
+        content: "Project"
+      -
+        element: "category"
+        meta:
+          classes:
+            element: "array"
+            content:
+              -
+                element: "string"
+                content: "resourceGroup"
+          title:
+            element: "string"
+            content: "project"
+        content:
+          -
+            element: "copy"
+            content: "Project"
+          -
+            element: "resource"
+            meta:
+              title:
+                element: "string"
+                content: "Authentication"
+            attributes:
+              href:
+                element: "string"
+                content: "/sessions"
+            content:
+              -
+                element: "transition"
+                meta:
+                  title:
+                    element: "string"
+                    content: "Sign Out"
+                attributes:
+                  href:
+                    element: "string"
+                    content: "/sessions/{id}"
+                  hrefVariables:
+                    element: "hrefVariables"
+                    content:
+                      -
+                        element: "member"
+                        meta:
+                          title:
+                            element: "string"
+                            content: "number"
+                        attributes:
+                          typeAttributes:
+                            element: "array"
+                            content:
+                              -
+                                element: "string"
+                                content: "required"
+                        content:
+                          key:
+                            element: "string"
+                            content: "id"
+                          value:
+                            element: "string"
+                            content: "550e8400-e29b-41d4-a716-446655440000"
+                content:
+                  -
+                    element: "httpTransaction"
+                    content:
+                      -
+                        element: "httpRequest"
+                        attributes:
+                          method:
+                            element: "string"
+                            content: "DELETE"
+                          headers:
+                            element: "httpHeaders"
+                            content:
+                              -
+                                element: "member"
+                                content:
+                                  key:
+                                    element: "string"
+                                    content: "Content-Type"
+                                  value:
+                                    element: "string"
+                                    content: "application/json"
+                        content: []
+                      -
+                        element: "httpResponse"
+                        attributes:
+                          statusCode:
+                            element: "string"
+                            content: "200"
+                        content:
+                          -
+                            element: "dataStructure"
+                            content:
+                              element: "object"
+                              content:
+                                -
+                                  element: "member"
+                                  meta:
+                                    description:
+                                      element: "string"
+                                      content: "normal response"
+                                  attributes:
+                                    typeAttributes:
+                                      element: "array"
+                                      content:
+                                        -
+                                          element: "string"
+                                          content: "required"
+                                        -
+                                          element: "string"
+                                          content: "fixed"
+                                  content:
+                                    key:
+                                      element: "string"
+                                      content: "status"
+                                    value:
+                                      element: "string"
+                                      content: "ok"

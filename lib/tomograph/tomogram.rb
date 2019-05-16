@@ -1,17 +1,20 @@
 require 'multi_json'
 require 'tomograph/path'
 require 'tomograph/api_blueprint/json_schema'
-require 'tomograph/api_blueprint/yaml'
+require 'tomograph/api_blueprint/drafter_3/yaml'
+require 'tomograph/api_blueprint/drafter_4/yaml'
 
 module Tomograph
   class Tomogram
     extend Gem::Deprecate
 
-    def initialize(prefix: '', apib_path: nil, drafter_yaml_path: nil, tomogram_json_path: nil)
+    def initialize(prefix: '', apib_path: nil, drafter_yaml_path: nil, tomogram_json_path: nil, drafter_4_apib_path: nil, drafter_4_yaml_path: nil)
       @documentation = if tomogram_json_path
                          Tomograph::ApiBlueprint::JsonSchema.new(prefix, tomogram_json_path)
+                       elsif drafter_4_yaml_path || drafter_4_apib_path
+                         Tomograph::ApiBlueprint::Drafter4::Yaml.new(prefix, drafter_4_apib_path, drafter_4_yaml_path)
                        else
-                         Tomograph::ApiBlueprint::Yaml.new(prefix, apib_path, drafter_yaml_path)
+                         Tomograph::ApiBlueprint::Drafter3::Yaml.new(prefix, apib_path, drafter_yaml_path)
                        end
       @prefix = prefix
     end

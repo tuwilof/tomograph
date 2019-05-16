@@ -1,0 +1,87 @@
+element: "parseResult"
+content:
+  -
+    element: "category"
+    meta:
+      classes:
+        element: "array"
+        content:
+          -
+            element: "string"
+            content: "api"
+      title:
+        element: "string"
+        content: ""
+    content:
+      -
+        element: "category"
+        meta:
+          classes:
+            element: "array"
+            content:
+              -
+                element: "string"
+                content: "resourceGroup"
+          title:
+            element: "string"
+            content: "project"
+        content:
+          -
+            element: "resource"
+            meta:
+              title:
+                element: "string"
+                content: "Authentication"
+            attributes:
+              href:
+                element: "string"
+                content: "/sessions"
+            content:
+              -
+                element: "transition"
+                meta:
+                  title:
+                    element: "string"
+                    content: "Sign In"
+                content:
+                  -
+                    element: "httpTransaction"
+                    content:
+                      -
+                        element: "httpRequest"
+                        attributes:
+                          method:
+                            element: "string"
+                            content: "POST"
+                          headers:
+                            element: "httpHeaders"
+                            content:
+                              -
+                                element: "member"
+                                content:
+                                  key:
+                                    element: "string"
+                                    content: "Content-Type"
+                                  value:
+                                    element: "string"
+                                    content: "application/json"
+                        content: []
+                      -
+                        element: "httpResponse"
+                        attributes:
+                          statusCode:
+                            element: "string"
+                            content: "200"
+                          headers:
+                            element: "httpHeaders"
+                            content:
+                              -
+                                element: "member"
+                                content:
+                                  key:
+                                    element: "string"
+                                    content: "Content-Type"
+                                  value:
+                                    element: "string"
+                                    content: "application/json"
+                        content: []

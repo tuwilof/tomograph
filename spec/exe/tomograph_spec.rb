@@ -2,7 +2,7 @@ require 'tempfile'
 require 'spec_helper'
 
 RSpec.describe 'tomograph' do
-  let(:input_path) { 'spec/fixtures/exe.yaml' }
+  let(:input_path) { 'spec/fixtures/drafter_3/exe.yaml' }
   let(:options) {}
   let(:output_file) { Tempfile.new('') }
   let(:output_path) { output_file.path }
@@ -19,7 +19,7 @@ RSpec.describe 'tomograph' do
   end
 
   context 'in default mode' do
-    let(:expected_path) { 'spec/fixtures/exe.json' }
+    let(:expected_path) { 'spec/fixtures/tomogram/exe.json' }
 
     it 'produces correct json' do
       run_tests_with_file
@@ -27,7 +27,7 @@ RSpec.describe 'tomograph' do
   end
 
   context 'with --exclude-description' do
-    let(:expected_path) { 'spec/fixtures/exe-exclude-description.json' }
+    let(:expected_path) { 'spec/fixtures/tomogram/exe-exclude-description.json' }
     let(:options) { '--exclude-description' }
 
     it 'produces correct json' do
@@ -41,9 +41,9 @@ RSpec.describe 'tomograph' do
 
   context 'with --split' do
     let(:options) { '--split' }
-    let(:input_path) { 'spec/fixtures/exe-split.yaml' }
-    let(:sessions_POST_path) { 'spec/fixtures/exe-split-#sessions POST.json' }
-    let(:sessions_DELETE_path) { 'spec/fixtures/exe-split-#sessions#(id) DELETE.json' }
+    let(:input_path) { 'spec/fixtures/drafter_3/exe-split.yaml' }
+    let(:sessions_POST_path) { 'spec/fixtures/tomogram/exe-split-#sessions POST.json' }
+    let(:sessions_DELETE_path) { 'spec/fixtures/tomogram/exe-split-#sessions#(id) DELETE.json' }
     let(:output_path) { Dir.mktmpdir }
 
     it 'produces correct json' do

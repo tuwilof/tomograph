@@ -1,10 +1,16 @@
 require 'spec_helper'
-require 'tomograph/api_blueprint/json_schema'
+require 'tomograph/api_blueprint/drafter_3/yaml'
 
-RSpec.describe Tomograph::ApiBlueprint::JsonSchema do
-  context 'given JSON with two actions' do
-    subject { described_class.new('/api/v1', input_file) }
-    let(:input_file) { 'spec/fixtures/tomogram/api3.json' }
+RSpec.describe Tomograph::ApiBlueprint::Drafter3::Yaml do
+  it 'not raise exception' do
+    allow_any_instance_of(Kernel).to receive(:`).and_return('')
+    allow_any_instance_of(YAML).to receive(:safe_load).and_return(double)
+    expect { described_class.new(nil, '', nil) }.not_to raise_exception
+  end
+
+  context 'given YAML with two actions' do
+    subject { described_class.new('/api/v1', nil, input_file) }
+    let(:input_file) { 'spec/fixtures/drafter_3/api3.yaml' }
     let(:tomogram_hash) do
       [{"path"=>Tomograph::Path.new("/api/v1/sessions"),
         "method"=>"POST",
@@ -68,5 +74,4 @@ RSpec.describe Tomograph::ApiBlueprint::JsonSchema do
       expect(subject.to_resources).to eq(resource_map)
     end
   end
-
 end
