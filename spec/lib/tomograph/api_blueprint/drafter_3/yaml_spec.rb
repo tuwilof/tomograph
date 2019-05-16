@@ -1,7 +1,7 @@
 require 'spec_helper'
-require 'tomograph/api_blueprint/yaml'
+require 'tomograph/api_blueprint/drafter_3/yaml'
 
-RSpec.describe Tomograph::ApiBlueprint::Yaml do
+RSpec.describe Tomograph::ApiBlueprint::Drafter3::Yaml do
   it 'not raise exception' do
     allow_any_instance_of(Kernel).to receive(:`).and_return('')
     allow_any_instance_of(YAML).to receive(:safe_load).and_return(double)

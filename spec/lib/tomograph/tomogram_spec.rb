@@ -200,7 +200,7 @@ RSpec.describe Tomograph::Tomogram do
       allow(Tomograph).to receive(:configuration).and_return(
         double(documentation: documentation, prefix: '', drafter_yaml: nil)
       )
-      allow(Tomograph::ApiBlueprint::Yaml).to receive(:new).and_return(double(to_tomogram: tomogram))
+      allow(Tomograph::ApiBlueprint::Drafter3::Yaml).to receive(:new).and_return(double(to_tomogram: tomogram))
     end
     let(:json_schema) { 'spec/fixtures/tomogram/api2.json' }
     let(:documentation) { 'api2.yaml' }
@@ -323,7 +323,7 @@ RSpec.describe Tomograph::Tomogram do
       allow(Tomograph).to receive(:configuration).and_return(
         double(documentation: documentation, prefix: '', drafter_yaml: nil)
       )
-      allow(Tomograph::ApiBlueprint::Yaml).to receive(:new).and_return(double(to_tomogram: tomogram))
+      allow(Tomograph::ApiBlueprint::Drafter3::Yaml).to receive(:new).and_return(double(to_tomogram: tomogram))
     end
     let(:json_schema) { 'spec/fixtures/tomogram/api2.json' }
     let(:documentation) { 'api2.yaml' }
@@ -456,7 +456,7 @@ RSpec.describe Tomograph::Tomogram do
 
   describe '#prefix_match?' do
     subject { described_class.new(prefix: '/api/v2') }
-    before { allow(Tomograph::ApiBlueprint::Yaml).to receive(:new) }
+    before { allow(Tomograph::ApiBlueprint::Drafter3::Yaml).to receive(:new) }
 
     it { expect(subject.prefix_match?('http://local/api/v2/users')).to be_truthy }
     it { expect(subject.prefix_match?('http://local/status')).to be_falsey }
