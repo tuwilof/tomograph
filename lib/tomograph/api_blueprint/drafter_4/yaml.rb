@@ -24,7 +24,7 @@ module Tomograph
 
         def group?(group)
           group['element'] != 'copy' && # Element is a human readable text
-            group['meta']['classes'][0] == 'resourceGroup' # skip Data Structures
+            group['meta']['classes']['content'][0]['content'] == 'resourceGroup' # skip Data Structures
         end
 
         def resources
@@ -41,7 +41,7 @@ module Tomograph
         end
 
         def resource_path(resource)
-          resource['attributes'] && resource['attributes']['href']
+          resource['attributes'] && resource['attributes']['href']['content']
         end
 
         def transitions
@@ -66,7 +66,7 @@ module Tomograph
         end
 
         def transition_path(transition, resource_path)
-          transition['attributes'] && transition['attributes']['href'] || resource_path
+          transition['attributes'] && transition['attributes']['href']['content'] || resource_path
         end
 
         def without_group_actions
