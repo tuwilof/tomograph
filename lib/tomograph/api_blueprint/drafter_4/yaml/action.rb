@@ -14,7 +14,7 @@ module Tomograph
           attr_reader :path, :resource
 
           def method
-            @method ||= @content.first['attributes']['method']
+            @method ||= @content.first['attributes']['method']['content']
           end
 
           def content_type
@@ -31,7 +31,7 @@ module Tomograph
 
           def json_schema(actions)
             schema_node = actions.find do |action|
-              action && action['element'] == 'asset' && action['attributes']['contentType'] == 'application/schema+json'
+              action && action['element'] == 'asset' && action['attributes']['contentType']['content'] == 'application/schema+json'
             end
             return {} unless schema_node
 
@@ -49,7 +49,7 @@ module Tomograph
             end
             @responses = @responses.map do |response|
               {
-                'status' => response['attributes']['statusCode'],
+                'status' => response['attributes']['statusCode']['content'],
                 'body' => json_schema(response['content']),
                 'content-type' => response['attributes'].has_key?('headers') ?
                   response['attributes']['headers']['content'][0]['content']['value']['content'] : nil
