@@ -482,7 +482,6 @@ RSpec.describe Tomograph::Tomogram do
         let(:documentation) { 'api2.yaml' }
 
         it 'parses documents' do
-          skip
           expect(subject).to eq(parsed)
         end
       end
@@ -492,7 +491,6 @@ RSpec.describe Tomograph::Tomogram do
         let(:documentation) { 'api16.yaml' }
 
         it 'parses documents' do
-          skip
           expect(subject).to eq(parsed)
         end
       end
@@ -502,7 +500,6 @@ RSpec.describe Tomograph::Tomogram do
         let(:documentation) { 'api3.yaml' }
 
         it 'parses documents' do
-          skip
           expect(subject).to eq(parsed)
         end
       end
@@ -512,7 +509,6 @@ RSpec.describe Tomograph::Tomogram do
         let(:documentation) { 'api4.yaml' }
 
         it 'parses documents' do
-          skip
           expect(subject).to eq(parsed)
         end
 
@@ -521,7 +517,6 @@ RSpec.describe Tomograph::Tomogram do
           let(:documentation) { 'separated_data_structures.yaml' }
 
           it 'parses documents' do
-            skip
             expect(subject).to eq(parsed)
           end
         end
@@ -532,7 +527,6 @@ RSpec.describe Tomograph::Tomogram do
         let(:documentation) { 'api5.yaml' }
 
         it 'parses documents' do
-          skip
           expect(subject).to eq(parsed)
         end
       end
@@ -542,7 +536,6 @@ RSpec.describe Tomograph::Tomogram do
         let(:documentation) { 'api6.yaml' }
 
         it 'parses documents' do
-          skip
           expect(subject).to eq(parsed)
         end
       end
@@ -552,7 +545,6 @@ RSpec.describe Tomograph::Tomogram do
         let(:documentation) { 'api7.yaml' }
 
         it 'parses documents' do
-          skip
           expect(subject).to eq(parsed)
         end
       end
@@ -563,7 +555,6 @@ RSpec.describe Tomograph::Tomogram do
           let(:documentation) { 'api8.yaml' }
 
           it 'parses documents' do
-            skip
             expect(subject).to eq(parsed)
           end
         end
@@ -573,7 +564,6 @@ RSpec.describe Tomograph::Tomogram do
           let(:documentation) { 'api9.yaml' }
 
           it 'parses documents' do
-            skip
             expect(subject).to eq(parsed)
           end
         end
@@ -584,7 +574,6 @@ RSpec.describe Tomograph::Tomogram do
         let(:documentation) { 'api10.yaml' }
 
         it 'parses documents' do
-          skip
           expect(subject).to eq(parsed)
         end
       end
@@ -594,7 +583,6 @@ RSpec.describe Tomograph::Tomogram do
         let(:documentation) { 'api11.yaml' }
 
         it 'parses documents' do
-          skip
           expect(subject).to eq(parsed)
         end
       end
@@ -604,7 +592,6 @@ RSpec.describe Tomograph::Tomogram do
         let(:documentation) { 'api12.yaml' }
 
         it 'parses documents' do
-          skip
           expect(subject).to eq(parsed)
         end
       end
@@ -614,7 +601,6 @@ RSpec.describe Tomograph::Tomogram do
         let(:documentation) { 'api13.yaml' }
 
         it 'parses documents' do
-          skip
           expect(subject).to eq(parsed)
         end
       end
@@ -624,7 +610,6 @@ RSpec.describe Tomograph::Tomogram do
         let(:documentation) { 'api14.yaml' }
 
         it 'parses documents' do
-          skip
           expect(subject).to eq(parsed)
         end
       end
@@ -634,7 +619,6 @@ RSpec.describe Tomograph::Tomogram do
         let(:documentation) { 'api15.yaml' }
 
         it 'parses documents' do
-          skip
           expect(subject).to eq(parsed)
         end
       end
@@ -644,7 +628,6 @@ RSpec.describe Tomograph::Tomogram do
         let(:documentation) { 'api_builtin_scheme.yaml' }
 
         it 'parses documents' do
-          skip
           expect(subject).to eq(parsed)
         end
       end
@@ -656,7 +639,6 @@ RSpec.describe Tomograph::Tomogram do
         before { allow_any_instance_of(Kernel).to receive(:puts) }
 
         it 'parses documents' do
-          skip
           expect(subject).to eq(parsed)
         end
       end
@@ -666,7 +648,6 @@ RSpec.describe Tomograph::Tomogram do
         let(:documentation) { 'content_type.yaml' }
 
         it 'parses documents' do
-          skip
           expect(subject).to eq(parsed)
         end
       end
@@ -946,7 +927,6 @@ RSpec.describe Tomograph::Tomogram do
         let(:documentation) { 'api2.yaml' }
 
         it 'parses documents' do
-          skip
           expect(subject).to eq(parsed)
         end
       end
