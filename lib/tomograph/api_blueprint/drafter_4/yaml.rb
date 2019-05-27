@@ -75,12 +75,11 @@ module Tomograph
         def without_group_actions
           transitions.inject([]) do |result_transition, transition|
             result_transition.push(transition['transition']['content'].each_with_object([]) do |content, result_contents|
-              next unless action?(content)
               result_contents.push(Tomograph::ApiBlueprint::Drafter4::Yaml::Action.new(
                                      content['content'],
                                      transition['transition_path'],
                                      transition['resource']
-              ))
+              )) if action?(content)
             end)
           end
         end

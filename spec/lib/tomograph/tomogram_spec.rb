@@ -198,9 +198,6 @@ RSpec.describe Tomograph::Tomogram do
 
       let(:parsed) { MultiJson.load(File.read(json_schema)) }
       before do
-        allow(Tomograph).to receive(:configuration).and_return(
-          double(documentation: documentation, prefix: '', drafter_yaml: nil)
-        )
         allow(Tomograph::ApiBlueprint::Drafter3::Yaml).to receive(:new).and_return(double(to_tomogram: tomogram))
       end
       let(:json_schema) { 'spec/fixtures/tomogram/api2.json' }
@@ -208,13 +205,17 @@ RSpec.describe Tomograph::Tomogram do
 
       context 'if not found in the tomogram' do
         it 'returns nil' do
-          expect(subject.find_request_with_content_type(method: method, path: path, content_type: content_type)).to eq(nil)
+          expect(subject.find_request_with_content_type(method: method,
+                                                        path: path,
+                                                        content_type: content_type)).to eq(nil)
         end
       end
 
       context 'without path' do
         it 'returns nil' do
-          expect(subject.find_request_with_content_type(method: method, path: nil, content_type: content_type)).to eq(nil)
+          expect(subject.find_request_with_content_type(method: method,
+                                                        path: nil,
+                                                        content_type: content_type)).to eq(nil)
         end
       end
 
@@ -238,7 +239,9 @@ RSpec.describe Tomograph::Tomogram do
           let(:path) { '/status/' }
 
           it 'return path withoud slash at the end' do
-            expect(subject.find_request_with_content_type(method: method, path: path, content_type: content_type)).to eq(request1)
+            expect(subject.find_request_with_content_type(method: method,
+                                                          path: path,
+                                                          content_type: content_type)).to eq(request1)
           end
         end
 
@@ -246,13 +249,17 @@ RSpec.describe Tomograph::Tomogram do
           let(:path) { '/status/?a=b&c=d' }
 
           it 'ignores query parameters' do
-            expect(subject.find_request_with_content_type(method: method, path: path, content_type: content_type)).to eq(request1)
+            expect(subject.find_request_with_content_type(method: method,
+                                                          path: path,
+                                                          content_type: content_type)).to eq(request1)
           end
         end
 
         context 'without parameters' do
           it 'return path' do
-            expect(subject.find_request_with_content_type(method: method, path: path, content_type: content_type)).to eq(request1)
+            expect(subject.find_request_with_content_type(method: method,
+                                                          path: path,
+                                                          content_type: content_type)).to eq(request1)
           end
         end
 
@@ -261,7 +268,9 @@ RSpec.describe Tomograph::Tomogram do
           let(:method) { 'DELETE' }
 
           it 'returns the modified path' do
-            expect(subject.find_request_with_content_type(method: method, path: path, content_type: content_type)).to eq(request2)
+            expect(subject.find_request_with_content_type(method: method,
+                                                          path: path,
+                                                          content_type: content_type)).to eq(request2)
           end
         end
       end
@@ -308,7 +317,9 @@ RSpec.describe Tomograph::Tomogram do
         let(:method) { 'GET' }
 
         it 'returns the modified path' do
-          expect(subject.find_request_with_content_type(method: method, path: path, content_type: content_type)).to eq(request3)
+          expect(subject.find_request_with_content_type(method: method,
+                                                        path: path,
+                                                        content_type: content_type)).to eq(request3)
         end
       end
     end
@@ -321,9 +332,6 @@ RSpec.describe Tomograph::Tomogram do
 
       let(:parsed) { MultiJson.load(File.read(json_schema)) }
       before do
-        allow(Tomograph).to receive(:configuration).and_return(
-          double(documentation: documentation, prefix: '', drafter_yaml: nil)
-        )
         allow(Tomograph::ApiBlueprint::Drafter3::Yaml).to receive(:new).and_return(double(to_tomogram: tomogram))
       end
       let(:json_schema) { 'spec/fixtures/tomogram/api2.json' }
@@ -443,7 +451,7 @@ RSpec.describe Tomograph::Tomogram do
           prefix: ''
         ).to_resources
       end
-      let(:parsed) { {'/sessions' => ['POST /sessions']} }
+      let(:parsed) { { '/sessions' => ['POST /sessions'] } }
       let(:documentation) { nil }
 
       context 'if one action' do
@@ -654,6 +662,13 @@ RSpec.describe Tomograph::Tomogram do
     end
 
     describe '#find_request_with_content_type' do
+      subject do
+        described_class.new(
+          drafter_4_yaml_path: File.expand_path("spec/fixtures/drafter_4/#{documentation}"),
+          prefix: ''
+        )
+      end
+
       let(:method) { 'POST' }
       let(:tomogram) { [double(path: nil, method: nil)] }
       let(:path) { '/status' }
@@ -661,9 +676,6 @@ RSpec.describe Tomograph::Tomogram do
 
       let(:parsed) { MultiJson.load(File.read(json_schema)) }
       before do
-        allow(Tomograph).to receive(:configuration).and_return(
-          double(documentation: documentation, prefix: '', drafter_yaml: nil)
-        )
         allow(Tomograph::ApiBlueprint::Drafter4::Yaml).to receive(:new).and_return(double(to_tomogram: tomogram))
       end
       let(:json_schema) { 'spec/fixtures/tomogram/api2.json' }
@@ -671,15 +683,17 @@ RSpec.describe Tomograph::Tomogram do
 
       context 'if not found in the tomogram' do
         it 'returns nil' do
-          skip
-          expect(subject.find_request_with_content_type(method: method, path: path, content_type: content_type)).to eq(nil)
+          expect(subject.find_request_with_content_type(method: method,
+                                                        path: path,
+                                                        content_type: content_type)).to eq(nil)
         end
       end
 
       context 'without path' do
         it 'returns nil' do
-          skip
-          expect(subject.find_request_with_content_type(method: method, path: nil, content_type: content_type)).to eq(nil)
+          expect(subject.find_request_with_content_type(method: method,
+                                                        path: nil,
+                                                        content_type: content_type)).to eq(nil)
         end
       end
 
@@ -703,8 +717,9 @@ RSpec.describe Tomograph::Tomogram do
           let(:path) { '/status/' }
 
           it 'return path withoud slash at the end' do
-            skip
-            expect(subject.find_request_with_content_type(method: method, path: path, content_type: content_type)).to eq(request1)
+            expect(subject.find_request_with_content_type(method: method,
+                                                          path: path,
+                                                          content_type: content_type)).to eq(request1)
           end
         end
 
@@ -712,15 +727,17 @@ RSpec.describe Tomograph::Tomogram do
           let(:path) { '/status/?a=b&c=d' }
 
           it 'ignores query parameters' do
-            skip
-            expect(subject.find_request_with_content_type(method: method, path: path, content_type: content_type)).to eq(request1)
+            expect(subject.find_request_with_content_type(method: method,
+                                                          path: path,
+                                                          content_type: content_type)).to eq(request1)
           end
         end
 
         context 'without parameters' do
           it 'return path' do
-            skip
-            expect(subject.find_request_with_content_type(method: method, path: path, content_type: content_type)).to eq(request1)
+            expect(subject.find_request_with_content_type(method: method,
+                                                          path: path,
+                                                          content_type: content_type)).to eq(request1)
           end
         end
 
@@ -729,8 +746,9 @@ RSpec.describe Tomograph::Tomogram do
           let(:method) { 'DELETE' }
 
           it 'returns the modified path' do
-            skip
-            expect(subject.find_request_with_content_type(method: method, path: path, content_type: content_type)).to eq(request2)
+            expect(subject.find_request_with_content_type(method: method,
+                                                          path: path,
+                                                          content_type: content_type)).to eq(request2)
           end
         end
       end
@@ -777,13 +795,21 @@ RSpec.describe Tomograph::Tomogram do
         let(:method) { 'GET' }
 
         it 'returns the modified path' do
-          skip
-          expect(subject.find_request_with_content_type(method: method, path: path, content_type: content_type)).to eq(request3)
+          expect(subject.find_request_with_content_type(method: method,
+                                                        path: path,
+                                                        content_type: content_type)).to eq(request3)
         end
       end
     end
 
     describe '#find_request' do
+      subject do
+        described_class.new(
+          drafter_4_yaml_path: File.expand_path("spec/fixtures/drafter_4/#{documentation}"),
+          prefix: ''
+        )
+      end
+
       let(:method) { 'POST' }
       let(:tomogram) { [double(path: nil, method: nil)] }
       let(:path) { '/status' }
@@ -791,9 +817,6 @@ RSpec.describe Tomograph::Tomogram do
 
       let(:parsed) { MultiJson.load(File.read(json_schema)) }
       before do
-        allow(Tomograph).to receive(:configuration).and_return(
-          double(documentation: documentation, prefix: '', drafter_yaml: nil)
-        )
         allow(Tomograph::ApiBlueprint::Drafter4::Yaml).to receive(:new).and_return(double(to_tomogram: tomogram))
       end
       let(:json_schema) { 'spec/fixtures/tomogram/api2.json' }
@@ -801,14 +824,12 @@ RSpec.describe Tomograph::Tomogram do
 
       context 'if not found in the tomogram' do
         it 'returns nil' do
-          skip
           expect(subject.find_request(method: method, path: path)).to eq(nil)
         end
       end
 
       context 'without path' do
         it 'returns nil' do
-          skip
           expect(subject.find_request(method: method, path: nil)).to eq(nil)
         end
       end
@@ -833,7 +854,6 @@ RSpec.describe Tomograph::Tomogram do
           let(:path) { '/status/' }
 
           it 'return path withoud slash at the end' do
-            skip
             expect(subject.find_request(method: method, path: path)).to eq(request1)
           end
         end
@@ -842,14 +862,12 @@ RSpec.describe Tomograph::Tomogram do
           let(:path) { '/status/?a=b&c=d' }
 
           it 'ignores query parameters' do
-            skip
             expect(subject.find_request(method: method, path: path)).to eq(request1)
           end
         end
 
         context 'without parameters' do
           it 'return path' do
-            skip
             expect(subject.find_request(method: method, path: path)).to eq(request1)
           end
         end
@@ -859,7 +877,6 @@ RSpec.describe Tomograph::Tomogram do
           let(:method) { 'DELETE' }
 
           it 'returns the modified path' do
-            skip
             expect(subject.find_request(method: method, path: path)).to eq(request2)
           end
         end
@@ -907,7 +924,6 @@ RSpec.describe Tomograph::Tomogram do
         let(:method) { 'GET' }
 
         it 'returns the modified path' do
-          skip
           expect(subject.find_request(method: method, path: path)).to eq(request3)
         end
       end
@@ -920,7 +936,7 @@ RSpec.describe Tomograph::Tomogram do
           prefix: ''
         ).to_resources
       end
-      let(:parsed) { {'/sessions' => ['POST /sessions']} }
+      let(:parsed) { { '/sessions' => ['POST /sessions'] } }
       let(:documentation) { nil }
 
       context 'if one action' do
