@@ -69,7 +69,7 @@ module Tomograph
         end
 
         def transition_path(transition, resource_path)
-          transition['attributes'] && transition['attributes']['href']['content'] || resource_path
+          transition['attributes'] && transition['attributes']['href'] && transition['attributes']['href']['content'] || resource_path
         end
 
         def without_group_actions
