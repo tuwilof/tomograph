@@ -7,12 +7,12 @@ require 'methadone'
 require 'tomograph'
 require 'tomograph/version'
 
-
 include Methadone::Main
 include Methadone::CLILogging
 
 version Tomograph::VERSION
 description 'Converts API Blueprint to JSON Schema'
+on('-d DRAFTER_VERSION', '--drafter', 'Choose drafter version: 3 or 4. Default: use drafter v.3.')
 on('-f INPUT_FORMAT', '--format', 'Force input format: "apib" or "yaml". Default: detect by file extension.')
 on('--exclude-description', 'Exclude "description" keys.')
 on('--split', 'Split output into files by method.')
@@ -48,6 +48,19 @@ def guess_format(opt_format, input)
   end
 end
 
+def choose_drafter(opt_parser)
+  case opt_parser
+  when '3'
+    :drafter_3
+  when '4'
+    :drafter_4
+  when nil
+    :drafter_3
+  else
+    raise 'Unsupported drafter version!'
+  end
+end
+
 def write_split_json(actions, output)
   FileUtils.mkdir_p(output)
   actions.clone.each do |action|
@@ -70,20 +83,19 @@ end
 
 main do |input, output|
   format = guess_format(options['format'], input)
+  version = choose_drafter(options['drafter'])
   format_key = case format
                when :apib
-                 :apib_path
+                 version == :drafter_3 ? :apib_path : :drafter_4_apib_path
                when :yaml
-                 :drafter_yaml_path
+                 version == :drafter_3 ? :drafter_yaml_path : :drafter_4_yaml_path
                else
                  fail NotImplementedError
                end
   tomogram = Tomograph::Tomogram.new(format_key => input)
   actions = tomogram.to_a.map(&:to_hash)
 
-  if options['exclude-description']
-    prune!(actions, 'description')
-  end
+  prune!(actions, 'description') if options['exclude-description']
 
   if options['split']
     write_split_json(actions, output)
