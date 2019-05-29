@@ -1,0 +1,181 @@
+element: "parseResult"
+content:
+  -
+    element: "category"
+    meta:
+      classes:
+        element: "array"
+        content:
+          -
+            element: "string"
+            content: "api"
+      title:
+        element: "string"
+        content: "Polls"
+    attributes:
+      metadata:
+        element: "array"
+        content:
+          -
+            element: "member"
+            meta:
+              classes:
+                element: "array"
+                content:
+                  -
+                    element: "string"
+                    content: "user"
+            content:
+              key:
+                element: "string"
+                content: "ORMAT"
+              value:
+                element: "string"
+                content: "1A"
+          -
+            element: "member"
+            meta:
+              classes:
+                element: "array"
+                content:
+                  -
+                    element: "string"
+                    content: "user"
+            content:
+              key:
+                element: "string"
+                content: "HOST"
+              value:
+                element: "string"
+                content: "http://polls.apiblueprint.org/"
+    content:
+      -
+        element: "copy"
+        content: "Polls is a simple API allowing consumers to view polls and vote in them. You can view this documentation over at [Apiary](http://docs.pollsapi.apiary.io)."
+      -
+        element: "resource"
+        meta:
+          title:
+            element: "string"
+            content: "Questions Collection"
+        attributes:
+          href:
+            element: "string"
+            content: "/questions"
+        content:
+          -
+            element: "transition"
+            meta:
+              title:
+                element: "string"
+                content: "Create a New Question"
+            content:
+              -
+                element: "copy"
+                content: "You may create your own question using this action. It takes a JSON object containing a question and a collection of answers in the form of choices.\n\n+ question (string) - The question\n\n+ choices (array[string]) - A collection of choices."
+              -
+                element: "httpTransaction"
+                content:
+                  -
+                    element: "httpRequest"
+                    attributes:
+                      method:
+                        element: "string"
+                        content: "POST"
+                      headers:
+                        element: "httpHeaders"
+                        content:
+                          -
+                            element: "member"
+                            content:
+                              key:
+                                element: "string"
+                                content: "Content-Type"
+                              value:
+                                element: "string"
+                                content: "application/json"
+                    content:
+                      -
+                        element: "asset"
+                        meta:
+                          classes:
+                            element: "array"
+                            content:
+                              -
+                                element: "string"
+                                content: "messageBody"
+                        attributes:
+                          contentType:
+                            element: "string"
+                            content: "application/json"
+                        content: "{\n  \"question\": \"Favourite programming language?\",\n  \"choices\": [\n      \"Swift\",\n      \"Python\",\n      \"Objective-C\",\n      \"Ruby\"\n  ]\n}\n"
+                      -
+                        element: "asset"
+                        meta:
+                          classes:
+                            element: "array"
+                            content:
+                              -
+                                element: "string"
+                                content: "messageBodySchema"
+                        attributes:
+                          contentType:
+                            element: "string"
+                            content: "application/schema+json"
+                        content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"question\": {\n      \"type\": \"string\"\n    },\n    \"choices\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      },\n      \"minItems\": 2\n     }\n  }\n}\n"
+                  -
+                    element: "httpResponse"
+                    attributes:
+                      statusCode:
+                        element: "string"
+                        content: "201"
+                      headers:
+                        element: "httpHeaders"
+                        content:
+                          -
+                            element: "member"
+                            content:
+                              key:
+                                element: "string"
+                                content: "Content-Type"
+                              value:
+                                element: "string"
+                                content: "application/json"
+                          -
+                            element: "member"
+                            content:
+                              key:
+                                element: "string"
+                                content: "Location"
+                              value:
+                                element: "string"
+                                content: "/questions/2"
+                    content:
+                      -
+                        element: "asset"
+                        meta:
+                          classes:
+                            element: "array"
+                            content:
+                              -
+                                element: "string"
+                                content: "messageBody"
+                        attributes:
+                          contentType:
+                            element: "string"
+                            content: "application/json"
+                        content: "{\n    \"question\": \"Favourite programming language?\",\n    \"published_at\": \"2014-11-11T08:40:51.620Z\",\n    \"url\": \"/questions/2\",\n    \"choices\": [\n        {\n            \"choice\": \"Swift\",\n            \"url\": \"/questions/2/choices/1\",\n            \"votes\": 0\n        }, {\n            \"choice\": \"Python\",\n            \"url\": \"/questions/2/choices/2\",\n            \"votes\": 0\n        }, {\n            \"choice\": \"Objective-C\",\n            \"url\": \"/questions/2/choices/3\",\n            \"votes\": 0\n        }, {\n            \"choice\": \"Ruby\",\n            \"url\": \"/questions/2/choices/4\",\n            \"votes\": 0\n        }\n    ]\n}\n"
+                      -
+                        element: "asset"
+                        meta:
+                          classes:
+                            element: "array"
+                            content:
+                              -
+                                element: "string"
+                                content: "messageBodySchema"
+                        attributes:
+                          contentType:
+                            element: "string"
+                            content: "application/schema+json"
+                        content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n       \"question\": {\n         \"type\": \"string\"\n       },\n       \"published_at\": {\n         \"type\": \"string\"\n       },\n       \"url\": {\n         \"type\": \"string\"\n       },\n       \"choices\": {\n         \"type\": \"array\",\n         \"items\": {\n           \"type\": \"string\"\n         },\n         \"minItems\": 2\n       }\n     }\n}\n"

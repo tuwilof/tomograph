@@ -1,0 +1,353 @@
+element: "parseResult"
+content:
+  -
+    element: "category"
+    meta:
+      classes:
+        element: "array"
+        content:
+          -
+            element: "string"
+            content: "api"
+      title:
+        element: "string"
+        content: "project"
+    attributes:
+      metadata:
+        element: "array"
+        content:
+          -
+            element: "member"
+            meta:
+              classes:
+                element: "array"
+                content:
+                  -
+                    element: "string"
+                    content: "user"
+            content:
+              key:
+                element: "string"
+                content: "FORMAT"
+              value:
+                element: "string"
+                content: "1A"
+          -
+            element: "member"
+            meta:
+              classes:
+                element: "array"
+                content:
+                  -
+                    element: "string"
+                    content: "user"
+            content:
+              key:
+                element: "string"
+                content: "HOST"
+              value:
+                element: "string"
+                content: "http://test.local"
+    content:
+      -
+        element: "category"
+        meta:
+          classes:
+            element: "array"
+            content:
+              -
+                element: "string"
+                content: "dataStructures"
+        content:
+          -
+            element: "dataStructure"
+            content:
+              element: "object"
+              meta:
+                id:
+                  element: "string"
+                  content: "Confirmation"
+              content:
+                -
+                  element: "member"
+                  attributes:
+                    typeAttributes:
+                      element: "array"
+                      content:
+                        -
+                          element: "string"
+                          content: "required"
+                  content:
+                    key:
+                      element: "string"
+                      content: "id"
+                    value:
+                      element: "string"
+                -
+                  element: "member"
+                  attributes:
+                    typeAttributes:
+                      element: "array"
+                      content:
+                        -
+                          element: "string"
+                          content: "required"
+                  content:
+                    key:
+                      element: "string"
+                      content: "type"
+                    value:
+                      element: "string"
+                -
+                  element: "member"
+                  attributes:
+                    typeAttributes:
+                      element: "array"
+                      content:
+                        -
+                          element: "string"
+                          content: "required"
+                  content:
+                    key:
+                      element: "string"
+                      content: "operation"
+                    value:
+                      element: "string"
+      -
+        element: "category"
+        meta:
+          classes:
+            element: "array"
+            content:
+              -
+                element: "string"
+                content: "resourceGroup"
+          title:
+            element: "string"
+            content: "project"
+        content:
+          -
+            element: "copy"
+            content: "Project"
+          -
+            element: "resource"
+            meta:
+              title:
+                element: "string"
+                content: "Authentication"
+            attributes:
+              href:
+                element: "string"
+                content: "/sessions"
+            content:
+              -
+                element: "transition"
+                meta:
+                  title:
+                    element: "string"
+                    content: "Sign In"
+                content:
+                  -
+                    element: "copy"
+                    content: "Comment"
+                  -
+                    element: "httpTransaction"
+                    content:
+                      -
+                        element: "httpRequest"
+                        attributes:
+                          method:
+                            element: "string"
+                            content: "POST"
+                          headers:
+                            element: "httpHeaders"
+                            content:
+                              -
+                                element: "member"
+                                content:
+                                  key:
+                                    element: "string"
+                                    content: "Content-Type"
+                                  value:
+                                    element: "string"
+                                    content: "application/json"
+                        content: []
+                      -
+                        element: "httpResponse"
+                        attributes:
+                          statusCode:
+                            element: "string"
+                            content: "401"
+                          headers:
+                            element: "httpHeaders"
+                            content:
+                              -
+                                element: "member"
+                                content:
+                                  key:
+                                    element: "string"
+                                    content: "Content-Type"
+                                  value:
+                                    element: "string"
+                                    content: "application/json"
+                        content: []
+                  -
+                    element: "httpTransaction"
+                    content:
+                      -
+                        element: "httpRequest"
+                        attributes:
+                          method:
+                            element: "string"
+                            content: "POST"
+                          headers:
+                            element: "httpHeaders"
+                            content:
+                              -
+                                element: "member"
+                                content:
+                                  key:
+                                    element: "string"
+                                    content: "Content-Type"
+                                  value:
+                                    element: "string"
+                                    content: "application/json"
+                        content: []
+                      -
+                        element: "httpResponse"
+                        attributes:
+                          statusCode:
+                            element: "string"
+                            content: "429"
+                          headers:
+                            element: "httpHeaders"
+                            content:
+                              -
+                                element: "member"
+                                content:
+                                  key:
+                                    element: "string"
+                                    content: "Content-Type"
+                                  value:
+                                    element: "string"
+                                    content: "application/json"
+                        content: []
+                  -
+                    element: "httpTransaction"
+                    content:
+                      -
+                        element: "httpRequest"
+                        attributes:
+                          method:
+                            element: "string"
+                            content: "POST"
+                          headers:
+                            element: "httpHeaders"
+                            content:
+                              -
+                                element: "member"
+                                content:
+                                  key:
+                                    element: "string"
+                                    content: "Content-Type"
+                                  value:
+                                    element: "string"
+                                    content: "application/json"
+                        content: []
+                      -
+                        element: "httpResponse"
+                        attributes:
+                          statusCode:
+                            element: "string"
+                            content: "201"
+                          headers:
+                            element: "httpHeaders"
+                            content:
+                              -
+                                element: "member"
+                                content:
+                                  key:
+                                    element: "string"
+                                    content: "Content-Type"
+                                  value:
+                                    element: "string"
+                                    content: "application/json"
+                        content:
+                          -
+                            element: "dataStructure"
+                            content:
+                              element: "object"
+                              content:
+                                -
+                                  element: "member"
+                                  attributes:
+                                    typeAttributes:
+                                      element: "array"
+                                      content:
+                                        -
+                                          element: "string"
+                                          content: "optional"
+                                  content:
+                                    key:
+                                      element: "string"
+                                      content: "confirmation"
+                                    value:
+                                      element: "Confirmation"
+                                -
+                                  element: "member"
+                                  attributes:
+                                    typeAttributes:
+                                      element: "array"
+                                      content:
+                                        -
+                                          element: "string"
+                                          content: "optional"
+                                  content:
+                                    key:
+                                      element: "string"
+                                      content: "captcha"
+                                    value:
+                                      element: "string"
+                                -
+                                  element: "member"
+                                  attributes:
+                                    typeAttributes:
+                                      element: "array"
+                                      content:
+                                        -
+                                          element: "string"
+                                          content: "optional"
+                                  content:
+                                    key:
+                                      element: "string"
+                                      content: "captcha_does_not_match"
+                                    value:
+                                      element: "boolean"
+                          -
+                            element: "asset"
+                            meta:
+                              classes:
+                                element: "array"
+                                content:
+                                  -
+                                    element: "string"
+                                    content: "messageBody"
+                            attributes:
+                              contentType:
+                                element: "string"
+                                content: "application/json"
+                            content: "{\n  \"confirmation\": {\n    \"id\": \"\",\n    \"type\": \"\",\n    \"operation\": \"\"\n  }\n}"
+                          -
+                            element: "asset"
+                            meta:
+                              classes:
+                                element: "array"
+                                content:
+                                  -
+                                    element: "string"
+                                    content: "messageBodySchema"
+                            attributes:
+                              contentType:
+                                element: "string"
+                                content: "application/schema+json"
+                            content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"confirmation\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"id\": {\n          \"type\": \"string\"\n        },\n        \"type\": {\n          \"type\": \"string\"\n        },\n        \"operation\": {\n          \"type\": \"string\"\n        }\n      },\n      \"required\": [\n        \"id\",\n        \"type\",\n        \"operation\"\n      ]\n    },\n    \"captcha\": {\n      \"type\": \"string\"\n    },\n    \"captcha_does_not_match\": {\n      \"type\": \"boolean\"\n    }\n  }\n}"
