@@ -67,12 +67,10 @@ RSpec.describe Tomograph::ApiBlueprint::Crafter::Yaml do
     end
 
     it 'produces correct Tomogram' do
-      skip
       expect(subject.to_tomogram.map(&:to_hash)).to eq(tomogram_hash)
     end
 
     it 'produces correct resource map' do
-      skip
       expect(subject.to_resources).to eq(resource_map)
     end
   end
