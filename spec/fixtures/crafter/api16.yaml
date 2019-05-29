@@ -69,13 +69,59 @@ content:
                           -
                             element: dataStructure
                             content:
-                              element: string
+                              element: object
+                              content:
+                                -
+                                  element: member
+                                  content:
+                                    key:
+                                      element: string
+                                      content: login
+                                    value:
+                                      element: string
+                                  attributes:
+                                    typeAttributes:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: required
+                                -
+                                  element: member
+                                  content:
+                                    key:
+                                      element: string
+                                      content: password
+                                    value:
+                                      element: string
+                                  attributes:
+                                    typeAttributes:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: required
+                                -
+                                  element: member
+                                  content:
+                                    key:
+                                      element: string
+                                      content: captcha
+                                    value:
+                                      element: string
+                                  attributes:
+                                    typeAttributes:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: optional
                           -
                             element: asset
                             meta:
                               classes:
                                 - messageBody
-                            content: "{\n  \"value\": \"\"\n}"
+                            content: "{\n  \"login\": \"\",\n  \"password\": \"\",\n  \"captcha\": \"\"\n}"
                             attributes:
                               contentType:
                                 element: string
@@ -89,14 +135,55 @@ content:
                               contentType:
                                 element: string
                                 content: application/schema+json
-                            content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"string\"\n}"
+                            content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"login\": {\n      \"type\": \"string\"\n    },\n    \"password\": {\n      \"type\": \"string\"\n    },\n    \"captcha\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\n    \"login\",\n    \"password\"\n  ]\n}"
                       -
                         element: httpResponse
                         content:
                           -
                             element: dataStructure
                             content:
-                              element: string
+                              element: object
+                              content:
+                                -
+                                  element: member
+                                  content:
+                                    key:
+                                      element: string
+                                      content: captcha
+                                    value:
+                                      element: string
+                                  attributes:
+                                    typeAttributes:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: optional
+                                -
+                                  element: member
+                                  content:
+                                    key:
+                                      element: string
+                                      content: captcha_does_not_match
+                                    value:
+                                      element: boolean
+                                  attributes:
+                                    typeAttributes:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: optional
+                          -
+                            element: asset
+                            meta:
+                              classes:
+                                - messageBody
+                            content: "{\n  \"captcha\": \"\",\n  \"captcha_does_not_match\": false\n}"
+                            attributes:
+                              contentType:
+                                element: string
+                                content: application/json
                           -
                             element: asset
                             meta:
@@ -106,7 +193,7 @@ content:
                               contentType:
                                 element: string
                                 content: application/schema+json
-                            content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"string\"\n}"
+                            content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"captcha\": {\n      \"type\": \"string\"\n    },\n    \"captcha_does_not_match\": {\n      \"type\": \"boolean\"\n    }\n  }\n}"
                         attributes:
                           statusCode:
                             element: string
@@ -183,131 +270,11 @@ content:
                     attributes:
                       line:
                         element: number
-                        content: 19
-                      column:
-                        element: number
-                        content: 6
-                    content: 192
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 19
-                      column:
-                        element: number
-                        content: 32
-                    content: 27
-    content: 'Ignoring unrecognized block "+ login (string, required)".'
-  -
-    element: annotation
-    meta:
-      classes:
-        element: array
-        content:
-          -
-            element: string
-            content: warning
-    attributes:
-      sourceMap:
-        element: array
-        content:
-          -
-            element: sourceMap
-            content:
-              -
-                element: array
-                content:
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 20
-                      column:
-                        element: number
-                        content: 6
-                    content: 224
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 20
-                      column:
-                        element: number
-                        content: 35
-                    content: 30
-    content: 'Ignoring unrecognized block "+ password (string, required)".'
-  -
-    element: annotation
-    meta:
-      classes:
-        element: array
-        content:
-          -
-            element: string
-            content: warning
-    attributes:
-      sourceMap:
-        element: array
-        content:
-          -
-            element: sourceMap
-            content:
-              -
-                element: array
-                content:
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 21
-                      column:
-                        element: number
-                        content: 6
-                    content: 259
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 22
-                      column:
-                        element: number
-                        content: 6
-                    content: 35
-    content: 'Ignoring unrecognized block "+ captcha (string, optional)".'
-  -
-    element: annotation
-    meta:
-      classes:
-        element: array
-        content:
-          -
-            element: string
-            content: warning
-    attributes:
-      sourceMap:
-        element: array
-        content:
-          -
-            element: sourceMap
-            content:
-              -
-                element: array
-                content:
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
                         content: 23
                       column:
                         element: number
                         content: 5
-                    content: 298
+                    content: 296
                   -
                     element: number
                     attributes:
@@ -319,84 +286,4 @@ content:
                         content: 1
                     content: 126
     content: "Ignoring unrecognized block \"+ Body\n```\n{\n\"login\": \"tester\",\n\"password\": \"test\"\n}\n```\"."
-  -
-    element: annotation
-    meta:
-      classes:
-        element: array
-        content:
-          -
-            element: string
-            content: warning
-    attributes:
-      sourceMap:
-        element: array
-        content:
-          -
-            element: sourceMap
-            content:
-              -
-                element: array
-                content:
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 34
-                      column:
-                        element: number
-                        content: 6
-                    content: 481
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 34
-                      column:
-                        element: number
-                        content: 34
-                    content: 29
-    content: 'Ignoring unrecognized block "+ captcha (string, optional)".'
-  -
-    element: annotation
-    meta:
-      classes:
-        element: array
-        content:
-          -
-            element: string
-            content: warning
-    attributes:
-      sourceMap:
-        element: array
-        content:
-          -
-            element: sourceMap
-            content:
-              -
-                element: array
-                content:
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 35
-                      column:
-                        element: number
-                        content: 6
-                    content: 515
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 37
-                      column:
-                        element: number
-                        content: 1
-                    content: 47
-    content: 'Ignoring unrecognized block "+ captcha_does_not_match (boolean, optional)".'
 

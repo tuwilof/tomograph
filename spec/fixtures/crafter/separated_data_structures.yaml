@@ -72,13 +72,59 @@ content:
                           -
                             element: dataStructure
                             content:
-                              element: string
+                              element: object
+                              content:
+                                -
+                                  element: member
+                                  content:
+                                    key:
+                                      element: string
+                                      content: login
+                                    value:
+                                      element: string
+                                  attributes:
+                                    typeAttributes:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: required
+                                -
+                                  element: member
+                                  content:
+                                    key:
+                                      element: string
+                                      content: password
+                                    value:
+                                      element: string
+                                  attributes:
+                                    typeAttributes:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: required
+                                -
+                                  element: member
+                                  content:
+                                    key:
+                                      element: string
+                                      content: captcha
+                                    value:
+                                      element: string
+                                  attributes:
+                                    typeAttributes:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: optional
                           -
                             element: asset
                             meta:
                               classes:
                                 - messageBody
-                            content: "{\n  \"value\": \"\"\n}"
+                            content: "{\n  \"login\": \"\",\n  \"password\": \"\",\n  \"captcha\": \"\"\n}"
                             attributes:
                               contentType:
                                 element: string
@@ -92,7 +138,7 @@ content:
                               contentType:
                                 element: string
                                 content: application/schema+json
-                            content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"string\"\n}"
+                            content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"login\": {\n      \"type\": \"string\"\n    },\n    \"password\": {\n      \"type\": \"string\"\n    },\n    \"captcha\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\n    \"login\",\n    \"password\"\n  ]\n}"
                       -
                         element: httpResponse
                         content: []
@@ -137,13 +183,59 @@ content:
                           -
                             element: dataStructure
                             content:
-                              element: string
+                              element: object
+                              content:
+                                -
+                                  element: member
+                                  content:
+                                    key:
+                                      element: string
+                                      content: login
+                                    value:
+                                      element: string
+                                  attributes:
+                                    typeAttributes:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: required
+                                -
+                                  element: member
+                                  content:
+                                    key:
+                                      element: string
+                                      content: password
+                                    value:
+                                      element: string
+                                  attributes:
+                                    typeAttributes:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: required
+                                -
+                                  element: member
+                                  content:
+                                    key:
+                                      element: string
+                                      content: captcha
+                                    value:
+                                      element: string
+                                  attributes:
+                                    typeAttributes:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: optional
                           -
                             element: asset
                             meta:
                               classes:
                                 - messageBody
-                            content: "{\n  \"value\": \"\"\n}"
+                            content: "{\n  \"login\": \"\",\n  \"password\": \"\",\n  \"captcha\": \"\"\n}"
                             attributes:
                               contentType:
                                 element: string
@@ -157,7 +249,7 @@ content:
                               contentType:
                                 element: string
                                 content: application/schema+json
-                            content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"string\"\n}"
+                            content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"login\": {\n      \"type\": \"string\"\n    },\n    \"password\": {\n      \"type\": \"string\"\n    },\n    \"captcha\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\n    \"login\",\n    \"password\"\n  ]\n}"
                       -
                         element: httpResponse
                         content: []
@@ -202,13 +294,59 @@ content:
                           -
                             element: dataStructure
                             content:
-                              element: string
+                              element: object
+                              content:
+                                -
+                                  element: member
+                                  content:
+                                    key:
+                                      element: string
+                                      content: login
+                                    value:
+                                      element: string
+                                  attributes:
+                                    typeAttributes:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: required
+                                -
+                                  element: member
+                                  content:
+                                    key:
+                                      element: string
+                                      content: password
+                                    value:
+                                      element: string
+                                  attributes:
+                                    typeAttributes:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: required
+                                -
+                                  element: member
+                                  content:
+                                    key:
+                                      element: string
+                                      content: captcha
+                                    value:
+                                      element: string
+                                  attributes:
+                                    typeAttributes:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: optional
                           -
                             element: asset
                             meta:
                               classes:
                                 - messageBody
-                            content: "{\n  \"value\": \"\"\n}"
+                            content: "{\n  \"login\": \"\",\n  \"password\": \"\",\n  \"captcha\": \"\"\n}"
                             attributes:
                               contentType:
                                 element: string
@@ -222,14 +360,70 @@ content:
                               contentType:
                                 element: string
                                 content: application/schema+json
-                            content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"string\"\n}"
+                            content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"login\": {\n      \"type\": \"string\"\n    },\n    \"password\": {\n      \"type\": \"string\"\n    },\n    \"captcha\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\n    \"login\",\n    \"password\"\n  ]\n}"
                       -
                         element: httpResponse
                         content:
                           -
                             element: dataStructure
                             content:
-                              element: string
+                              element: object
+                              content:
+                                -
+                                  element: member
+                                  content:
+                                    key:
+                                      element: string
+                                      content: confirmation
+                                    value:
+                                      element: Confirmation
+                                  attributes:
+                                    typeAttributes:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: optional
+                                -
+                                  element: member
+                                  content:
+                                    key:
+                                      element: string
+                                      content: captcha
+                                    value:
+                                      element: string
+                                  attributes:
+                                    typeAttributes:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: optional
+                                -
+                                  element: member
+                                  content:
+                                    key:
+                                      element: string
+                                      content: captcha_does_not_match
+                                    value:
+                                      element: boolean
+                                  attributes:
+                                    typeAttributes:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: optional
+                          -
+                            element: asset
+                            meta:
+                              classes:
+                                - messageBody
+                            content: "{\n  \"confirmation\": {\n    \"id\": \"\",\n    \"type\": \"\",\n    \"operation\": \"\"\n  },\n  \"captcha\": \"\",\n  \"captcha_does_not_match\": false\n}"
+                            attributes:
+                              contentType:
+                                element: string
+                                content: application/json
                           -
                             element: asset
                             meta:
@@ -239,7 +433,7 @@ content:
                               contentType:
                                 element: string
                                 content: application/schema+json
-                            content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"string\"\n}"
+                            content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"confirmation\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"id\": {\n          \"type\": \"string\"\n        },\n        \"type\": {\n          \"type\": \"string\"\n        },\n        \"operation\": {\n          \"type\": \"string\"\n        }\n      },\n      \"required\": [\n        \"id\",\n        \"type\",\n        \"operation\"\n      ]\n    },\n    \"captcha\": {\n      \"type\": \"string\"\n    },\n    \"captcha_does_not_match\": {\n      \"type\": \"boolean\"\n    }\n  }\n}"
                         attributes:
                           statusCode:
                             element: string
@@ -288,13 +482,29 @@ content:
                           -
                             element: dataStructure
                             content:
-                              element: string
+                              element: object
+                              content:
+                                -
+                                  element: member
+                                  content:
+                                    key:
+                                      element: string
+                                      content: status
+                                    value:
+                                      element: string
+                                  attributes:
+                                    typeAttributes:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: required
                           -
                             element: asset
                             meta:
                               classes:
                                 - messageBody
-                            content: "{\n  \"value\": \"\"\n}"
+                            content: "{\n  \"status\": \"\"\n}"
                             attributes:
                               contentType:
                                 element: string
@@ -308,7 +518,7 @@ content:
                               contentType:
                                 element: string
                                 content: application/schema+json
-                            content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"string\"\n}"
+                            content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"status\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\n    \"status\"\n  ]\n}"
                       -
                         element: httpResponse
                         content: []
@@ -353,13 +563,29 @@ content:
                           -
                             element: dataStructure
                             content:
-                              element: string
+                              element: object
+                              content:
+                                -
+                                  element: member
+                                  content:
+                                    key:
+                                      element: string
+                                      content: status
+                                    value:
+                                      element: string
+                                  attributes:
+                                    typeAttributes:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: required
                           -
                             element: asset
                             meta:
                               classes:
                                 - messageBody
-                            content: "{\n  \"value\": \"\"\n}"
+                            content: "{\n  \"status\": \"\"\n}"
                             attributes:
                               contentType:
                                 element: string
@@ -373,7 +599,7 @@ content:
                               contentType:
                                 element: string
                                 content: application/schema+json
-                            content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"string\"\n}"
+                            content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"status\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\n    \"status\"\n  ]\n}"
                       -
                         element: httpResponse
                         content: []
@@ -418,13 +644,29 @@ content:
                           -
                             element: dataStructure
                             content:
-                              element: string
+                              element: object
+                              content:
+                                -
+                                  element: member
+                                  content:
+                                    key:
+                                      element: string
+                                      content: status
+                                    value:
+                                      element: string
+                                  attributes:
+                                    typeAttributes:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: required
                           -
                             element: asset
                             meta:
                               classes:
                                 - messageBody
-                            content: "{\n  \"value\": \"\"\n}"
+                            content: "{\n  \"status\": \"\"\n}"
                             attributes:
                               contentType:
                                 element: string
@@ -438,14 +680,40 @@ content:
                               contentType:
                                 element: string
                                 content: application/schema+json
-                            content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"string\"\n}"
+                            content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"status\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\n    \"status\"\n  ]\n}"
                       -
                         element: httpResponse
                         content:
                           -
                             element: dataStructure
                             content:
-                              element: string
+                              element: object
+                              content:
+                                -
+                                  element: member
+                                  content:
+                                    key:
+                                      element: string
+                                      content: status
+                                    value:
+                                      element: string
+                                  attributes:
+                                    typeAttributes:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: required
+                          -
+                            element: asset
+                            meta:
+                              classes:
+                                - messageBody
+                            content: "{\n  \"status\": \"\"\n}"
+                            attributes:
+                              contentType:
+                                element: string
+                                content: application/json
                           -
                             element: asset
                             meta:
@@ -455,7 +723,7 @@ content:
                               contentType:
                                 element: string
                                 content: application/schema+json
-                            content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"string\"\n}"
+                            content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"status\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\n    \"status\"\n  ]\n}"
                         attributes:
                           statusCode:
                             element: string
@@ -528,13 +796,59 @@ content:
                       -
                         element: dataStructure
                         content:
-                          element: string
+                          element: object
+                          content:
+                            -
+                              element: member
+                              content:
+                                key:
+                                  element: string
+                                  content: login
+                                value:
+                                  element: string
+                              attributes:
+                                typeAttributes:
+                                  element: array
+                                  content:
+                                    -
+                                      element: string
+                                      content: required
+                            -
+                              element: member
+                              content:
+                                key:
+                                  element: string
+                                  content: password
+                                value:
+                                  element: string
+                              attributes:
+                                typeAttributes:
+                                  element: array
+                                  content:
+                                    -
+                                      element: string
+                                      content: required
+                            -
+                              element: member
+                              content:
+                                key:
+                                  element: string
+                                  content: confirm_password
+                                value:
+                                  element: string
+                              attributes:
+                                typeAttributes:
+                                  element: array
+                                  content:
+                                    -
+                                      element: string
+                                      content: required
                       -
                         element: asset
                         meta:
                           classes:
                             - messageBody
-                        content: "{\n  \"value\": \"\"\n}"
+                        content: "{\n  \"login\": \"\",\n  \"password\": \"\",\n  \"confirm_password\": \"\"\n}"
                         attributes:
                           contentType:
                             element: string
@@ -548,7 +862,7 @@ content:
                           contentType:
                             element: string
                             content: application/schema+json
-                        content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"string\"\n}"
+                        content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"login\": {\n      \"type\": \"string\"\n    },\n    \"password\": {\n      \"type\": \"string\"\n    },\n    \"confirm_password\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\n    \"login\",\n    \"password\",\n    \"confirm_password\"\n  ]\n}"
                   -
                     element: httpResponse
                     content: []
@@ -593,13 +907,59 @@ content:
                       -
                         element: dataStructure
                         content:
-                          element: string
+                          element: object
+                          content:
+                            -
+                              element: member
+                              content:
+                                key:
+                                  element: string
+                                  content: login
+                                value:
+                                  element: string
+                              attributes:
+                                typeAttributes:
+                                  element: array
+                                  content:
+                                    -
+                                      element: string
+                                      content: required
+                            -
+                              element: member
+                              content:
+                                key:
+                                  element: string
+                                  content: password
+                                value:
+                                  element: string
+                              attributes:
+                                typeAttributes:
+                                  element: array
+                                  content:
+                                    -
+                                      element: string
+                                      content: required
+                            -
+                              element: member
+                              content:
+                                key:
+                                  element: string
+                                  content: confirm_password
+                                value:
+                                  element: string
+                              attributes:
+                                typeAttributes:
+                                  element: array
+                                  content:
+                                    -
+                                      element: string
+                                      content: required
                       -
                         element: asset
                         meta:
                           classes:
                             - messageBody
-                        content: "{\n  \"value\": \"\"\n}"
+                        content: "{\n  \"login\": \"\",\n  \"password\": \"\",\n  \"confirm_password\": \"\"\n}"
                         attributes:
                           contentType:
                             element: string
@@ -613,14 +973,40 @@ content:
                           contentType:
                             element: string
                             content: application/schema+json
-                        content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"string\"\n}"
+                        content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"login\": {\n      \"type\": \"string\"\n    },\n    \"password\": {\n      \"type\": \"string\"\n    },\n    \"confirm_password\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\n    \"login\",\n    \"password\",\n    \"confirm_password\"\n  ]\n}"
                   -
                     element: httpResponse
                     content:
                       -
                         element: dataStructure
                         content:
-                          element: string
+                          element: object
+                          content:
+                            -
+                              element: member
+                              content:
+                                key:
+                                  element: string
+                                  content: status
+                                value:
+                                  element: string
+                              attributes:
+                                typeAttributes:
+                                  element: array
+                                  content:
+                                    -
+                                      element: string
+                                      content: required
+                      -
+                        element: asset
+                        meta:
+                          classes:
+                            - messageBody
+                        content: "{\n  \"status\": \"\"\n}"
+                        attributes:
+                          contentType:
+                            element: string
+                            content: application/json
                       -
                         element: asset
                         meta:
@@ -630,7 +1016,7 @@ content:
                           contentType:
                             element: string
                             content: application/schema+json
-                        content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"string\"\n}"
+                        content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"status\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\n    \"status\"\n  ]\n}"
                     attributes:
                       statusCode:
                         element: string
@@ -767,291 +1153,11 @@ content:
                     attributes:
                       line:
                         element: number
-                        content: 19
-                      column:
-                        element: number
-                        content: 6
-                    content: 195
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 19
-                      column:
-                        element: number
-                        content: 32
-                    content: 27
-    content: 'Ignoring unrecognized block "+ login (string, required)".'
-  -
-    element: annotation
-    meta:
-      classes:
-        element: array
-        content:
-          -
-            element: string
-            content: warning
-    attributes:
-      sourceMap:
-        element: array
-        content:
-          -
-            element: sourceMap
-            content:
-              -
-                element: array
-                content:
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 20
-                      column:
-                        element: number
-                        content: 6
-                    content: 227
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 20
-                      column:
-                        element: number
-                        content: 35
-                    content: 30
-    content: 'Ignoring unrecognized block "+ password (string, required)".'
-  -
-    element: annotation
-    meta:
-      classes:
-        element: array
-        content:
-          -
-            element: string
-            content: warning
-    attributes:
-      sourceMap:
-        element: array
-        content:
-          -
-            element: sourceMap
-            content:
-              -
-                element: array
-                content:
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 21
-                      column:
-                        element: number
-                        content: 6
-                    content: 262
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 22
-                      column:
-                        element: number
-                        content: 1
-                    content: 30
-    content: 'Ignoring unrecognized block "+ captcha (string, optional)".'
-  -
-    element: annotation
-    meta:
-      classes:
-        element: array
-        content:
-          -
-            element: string
-            content: warning
-    attributes:
-      sourceMap:
-        element: array
-        content:
-          -
-            element: sourceMap
-            content:
-              -
-                element: array
-                content:
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 30
-                      column:
-                        element: number
-                        content: 6
-                    content: 419
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 30
-                      column:
-                        element: number
-                        content: 45
-                    content: 40
-    content: 'Ignoring unrecognized block "+ confirmation (Confirmation, optional)".'
-  -
-    element: annotation
-    meta:
-      classes:
-        element: array
-        content:
-          -
-            element: string
-            content: warning
-    attributes:
-      sourceMap:
-        element: array
-        content:
-          -
-            element: sourceMap
-            content:
-              -
-                element: array
-                content:
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 31
-                      column:
-                        element: number
-                        content: 6
-                    content: 464
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 31
-                      column:
-                        element: number
-                        content: 34
-                    content: 29
-    content: 'Ignoring unrecognized block "+ captcha (string, optional)".'
-  -
-    element: annotation
-    meta:
-      classes:
-        element: array
-        content:
-          -
-            element: string
-            content: warning
-    attributes:
-      sourceMap:
-        element: array
-        content:
-          -
-            element: sourceMap
-            content:
-              -
-                element: array
-                content:
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 32
-                      column:
-                        element: number
-                        content: 6
-                    content: 498
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 34
-                      column:
-                        element: number
-                        content: 1
-                    content: 47
-    content: 'Ignoring unrecognized block "+ captcha_does_not_match (boolean, optional)".'
-  -
-    element: annotation
-    meta:
-      classes:
-        element: array
-        content:
-          -
-            element: string
-            content: warning
-    attributes:
-      sourceMap:
-        element: array
-        content:
-          -
-            element: sourceMap
-            content:
-              -
-                element: array
-                content:
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 40
-                      column:
-                        element: number
-                        content: 6
-                    content: 635
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 41
-                      column:
-                        element: number
-                        content: 1
-                    content: 29
-    content: 'Ignoring unrecognized block "+ status (string, required)".'
-  -
-    element: annotation
-    meta:
-      classes:
-        element: array
-        content:
-          -
-            element: string
-            content: warning
-    attributes:
-      sourceMap:
-        element: array
-        content:
-          -
-            element: sourceMap
-            content:
-              -
-                element: array
-                content:
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
                         content: 43
                       column:
                         element: number
                         content: 2
-                    content: 678
+                    content: 685
                   -
                     element: number
                     attributes:
@@ -1087,51 +1193,11 @@ content:
                     attributes:
                       line:
                         element: number
-                        content: 52
-                      column:
-                        element: number
-                        content: 6
-                    content: 897
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 53
-                      column:
-                        element: number
-                        content: 1
-                    content: 29
-    content: 'Ignoring unrecognized block "+ status (string, required)".'
-  -
-    element: annotation
-    meta:
-      classes:
-        element: array
-        content:
-          -
-            element: string
-            content: warning
-    attributes:
-      sourceMap:
-        element: array
-        content:
-          -
-            element: sourceMap
-            content:
-              -
-                element: array
-                content:
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
                         content: 35
                       column:
                         element: number
                         content: 1
-                    content: 545
+                    content: 551
                   -
                     element: number
                     attributes:
@@ -1143,164 +1209,4 @@ content:
                         content: 1
                     content: 38
     content: 'Action is missing parameter definitions: id.'
-  -
-    element: annotation
-    meta:
-      classes:
-        element: array
-        content:
-          -
-            element: string
-            content: warning
-    attributes:
-      sourceMap:
-        element: array
-        content:
-          -
-            element: sourceMap
-            content:
-              -
-                element: array
-                content:
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 63
-                      column:
-                        element: number
-                        content: 6
-                    content: 1034
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 63
-                      column:
-                        element: number
-                        content: 32
-                    content: 27
-    content: 'Ignoring unrecognized block "+ login (string, required)".'
-  -
-    element: annotation
-    meta:
-      classes:
-        element: array
-        content:
-          -
-            element: string
-            content: warning
-    attributes:
-      sourceMap:
-        element: array
-        content:
-          -
-            element: sourceMap
-            content:
-              -
-                element: array
-                content:
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 64
-                      column:
-                        element: number
-                        content: 6
-                    content: 1066
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 64
-                      column:
-                        element: number
-                        content: 35
-                    content: 30
-    content: 'Ignoring unrecognized block "+ password (string, required)".'
-  -
-    element: annotation
-    meta:
-      classes:
-        element: array
-        content:
-          -
-            element: string
-            content: warning
-    attributes:
-      sourceMap:
-        element: array
-        content:
-          -
-            element: sourceMap
-            content:
-              -
-                element: array
-                content:
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 65
-                      column:
-                        element: number
-                        content: 6
-                    content: 1101
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 66
-                      column:
-                        element: number
-                        content: 1
-                    content: 39
-    content: 'Ignoring unrecognized block "+ confirm_password (string, required)".'
-  -
-    element: annotation
-    meta:
-      classes:
-        element: array
-        content:
-          -
-            element: string
-            content: warning
-    attributes:
-      sourceMap:
-        element: array
-        content:
-          -
-            element: sourceMap
-            content:
-              -
-                element: array
-                content:
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 72
-                      column:
-                        element: number
-                        content: 6
-                    content: 1232
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 74
-                      column:
-                        element: number
-                        content: 1
-                    content: 30
-    content: 'Ignoring unrecognized block "+ status (string, required)".'
 

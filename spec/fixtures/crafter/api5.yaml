@@ -151,7 +151,63 @@ content:
                           -
                             element: dataStructure
                             content:
-                              element: string
+                              element: object
+                              content:
+                                -
+                                  element: member
+                                  content:
+                                    key:
+                                      element: string
+                                      content: confirmation
+                                    value:
+                                      element: Confirmation
+                                  attributes:
+                                    typeAttributes:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: optional
+                                -
+                                  element: member
+                                  content:
+                                    key:
+                                      element: string
+                                      content: captcha
+                                    value:
+                                      element: string
+                                  attributes:
+                                    typeAttributes:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: optional
+                                -
+                                  element: member
+                                  content:
+                                    key:
+                                      element: string
+                                      content: captcha_does_not_match
+                                    value:
+                                      element: boolean
+                                  attributes:
+                                    typeAttributes:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: optional
+                          -
+                            element: asset
+                            meta:
+                              classes:
+                                - messageBody
+                            content: "{\n  \"confirmation\": {\n    \"id\": \"\",\n    \"type\": \"\",\n    \"operation\": \"\"\n  },\n  \"captcha\": \"\",\n  \"captcha_does_not_match\": false\n}"
+                            attributes:
+                              contentType:
+                                element: string
+                                content: application/json
                           -
                             element: asset
                             meta:
@@ -161,7 +217,7 @@ content:
                               contentType:
                                 element: string
                                 content: application/schema+json
-                            content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"string\"\n}"
+                            content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"confirmation\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"id\": {\n          \"type\": \"string\"\n        },\n        \"type\": {\n          \"type\": \"string\"\n        },\n        \"operation\": {\n          \"type\": \"string\"\n        }\n      },\n      \"required\": [\n        \"id\",\n        \"type\",\n        \"operation\"\n      ]\n    },\n    \"captcha\": {\n      \"type\": \"string\"\n    },\n    \"captcha_does_not_match\": {\n      \"type\": \"boolean\"\n    }\n  }\n}"
                         attributes:
                           statusCode:
                             element: string
@@ -274,124 +330,4 @@ content:
                   -
                     element: string
                     content: user
-  -
-    element: annotation
-    meta:
-      classes:
-        element: array
-        content:
-          -
-            element: string
-            content: warning
-    attributes:
-      sourceMap:
-        element: array
-        content:
-          -
-            element: sourceMap
-            content:
-              -
-                element: array
-                content:
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 23
-                      column:
-                        element: number
-                        content: 6
-                    content: 281
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 23
-                      column:
-                        element: number
-                        content: 45
-                    content: 40
-    content: 'Ignoring unrecognized block "+ confirmation (Confirmation, optional)".'
-  -
-    element: annotation
-    meta:
-      classes:
-        element: array
-        content:
-          -
-            element: string
-            content: warning
-    attributes:
-      sourceMap:
-        element: array
-        content:
-          -
-            element: sourceMap
-            content:
-              -
-                element: array
-                content:
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 24
-                      column:
-                        element: number
-                        content: 6
-                    content: 326
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 24
-                      column:
-                        element: number
-                        content: 34
-                    content: 29
-    content: 'Ignoring unrecognized block "+ captcha (string, optional)".'
-  -
-    element: annotation
-    meta:
-      classes:
-        element: array
-        content:
-          -
-            element: string
-            content: warning
-    attributes:
-      sourceMap:
-        element: array
-        content:
-          -
-            element: sourceMap
-            content:
-              -
-                element: array
-                content:
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 25
-                      column:
-                        element: number
-                        content: 6
-                    content: 360
-                  -
-                    element: number
-                    attributes:
-                      line:
-                        element: number
-                        content: 27
-                      column:
-                        element: number
-                        content: 1
-                    content: 47
-    content: 'Ignoring unrecognized block "+ captcha_does_not_match (boolean, optional)".'
 

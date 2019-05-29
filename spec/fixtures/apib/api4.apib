@@ -14,9 +14,9 @@ Project
 + Request (application/json)
 
     + Attributes
-     + login (string, required)
-     + password (string, required)
-     + captcha (string, optional)
+      + login (string, required)
+      + password (string, required)
+      + captcha (string, optional)
 
 + Response 401 (application/json)
 
@@ -25,9 +25,9 @@ Project
 + Response 201 (application/json)
 
     + Attributes
-     + confirmation (Confirmation, optional)
-     + captcha (string, optional)
-     + captcha_does_not_match (boolean, optional)
+      + confirmation (Confirmation, optional)
+      + captcha (string, optional)
+      + captcha_does_not_match (boolean, optional)
 
 
 ### Sign Out [DELETE /sessions/{id}]
@@ -35,7 +35,7 @@ Project
 + Request (application/json)
 
     + Attributes
-     + status (string, required)
+      + status (string, required)
 
 + Parameters
  + id (required, number, `550e8400-e29b-41d4-a716-446655440000`) - ID session authorization
@@ -47,7 +47,7 @@ Project
 + Response 200 (application/json)
 
     + Attributes
-     + status (string, required)
+      + status (string, required)
 
 
 # User [/users]
@@ -57,16 +57,16 @@ Project
 + Request (application/json)
 
     + Attributes
-     + login (string, required)
-     + password (string, required)
-     + confirm_password (string, required)
+      + login (string, required)
+      + password (string, required)
+      + confirm_password (string, required)
 
 + Response 401 (application/json)
 
 + Response 201 (application/json)
 
     + Attributes
-     + status (string, required)
+      + status (string, required)
 
 
 # Data Structures
