@@ -1,156 +1,123 @@
-element: "parseResult"
+element: parseResult
 content:
   -
-    element: "category"
+    element: category
     meta:
       classes:
-        element: "array"
-        content:
-          -
-            element: "string"
-            content: "api"
+        -
+          element: string
+          content: api
       title:
-        element: "string"
-        content: "project"
-    attributes:
-      metadata:
-        element: "array"
-        content:
-          -
-            element: "member"
-            meta:
-              classes:
-                element: "array"
-                content:
-                  -
-                    element: "string"
-                    content: "user"
-            content:
-              key:
-                element: "string"
-                content: "FORMAT"
-              value:
-                element: "string"
-                content: "1A"
-          -
-            element: "member"
-            meta:
-              classes:
-                element: "array"
-                content:
-                  -
-                    element: "string"
-                    content: "user"
-            content:
-              key:
-                element: "string"
-                content: "HOST"
-              value:
-                element: "string"
-                content: "http://test.local"
+        element: string
+        content: project
     content:
       -
-        element: "category"
+        element: category
         meta:
           classes:
-            element: "array"
-            content:
-              -
-                element: "string"
-                content: "resourceGroup"
+            - resourceGroup
           title:
-            element: "string"
-            content: "project"
+            element: string
+            content: project
         content:
           -
-            element: "copy"
-            content: "Project"
+            element: copy
+            content: Project
           -
-            element: "resource"
+            element: resource
             meta:
               title:
-                element: "string"
-                content: "Authentication"
+                element: string
+                content: Authentication
             attributes:
               href:
-                element: "string"
-                content: "/sessions"
+                element: string
+                content: /sessions
             content:
               -
-                element: "transition"
+                element: transition
                 meta:
                   title:
-                    element: "string"
-                    content: "Sign In"
+                    element: string
+                    content: 'Sign In'
                 content:
                   -
-                    element: "copy"
-                    content: "Comment"
+                    element: copy
+                    content: Comment
+    attributes:
+      metadata:
+        element: array
+        content:
+          -
+            element: member
+            content:
+              key:
+                element: string
+                content: FORMAT
+              value:
+                element: string
+                content: ' 1A'
+            meta:
+              classes:
+                element: array
+                content:
                   -
-                    element: "httpTransaction"
-                    content:
-                      -
-                        element: "httpRequest"
-                        attributes:
-                          method:
-                            element: "string"
-                            content: "POST"
-                          headers:
-                            element: "httpHeaders"
-                            content:
-                              -
-                                element: "member"
-                                content:
-                                  key:
-                                    element: "string"
-                                    content: "Content-Type"
-                                  value:
-                                    element: "string"
-                                    content: "application/json"
-                        content: []
-                      -
-                        element: "httpResponse"
-                        content: []
+                    element: string
+                    content: user
+          -
+            element: member
+            content:
+              key:
+                element: string
+                content: HOST
+              value:
+                element: string
+                content: ' http://test.local'
+            meta:
+              classes:
+                element: array
+                content:
+                  -
+                    element: string
+                    content: user
   -
-    element: "annotation"
+    element: annotation
     meta:
       classes:
-        element: "array"
+        element: array
         content:
           -
-            element: "string"
-            content: "warning"
+            element: string
+            content: warning
     attributes:
-      code:
-        element: "number"
-        content: 6
       sourceMap:
-        element: "array"
+        element: array
         content:
           -
-            element: "sourceMap"
+            element: sourceMap
             content:
               -
-                element: "array"
+                element: array
                 content:
                   -
-                    element: "number"
+                    element: number
                     attributes:
                       line:
-                        element: "number"
+                        element: number
                         content: 12
                       column:
-                        element: "number"
+                        element: number
                         content: 1
                     content: 104
                   -
-                    element: "number"
+                    element: number
                     attributes:
                       line:
-                        element: "number"
+                        element: number
                         content: 12
                       column:
-                        element: "number"
+                        element: number
                         content: 19
                     content: 19
-    content: "action is missing a response for a request"
+    content: 'Аction is missing a response'
+

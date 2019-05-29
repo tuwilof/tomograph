@@ -1,275 +1,198 @@
-element: "parseResult"
+element: parseResult
 content:
   -
-    element: "category"
+    element: category
     meta:
       classes:
-        element: "array"
-        content:
-          -
-            element: "string"
-            content: "api"
+        -
+          element: string
+          content: api
       title:
-        element: "string"
-        content: "Microservice"
+        element: string
+        content: Microservice
     content:
       -
-        element: "resource"
+        element: resource
         meta:
           title:
-            element: "string"
-            content: "Recommendation"
+            element: string
+            content: Recommendation
         attributes:
           href:
-            element: "string"
-            content: "/recommendation"
+            element: string
+            content: /recommendation
         content:
           -
-            element: "transition"
+            element: transition
             meta:
               title:
-                element: "string"
-                content: "To viewing"
+                element: string
+                content: 'To viewing'
             content:
               -
-                element: "httpTransaction"
+                element: httpTransaction
                 content:
                   -
-                    element: "httpRequest"
+                    element: httpRequest
                     attributes:
                       method:
-                        element: "string"
-                        content: "GET"
+                        element: string
+                        content: GET
                     content: []
                   -
-                    element: "httpResponse"
-                    attributes:
-                      statusCode:
-                        element: "string"
-                        content: "200"
-                      headers:
-                        element: "httpHeaders"
-                        content:
-                          -
-                            element: "member"
-                            content:
-                              key:
-                                element: "string"
-                                content: "Content-Type"
-                              value:
-                                element: "string"
-                                content: "application/json"
+                    element: httpResponse
                     content:
                       -
-                        element: "dataStructure"
+                        element: dataStructure
                         content:
-                          element: "object"
-                          content:
-                            -
-                              element: "member"
-                              attributes:
-                                typeAttributes:
-                                  element: "array"
-                                  content:
-                                    -
-                                      element: "string"
-                                      content: "required"
-                              content:
-                                key:
-                                  element: "string"
-                                  content: "tv_series"
-                                value:
-                                  element: "string"
-                                  content: "Mr. Robot"
+                          element: string
                       -
-                        element: "asset"
+                        element: asset
                         meta:
                           classes:
-                            element: "array"
-                            content:
-                              -
-                                element: "string"
-                                content: "messageBody"
+                            - messageBodySchema
                         attributes:
                           contentType:
-                            element: "string"
-                            content: "application/json"
-                        content: "{\n  \"tv_series\": \"Mr. Robot\"\n}"
-                      -
-                        element: "asset"
-                        meta:
-                          classes:
-                            element: "array"
+                            element: string
+                            content: application/schema+json
+                        content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"string\"\n}"
+                    attributes:
+                      statusCode:
+                        element: string
+                        content: '200'
+                      headers:
+                        element: httpHeaders
+                        content:
+                          -
+                            element: member
                             content:
-                              -
-                                element: "string"
-                                content: "messageBodySchema"
-                        attributes:
-                          contentType:
-                            element: "string"
-                            content: "application/schema+json"
-                        content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"tv_series\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\n    \"tv_series\"\n  ]\n}"
+                              key:
+                                element: string
+                                content: Content-Type
+                              value:
+                                element: string
+                                content: application/json
               -
-                element: "httpTransaction"
+                element: httpTransaction
                 content:
                   -
-                    element: "httpRequest"
+                    element: httpRequest
                     attributes:
                       method:
-                        element: "string"
-                        content: "GET"
+                        element: string
+                        content: GET
                     content: []
                   -
-                    element: "httpResponse"
-                    attributes:
-                      statusCode:
-                        element: "string"
-                        content: "200"
-                      headers:
-                        element: "httpHeaders"
-                        content:
-                          -
-                            element: "member"
-                            content:
-                              key:
-                                element: "string"
-                                content: "Content-Type"
-                              value:
-                                element: "string"
-                                content: "application/json"
+                    element: httpResponse
                     content:
                       -
-                        element: "dataStructure"
+                        element: dataStructure
                         content:
-                          element: "object"
-                          content:
-                            -
-                              element: "member"
-                              attributes:
-                                typeAttributes:
-                                  element: "array"
-                                  content:
-                                    -
-                                      element: "string"
-                                      content: "required"
-                              content:
-                                key:
-                                  element: "string"
-                                  content: "cinema"
-                                value:
-                                  element: "string"
-                                  content: "The Nice Guys"
+                          element: string
                       -
-                        element: "asset"
+                        element: asset
                         meta:
                           classes:
-                            element: "array"
-                            content:
-                              -
-                                element: "string"
-                                content: "messageBody"
+                            - messageBodySchema
                         attributes:
                           contentType:
-                            element: "string"
-                            content: "application/json"
-                        content: "{\n  \"cinema\": \"The Nice Guys\"\n}"
-                      -
-                        element: "asset"
-                        meta:
-                          classes:
-                            element: "array"
+                            element: string
+                            content: application/schema+json
+                        content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"string\"\n}"
+                    attributes:
+                      statusCode:
+                        element: string
+                        content: '200'
+                      headers:
+                        element: httpHeaders
+                        content:
+                          -
+                            element: member
                             content:
-                              -
-                                element: "string"
-                                content: "messageBodySchema"
-                        attributes:
-                          contentType:
-                            element: "string"
-                            content: "application/schema+json"
-                        content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"cinema\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\n    \"cinema\"\n  ]\n}"
+                              key:
+                                element: string
+                                content: Content-Type
+                              value:
+                                element: string
+                                content: application/json
   -
-    element: "annotation"
+    element: annotation
     meta:
       classes:
-        element: "array"
+        element: array
         content:
           -
-            element: "string"
-            content: "warning"
+            element: string
+            content: warning
     attributes:
-      code:
-        element: "number"
-        content: 6
       sourceMap:
-        element: "array"
+        element: array
         content:
           -
-            element: "sourceMap"
+            element: sourceMap
             content:
               -
-                element: "array"
+                element: array
                 content:
                   -
-                    element: "number"
+                    element: number
                     attributes:
                       line:
-                        element: "number"
-                        content: 4
+                        element: number
+                        content: 8
                       column:
-                        element: "number"
-                        content: 1
-                    content: 72
+                        element: number
+                        content: 6
+                    content: 139
                   -
-                    element: "number"
+                    element: number
                     attributes:
                       line:
-                        element: "number"
-                        content: 5
+                        element: number
+                        content: 9
                       column:
-                        element: "number"
+                        element: number
                         content: 1
-                    content: 11
-    content: "empty request message-body"
+                    content: 43
+    content: 'Ignoring unrecognized block "+ tv_series: Mr. Robot (string, required)".'
   -
-    element: "annotation"
+    element: annotation
     meta:
       classes:
-        element: "array"
+        element: array
         content:
           -
-            element: "string"
-            content: "warning"
+            element: string
+            content: warning
     attributes:
-      code:
-        element: "number"
-        content: 2
       sourceMap:
-        element: "array"
+        element: array
         content:
           -
-            element: "sourceMap"
+            element: sourceMap
             content:
               -
-                element: "array"
+                element: array
                 content:
                   -
-                    element: "number"
+                    element: number
                     attributes:
                       line:
-                        element: "number"
-                        content: 10
-                      column:
-                        element: "number"
-                        content: 1
-                    content: 182
-                  -
-                    element: "number"
-                    attributes:
-                      line:
-                        element: "number"
+                        element: number
                         content: 12
                       column:
-                        element: "number"
+                        element: number
+                        content: 6
+                    content: 238
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 12
+                      column:
+                        element: number
                         content: 48
-                    content: 99
-    content: "response payload `200` already defined for `GET` method"
+                    content: 43
+    content: 'Ignoring unrecognized block "+ cinema: The Nice Guys (string, required)".'
+

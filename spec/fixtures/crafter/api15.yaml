@@ -1,352 +1,172 @@
-element: "parseResult"
+element: parseResult
 content:
   -
-    element: "category"
+    element: category
     meta:
       classes:
-        element: "array"
-        content:
-          -
-            element: "string"
-            content: "api"
+        -
+          element: string
+          content: api
       title:
-        element: "string"
-        content: "project"
-    attributes:
-      metadata:
-        element: "array"
-        content:
-          -
-            element: "member"
-            meta:
-              classes:
-                element: "array"
-                content:
-                  -
-                    element: "string"
-                    content: "user"
-            content:
-              key:
-                element: "string"
-                content: "FORMAT"
-              value:
-                element: "string"
-                content: "1A"
-          -
-            element: "member"
-            meta:
-              classes:
-                element: "array"
-                content:
-                  -
-                    element: "string"
-                    content: "user"
-            content:
-              key:
-                element: "string"
-                content: "HOST"
-              value:
-                element: "string"
-                content: "http://test.local"
+        element: string
+        content: project
     content:
       -
-        element: "copy"
-        content: "Project"
+        element: copy
+        content: Project
       -
-        element: "category"
+        element: category
         meta:
           classes:
-            element: "array"
-            content:
-              -
-                element: "string"
-                content: "resourceGroup"
+            - resourceGroup
           title:
-            element: "string"
-            content: "project"
+            element: string
+            content: project
         content:
           -
-            element: "copy"
-            content: "Project"
+            element: copy
+            content: Project
           -
-            element: "resource"
+            element: resource
             meta:
               title:
-                element: "string"
-                content: "Authentication"
+                element: string
+                content: Authentication
             attributes:
               href:
-                element: "string"
-                content: "/sessions"
+                element: string
+                content: /sessions
             content:
               -
-                element: "transition"
+                element: transition
                 meta:
                   title:
-                    element: "string"
-                    content: "Sign Out"
+                    element: string
+                    content: 'Sign Out'
                 content:
                   -
-                    element: "httpTransaction"
+                    element: httpTransaction
                     content:
                       -
-                        element: "httpRequest"
+                        element: httpRequest
                         attributes:
                           method:
-                            element: "string"
-                            content: "DELETE"
+                            element: string
+                            content: DELETE
                         content: []
                       -
-                        element: "httpResponse"
-                        attributes:
-                          statusCode:
-                            element: "string"
-                            content: "200"
-                          headers:
-                            element: "httpHeaders"
-                            content:
-                              -
-                                element: "member"
-                                content:
-                                  key:
-                                    element: "string"
-                                    content: "Content-Type"
-                                  value:
-                                    element: "string"
-                                    content: "multipart/form-data;boundary=BOUNDARY"
+                        element: httpResponse
                         content:
                           -
-                            element: "dataStructure"
+                            element: dataStructure
                             content:
-                              element: "object"
+                              element: object
                               content:
                                 -
-                                  element: "member"
-                                  attributes:
-                                    typeAttributes:
-                                      element: "array"
-                                      content:
-                                        -
-                                          element: "string"
-                                          content: "required"
+                                  element: member
                                   content:
                                     key:
-                                      element: "string"
-                                      content: "example"
+                                      element: string
+                                      content: example
                                     value:
-                                      element: "string"
-                          -
-                            element: "asset"
-                            meta:
-                              classes:
-                                element: "array"
+                                      element: string
+                                  attributes:
+                                    typeAttributes:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: required
+                        attributes:
+                          statusCode:
+                            element: string
+                            content: '200'
+                          headers:
+                            element: httpHeaders
+                            content:
+                              -
+                                element: member
                                 content:
-                                  -
-                                    element: "string"
-                                    content: "messageBody"
-                            attributes:
-                              contentType:
-                                element: "string"
-                                content: "multipart/form-data;boundary=BOUNDARY"
-                            content: "--BOUNDARY\nContent-Disposition: form-data; filename=\"$filename\"\nContent-Type: $mimetype\nContent-Transfer-Encoding: binary\n$binarydata\n--BOUNDARY--\n"
+                                  key:
+                                    element: string
+                                    content: Content-Type
+                                  value:
+                                    element: string
+                                    content: multipart/form-data;boundary=BOUNDARY
+    attributes:
+      metadata:
+        element: array
+        content:
+          -
+            element: member
+            content:
+              key:
+                element: string
+                content: FORMAT
+              value:
+                element: string
+                content: ' 1A'
+            meta:
+              classes:
+                element: array
+                content:
+                  -
+                    element: string
+                    content: user
+          -
+            element: member
+            content:
+              key:
+                element: string
+                content: HOST
+              value:
+                element: string
+                content: ' http://test.local'
+            meta:
+              classes:
+                element: array
+                content:
+                  -
+                    element: string
+                    content: user
   -
-    element: "annotation"
+    element: annotation
     meta:
       classes:
-        element: "array"
+        element: array
         content:
           -
-            element: "string"
-            content: "warning"
+            element: string
+            content: warning
     attributes:
-      code:
-        element: "number"
-        content: 10
       sourceMap:
-        element: "array"
+        element: array
         content:
           -
-            element: "sourceMap"
+            element: sourceMap
             content:
               -
-                element: "array"
+                element: array
                 content:
                   -
-                    element: "number"
+                    element: number
                     attributes:
                       line:
-                        element: "number"
+                        element: number
                         content: 19
                       column:
-                        element: "number"
-                        content: 7
-                    content: 251
+                        element: number
+                        content: 5
+                    content: 249
                   -
-                    element: "number"
+                    element: number
                     attributes:
                       line:
-                        element: "number"
-                        content: 19
-                      column:
-                        element: "number"
-                        content: 11
-                    content: 5
-              -
-                element: "array"
-                content:
-                  -
-                    element: "number"
-                    attributes:
-                      line:
-                        element: "number"
-                        content: 20
-                      column:
-                        element: "number"
-                        content: 9
-                    content: 264
-                  -
-                    element: "number"
-                    attributes:
-                      line:
-                        element: "number"
-                        content: 20
-                      column:
-                        element: "number"
-                        content: 19
-                    content: 11
-              -
-                element: "array"
-                content:
-                  -
-                    element: "number"
-                    attributes:
-                      line:
-                        element: "number"
-                        content: 21
-                      column:
-                        element: "number"
-                        content: 9
-                    content: 283
-                  -
-                    element: "number"
-                    attributes:
-                      line:
-                        element: "number"
-                        content: 21
-                      column:
-                        element: "number"
-                        content: 61
-                    content: 53
-              -
-                element: "array"
-                content:
-                  -
-                    element: "number"
-                    attributes:
-                      line:
-                        element: "number"
-                        content: 22
-                      column:
-                        element: "number"
-                        content: 9
-                    content: 344
-                  -
-                    element: "number"
-                    attributes:
-                      line:
-                        element: "number"
-                        content: 22
-                      column:
-                        element: "number"
-                        content: 32
-                    content: 24
-              -
-                element: "array"
-                content:
-                  -
-                    element: "number"
-                    attributes:
-                      line:
-                        element: "number"
-                        content: 23
-                      column:
-                        element: "number"
-                        content: 9
-                    content: 376
-                  -
-                    element: "number"
-                    attributes:
-                      line:
-                        element: "number"
-                        content: 24
-                      column:
-                        element: "number"
-                        content: 1
-                    content: 35
-    content: "message-body asset is expected to be a pre-formatted code block, separate it by a newline and indent every of its line by 12 spaces or 3 tabs"
-  -
-    element: "annotation"
-    meta:
-      classes:
-        element: "array"
-        content:
-          -
-            element: "string"
-            content: "warning"
-    attributes:
-      code:
-        element: "number"
-        content: 10
-      sourceMap:
-        element: "array"
-        content:
-          -
-            element: "sourceMap"
-            content:
-              -
-                element: "array"
-                content:
-                  -
-                    element: "number"
-                    attributes:
-                      line:
-                        element: "number"
-                        content: 25
-                      column:
-                        element: "number"
-                        content: 9
-                    content: 419
-                  -
-                    element: "number"
-                    attributes:
-                      line:
-                        element: "number"
-                        content: 25
-                      column:
-                        element: "number"
-                        content: 20
-                    content: 12
-              -
-                element: "array"
-                content:
-                  -
-                    element: "number"
-                    attributes:
-                      line:
-                        element: "number"
+                        element: number
                         content: 26
                       column:
-                        element: "number"
-                        content: 9
-                    content: 439
-                  -
-                    element: "number"
-                    attributes:
-                      line:
-                        element: "number"
-                        content: 26
-                      column:
-                        element: "number"
+                        element: number
                         content: 21
-                    content: 13
-    content: "message-body asset is expected to be a pre-formatted code block, every of its line indented by exactly 12 spaces or 3 tabs"
+                    content: 203
+    content: "Ignoring unrecognized block \"+ Body\n--BOUNDARY\nContent-Disposition: form-data; filename=\"$filename\"\nContent-Type: $mimetype\nContent-Transfer-Encoding: binary\n\n$binarydata\n--BOUNDARY--\"."
+

@@ -1,153 +1,208 @@
-element: "parseResult"
+element: parseResult
 content:
   -
-    element: "category"
+    element: category
     meta:
       classes:
-        element: "array"
-        content:
-          -
-            element: "string"
-            content: "api"
+        -
+          element: string
+          content: api
       title:
-        element: "string"
-        content: "project"
-    attributes:
-      metadata:
-        element: "array"
-        content:
-          -
-            element: "member"
-            meta:
-              classes:
-                element: "array"
-                content:
-                  -
-                    element: "string"
-                    content: "user"
-            content:
-              key:
-                element: "string"
-                content: "FORMAT"
-              value:
-                element: "string"
-                content: "1A"
-          -
-            element: "member"
-            meta:
-              classes:
-                element: "array"
-                content:
-                  -
-                    element: "string"
-                    content: "user"
-            content:
-              key:
-                element: "string"
-                content: "HOST"
-              value:
-                element: "string"
-                content: "http://test.local"
+        element: string
+        content: project
     content:
       -
-        element: "category"
+        element: category
         meta:
           classes:
-            element: "array"
-            content:
-              -
-                element: "string"
-                content: "resourceGroup"
+            - resourceGroup
           title:
-            element: "string"
-            content: "project"
+            element: string
+            content: project
         content:
           -
-            element: "copy"
-            content: "Project"
+            element: copy
+            content: Project
           -
-            element: "resource"
+            element: resource
             meta:
               title:
-                element: "string"
-                content: "Authentication"
+                element: string
+                content: Authentication
             attributes:
               href:
-                element: "string"
-                content: "/sessions"
+                element: string
+                content: /sessions
             content:
               -
-                element: "transition"
+                element: transition
                 meta:
                   title:
-                    element: "string"
-                    content: "Sign Out"
-                attributes:
-                  href:
-                    element: "string"
-                    content: "/sessions/{id}"
-                  hrefVariables:
-                    element: "hrefVariables"
-                    content:
-                      -
-                        element: "member"
-                        meta:
-                          title:
-                            element: "string"
-                            content: "number"
-                        attributes:
-                          typeAttributes:
-                            element: "array"
-                            content:
-                              -
-                                element: "string"
-                                content: "required"
-                        content:
-                          key:
-                            element: "string"
-                            content: "id"
-                          value:
-                            element: "string"
-                            content: "550e8400-e29b-41d4-a716-446655440000"
+                    element: string
+                    content: 'Sign Out'
                 content:
                   -
-                    element: "httpTransaction"
+                    element: httpTransaction
                     content:
                       -
-                        element: "httpRequest"
+                        element: httpRequest
                         attributes:
                           method:
-                            element: "string"
-                            content: "DELETE"
+                            element: string
+                            content: DELETE
                           headers:
-                            element: "httpHeaders"
+                            element: httpHeaders
                             content:
                               -
-                                element: "member"
+                                element: member
                                 content:
                                   key:
-                                    element: "string"
-                                    content: "Content-Type"
+                                    element: string
+                                    content: Content-Type
                                   value:
-                                    element: "string"
-                                    content: "application/json"
+                                    element: string
+                                    content: application/json
                         content: []
                       -
-                        element: "httpResponse"
+                        element: httpResponse
+                        content: []
                         attributes:
                           statusCode:
-                            element: "string"
-                            content: "200"
+                            element: string
+                            content: '200'
                           headers:
-                            element: "httpHeaders"
+                            element: httpHeaders
                             content:
                               -
-                                element: "member"
+                                element: member
                                 content:
                                   key:
-                                    element: "string"
-                                    content: "Content-Type"
+                                    element: string
+                                    content: Content-Type
                                   value:
-                                    element: "string"
-                                    content: "application/json"
-                        content: []
+                                    element: string
+                                    content: application/json
+                attributes:
+                  href:
+                    element: string
+                    content: '/sessions/{id}'
+                  hrefVariables:
+                    element: hrefVariables
+                    content: []
+    attributes:
+      metadata:
+        element: array
+        content:
+          -
+            element: member
+            content:
+              key:
+                element: string
+                content: FORMAT
+              value:
+                element: string
+                content: ' 1A'
+            meta:
+              classes:
+                element: array
+                content:
+                  -
+                    element: string
+                    content: user
+          -
+            element: member
+            content:
+              key:
+                element: string
+                content: HOST
+              value:
+                element: string
+                content: ' http://test.local'
+            meta:
+              classes:
+                element: array
+                content:
+                  -
+                    element: string
+                    content: user
+  -
+    element: annotation
+    meta:
+      classes:
+        element: array
+        content:
+          -
+            element: string
+            content: warning
+    attributes:
+      sourceMap:
+        element: array
+        content:
+          -
+            element: sourceMap
+            content:
+              -
+                element: array
+                content:
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 17
+                      column:
+                        element: number
+                        content: 2
+                    content: 186
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 18
+                      column:
+                        element: number
+                        content: 1
+                    content: 92
+    content: 'Ignoring unrecognized block "+ id (required, number, `550e8400-e29b-41d4-a716-446655440000`) - ID session authorization".'
+  -
+    element: annotation
+    meta:
+      classes:
+        element: array
+        content:
+          -
+            element: string
+            content: warning
+    attributes:
+      sourceMap:
+        element: array
+        content:
+          -
+            element: sourceMap
+            content:
+              -
+                element: array
+                content:
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 12
+                      column:
+                        element: number
+                        content: 1
+                    content: 104
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 13
+                      column:
+                        element: number
+                        content: 1
+                    content: 38
+    content: 'Action is missing parameter definitions: id.'
+

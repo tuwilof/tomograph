@@ -1,144 +1,428 @@
-element: "parseResult"
+element: parseResult
 content:
   -
-    element: "category"
+    element: category
     meta:
       classes:
-        element: "array"
-        content:
-          -
-            element: "string"
-            content: "api"
+        -
+          element: string
+          content: api
       title:
-        element: "string"
-        content: "Polls"
-    attributes:
-      metadata:
-        element: "array"
-        content:
-          -
-            element: "member"
-            meta:
-              classes:
-                element: "array"
-                content:
-                  -
-                    element: "string"
-                    content: "user"
-            content:
-              key:
-                element: "string"
-                content: "ORMAT"
-              value:
-                element: "string"
-                content: "1A"
-          -
-            element: "member"
-            meta:
-              classes:
-                element: "array"
-                content:
-                  -
-                    element: "string"
-                    content: "user"
-            content:
-              key:
-                element: "string"
-                content: "HOST"
-              value:
-                element: "string"
-                content: "http://polls.apiblueprint.org/"
+        element: string
+        content: Polls
     content:
       -
-        element: "copy"
-        content: "Polls is a simple API allowing consumers to view polls and vote in them. You can view this documentation over at [Apiary](http://docs.pollsapi.apiary.io)."
+        element: copy
+        content: 'Polls is a simple API allowing consumers to view polls and vote in them. You can view this documentation over at [Apiary](http://docs.pollsapi.apiary.io).'
       -
-        element: "resource"
+        element: resource
         meta:
           title:
-            element: "string"
-            content: "Questions Collection"
+            element: string
+            content: 'Questions Collection'
         attributes:
           href:
-            element: "string"
-            content: "/questions"
+            element: string
+            content: /questions
         content:
           -
-            element: "transition"
+            element: transition
             meta:
               title:
-                element: "string"
-                content: "Create a New Question"
+                element: string
+                content: 'Create a New Question'
             content:
               -
-                element: "copy"
+                element: copy
                 content: "You may create your own question using this action. It takes a JSON object containing a question and a collection of answers in the form of choices.\n\n+ question (string) - The question\n\n+ choices (array[string]) - A collection of choices."
               -
-                element: "httpTransaction"
+                element: httpTransaction
                 content:
                   -
-                    element: "httpRequest"
+                    element: httpRequest
                     attributes:
                       method:
-                        element: "string"
-                        content: "POST"
+                        element: string
+                        content: POST
                       headers:
-                        element: "httpHeaders"
+                        element: httpHeaders
                         content:
                           -
-                            element: "member"
+                            element: member
                             content:
                               key:
-                                element: "string"
-                                content: "Content-Type"
+                                element: string
+                                content: Content-Type
                               value:
-                                element: "string"
-                                content: "application/json"
+                                element: string
+                                content: application/json
                     content:
                       -
-                        element: "asset"
+                        element: asset
                         meta:
                           classes:
-                            element: "array"
-                            content:
-                              -
-                                element: "string"
-                                content: "messageBody"
+                            - messageBody
+                        content: "  {\n    \"question\": \"Favourite programming language?\",\n    \"choices\": [\n        \"Swift\",\n        \"Python\",\n        \"Objective-C\",\n        \"Ruby\"\n    ]\n  }\n"
                         attributes:
                           contentType:
-                            element: "string"
-                            content: "application/json"
-                        content: "{\n  \"question\": \"Favourite programming language?\",\n  \"choices\": [\n      \"Swift\",\n      \"Python\",\n      \"Objective-C\",\n      \"Ruby\"\n  ]\n}\n"
+                            element: string
+                            content: application/json
                   -
-                    element: "httpResponse"
+                    element: httpResponse
+                    content:
+                      -
+                        element: asset
+                        meta:
+                          classes:
+                            - messageBodySchema
+                        attributes:
+                          contentType:
+                            element: string
+                            content: application/schema+json
+                        content: '{}'
                     attributes:
                       statusCode:
-                        element: "string"
-                        content: "201"
+                        element: string
+                        content: '201'
                       headers:
-                        element: "httpHeaders"
+                        element: httpHeaders
                         content:
                           -
-                            element: "member"
+                            element: member
                             content:
                               key:
-                                element: "string"
-                                content: "Content-Type"
+                                element: string
+                                content: Content-Type
                               value:
-                                element: "string"
-                                content: "application/json"
-                    content:
-                      -
-                        element: "asset"
-                        meta:
-                          classes:
-                            element: "array"
-                            content:
-                              -
-                                element: "string"
-                                content: "messageBodySchema"
-                        attributes:
-                          contentType:
-                            element: "string"
-                            content: "application/schema+json"
-                        content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n       \"question\": {\n         \"type\": \"string\"\n       },\n       \"published_at\": {\n         \"type\": \"string\"\n       },\n       \"url\": {\n         \"type\": \"string\"\n"
+                                element: string
+                                content: application/json
+    attributes:
+      metadata:
+        element: array
+        content:
+          -
+            element: member
+            content:
+              key:
+                element: string
+                content: ORMAT
+              value:
+                element: string
+                content: ' 1A'
+            meta:
+              classes:
+                element: array
+                content:
+                  -
+                    element: string
+                    content: user
+          -
+            element: member
+            content:
+              key:
+                element: string
+                content: HOST
+              value:
+                element: string
+                content: ' http://polls.apiblueprint.org/'
+            meta:
+              classes:
+                element: array
+                content:
+                  -
+                    element: string
+                    content: user
+  -
+    element: annotation
+    meta:
+      classes:
+        element: array
+        content:
+          -
+            element: string
+            content: warning
+    attributes:
+      sourceMap:
+        element: array
+        content:
+          -
+            element: sourceMap
+            content:
+              -
+                element: array
+                content:
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 37
+                      column:
+                        element: number
+                        content: 9
+                    content: 881
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 37
+                      column:
+                        element: number
+                        content: 14
+                    content: 6
+              -
+                element: array
+                content:
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 38
+                      column:
+                        element: number
+                        content: 9
+                    content: 895
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 38
+                      column:
+                        element: number
+                        content: 68
+                    content: 60
+              -
+                element: array
+                content:
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 39
+                      column:
+                        element: number
+                        content: 9
+                    content: 963
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 39
+                      column:
+                        element: number
+                        content: 32
+                    content: 24
+              -
+                element: array
+                content:
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 40
+                      column:
+                        element: number
+                        content: 9
+                    content: 995
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 40
+                      column:
+                        element: number
+                        content: 30
+                    content: 22
+              -
+                element: array
+                content:
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 41
+                      column:
+                        element: number
+                        content: 9
+                    content: 1025
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 41
+                      column:
+                        element: number
+                        content: 33
+                    content: 25
+              -
+                element: array
+                content:
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 42
+                      column:
+                        element: number
+                        content: 9
+                    content: 1058
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 42
+                      column:
+                        element: number
+                        content: 38
+                    content: 30
+              -
+                element: array
+                content:
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 43
+                      column:
+                        element: number
+                        content: 9
+                    content: 1096
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 43
+                      column:
+                        element: number
+                        content: 22
+                    content: 14
+              -
+                element: array
+                content:
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 44
+                      column:
+                        element: number
+                        content: 9
+                    content: 1118
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 44
+                      column:
+                        element: number
+                        content: 37
+                    content: 29
+              -
+                element: array
+                content:
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 45
+                      column:
+                        element: number
+                        content: 9
+                    content: 1155
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 45
+                      column:
+                        element: number
+                        content: 38
+                    content: 30
+              -
+                element: array
+                content:
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 46
+                      column:
+                        element: number
+                        content: 9
+                    content: 1193
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 46
+                      column:
+                        element: number
+                        content: 22
+                    content: 14
+              -
+                element: array
+                content:
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 47
+                      column:
+                        element: number
+                        content: 9
+                    content: 1215
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 47
+                      column:
+                        element: number
+                        content: 28
+                    content: 20
+              -
+                element: array
+                content:
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 48
+                      column:
+                        element: number
+                        content: 9
+                    content: 1243
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 48
+                      column:
+                        element: number
+                        content: 38
+                    content: 30
+    content: 'invalid JSON Schema at line 35'
+

@@ -1,87 +1,122 @@
-element: "parseResult"
+element: parseResult
 content:
   -
-    element: "category"
+    element: category
     meta:
       classes:
-        element: "array"
-        content:
-          -
-            element: "string"
-            content: "api"
+        -
+          element: string
+          content: api
       title:
-        element: "string"
+        element: string
         content: ""
     content:
       -
-        element: "category"
+        element: category
         meta:
           classes:
-            element: "array"
-            content:
-              -
-                element: "string"
-                content: "resourceGroup"
+            - resourceGroup
           title:
-            element: "string"
-            content: "project"
+            element: string
+            content: project
         content:
           -
-            element: "resource"
+            element: resource
             meta:
               title:
-                element: "string"
-                content: "Authentication"
+                element: string
+                content: Authentication
             attributes:
               href:
-                element: "string"
-                content: "/sessions"
+                element: string
+                content: /sessions
             content:
               -
-                element: "transition"
+                element: transition
                 meta:
                   title:
-                    element: "string"
-                    content: "Sign In"
+                    element: string
+                    content: 'Sign In'
                 content:
                   -
-                    element: "httpTransaction"
+                    element: httpTransaction
                     content:
                       -
-                        element: "httpRequest"
+                        element: httpRequest
                         attributes:
                           method:
-                            element: "string"
-                            content: "POST"
+                            element: string
+                            content: POST
                           headers:
-                            element: "httpHeaders"
+                            element: httpHeaders
                             content:
                               -
-                                element: "member"
+                                element: member
                                 content:
                                   key:
-                                    element: "string"
-                                    content: "Content-Type"
+                                    element: string
+                                    content: Content-Type
                                   value:
-                                    element: "string"
-                                    content: "application/json"
+                                    element: string
+                                    content: application/json
                         content: []
                       -
-                        element: "httpResponse"
+                        element: httpResponse
+                        content: []
                         attributes:
                           statusCode:
-                            element: "string"
-                            content: "200"
+                            element: string
+                            content: '200'
                           headers:
-                            element: "httpHeaders"
+                            element: httpHeaders
                             content:
                               -
-                                element: "member"
+                                element: member
                                 content:
                                   key:
-                                    element: "string"
-                                    content: "Content-Type"
+                                    element: string
+                                    content: Content-Type
                                   value:
-                                    element: "string"
-                                    content: "application/json"
-                        content: []
+                                    element: string
+                                    content: application/json
+  -
+    element: annotation
+    meta:
+      classes:
+        element: array
+        content:
+          -
+            element: string
+            content: warning
+    attributes:
+      sourceMap:
+        element: array
+        content:
+          -
+            element: sourceMap
+            content:
+              -
+                element: array
+                content:
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 1
+                      column:
+                        element: number
+                        content: 1
+                    content: 0
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 1
+                      column:
+                        element: number
+                        content: 16
+                    content: 16
+    content: 'expected API name, e.g. "# <API Name>"'
+
