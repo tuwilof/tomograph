@@ -1,6 +1,6 @@
 # Change log
 
-### 2.5.0 - 2018-05-28
+### 2.5.0 - 2019-05-28
 
 * features
   * аdded support for documents with pre-parsed by drafter 4.
