@@ -8,7 +8,9 @@ Convert API Blueprint to JSON Schema and search.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+First you need to install [drafter](https://github.com/apiaryio/drafter).
+
+Second add this line to your application's Gemfile:
 
 ```ruby
 gem 'tomograph'
