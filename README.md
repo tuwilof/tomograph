@@ -38,7 +38,7 @@ The command line tool allows you to convert files from API Blueprint or API Elem
 ```
 tomograph doc.apib doc.json
 ```
-Now there is support for documents pre-parsed by [drafter](https://github.com/apiaryio/drafter) versions 3 and 4. To select the handler version, use the -d key and specify the required version. For example:
+Now there is support for documents pre-parsed by [drafter](https://github.com/apiaryio/drafter) versions 3 and 4, or crafter. To select the handler version, use the -d key and specify the required version. For example:
 ```
 tomograph -d 4 doc_by_drafter4.yaml doc.json
 ```
@@ -234,7 +234,11 @@ Path to API Blueprint documentation pre-parsed with `drafter` and saved to a YAM
 
 Drafter v.4
 
-If you are using a `drafter v.4`, then you need to use the following parameters`drafter_4_apib_path` and `drafter_4_yaml_path` respectively.
+If you are using a `drafter v.4`, then you need to use the following parameters`drafter_4_apib_path` and `drafter_4_yaml_path` respectively. 
+
+Crafter
+
+In case when you want to use `сrafter`, then you need to specify these parameters `crafter_apib_path`, `crafter_yaml_path`. 
 
 ### tomogram_json_path
 
