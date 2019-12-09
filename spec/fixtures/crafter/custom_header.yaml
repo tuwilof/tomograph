@@ -1,0 +1,124 @@
+element: parseResult
+content:
+  -
+    element: category
+    meta:
+      classes:
+        -
+          element: string
+          content: api
+      title:
+        element: string
+        content: project
+    content:
+      -
+        element: category
+        meta:
+          classes:
+            - resourceGroup
+          title:
+            element: string
+            content: Контент
+        content:
+          -
+            element: resource
+            meta:
+              title:
+                element: string
+                content: Категории
+            attributes:
+              href:
+                element: string
+                content: /categories
+            content:
+              -
+                element: transition
+                meta:
+                  title:
+                    element: string
+                    content: 'Получение списка категорий'
+                content:
+                  -
+                    element: copy
+                    content: '<!-- anchor: get-categories -->'
+                  -
+                    element: httpTransaction
+                    content:
+                      -
+                        element: httpRequest
+                        attributes:
+                          method:
+                            element: string
+                            content: GET
+                          headers:
+                            element: httpHeaders
+                            content:
+                              -
+                                element: member
+                                content:
+                                  key:
+                                    element: string
+                                    content: Authorization
+                                  value:
+                                    element: string
+                                    content: 'client=CLIENT_ID'
+                        content: []
+                      -
+                        element: httpResponse
+                        content: []
+                        attributes:
+                          statusCode:
+                            element: string
+                            content: '200'
+                          headers:
+                            element: httpHeaders
+                            content:
+                              -
+                                element: member
+                                content:
+                                  key:
+                                    element: string
+                                    content: Content-Type
+                                  value:
+                                    element: string
+                                    content: application/json
+  -
+    element: annotation
+    meta:
+      classes:
+        element: array
+        content:
+          -
+            element: string
+            content: warning
+    attributes:
+      sourceMap:
+        element: array
+        content:
+          -
+            element: sourceMap
+            content:
+              -
+                element: array
+                content:
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 1
+                      column:
+                        element: number
+                        content: 1
+                    content: 0
+                  -
+                    element: number
+                    attributes:
+                      line:
+                        element: number
+                        content: 1
+                      column:
+                        element: number
+                        content: 16
+                    content: 16
+    content: 'expected API name, e.g. "# <API Name>"'

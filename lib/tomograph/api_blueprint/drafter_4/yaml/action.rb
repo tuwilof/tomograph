@@ -18,8 +18,10 @@ module Tomograph
           end
 
           def content_type
-            @content_type ||= @content.first['attributes'].has_key?('headers') ?
-              @content.first['attributes']['headers']['content'][0]['content']['value']['content'] : nil
+            if @content.first['attributes'].has_key?('headers')
+              @content.first['attributes']['headers']['content'][0]['content']['key']['content'] == 'Content-Type' ?
+                @content.first['attributes']['headers']['content'][0]['content']['value']['content'] : nil
+            end
           end
 
           def request

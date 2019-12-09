@@ -1,5 +1,10 @@
 # Change log
 
+### 2.5.1 - 2019-12-09
+
+* bug fixes
+  * fix content_type parsing.
+
 ### 2.5.0 - 2019-05-28
 
 * features

@@ -1,0 +1,18 @@
+[
+  {
+    "path": "/categories",
+    "method": "GET",
+    "content-type": null,
+    "request": {
+    },
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+        },
+        "content-type": "application/json"
+      }
+    ],
+    "resource": "/categories"
+  }
+]

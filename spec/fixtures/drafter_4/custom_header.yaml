@@ -1,0 +1,87 @@
+element: "parseResult"
+content:
+  -
+    element: "category"
+    meta:
+      classes:
+        element: "array"
+        content:
+          -
+            element: "string"
+            content: "api"
+      title:
+        element: "string"
+        content: ""
+    content:
+      -
+        element: "category"
+        meta:
+          classes:
+            element: "array"
+            content:
+              -
+                element: "string"
+                content: "resourceGroup"
+          title:
+            element: "string"
+            content: "Контент"
+        content:
+          -
+            element: "resource"
+            meta:
+              title:
+                element: "string"
+                content: "Категории"
+            attributes:
+              href:
+                element: "string"
+                content: "/categories"
+            content:
+              -
+                element: "transition"
+                meta:
+                  title:
+                    element: "string"
+                    content: "Получение списка категорий"
+                content:
+                  -
+                    element: "httpTransaction"
+                    content:
+                      -
+                        element: "httpRequest"
+                        attributes:
+                          method:
+                            element: "string"
+                            content: "GET"
+                          headers:
+                            element: "httpHeaders"
+                            content:
+                              -
+                                element: "member"
+                                content:
+                                  key:
+                                    element: "string"
+                                    content: "Authorization"
+                                  value:
+                                    element: "string"
+                                    content: "client=CLIENT_ID"
+                        content: []
+                      -
+                        element: "httpResponse"
+                        attributes:
+                          statusCode:
+                            element: "string"
+                            content: "200"
+                          headers:
+                            element: "httpHeaders"
+                            content:
+                              -
+                                element: "member"
+                                content:
+                                  key:
+                                    element: "string"
+                                    content: "Content-Type"
+                                  value:
+                                    element: "string"
+                                    content: "application/json"
+                        content: []
