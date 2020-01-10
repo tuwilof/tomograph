@@ -29,7 +29,7 @@ module Tomograph
         def group?(group)
           return false if group['element'] == 'resource'
           group['element'] != 'copy' && # Element is a human readable text
-            group['meta']['classes'][0] == 'resourceGroup' # skip Data Structures
+            group['meta']['classes']['content'][0]['content'] == 'resourceGroup' # skip Data Structures
         end
 
         def resources

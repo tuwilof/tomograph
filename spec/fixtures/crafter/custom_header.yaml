@@ -4,18 +4,24 @@ content:
     element: category
     meta:
       classes:
-        -
-          element: string
-          content: api
+        element: array
+        content:
+          -
+            element: string
+            content: api
       title:
         element: string
-        content: project
+        content: ""
     content:
       -
         element: category
         meta:
           classes:
-            - resourceGroup
+            element: array
+            content:
+              -
+                element: string
+                content: resourceGroup
           title:
             element: string
             content: Контент
@@ -39,9 +45,6 @@ content:
                     content: 'Получение списка категорий'
                 content:
                   -
-                    element: copy
-                    content: '<!-- anchor: get-categories -->'
-                  -
                     element: httpTransaction
                     content:
                       -
@@ -61,7 +64,7 @@ content:
                                     content: Authorization
                                   value:
                                     element: string
-                                    content: 'client=CLIENT_ID'
+                                    content: client=CLIENT_ID
                         content: []
                       -
                         element: httpResponse
@@ -122,3 +125,4 @@ content:
                         content: 16
                     content: 16
     content: 'expected API name, e.g. "# <API Name>"'
+

@@ -4,9 +4,11 @@ content:
     element: category
     meta:
       classes:
-        -
-          element: string
-          content: api
+        element: array
+        content:
+          -
+            element: string
+            content: api
       title:
         element: string
         content: Microservice
@@ -67,7 +69,11 @@ content:
                         element: asset
                         meta:
                           classes:
-                            - messageBody
+                            element: array
+                            content:
+                              -
+                                element: string
+                                content: messageBody
                         content: "{\n  \"tv_series\": \"Mr. Robot\"\n}"
                         attributes:
                           contentType:
@@ -77,7 +83,11 @@ content:
                         element: asset
                         meta:
                           classes:
-                            - messageBodySchema
+                            element: array
+                            content:
+                              -
+                                element: string
+                                content: messageBodySchema
                         attributes:
                           contentType:
                             element: string
@@ -137,7 +147,11 @@ content:
                         element: asset
                         meta:
                           classes:
-                            - messageBody
+                            element: array
+                            content:
+                              -
+                                element: string
+                                content: messageBody
                         content: "{\n  \"cinema\": \"The Nice Guys\"\n}"
                         attributes:
                           contentType:
@@ -147,7 +161,11 @@ content:
                         element: asset
                         meta:
                           classes:
-                            - messageBodySchema
+                            element: array
+                            content:
+                              -
+                                element: string
+                                content: messageBodySchema
                         attributes:
                           contentType:
                             element: string

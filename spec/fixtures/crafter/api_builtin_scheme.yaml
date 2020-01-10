@@ -4,9 +4,11 @@ content:
     element: category
     meta:
       classes:
-        -
-          element: string
-          content: api
+        element: array
+        content:
+          -
+            element: string
+            content: api
       title:
         element: string
         content: Polls
@@ -61,7 +63,11 @@ content:
                         element: asset
                         meta:
                           classes:
-                            - messageBody
+                            element: array
+                            content:
+                              -
+                                element: string
+                                content: messageBody
                         content: "  {\n    \"question\": \"Favourite programming language?\",\n    \"choices\": [\n        \"Swift\",\n        \"Python\",\n        \"Objective-C\",\n        \"Ruby\"\n    ]\n  }\n"
                         attributes:
                           contentType:
@@ -71,7 +77,11 @@ content:
                         element: asset
                         meta:
                           classes:
-                            - messageBodySchema
+                            element: array
+                            content:
+                              -
+                                element: string
+                                content: messageBodySchema
                         attributes:
                           contentType:
                             element: string
@@ -84,7 +94,11 @@ content:
                         element: asset
                         meta:
                           classes:
-                            - messageBody
+                            element: array
+                            content:
+                              -
+                                element: string
+                                content: messageBody
                         content: "  {\n      \"question\": \"Favourite programming language?\",\n      \"published_at\": \"2014-11-11T08:40:51.620Z\",\n      \"url\": \"/questions/2\",\n      \"choices\": [\n          {\n              \"choice\": \"Swift\",\n              \"url\": \"/questions/2/choices/1\",\n              \"votes\": 0\n          }, {\n              \"choice\": \"Python\",\n              \"url\": \"/questions/2/choices/2\",\n              \"votes\": 0\n          }, {\n              \"choice\": \"Objective-C\",\n              \"url\": \"/questions/2/choices/3\",\n              \"votes\": 0\n          }, {\n              \"choice\": \"Ruby\",\n              \"url\": \"/questions/2/choices/4\",\n              \"votes\": 0\n          }\n      ]\n  }\n"
                         attributes:
                           contentType:
@@ -94,7 +108,11 @@ content:
                         element: asset
                         meta:
                           classes:
-                            - messageBodySchema
+                            element: array
+                            content:
+                              -
+                                element: string
+                                content: messageBodySchema
                         attributes:
                           contentType:
                             element: string

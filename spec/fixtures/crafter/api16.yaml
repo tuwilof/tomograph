@@ -4,9 +4,11 @@ content:
     element: category
     meta:
       classes:
-        -
-          element: string
-          content: api
+        element: array
+        content:
+          -
+            element: string
+            content: api
       title:
         element: string
         content: project
@@ -15,7 +17,11 @@ content:
         element: category
         meta:
           classes:
-            - resourceGroup
+            element: array
+            content:
+              -
+                element: string
+                content: resourceGroup
           title:
             element: string
             content: project
@@ -120,8 +126,12 @@ content:
                             element: asset
                             meta:
                               classes:
-                                - messageBody
-                            content: "{\n  \"login\": \"\",\n  \"password\": \"\",\n  \"captcha\": \"\"\n}"
+                                element: array
+                                content:
+                                  -
+                                    element: string
+                                    content: messageBody
+                            content: "{\n  \"login\": \"hello\",\n  \"password\": \"hello\",\n  \"captcha\": \"hello\"\n}"
                             attributes:
                               contentType:
                                 element: string
@@ -130,7 +140,11 @@ content:
                             element: asset
                             meta:
                               classes:
-                                - messageBodySchema
+                                element: array
+                                content:
+                                  -
+                                    element: string
+                                    content: messageBodySchema
                             attributes:
                               contentType:
                                 element: string
@@ -178,8 +192,12 @@ content:
                             element: asset
                             meta:
                               classes:
-                                - messageBody
-                            content: "{\n  \"captcha\": \"\",\n  \"captcha_does_not_match\": false\n}"
+                                element: array
+                                content:
+                                  -
+                                    element: string
+                                    content: messageBody
+                            content: "{\n  \"captcha\": \"hello\",\n  \"captcha_does_not_match\": true\n}"
                             attributes:
                               contentType:
                                 element: string
@@ -188,7 +206,11 @@ content:
                             element: asset
                             meta:
                               classes:
-                                - messageBodySchema
+                                element: array
+                                content:
+                                  -
+                                    element: string
+                                    content: messageBodySchema
                             attributes:
                               contentType:
                                 element: string

@@ -4,9 +4,11 @@ content:
     element: category
     meta:
       classes:
-        -
-          element: string
-          content: api
+        element: array
+        content:
+          -
+            element: string
+            content: api
       title:
         element: string
         content: Polls
@@ -61,7 +63,11 @@ content:
                         element: asset
                         meta:
                           classes:
-                            - messageBody
+                            element: array
+                            content:
+                              -
+                                element: string
+                                content: messageBody
                         content: "  {\n    \"question\": \"Favourite programming language?\",\n    \"choices\": [\n        \"Swift\",\n        \"Python\",\n        \"Objective-C\",\n        \"Ruby\"\n    ]\n  }\n"
                         attributes:
                           contentType:
@@ -74,7 +80,11 @@ content:
                         element: asset
                         meta:
                           classes:
-                            - messageBodySchema
+                            element: array
+                            content:
+                              -
+                                element: string
+                                content: messageBodySchema
                         attributes:
                           contentType:
                             element: string

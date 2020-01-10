@@ -4,9 +4,11 @@ content:
     element: category
     meta:
       classes:
-        -
-          element: string
-          content: api
+        element: array
+        content:
+          -
+            element: string
+            content: api
       title:
         element: string
         content: project
@@ -15,7 +17,11 @@ content:
         element: category
         meta:
           classes:
-            - resourceGroup
+            element: array
+            content:
+              -
+                element: string
+                content: resourceGroup
           title:
             element: string
             content: project
