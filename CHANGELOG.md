@@ -1,5 +1,10 @@
 # Change log
 
+### 2.5.2 - 2020-01-10
+
+* bug fixes
+  * fix parser for new crafter version
+
 ### 2.5.1 - 2019-12-09
 
 * bug fixes
