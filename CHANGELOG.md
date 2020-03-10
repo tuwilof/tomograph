@@ -1,5 +1,10 @@
 # Change log
 
+### 2.5.3 - 2020-03-10
+
+* bug fixes
+  * fix parser status to string
+
 ### 2.5.2 - 2020-01-10
 
 * bug fixes

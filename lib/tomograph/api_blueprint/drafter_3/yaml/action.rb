@@ -51,7 +51,7 @@ module Tomograph
             end
             @responses = @responses.map do |response|
               {
-                'status' => response['attributes']['statusCode'],
+                'status' => response['attributes']['statusCode'].to_s,
                 'body' => json_schema(response['content']),
                 'content-type' => response['attributes'].has_key?('headers') ?
                   response['attributes']['headers']['content'][0]['content']['value']['content'] : nil
