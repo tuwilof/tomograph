@@ -20,7 +20,6 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'methadone', '~> 2', '>= 2.0.2'
   spec.add_runtime_dependency 'multi_json', '~> 1.14', '>= 1.14.1'
-  spec.add_development_dependency 'bundler', '~> 2.1'
   spec.add_development_dependency 'byebug', '~> 11.1', '>= 11.1.1'
   spec.add_development_dependency 'rake', '>= 13.0.1'
   spec.add_development_dependency 'rspec', '~> 3.9', '>= 3.9.0'
