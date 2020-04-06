@@ -1,5 +1,12 @@
 # Change log
 
+### 2.5.4 - 2020-04-06
+
+* fixed warnings on ruby 2.7
+* updated dependences
+
+# Change log
+
 ### 2.5.3 - 2020-03-10
 
 * bug fixes
