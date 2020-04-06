@@ -109,7 +109,7 @@ module Tomograph
 
         def to_tomogram
           @tomogram ||= actions.inject([]) do |result, action|
-            result.push(Tomograph::Tomogram::Action.new(action))
+            result.push(Tomograph::Tomogram::Action.new(**action))
           end
         end
 
