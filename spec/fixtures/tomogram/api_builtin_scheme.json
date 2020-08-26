@@ -3,22 +3,24 @@
     "path": "/questions",
     "method": "POST",
     "content-type": "application/json",
-    "request": {
-      "$schema": "http://json-schema.org/draft-04/schema#",
-      "type": "object",
-      "properties": {
-        "question": {
-          "type": "string"
-        },
-        "choices": {
-          "type": "array",
-          "items": {
+    "requests": [
+      {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "question": {
             "type": "string"
           },
-          "minItems": 2
+          "choices": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 2
+          }
         }
       }
-    },
+    ],
     "responses": [
       {
         "status": "201",

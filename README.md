@@ -117,7 +117,7 @@ tomogram.to_json
       "path": "/sessions",
       "method": "POST",
       "content-type": "application/json",
-      "request": {
+      "requests": [{
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
         "properties": {
@@ -135,7 +135,7 @@ tomogram.to_json
           "login",
           "password"
         ]
-      },
+      }],
       "responses": [
         {
           "status": "401",

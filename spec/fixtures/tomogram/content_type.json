@@ -3,8 +3,10 @@
     "path": "/sessions",
     "method": "POST",
     "content-type": "application/json",
-    "request": {
-    },
+    "requests": [
+      {
+      }
+    ],
     "responses": [
       {
         "status": "200",

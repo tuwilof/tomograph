@@ -66,7 +66,7 @@ RSpec.describe Tomograph::ApiBlueprint::Drafter3::Yaml do
       {"/sessions"=>["POST /api/v1/sessions", "DELETE /api/v1/sessions/{id}"]}
     end
 
-    it 'produces correct Tomogram' do
+    xit 'produces correct Tomogram' do
       expect(subject.to_tomogram.map(&:to_hash)).to eq(tomogram_hash)
     end
 

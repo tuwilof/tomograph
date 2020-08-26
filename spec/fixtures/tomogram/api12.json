@@ -3,8 +3,9 @@
     "path": "/recommendation",
     "method": "GET",
     "content-type": null,
-    "request": {
-    },
+    "requests": [
+      {}
+    ],
     "responses": [
       {
         "status": "200",

@@ -14,7 +14,7 @@ module Tomograph
                         path: "#{@prefix}#{action['path']}",
                         method:  action['method'],
                         content_type: action['content-type'],
-                        request: action['request'],
+                        requests: action['requests'],
                         responses: action['responses'],
                         resource: action['resource']))
         end

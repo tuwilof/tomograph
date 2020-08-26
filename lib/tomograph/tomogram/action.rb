@@ -3,13 +3,13 @@ require 'tomograph/path'
 module Tomograph
   class Tomogram
     class Action
-      attr_reader :path, :method, :content_type, :request, :responses, :resource
+      attr_reader :path, :method, :content_type, :requests, :responses, :resource
 
-      def initialize(path:, method:, content_type:, request:, responses:, resource:)
+      def initialize(path:, method:, content_type:, requests:, responses:, resource:)
         @path ||= Tomograph::Path.new(path)
         @method ||= method
         @content_type ||= content_type
-        @request ||= request
+        @requests ||= requests
         @responses ||= responses
         @resource ||= resource
       end
@@ -25,7 +25,7 @@ module Tomograph
           'path' => path,
           'method' => method,
           'content-type' => content_type,
-          'request' => request,
+          'requests' => requests,
           'responses' => responses,
           'resource' => resource
         }
