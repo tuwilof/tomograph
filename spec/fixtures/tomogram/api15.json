@@ -3,8 +3,10 @@
     "path": "/sessions",
     "method": "DELETE",
     "content-type": null,
-    "request": {
-    },
+    "requests": [
+      {
+      }
+    ],
     "responses": [
       {
         "status": "200",

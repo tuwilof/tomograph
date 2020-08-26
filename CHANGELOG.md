@@ -1,5 +1,10 @@
 # Change log
 
+### 3.0.0 - 2020-08-26
+
+* features
+  * support multi request for one resource path [#27](https://github.com/funbox/tomograph/issues/27)
+
 ### 2.5.4 - 2020-04-06
 
 * fixed warnings on ruby 2.7

@@ -3,28 +3,27 @@
     "path": "/sessions",
     "method": "POST",
     "content-type": "application/json",
-    "request": {
-      "$schema": "http://json-schema.org/draft-04/schema#",
-      "type": "object",
-      "properties": {
-        "login": {
-          "type": "string",
-          "description": "login description text абв"
+    "requests": [
+      {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "captcha": {
+            "type": "string"
+          }
         },
-        "password": {
-          "type": "string",
-          "description": "password description text"
-        },
-        "captcha": {
-          "type": "string",
-          "description": "captcha description text"
-        }
-      },
-      "required": [
-        "login",
-        "password"
-      ]
-    },
+        "required": [
+          "login",
+          "password"
+        ]
+      }
+    ],
     "responses": [
       {
         "status": "401",
@@ -48,32 +47,26 @@
               "type": "object",
               "properties": {
                 "id": {
-                  "type": "string",
-                  "description": "description text"
+                  "type": "string"
                 },
                 "type": {
-                  "type": "string",
-                  "description": "description text"
+                  "type": "string"
                 },
                 "operation": {
-                  "type": "string",
-                  "description": "description text"
+                  "type": "string"
                 }
               },
               "required": [
                 "id",
                 "type",
                 "operation"
-              ],
-              "description": "description text"
+              ]
             },
             "captcha": {
-              "type": "string",
-              "description": "description text"
+              "type": "string"
             },
             "captcha_does_not_match": {
-              "type": "boolean",
-              "description": "description text"
+              "type": "boolean"
             }
           }
         },

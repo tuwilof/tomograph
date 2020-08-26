@@ -1,0 +1,226 @@
+element: parseResult
+content:
+  -
+    element: category
+    meta:
+      classes:
+        element: array
+        content:
+          -
+            element: string
+            content: api
+      title:
+        element: string
+        content: Microservice
+    content:
+      -
+        element: resource
+        meta:
+          title:
+            element: string
+            content: Recommendation
+        attributes:
+          href:
+            element: string
+            content: /recommendation
+        content:
+          -
+            element: transition
+            content:
+              -
+                element: httpTransaction
+                content:
+                  -
+                    element: httpRequest
+                    attributes:
+                      method:
+                        element: string
+                        content: GET
+                      headers:
+                        element: httpHeaders
+                        content:
+                          -
+                            element: member
+                            content:
+                              key:
+                                element: string
+                                content: Content-Type
+                              value:
+                                element: string
+                                content: application/json
+                    content:
+                      -
+                        element: dataStructure
+                        content:
+                          element: object
+                          content:
+                            -
+                              element: member
+                              content:
+                                key:
+                                  element: string
+                                  content: tv_series
+                                value:
+                                  element: string
+                                  attributes:
+                                    samples:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: 'Mr. Robot'
+                              attributes:
+                                typeAttributes:
+                                  element: array
+                                  content:
+                                    -
+                                      element: string
+                                      content: required
+                      -
+                        element: asset
+                        meta:
+                          classes:
+                            element: array
+                            content:
+                              -
+                                element: string
+                                content: messageBody
+                        content: "{\n  \"tv_series\": \"Mr. Robot\"\n}"
+                        attributes:
+                          contentType:
+                            element: string
+                            content: application/json
+                      -
+                        element: asset
+                        meta:
+                          classes:
+                            element: array
+                            content:
+                              -
+                                element: string
+                                content: messageBodySchema
+                        attributes:
+                          contentType:
+                            element: string
+                            content: application/schema+json
+                        content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"tv_series\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\n    \"tv_series\"\n  ]\n}"
+                  -
+                    element: httpResponse
+                    content: []
+                    attributes:
+                      statusCode:
+                        element: number
+                        content: 200
+                      headers:
+                        element: httpHeaders
+                        content:
+                          -
+                            element: member
+                            content:
+                              key:
+                                element: string
+                                content: Content-Type
+                              value:
+                                element: string
+                                content: application/json
+              -
+                element: httpTransaction
+                content:
+                  -
+                    element: httpRequest
+                    attributes:
+                      method:
+                        element: string
+                        content: GET
+                      headers:
+                        element: httpHeaders
+                        content:
+                          -
+                            element: member
+                            content:
+                              key:
+                                element: string
+                                content: Content-Type
+                              value:
+                                element: string
+                                content: application/json
+                    content:
+                      -
+                        element: dataStructure
+                        content:
+                          element: object
+                          content:
+                            -
+                              element: member
+                              content:
+                                key:
+                                  element: string
+                                  content: cinema
+                                value:
+                                  element: string
+                                  attributes:
+                                    samples:
+                                      element: array
+                                      content:
+                                        -
+                                          element: string
+                                          content: 'The Nice Guys'
+                              attributes:
+                                typeAttributes:
+                                  element: array
+                                  content:
+                                    -
+                                      element: string
+                                      content: required
+                      -
+                        element: asset
+                        meta:
+                          classes:
+                            element: array
+                            content:
+                              -
+                                element: string
+                                content: messageBody
+                        content: "{\n  \"cinema\": \"The Nice Guys\"\n}"
+                        attributes:
+                          contentType:
+                            element: string
+                            content: application/json
+                      -
+                        element: asset
+                        meta:
+                          classes:
+                            element: array
+                            content:
+                              -
+                                element: string
+                                content: messageBodySchema
+                        attributes:
+                          contentType:
+                            element: string
+                            content: application/schema+json
+                        content: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"cinema\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\n    \"cinema\"\n  ]\n}"
+                  -
+                    element: httpResponse
+                    content: []
+                    attributes:
+                      statusCode:
+                        element: number
+                        content: 200
+                      headers:
+                        element: httpHeaders
+                        content:
+                          -
+                            element: member
+                            content:
+                              key:
+                                element: string
+                                content: Content-Type
+                              value:
+                                element: string
+                                content: application/json
+            meta:
+              title:
+                element: string
+                content: 'To viewing'
+

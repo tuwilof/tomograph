@@ -3,25 +3,27 @@
     "path": "/sessions",
     "method": "POST",
     "content-type": "application/json",
-    "request": {
-      "$schema": "http://json-schema.org/draft-04/schema#",
-      "type": "object",
-      "properties": {
-        "login": {
-          "type": "string"
+    "requests": [
+      {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "captcha": {
+            "type": "string"
+          }
         },
-        "password": {
-          "type": "string"
-        },
-        "captcha": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "login",
-        "password"
-      ]
-    },
+        "required": [
+          "login",
+          "password"
+        ]
+      }
+    ],
     "responses": [
       {
         "status": "401",

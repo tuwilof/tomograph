@@ -2,18 +2,20 @@
   "path": "/sessions/{id}",
   "method": "DELETE",
   "content-type": "application/json",
-  "request": {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "type": "object",
-    "properties": {
-      "status": {
-        "type": "string"
-      }
-    },
-    "required": [
-      "status"
-    ]
-  },
+  "requests": [
+    {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "status"
+      ]
+    }
+  ],
   "responses": [
     {
       "status": "401",
