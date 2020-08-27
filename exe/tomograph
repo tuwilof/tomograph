@@ -12,7 +12,7 @@ include Methadone::CLILogging
 
 version Tomograph::VERSION
 description 'Converts API Blueprint to JSON Schema'
-on('-d DRAFTER_VERSION', '--drafter', 'Choose drafter version: crafter, 3 or 4. Default: use drafter v.3.')
+on('-d DRAFTER_VERSION', '--drafter', 'Choose drafter version: crafter or 4. Default: use drafter v.4.')
 on('-f INPUT_FORMAT', '--format', 'Force input format: "apib" or "yaml". Default: detect by file extension.')
 on('--exclude-description', 'Exclude "description" keys.')
 on('--split', 'Split output into files by method.')
@@ -52,12 +52,10 @@ def choose_drafter(opt_parser)
   case opt_parser
   when 'crafter'
     :crafter
-  when '3'
-    :drafter_3
   when '4'
     :drafter_4
   when nil
-    :drafter_3
+    :drafter_4
   else
     raise 'Unsupported drafter version!'
   end
@@ -88,17 +86,13 @@ main do |input, output|
   version = choose_drafter(options['drafter'])
   format_key = case format
                when :apib
-                 if version == :drafter_3
-                   :apib_path
-                 elsif version == :crafter
+                 if version == :crafter
                    :crafter_apib_path
                  else
                    :drafter_4_apib_path
                  end
                when :yaml
-                 if version == :drafter_3
-                   :drafter_yaml_path
-                 elsif version == :crafter
+                 if version == :crafter
                    :crafter_yaml_path
                  else
                    :drafter_4_yaml_path
