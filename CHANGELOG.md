@@ -1,9 +1,11 @@
 # Change log
 
-### 3.0.0 - 2020-08-26
+### 3.0.0 - 2020-08-27
 
 * features
   * support multi request for one resource path [#27](https://github.com/funbox/tomograph/issues/27)
+* removed
+  * delete support drafter 3 [#29](https://github.com/funbox/tomograph/issues/29)
 
 ### 2.5.4 - 2020-04-06
 
