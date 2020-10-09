@@ -36,10 +36,10 @@ tomogram = Tomograph::Tomogram.new(drafter_yaml_path: '/path/to/doc.yaml')
 
 ### Command line tool
 
-CLI allows you to convert files from API Blueprint or API Elements to JSON Schema.
+CLI allows you to convert files from API Elements to JSON Schema.
 
 ```bash
-tomograph doc.apib doc.json
+tomograph doc.yaml doc.json
 ```
 
 There is also support for documents pre-parsed by [drafter](https://github.com/apiaryio/drafter) versions 3 and 4, or `crafter`. 
@@ -252,7 +252,7 @@ Path to API Blueprint documentation pre-parsed with `drafter` and saved to a YAM
 
 If you are using a `drafter v4`, you should use `drafter_yaml_path`. 
 
-In case when you want to use `сrafter`, then you should pass these params: `crafter_apib_path`, `crafter_yaml_path`. 
+In case when you want to use `сrafter`, then you should pass `crafter_yaml_path` respectively. 
 
 ### `tomogram_json_path`
 

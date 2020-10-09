@@ -6,13 +6,9 @@ module Tomograph
   module ApiBlueprint
     class Crafter
       class Yaml
-        def initialize(prefix, apib_path, drafter_yaml_path)
+        def initialize(prefix, drafter_yaml_path)
           @prefix = prefix
-          @documentation = if apib_path
-                             YAML.safe_load(`drafter #{apib_path}`)
-                           elsif drafter_yaml_path
-                             YAML.safe_load(File.read(drafter_yaml_path))
-                           end
+          @documentation = YAML.safe_load(File.read(drafter_yaml_path))
         end
 
         def groups
