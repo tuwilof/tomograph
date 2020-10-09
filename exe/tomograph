@@ -91,7 +91,7 @@ main do |input, output|
                  if version == :crafter
                    :crafter_yaml_path
                  else
-                   :drafter_4_yaml_path
+                   :drafter_yaml_path
                  end
                else
                  fail NotImplementedError
