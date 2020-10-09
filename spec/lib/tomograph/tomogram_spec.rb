@@ -992,7 +992,7 @@ RSpec.describe Tomograph::Tomogram do
 
     describe '#prefix_match?' do
       subject { described_class.new(prefix: '/api/v2') }
-      before { allow(Tomograph::ApiBlueprint::Crafter::Yaml).to receive(:new) }
+      before { allow(Tomograph::ApiBlueprint::Drafter4::Yaml).to receive(:new) }
 
       it { expect(subject.prefix_match?('http://local/api/v2/users')).to be_truthy }
       it { expect(subject.prefix_match?('http://local/status')).to be_falsey }
