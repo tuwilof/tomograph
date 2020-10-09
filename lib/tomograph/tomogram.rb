@@ -8,7 +8,7 @@ module Tomograph
   class Tomogram
     extend Gem::Deprecate
 
-    def initialize(prefix: '', apib_path: nil, drafter_yaml_path: nil, tomogram_json_path: nil, drafter_4_apib_path: nil, drafter_4_yaml_path: nil, crafter_apib_path: nil, crafter_yaml_path: nil)
+    def initialize(prefix: '', drafter_yaml_path: nil, tomogram_json_path: nil, drafter_4_apib_path: nil, drafter_4_yaml_path: nil, crafter_apib_path: nil, crafter_yaml_path: nil)
       @documentation = if tomogram_json_path
                          Tomograph::ApiBlueprint::JsonSchema.new(prefix, tomogram_json_path)
                        elsif crafter_yaml_path || crafter_apib_path

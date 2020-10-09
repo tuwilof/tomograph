@@ -31,7 +31,7 @@ $ gem install tomograph
 ```ruby
 require 'tomograph'
 
-tomogram = Tomograph::Tomogram.new(apib_path: '/path/to/doc.apib')
+tomogram = Tomograph::Tomogram.new(drafter_yaml_path: '/path/to/doc.yaml')
 ```
 
 ### Command line tool
@@ -237,20 +237,12 @@ Example output:
 You can specify API prefix and path to the spec using one of the possible formats:
 
 ```ruby
-Tomograph::Tomogram.new(prefix: '/api/v2', apib_path: '/path/to/doc.apib')
-```
-
-```ruby
 Tomograph::Tomogram.new(prefix: '/api/v2', drafter_yaml_path: '/path/to/doc.yaml')
 ```
 
 ```ruby
 Tomograph::Tomogram.new(prefix: '/api/v2', tomogram_json_path: '/path/to/doc.json')
 ```
-
-### `apib_path`
-
-Path to API Blueprint documentation. There must be an installed [drafter](https://github.com/apiaryio/drafter) to parse it.
 
 ### `drafter_yaml_path`
 
