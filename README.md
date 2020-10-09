@@ -250,7 +250,7 @@ Path to API Blueprint documentation pre-parsed with `drafter` and saved to a YAM
 
 ### Drafter v4 & Crafter support
 
-If you are using a `drafter v4`, you should use `drafter_4_apib_path` and `drafter_4_yaml_path` respectively. 
+If you are using a `drafter v4`, you should use `drafter_yaml_path`. 
 
 In case when you want to use `сrafter`, then you should pass these params: `crafter_apib_path`, `crafter_yaml_path`. 
 

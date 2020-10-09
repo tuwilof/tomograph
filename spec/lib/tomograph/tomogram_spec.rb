@@ -6,7 +6,7 @@ RSpec.describe Tomograph::Tomogram do
       subject do
         JSON.parse(
           described_class.new(
-            drafter_4_yaml_path: File.expand_path("spec/fixtures/drafter_4/#{documentation}"),
+            drafter_yaml_path: File.expand_path("spec/fixtures/drafter_4/#{documentation}"),
             prefix: ''
           ).to_json
         )
@@ -202,7 +202,7 @@ RSpec.describe Tomograph::Tomogram do
     describe '#find_request_with_content_type' do
       subject do
         described_class.new(
-          drafter_4_yaml_path: File.expand_path("spec/fixtures/drafter_4/#{documentation}"),
+          drafter_yaml_path: File.expand_path("spec/fixtures/drafter_4/#{documentation}"),
           prefix: ''
         )
       end
@@ -343,7 +343,7 @@ RSpec.describe Tomograph::Tomogram do
     describe '#find_request' do
       subject do
         described_class.new(
-          drafter_4_yaml_path: File.expand_path("spec/fixtures/drafter_4/#{documentation}"),
+          drafter_yaml_path: File.expand_path("spec/fixtures/drafter_4/#{documentation}"),
           prefix: ''
         )
       end
@@ -470,7 +470,7 @@ RSpec.describe Tomograph::Tomogram do
     describe '#to_resources' do
       subject do
         described_class.new(
-          drafter_4_yaml_path: File.expand_path("spec/fixtures/drafter_4/#{documentation}"),
+          drafter_yaml_path: File.expand_path("spec/fixtures/drafter_4/#{documentation}"),
           prefix: ''
         ).to_resources
       end
