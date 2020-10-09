@@ -86,11 +86,7 @@ main do |input, output|
   version = choose_drafter(options['drafter'])
   format_key = case format
                when :apib
-                 if version == :crafter
-                   :crafter_apib_path
-                 else
-                   :drafter_4_apib_path
-                 end
+                  :crafter_apib_path
                when :yaml
                  if version == :crafter
                    :crafter_yaml_path
