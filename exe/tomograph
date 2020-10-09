@@ -13,10 +13,9 @@ include Methadone::CLILogging
 version Tomograph::VERSION
 description 'Converts API Blueprint to JSON Schema'
 on('-d DRAFTER_VERSION', '--drafter', 'Choose drafter version: crafter or 4. Default: use drafter v.4.')
-on('-f INPUT_FORMAT', '--format', 'Force input format: "apib" or "yaml". Default: detect by file extension.')
 on('--exclude-description', 'Exclude "description" keys.')
 on('--split', 'Split output into files by method.')
-arg :input, 'path/to/doc.apib (API Blueprint) or path/to/doc.yaml (API Elements)'
+arg :input, 'path/to/doc.yaml (API Elements)'
 arg :output, 'path/to/doc.json or path/to/dir if --split is used.'
 
 def prune!(obj, unwanted_key)
@@ -28,24 +27,10 @@ def prune!(obj, unwanted_key)
   end
 end
 
-def guess_format(opt_format, input)
-  case opt_format && opt_format.downcase
-  when 'apib'
-    :apib
-  when 'yaml'
-    :yaml
-  when nil
-    case File.extname(input).downcase
-    when '.apib'
-      :apib
-    when '.yaml', '.yml'
-      :yaml
-    else
-      fail 'Unsupported input file extension!'
-    end
-  else
-    fail 'Unsupported input format!'
-  end
+def fetch_format(input)
+  return :yaml if File.extname(input).downcase == '.yaml'
+
+  fail 'Unsupported input file extension!'
 end
 
 def choose_drafter(opt_parser)
@@ -82,20 +67,13 @@ def write_json(obj, path)
 end
 
 main do |input, output|
-  format = guess_format(options['format'], input)
+  format = fetch_format(input)
   version = choose_drafter(options['drafter'])
-  format_key = case format
-               when :apib
-                  :crafter_apib_path
-               when :yaml
-                 if version == :crafter
-                   :crafter_yaml_path
-                 else
-                   :drafter_yaml_path
-                 end
-               else
-                 fail NotImplementedError
-               end
+  format_key = {
+                  crafter:   :crafter_yaml_path,
+                  drafter_4: :drafter_yaml_path
+               }[version]
+
   tomogram = Tomograph::Tomogram.new(format_key => input)
   actions = tomogram.to_a.map(&:to_hash)
 

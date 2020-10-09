@@ -2,14 +2,15 @@ require 'spec_helper'
 require 'tomograph/api_blueprint/crafter/yaml'
 
 RSpec.describe Tomograph::ApiBlueprint::Crafter::Yaml do
+  let(:input_file) { 'spec/fixtures/crafter/api3.yaml' }
+
   it 'not raise exception' do
-    allow_any_instance_of(Kernel).to receive(:`).and_return('')
     allow_any_instance_of(YAML).to receive(:safe_load).and_return(double)
-    expect { described_class.new(nil, '', nil) }.not_to raise_exception
+    expect { described_class.new(nil, input_file) }.not_to raise_exception
   end
 
   context 'given YAML with two actions' do
-    subject { described_class.new('/api/v1', nil, input_file) }
+    subject { described_class.new('/api/v1', input_file) }
     let(:input_file) { 'spec/fixtures/crafter/api3.yaml' }
     let(:tomogram_hash) do
       [{"path" => Tomograph::Path.new("/api/v1/sessions"),
