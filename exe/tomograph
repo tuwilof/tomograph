@@ -60,7 +60,7 @@ def write_split_json(actions, output)
 end
 
 def write_json(obj, path)
-  json = MultiJson.dump(obj, pretty: true)
+  json = JSON.pretty_generate(obj)
   File.open(path, 'w') do |file|
     file.write(json)
   end

@@ -37,8 +37,8 @@ module Tomograph
             end
             return {} unless schema_node
 
-            MultiJson.load(schema_node['content'])
-          rescue MultiJson::ParseError => e
+            JSON.parse(schema_node['content'])
+          rescue JSON::ParserError => e
             puts "[Tomograph] Error while parsing #{e}. skipping..."
             {}
           end
