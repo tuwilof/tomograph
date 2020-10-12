@@ -5,7 +5,7 @@ module Tomograph
     class JsonSchema
       def initialize(prefix, json_schema_path)
         @prefix = prefix
-        @documentation = MultiJson.load(File.read(json_schema_path))
+        @documentation = JSON.parse(File.read(json_schema_path))
       end
 
       def to_tomogram

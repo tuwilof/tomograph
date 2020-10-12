@@ -11,7 +11,7 @@ RSpec.describe Tomograph::Tomogram do
           ).to_json
         )
       end
-      let(:parsed) { MultiJson.load(File.read(json_schema)) }
+      let(:parsed) { JSON.parse(File.read(json_schema)) }
       let(:documentation) { nil }
 
       context 'if one action' do
@@ -212,7 +212,7 @@ RSpec.describe Tomograph::Tomogram do
       let(:path) { '/status' }
       let(:content_type) { 'application/json' }
 
-      let(:parsed) { MultiJson.load(File.read(json_schema)) }
+      let(:parsed) { JSON.parse(File.read(json_schema)) }
       before do
         allow(Tomograph::ApiBlueprint::Drafter4::Yaml).to receive(:new).and_return(double(to_tomogram: tomogram))
       end
@@ -292,9 +292,9 @@ RSpec.describe Tomograph::Tomogram do
       end
 
       context 'if inserted' do
-        let(:req1) { MultiJson.load(File.read('spec/fixtures/tomogram/request1.json')) }
-        let(:req2) { MultiJson.load(File.read('spec/fixtures/tomogram/request2.json')) }
-        let(:req3) { MultiJson.load(File.read('spec/fixtures/tomogram/request3.json')) }
+        let(:req1) { JSON.parse(File.read('spec/fixtures/tomogram/request1.json')) }
+        let(:req2) { JSON.parse(File.read('spec/fixtures/tomogram/request2.json')) }
+        let(:req3) { JSON.parse(File.read('spec/fixtures/tomogram/request3.json')) }
         let(:request1) do
           double(
             path: req1['path'],
@@ -353,7 +353,7 @@ RSpec.describe Tomograph::Tomogram do
       let(:path) { '/status' }
       let(:content_type) { 'application/json' }
 
-      let(:parsed) { MultiJson.load(File.read(json_schema)) }
+      let(:parsed) { JSON.parse(File.read(json_schema)) }
       before do
         allow(Tomograph::ApiBlueprint::Drafter4::Yaml).to receive(:new).and_return(double(to_tomogram: tomogram))
       end
@@ -421,9 +421,9 @@ RSpec.describe Tomograph::Tomogram do
       end
 
       context 'if inserted' do
-        let(:req1) { MultiJson.load(File.read('spec/fixtures/tomogram/request1.json')) }
-        let(:req2) { MultiJson.load(File.read('spec/fixtures/tomogram/request2.json')) }
-        let(:req3) { MultiJson.load(File.read('spec/fixtures/tomogram/request3.json')) }
+        let(:req1) { JSON.parse(File.read('spec/fixtures/tomogram/request1.json')) }
+        let(:req2) { JSON.parse(File.read('spec/fixtures/tomogram/request2.json')) }
+        let(:req3) { JSON.parse(File.read('spec/fixtures/tomogram/request3.json')) }
         let(:request1) do
           double(
             path: req1['path'],
@@ -505,7 +505,7 @@ RSpec.describe Tomograph::Tomogram do
           ).to_json
         )
       end
-      let(:parsed) { MultiJson.load(File.read(json_schema)) }
+      let(:parsed) { JSON.parse(File.read(json_schema)) }
       let(:documentation) { nil }
 
       context 'if one action' do
@@ -716,7 +716,7 @@ RSpec.describe Tomograph::Tomogram do
       let(:path) { '/status' }
       let(:content_type) { 'application/json' }
 
-      let(:parsed) { MultiJson.load(File.read(json_schema)) }
+      let(:parsed) { JSON.parse(File.read(json_schema)) }
       before do
         allow(Tomograph::ApiBlueprint::Crafter::Yaml).to receive(:new).and_return(double(to_tomogram: tomogram))
       end
@@ -796,9 +796,9 @@ RSpec.describe Tomograph::Tomogram do
       end
 
       context 'if inserted' do
-        let(:req1) { MultiJson.load(File.read('spec/fixtures/tomogram/request1.json')) }
-        let(:req2) { MultiJson.load(File.read('spec/fixtures/tomogram/request2.json')) }
-        let(:req3) { MultiJson.load(File.read('spec/fixtures/tomogram/request3.json')) }
+        let(:req1) { JSON.parse(File.read('spec/fixtures/tomogram/request1.json')) }
+        let(:req2) { JSON.parse(File.read('spec/fixtures/tomogram/request2.json')) }
+        let(:req3) { JSON.parse(File.read('spec/fixtures/tomogram/request3.json')) }
         let(:request1) do
           double(
             path: req1['path'],
@@ -857,7 +857,7 @@ RSpec.describe Tomograph::Tomogram do
       let(:path) { '/status' }
       let(:content_type) { 'application/json' }
 
-      let(:parsed) { MultiJson.load(File.read(json_schema)) }
+      let(:parsed) { JSON.parse(File.read(json_schema)) }
       before do
         allow(Tomograph::ApiBlueprint::Crafter::Yaml).to receive(:new).and_return(double(to_tomogram: tomogram))
       end
@@ -925,9 +925,9 @@ RSpec.describe Tomograph::Tomogram do
       end
 
       context 'if inserted' do
-        let(:req1) { MultiJson.load(File.read('spec/fixtures/tomogram/request1.json')) }
-        let(:req2) { MultiJson.load(File.read('spec/fixtures/tomogram/request2.json')) }
-        let(:req3) { MultiJson.load(File.read('spec/fixtures/tomogram/request3.json')) }
+        let(:req1) { JSON.parse(File.read('spec/fixtures/tomogram/request1.json')) }
+        let(:req2) { JSON.parse(File.read('spec/fixtures/tomogram/request2.json')) }
+        let(:req3) { JSON.parse(File.read('spec/fixtures/tomogram/request3.json')) }
         let(:request1) do
           double(
             path: req1['path'],

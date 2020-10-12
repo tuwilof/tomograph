@@ -1,4 +1,4 @@
-require 'multi_json'
+require 'json'
 require 'tomograph/path'
 require 'tomograph/api_blueprint/json_schema'
 require 'tomograph/api_blueprint/drafter_4/yaml'
@@ -29,7 +29,7 @@ module Tomograph
     deprecate :to_hash, 'to_a with method access', 2018, 8
 
     def to_json
-      MultiJson.dump(to_a.map(&:to_hash), pretty: true)
+      JSON.pretty_generate(to_a.map(&:to_hash))
     end
 
     def find_request(method:, path:)
