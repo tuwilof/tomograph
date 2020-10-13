@@ -39,20 +39,20 @@ tomogram = Tomograph::Tomogram.new(drafter_yaml_path: '/path/to/doc.yaml')
 CLI allows you to convert files from API Elements to JSON Schema.
 
 ```bash
-tomograph doc.yaml doc.json
+rake tomograph -- --input=doc.yaml --output=doc.json
 ```
 
 There is also support for documents pre-parsed by [drafter](https://github.com/apiaryio/drafter) versions 3 and 4, or `crafter`. 
-To specify the handler version use the `-d` flag:
+To specify the handler version use the `--drafter` flag:
 
 ```bash
-tomograph -d 4 doc_by_drafter4.yaml doc.json
+rake tomograph -- --drafter=4 --input=doc_by_drafter4.yaml --output=doc.json
 ```
 
 Run CLI with `-h` to get detailed help:
 
 ```bash
-tomograph -h
+rake tomograph -- -h
 ```
 
 ## Convert
