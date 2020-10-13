@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe 'tomograph', type: :task do
   let(:input_path) { 'spec/fixtures/drafter_4/exe.yaml' }
-  let(:options) { }
+  let(:options) {}
   let(:output_file) { Tempfile.new('') }
   let(:output_path) { output_file.path }
 
