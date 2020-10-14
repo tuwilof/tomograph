@@ -27,12 +27,6 @@ def prune!(obj, unwanted_key)
   end
 end
 
-def fetch_format(input)
-  return :yaml if File.extname(input).downcase == '.yaml'
-
-  fail 'Unsupported input file extension!'
-end
-
 def choose_drafter(opt_parser)
   case opt_parser
   when 'crafter'
@@ -67,7 +61,6 @@ def write_json(obj, path)
 end
 
 main do |input, output|
-  format = fetch_format(input)
   version = choose_drafter(options['drafter'])
   format_key = {
                   crafter:   :crafter_yaml_path,

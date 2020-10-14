@@ -1,5 +1,14 @@
 # Change log
 
+### 3.0.1 - 2020-10-14
+
+* removed
+  * delete apib_path [#31](https://github.com/funbox/tomograph/issues/31)
+  * delete drafter_4_apib_path [#32](https://github.com/funbox/tomograph/issues/32)
+  * replace drafter_yaml_path with drafter_4_yaml_path [#33](https://github.com/funbox/tomograph/issues/33)
+  * delete crafter_apib_path [#34](https://github.com/funbox/tomograph/issues/34)
+  * delete multi_json [#35](https://github.com/funbox/tomograph/issues/35)
+
 ### 3.0.0 - 2020-08-27
 
 * features
