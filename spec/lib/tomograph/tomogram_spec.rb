@@ -998,4 +998,29 @@ RSpec.describe Tomograph::Tomogram do
       it { expect(subject.prefix_match?('http://local/status')).to be_falsey }
     end
   end
+
+  context 'openapi2' do
+    describe '#to_json' do
+      subject do
+        JSON.parse(
+            described_class.new(
+                openapi2_json_path: File.expand_path("spec/fixtures/openapi2/#{documentation}"),
+                prefix: ''
+            ).to_json
+        )
+      end
+      let(:parsed) { JSON.parse(File.read(json_schema)) }
+      let(:documentation) { nil }
+
+      context 'if one action' do
+        let(:json_schema) { 'spec/fixtures/tomogram/chatwoot.json' }
+        let(:documentation) { 'chatwoot.json' }
+
+        it 'parses documents' do
+          #puts JSON.dump(subject)
+          expect(subject).to eq(parsed)
+        end
+      end
+    end
+  end
 end
