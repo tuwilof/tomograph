@@ -1,7 +1,5 @@
 # Tomograph 
 
-[![Build Status](https://travis-ci.org/funbox/tomograph.svg?branch=master)](https://travis-ci.org/funbox/tomograph) [![Gem Version](https://badge.fury.io/rb/tomograph.svg)](https://badge.fury.io/rb/tomograph)
-
 Convert API Blueprint to JSON Schema and search.
 
 ## Installation
