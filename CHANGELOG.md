@@ -1,5 +1,10 @@
 # Change log
 
+### x.y.z - yyyy-mm-dd
+
+* removed
+  * delete travis [#45](https://github.com/funbox/tomograph/issues/45)
+
 ### 3.0.1 - 2020-10-14
 
 * removed
