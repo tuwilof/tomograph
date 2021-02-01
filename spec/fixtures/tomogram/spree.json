@@ -1,0 +1,2131 @@
+[
+  {
+    "path": "/account",
+    "method": "GET",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/Account",
+          "definitions": {
+            "Account": {
+              "required": [
+                "data",
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/AccountAttributesAndRelationships"
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/Address"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "403",
+        "body": {},
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/account",
+    "method": "POST",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/Account",
+          "definitions": {
+            "Account": {
+              "required": [
+                "data",
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/AccountAttributesAndRelationships"
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/Address"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "422",
+        "body": {
+          "$ref": "#/components/schemas/Error",
+          "definitions": {
+            "Error": {
+              "required": [
+                "error"
+              ],
+              "properties": {
+                "error": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/account",
+    "method": "PATCH",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/Account",
+          "definitions": {
+            "Account": {
+              "required": [
+                "data",
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/AccountAttributesAndRelationships"
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/Address"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "422",
+        "body": {
+          "$ref": "#/components/schemas/Error",
+          "definitions": {
+            "Error": {
+              "required": [
+                "error"
+              ],
+              "properties": {
+                "error": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/account/addresses",
+    "method": "GET",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/AddressList",
+          "definitions": {
+            "AddressList": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Address"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "403",
+        "body": {},
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/account/addresses",
+    "method": "POST",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/AddressList",
+          "definitions": {
+            "AddressList": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Address"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "403",
+        "body": {},
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/account/addresses/{id}",
+    "method": "PATCH",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/AddressList",
+          "definitions": {
+            "AddressList": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Address"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "403",
+        "body": {},
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/account/credit_cards",
+    "method": "GET",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/CreditCardList",
+          "definitions": {
+            "CreditCardList": {
+              "required": [
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CreditCardAttributesWithRelationships"
+                  }
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/PaymentMethod"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "403",
+        "body": {},
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/account/credit_cards/default",
+    "method": "GET",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/CreditCard",
+          "definitions": {
+            "CreditCard": {
+              "required": [
+                "data",
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/CreditCardAttributesWithRelationships"
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/PaymentMethod"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "403",
+        "body": {},
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/account/orders",
+    "method": "GET",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/CartList",
+          "definitions": {
+            "CartList": {
+              "required": [
+                "data",
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "required": [
+                    "id",
+                    "type",
+                    "attributes",
+                    "relationships"
+                  ],
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CartAttributesWithRelationships"
+                  }
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/VariantAttributesAndRelationships"
+                      },
+                      {
+                        "$ref": "#/components/schemas/LineItem"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Promotion"
+                      },
+                      {
+                        "$ref": "#/components/schemas/User"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Address"
+                      },
+                      {
+                        "$ref": "#/components/schemas/ShipmentAttributesWithoutRelationsips"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "403",
+        "body": {},
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/account/orders/{number}",
+    "method": "GET",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/Cart",
+          "definitions": {
+            "Cart": {
+              "required": [
+                "data",
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/CartAttributesWithRelationships",
+                  "required": [
+                    "id",
+                    "type",
+                    "attributes",
+                    "relationships"
+                  ]
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/VariantAttributesAndRelationships"
+                      },
+                      {
+                        "$ref": "#/components/schemas/LineItem"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Promotion"
+                      },
+                      {
+                        "$ref": "#/components/schemas/User"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Address"
+                      },
+                      {
+                        "$ref": "#/components/schemas/ShipmentAttributesWithoutRelationsips"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "403",
+        "body": {},
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/order_status/{number}",
+    "method": "GET",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/Cart",
+          "definitions": {
+            "Cart": {
+              "required": [
+                "data",
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/CartAttributesWithRelationships",
+                  "required": [
+                    "id",
+                    "type",
+                    "attributes",
+                    "relationships"
+                  ]
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/VariantAttributesAndRelationships"
+                      },
+                      {
+                        "$ref": "#/components/schemas/LineItem"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Promotion"
+                      },
+                      {
+                        "$ref": "#/components/schemas/User"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Address"
+                      },
+                      {
+                        "$ref": "#/components/schemas/ShipmentAttributesWithoutRelationsips"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "404",
+        "body": {},
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/cart",
+    "method": "POST",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "201",
+        "body": {
+          "$ref": "#/components/schemas/Cart",
+          "definitions": {
+            "Cart": {
+              "required": [
+                "data",
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/CartAttributesWithRelationships",
+                  "required": [
+                    "id",
+                    "type",
+                    "attributes",
+                    "relationships"
+                  ]
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/VariantAttributesAndRelationships"
+                      },
+                      {
+                        "$ref": "#/components/schemas/LineItem"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Promotion"
+                      },
+                      {
+                        "$ref": "#/components/schemas/User"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Address"
+                      },
+                      {
+                        "$ref": "#/components/schemas/ShipmentAttributesWithoutRelationsips"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/cart",
+    "method": "GET",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/Cart",
+          "definitions": {
+            "Cart": {
+              "required": [
+                "data",
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/CartAttributesWithRelationships",
+                  "required": [
+                    "id",
+                    "type",
+                    "attributes",
+                    "relationships"
+                  ]
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/VariantAttributesAndRelationships"
+                      },
+                      {
+                        "$ref": "#/components/schemas/LineItem"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Promotion"
+                      },
+                      {
+                        "$ref": "#/components/schemas/User"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Address"
+                      },
+                      {
+                        "$ref": "#/components/schemas/ShipmentAttributesWithoutRelationsips"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "404",
+        "body": {},
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/cart/add_item",
+    "method": "POST",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/Cart",
+          "definitions": {
+            "Cart": {
+              "required": [
+                "data",
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/CartAttributesWithRelationships",
+                  "required": [
+                    "id",
+                    "type",
+                    "attributes",
+                    "relationships"
+                  ]
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/VariantAttributesAndRelationships"
+                      },
+                      {
+                        "$ref": "#/components/schemas/LineItem"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Promotion"
+                      },
+                      {
+                        "$ref": "#/components/schemas/User"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Address"
+                      },
+                      {
+                        "$ref": "#/components/schemas/ShipmentAttributesWithoutRelationsips"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "404",
+        "body": {},
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/cart/set_quantity",
+    "method": "PATCH",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/Cart",
+          "definitions": {
+            "Cart": {
+              "required": [
+                "data",
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/CartAttributesWithRelationships",
+                  "required": [
+                    "id",
+                    "type",
+                    "attributes",
+                    "relationships"
+                  ]
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/VariantAttributesAndRelationships"
+                      },
+                      {
+                        "$ref": "#/components/schemas/LineItem"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Promotion"
+                      },
+                      {
+                        "$ref": "#/components/schemas/User"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Address"
+                      },
+                      {
+                        "$ref": "#/components/schemas/ShipmentAttributesWithoutRelationsips"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "422",
+        "body": {
+          "$ref": "#/components/schemas/Error",
+          "definitions": {
+            "Error": {
+              "required": [
+                "error"
+              ],
+              "properties": {
+                "error": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/cart/remove_line_item/{line_item_id}",
+    "method": "DELETE",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/Cart",
+          "definitions": {
+            "Cart": {
+              "required": [
+                "data",
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/CartAttributesWithRelationships",
+                  "required": [
+                    "id",
+                    "type",
+                    "attributes",
+                    "relationships"
+                  ]
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/VariantAttributesAndRelationships"
+                      },
+                      {
+                        "$ref": "#/components/schemas/LineItem"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Promotion"
+                      },
+                      {
+                        "$ref": "#/components/schemas/User"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Address"
+                      },
+                      {
+                        "$ref": "#/components/schemas/ShipmentAttributesWithoutRelationsips"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "404",
+        "body": {},
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/cart/empty",
+    "method": "PATCH",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/Cart",
+          "definitions": {
+            "Cart": {
+              "required": [
+                "data",
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/CartAttributesWithRelationships",
+                  "required": [
+                    "id",
+                    "type",
+                    "attributes",
+                    "relationships"
+                  ]
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/VariantAttributesAndRelationships"
+                      },
+                      {
+                        "$ref": "#/components/schemas/LineItem"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Promotion"
+                      },
+                      {
+                        "$ref": "#/components/schemas/User"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Address"
+                      },
+                      {
+                        "$ref": "#/components/schemas/ShipmentAttributesWithoutRelationsips"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "404",
+        "body": {},
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/cart/apply_coupon_code",
+    "method": "PATCH",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/Cart",
+          "definitions": {
+            "Cart": {
+              "required": [
+                "data",
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/CartAttributesWithRelationships",
+                  "required": [
+                    "id",
+                    "type",
+                    "attributes",
+                    "relationships"
+                  ]
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/VariantAttributesAndRelationships"
+                      },
+                      {
+                        "$ref": "#/components/schemas/LineItem"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Promotion"
+                      },
+                      {
+                        "$ref": "#/components/schemas/User"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Address"
+                      },
+                      {
+                        "$ref": "#/components/schemas/ShipmentAttributesWithoutRelationsips"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "422",
+        "body": {
+          "$ref": "#/components/schemas/Error",
+          "definitions": {
+            "Error": {
+              "required": [
+                "error"
+              ],
+              "properties": {
+                "error": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/cart/remove_coupon_code/{coupon_code}",
+    "method": "DELETE",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/Cart",
+          "definitions": {
+            "Cart": {
+              "required": [
+                "data",
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/CartAttributesWithRelationships",
+                  "required": [
+                    "id",
+                    "type",
+                    "attributes",
+                    "relationships"
+                  ]
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/VariantAttributesAndRelationships"
+                      },
+                      {
+                        "$ref": "#/components/schemas/LineItem"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Promotion"
+                      },
+                      {
+                        "$ref": "#/components/schemas/User"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Address"
+                      },
+                      {
+                        "$ref": "#/components/schemas/ShipmentAttributesWithoutRelationsips"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "422",
+        "body": {
+          "$ref": "#/components/schemas/Error",
+          "definitions": {
+            "Error": {
+              "required": [
+                "error"
+              ],
+              "properties": {
+                "error": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/cart/estimate_shipping_rates",
+    "method": "GET",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/EstimateShippingRatesList",
+          "definitions": {
+            "EstimateShippingRatesList": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShippingRate"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "404",
+        "body": {},
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/checkout",
+    "method": "PATCH",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/Cart",
+          "definitions": {
+            "Cart": {
+              "required": [
+                "data",
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/CartAttributesWithRelationships",
+                  "required": [
+                    "id",
+                    "type",
+                    "attributes",
+                    "relationships"
+                  ]
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/VariantAttributesAndRelationships"
+                      },
+                      {
+                        "$ref": "#/components/schemas/LineItem"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Promotion"
+                      },
+                      {
+                        "$ref": "#/components/schemas/User"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Address"
+                      },
+                      {
+                        "$ref": "#/components/schemas/ShipmentAttributesWithoutRelationsips"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "422",
+        "body": {
+          "$ref": "#/components/schemas/Error",
+          "definitions": {
+            "Error": {
+              "required": [
+                "error"
+              ],
+              "properties": {
+                "error": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "404",
+        "body": {},
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/checkout/next",
+    "method": "PATCH",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/Cart",
+          "definitions": {
+            "Cart": {
+              "required": [
+                "data",
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/CartAttributesWithRelationships",
+                  "required": [
+                    "id",
+                    "type",
+                    "attributes",
+                    "relationships"
+                  ]
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/VariantAttributesAndRelationships"
+                      },
+                      {
+                        "$ref": "#/components/schemas/LineItem"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Promotion"
+                      },
+                      {
+                        "$ref": "#/components/schemas/User"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Address"
+                      },
+                      {
+                        "$ref": "#/components/schemas/ShipmentAttributesWithoutRelationsips"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "422",
+        "body": {
+          "$ref": "#/components/schemas/Error",
+          "definitions": {
+            "Error": {
+              "required": [
+                "error"
+              ],
+              "properties": {
+                "error": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "404",
+        "body": {},
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/checkout/advance",
+    "method": "PATCH",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/Cart",
+          "definitions": {
+            "Cart": {
+              "required": [
+                "data",
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/CartAttributesWithRelationships",
+                  "required": [
+                    "id",
+                    "type",
+                    "attributes",
+                    "relationships"
+                  ]
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/VariantAttributesAndRelationships"
+                      },
+                      {
+                        "$ref": "#/components/schemas/LineItem"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Promotion"
+                      },
+                      {
+                        "$ref": "#/components/schemas/User"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Address"
+                      },
+                      {
+                        "$ref": "#/components/schemas/ShipmentAttributesWithoutRelationsips"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "422",
+        "body": {
+          "$ref": "#/components/schemas/Error",
+          "definitions": {
+            "Error": {
+              "required": [
+                "error"
+              ],
+              "properties": {
+                "error": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "404",
+        "body": {},
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/checkout/complete",
+    "method": "PATCH",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/Cart",
+          "definitions": {
+            "Cart": {
+              "required": [
+                "data",
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/CartAttributesWithRelationships",
+                  "required": [
+                    "id",
+                    "type",
+                    "attributes",
+                    "relationships"
+                  ]
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/VariantAttributesAndRelationships"
+                      },
+                      {
+                        "$ref": "#/components/schemas/LineItem"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Promotion"
+                      },
+                      {
+                        "$ref": "#/components/schemas/User"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Address"
+                      },
+                      {
+                        "$ref": "#/components/schemas/ShipmentAttributesWithoutRelationsips"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "422",
+        "body": {
+          "$ref": "#/components/schemas/Error",
+          "definitions": {
+            "Error": {
+              "required": [
+                "error"
+              ],
+              "properties": {
+                "error": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "404",
+        "body": {},
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/checkout/add_store_credit",
+    "method": "POST",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/Cart",
+          "definitions": {
+            "Cart": {
+              "required": [
+                "data",
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/CartAttributesWithRelationships",
+                  "required": [
+                    "id",
+                    "type",
+                    "attributes",
+                    "relationships"
+                  ]
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/VariantAttributesAndRelationships"
+                      },
+                      {
+                        "$ref": "#/components/schemas/LineItem"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Promotion"
+                      },
+                      {
+                        "$ref": "#/components/schemas/User"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Address"
+                      },
+                      {
+                        "$ref": "#/components/schemas/ShipmentAttributesWithoutRelationsips"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "422",
+        "body": {
+          "$ref": "#/components/schemas/Error",
+          "definitions": {
+            "Error": {
+              "required": [
+                "error"
+              ],
+              "properties": {
+                "error": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "404",
+        "body": {},
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/checkout/remove_store_credit",
+    "method": "POST",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/Cart",
+          "definitions": {
+            "Cart": {
+              "required": [
+                "data",
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/CartAttributesWithRelationships",
+                  "required": [
+                    "id",
+                    "type",
+                    "attributes",
+                    "relationships"
+                  ]
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/VariantAttributesAndRelationships"
+                      },
+                      {
+                        "$ref": "#/components/schemas/LineItem"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Promotion"
+                      },
+                      {
+                        "$ref": "#/components/schemas/User"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Address"
+                      },
+                      {
+                        "$ref": "#/components/schemas/ShipmentAttributesWithoutRelationsips"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "422",
+        "body": {
+          "$ref": "#/components/schemas/Error",
+          "definitions": {
+            "Error": {
+              "required": [
+                "error"
+              ],
+              "properties": {
+                "error": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "404",
+        "body": {},
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/checkout/payment_methods",
+    "method": "GET",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/PaymentMethodsList",
+          "definitions": {
+            "PaymentMethodsList": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PaymentMethod"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "404",
+        "body": {},
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/checkout/shipping_rates",
+    "method": "GET",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/ShippingRatesList",
+          "definitions": {
+            "ShippingRatesList": {
+              "required": [
+                "data",
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShipmentAttributesAndRelationsips"
+                  }
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/ShippingRate"
+                      },
+                      {
+                        "$ref": "#/components/schemas/StockLocation"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "404",
+        "body": {},
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/products",
+    "method": "GET",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/ProductsList",
+          "definitions": {
+            "ProductsList": {
+              "required": [
+                "links",
+                "data",
+                "included"
+              ],
+              "properties": {
+                "links": {
+                  "$ref": "#/components/schemas/ListLinks"
+                },
+                "meta": {
+                  "$ref": "#/components/schemas/ListMeta"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProductAttributesAndRelationships"
+                  }
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/OptionType"
+                      },
+                      {
+                        "$ref": "#/components/schemas/OptionValue"
+                      },
+                      {
+                        "$ref": "#/components/schemas/ProductProperty"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Property"
+                      },
+                      {
+                        "$ref": "#/components/schemas/VariantAttributesAndRelationships"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Image"
+                      },
+                      {
+                        "$ref": "#/components/schemas/TaxonAttributesAndRelationships"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/products/{id}",
+    "method": "GET",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/Product",
+          "definitions": {
+            "Product": {
+              "required": [
+                "data",
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/ProductAttributesAndRelationships"
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/OptionType"
+                      },
+                      {
+                        "$ref": "#/components/schemas/OptionValue"
+                      },
+                      {
+                        "$ref": "#/components/schemas/ProductProperty"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Property"
+                      },
+                      {
+                        "$ref": "#/components/schemas/VariantAttributesAndRelationships"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Image"
+                      },
+                      {
+                        "$ref": "#/components/schemas/TaxonAttributesAndRelationships"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "404",
+        "body": {},
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/taxons",
+    "method": "GET",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/TaxonsList",
+          "definitions": {
+            "TaxonsList": {
+              "required": [
+                "links",
+                "data",
+                "included"
+              ],
+              "properties": {
+                "links": {
+                  "$ref": "#/components/schemas/ListLinks"
+                },
+                "meta": {
+                  "$ref": "#/components/schemas/ListMeta"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TaxonAttributesAndRelationships"
+                  }
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/TaxonAttributesAndRelationships"
+                      },
+                      {
+                        "$ref": "#/components/schemas/TaxonImage"
+                      },
+                      {
+                        "$ref": "#/components/schemas/TaxonomyAttributesAndRelationships"
+                      },
+                      {
+                        "$ref": "#/components/schemas/ProductAttributesAndRelationships"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/taxons/{id}",
+    "method": "GET",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/Taxon",
+          "definitions": {
+            "Taxon": {
+              "required": [
+                "data",
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/TaxonAttributesAndRelationships"
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/ProductAttributesAndRelationships"
+                      },
+                      {
+                        "$ref": "#/components/schemas/TaxonAttributesAndRelationships"
+                      },
+                      {
+                        "$ref": "#/components/schemas/TaxonomyAttributesAndRelationships"
+                      },
+                      {
+                        "$ref": "#/components/schemas/Image"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "404",
+        "body": {},
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/countries",
+    "method": "GET",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/CountriesList",
+          "definitions": {
+            "CountriesList": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CountryAttributesAndRelationships"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/countries/{iso}",
+    "method": "GET",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/Country",
+          "definitions": {
+            "Country": {
+              "required": [
+                "data",
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/CountryAttributesAndRelationships"
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/State"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      },
+      {
+        "status": "404",
+        "body": {},
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  },
+  {
+    "path": "/countries/default",
+    "method": "GET",
+    "content-type": "",
+    "requests": [],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/Country",
+          "definitions": {
+            "Country": {
+              "required": [
+                "data",
+                "included"
+              ],
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/CountryAttributesAndRelationships"
+                },
+                "included": {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/State"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": ""
+      }
+    ],
+    "resource": ""
+  }
+]

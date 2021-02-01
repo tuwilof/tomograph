@@ -1017,8 +1017,35 @@ RSpec.describe Tomograph::Tomogram do
         let(:documentation) { 'chatwoot.json' }
 
         it 'parses documents' do
+          expect(subject).to eq(parsed)
+        end
+      end
+    end
+  end
+
+  context 'openapi3' do
+    describe '#to_json' do
+      subject do
+        JSON.parse(
+            described_class.new(
+                openapi3_yaml_path: File.expand_path("spec/fixtures/openapi3/#{documentation}"),
+                prefix: ''
+            ).to_json
+        )
+      end
+      let(:parsed) { JSON.parse(File.read(json_schema)) }
+      let(:documentation) { nil }
+
+      context 'if one action' do
+        let(:json_schema) { 'spec/fixtures/tomogram/spree.json' }
+        let(:documentation) { 'spree.yaml' }
+
+        it 'parses documents' do
           #puts JSON.dump(subject)
           expect(subject).to eq(parsed)
+          # expect {
+          #   JSON::Validator.fully_validate(subject[0]['responses'][0]['body'], {})
+          # }.not_to raise_exception
         end
       end
     end
