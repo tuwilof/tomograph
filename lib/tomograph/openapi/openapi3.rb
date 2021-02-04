@@ -52,7 +52,7 @@ module Tomograph
         if sche.keys.include?('$ref')
           res = sche.merge('definitions' => {sche["$ref"][21..-1] => defi[sche["$ref"][21..-1]]})
           if defi[sche["$ref"][21..-1]].to_s.include?('$ref')
-            keys = defi[sche["$ref"][21..-1]].to_s.split('"').find_all{|word| word.include?('definitions') }
+            keys = defi[sche["$ref"][21..-1]].to_s.split('"').find_all{|word| word.include?('#/components/schemas/') }
             keys.each do |key|
               res["definitions"].merge!({key[21..-1] => defi[key[21..-1]]})
             end
