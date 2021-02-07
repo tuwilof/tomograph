@@ -1046,9 +1046,13 @@ RSpec.describe Tomograph::Tomogram do
           # end
           expect(subject).to eq(parsed)
           #puts JSON.dump(subject[0]['responses'][0]['body'])
-            expect {
-              JSON::Validator.fully_validate(subject[0]['responses'][0]['body'], {})
-            }.not_to raise_exception
+          subject.each do |sub|
+            sub['responses'].each do |response|
+              expect {
+                JSON::Validator.fully_validate(response['body'], {})
+              }.not_to raise_exception
+            end
+          end
         end
       end
     end
