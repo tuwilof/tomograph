@@ -50,33 +50,33 @@ module Tomograph
 
       def schema(sche, defi)
         if sche.keys.include?('$ref')
-          res = sche.merge('definitions' => {sche["$ref"][21..-1] => defi[sche["$ref"][21..-1]]})
+          sche.merge!('components' => {})
+          sche['components'].merge!('schemas' => {})
+          sche['components']['schemas'].merge!({sche["$ref"][21..-1] => defi[sche["$ref"][21..-1]]})
 
           if defi[sche["$ref"][21..-1]].to_s.include?('$ref')
             keys = defi[sche["$ref"][21..-1]].to_s.split('"').find_all{|word| word.include?('#/components/schemas/') }
             keys.each do |key|
-              res["definitions"].merge!({key[21..-1] => defi[key[21..-1]]})
+              sche['components']['schemas'].merge!({key[21..-1] => defi[key[21..-1]]})
 
               if defi[key[21..-1]].to_s.include?('$ref')
                 keys2 = defi[key[21..-1]].to_s.split('"').find_all{|word| word.include?('#/components/schemas/') }
                 keys2.each do |key2|
-                  res["definitions"].merge!({key2[21..-1] => defi[key2[21..-1]]})
+                  sche['components']['schemas'].merge!({key2[21..-1] => defi[key2[21..-1]]})
 
                   if defi[key2[21..-1]].to_s.include?('$ref')
                     keys3 = defi[key2[21..-1]].to_s.split('"').find_all { |word| word.include?('#/components/schemas/') }.uniq
                     keys3.each do |key3|
-                      res["definitions"].merge!({ key3[21..-1] => defi[key3[21..-1]] })
+                      sche['components']['schemas'].merge!({ key3[21..-1] => defi[key3[21..-1]] })
                     end
                   end
-                  res
 
                 end
               end
-              res
 
             end
           end
-          res
+          sche
 
         else
           if sche.to_s.include?('$ref')

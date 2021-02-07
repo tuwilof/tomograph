@@ -1041,12 +1041,14 @@ RSpec.describe Tomograph::Tomogram do
         let(:documentation) { 'spree.yaml' }
 
         it 'parses documents' do
-          #puts JSON.dump(subject)
+          # File.open('spec/fixtures/tomogram/spree.json', 'w') do |file|
+          #   file.write(JSON.pretty_generate(subject))
+          # end
           expect(subject).to eq(parsed)
-          #puts subject[0]['responses'][0]['body']
-          #  expect {
-          #    JSON::Validator.fully_validate(subject[0]['responses'][0]['body'], {})
-          #  }.not_to raise_exception
+          #puts JSON.dump(subject[0]['responses'][0]['body'])
+            expect {
+              JSON::Validator.fully_validate(subject[0]['responses'][0]['body'], {})
+            }.not_to raise_exception
         end
       end
     end
