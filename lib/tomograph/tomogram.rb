@@ -29,11 +29,6 @@ module Tomograph
       @actions ||= @documentation.to_tomogram
     end
 
-    def to_hash
-      to_a.map(&:to_hash)
-    end
-    deprecate :to_hash, 'to_a with method access', 2018, 8
-
     def to_json
       JSON.pretty_generate(to_a.map(&:to_hash))
     end

@@ -1,10 +1,86 @@
 # Tomograph 
 
-Convert API Blueprint to JSON Schema and search.
+Convert API Blueprint, Swagger and OpenAPI to minimal routes with JSON Schema. For ease of use and creation of new tools.
+
+Will look like
+
+  ```json
+  [
+    {
+      "path": "/sessions",
+      "method": "POST",
+      "content-type": "application/json",
+      "requests": [{
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "captcha": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "login",
+          "password"
+        ]
+      }],
+      "responses": [
+        {
+          "status": "401",
+          "content-type": "application/json",
+          "body": {}
+        },
+        {
+          "status": "429",
+          "content-type": "application/json",
+          "body": {}
+        },
+        {
+          "status": "201",
+          "content-type": "application/json",
+          "body": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "type": "object",
+            "properties": {
+              "confirmation": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "operation": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "operation"
+                ]
+              },
+              "captcha": {
+                "type": "string"
+              },
+              "captcha_does_not_match": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+  ```
 
 ## Installation
-
-First you need to install [drafter](https://github.com/apiaryio/drafter).
 
 Then add this line to your application's Gemfile:
 
@@ -26,36 +102,72 @@ $ gem install tomograph
 
 ## Usage
 
+### In code
+
+#### OpenAPI 2.0
+
+Also Swagger
+
+```ruby
+require 'tomograph'
+
+tomogram = Tomograph::Tomogram.new(openapi2_json_path: '/path/to/doc.json')
+```
+
+#### OpenAPI 3.0
+
+Also OpenAPI
+
+```ruby
+require 'tomograph'
+
+tomogram = Tomograph::Tomogram.new(openapi3_yaml_path: '/path/to/doc.yaml')
+```
+
+#### API Blueprint
+
+First you need to install [drafter](https://github.com/apiaryio/drafter).
+Works after conversion from API Blueprint to API Elements (in YAML file) with Drafter.
+
+That is, I mean that you first need to do this
+
+```bash
+drafter doc.apib -o doc.yaml
+```
+
+and then
+
 ```ruby
 require 'tomograph'
 
 tomogram = Tomograph::Tomogram.new(drafter_yaml_path: '/path/to/doc.yaml')
 ```
 
-### Command line tool
+#### Tomograph
 
-CLI allows you to convert files from API Elements to JSON Schema.
+To use additional features of the pre-converted
 
-```bash
-tomograph doc.yaml doc.json
+```ruby
+require 'tomograph'
+
+tomogram = Tomograph::Tomogram.new(tomogram_json_path: '/path/to/doc.json')
 ```
 
-There is also support for documents pre-parsed by [drafter](https://github.com/apiaryio/drafter) versions 3 and 4, or `crafter`. 
-To specify the handler version use the `-d` flag:
+#### prefix
+Default: `''`
 
-```bash
-tomograph -d 4 doc_by_drafter4.yaml doc.json
+You can specify API prefix and path to the spec using one of the possible formats:
+
+```ruby
+Tomograph::Tomogram.new(prefix: '/api/v2', drafter_yaml_path: '/path/to/doc.yaml')
 ```
 
-Run CLI with `-h` to get detailed help:
-
-```bash
-tomograph -h
+```ruby
+Tomograph::Tomogram.new(prefix: '/api/v2', tomogram_json_path: '/path/to/doc.json')
 ```
 
-## Convert
-
-Use `to_json` for converting APIB to JSON:
+#### to_json
+Use `to_json` for converting to JSON, example from API Blueprint:
 
 ```ruby
 tomogram.to_json
@@ -63,7 +175,7 @@ tomogram.to_json
 
 <details>
   <summary>Example input</summary>
-  
+
   ```apib
   FORMAT: 1A
   HOST: http://test.local
@@ -108,7 +220,7 @@ tomogram.to_json
 
 <details>
   <summary>Example output</summary>
-  
+
   ```json
   [
     {
@@ -186,41 +298,35 @@ tomogram.to_json
   ```
 </details> 
 
-## Search
+#### to_a
+```ruby
+tomogram.to_a
+```
 
-Use these methods to search through parsed API Blueprint spec to get request => responses hash maps.
-
-### `find_request`
-
+#### find_request
 ```ruby
 request = tomogram.find_request(method: 'GET', path: '/status/1?qwe=rty')
 ```
 
-### `find_request_with_content_type`
-
+#### find_request_with_content_type
 ```ruby
 request = tomogram.find_request_with_content_type(method: 'GET', path: '/status/1?qwe=rty', content_type: 'application/json')
 ```
 
-### `find_responses`
-
+#### `find_responses`
 ```ruby
 responses = request.find_responses(status: '200')
 ```
 
-## Other methods
-
-### `prefix_match?`
-
+#### prefix_match?
 This may be useful if you specify a prefix.
 
 ```ruby
 tomogram.prefix_match?('http://local/api/v2/users')
 ```
 
-### `to_resources`
-
-Maps resources with possible requests.
+#### to_resources
+Maps resources for API Blueprint with possible requests.
 
 Example output:
 
@@ -230,39 +336,48 @@ Example output:
 }
 ```
 
-## Constructor params
+### Command line tool
 
-You can specify API prefix and path to the spec using one of the possible formats:
+CLI allows you to convert files from API Blueprint (API Elements), Swagger and OpenAPI to JSON Schema.
 
-```ruby
-Tomograph::Tomogram.new(prefix: '/api/v2', drafter_yaml_path: '/path/to/doc.yaml')
+Run CLI with `-h` to get detailed help:
+
+```bash
+tomograph -h
 ```
 
-```ruby
-Tomograph::Tomogram.new(prefix: '/api/v2', tomogram_json_path: '/path/to/doc.json')
+To specify the handler version use the `-d` flag:
+
+#### OpenAPI 2.0
+```bash
+tomograph -d openapi2 openapi2.json tomogram.json
 ```
 
-### `drafter_yaml_path`
+#### OpenAPI 3.0
+```bash
+tomograph -d openapi3 openapi3.yaml doc.json
+```
 
-Path to API Blueprint documentation pre-parsed with `drafter` and saved to a YAML file.
+#### API Blueprint
+```bash
+tomograph -d 4 apielemetns.yaml doc.json
+```
 
-### Drafter v4 & Crafter support
+#### exclude-description
 
-If you are using a `drafter v4`, you should use `drafter_yaml_path`. 
+Exclude "description" keys from json-schemas.
 
-In case when you want to use `сrafter`, then you should pass `crafter_yaml_path` respectively. 
+```bash
+tomograph -d 4 apielemetns.yaml doc.json --exclude-description
+```
 
-### `tomogram_json_path`
+#### split
 
-Path to API Blueprint documentation converted with `tomograph` to a JSON file.
+Split output into files by method. Output in dir path.
 
-### `prefix`
-
-Default: `''`
-
-Prefix for API requests. 
-
-Example: `'/api'`.
+```bash
+tomograph -d 4 --split apielemetns.yaml jsons/
+```
 
 ## License
 
