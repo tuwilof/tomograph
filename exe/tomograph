@@ -12,7 +12,7 @@ include Methadone::CLILogging
 
 version Tomograph::VERSION
 description 'Converts API Blueprint to JSON Schema'
-on('-d DRAFTER_VERSION', '--drafter', 'Choose drafter version: crafter or 4. Default: use drafter v.4.')
+on('-d DRAFTER_VERSION', '--drafter', 'Choose drafter version: crafter or 4, or OpenAPI version: openapi2 or openapi3. Default: use drafter v.4.')
 on('--exclude-description', 'Exclude "description" keys.')
 on('--split', 'Split output into files by method.')
 arg :input, 'path/to/doc.yaml (API Elements)'
@@ -33,6 +33,10 @@ def choose_drafter(opt_parser)
     :crafter
   when '4'
     :drafter_4
+  when 'openapi2'
+    :openapi2
+  when 'openapi3'
+    :openapi3
   when nil
     :drafter_4
   else
@@ -64,7 +68,9 @@ main do |input, output|
   version = choose_drafter(options['drafter'])
   format_key = {
                   crafter:   :crafter_yaml_path,
-                  drafter_4: :drafter_yaml_path
+                  drafter_4: :drafter_yaml_path,
+                  openapi2: :openapi2_json_path,
+                  openapi3: :openapi3_yaml_path
                }[version]
 
   tomogram = Tomograph::Tomogram.new(format_key => input)
