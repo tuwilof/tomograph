@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors        = ['d.efimov']
   spec.email          = ['d.efimov@fun-box.ru']
 
-  spec.summary        = 'Convert API Blueprint to Tomogram'
-  spec.description    = 'Convert API Blueprint to routes and JSON-Schemas'
+  spec.summary        = 'Convert API Blueprint, Swagger and OpenAPI to Tomogram'
+  spec.description    = 'Convert API Blueprint, Swagger and OpenAPI to routes and JSON-Schemas'
   spec.homepage       = 'https://github.com/funbox/tomograph'
   spec.license        = 'MIT'
 
