@@ -1,7 +1,10 @@
 # Change log
 
-### x.y.z - yyyy-mm-dd
+### 3.1.0 - 2021-02-09
 
+* features
+  * support Swagger/OpenAPI 2.0 [#47](https://github.com/funbox/tomograph/issues/47)
+  * support OpenAPI 3.0 [#50](https://github.com/funbox/tomograph/issues/50)
 * removed
   * delete travis [#45](https://github.com/funbox/tomograph/issues/45)
 
