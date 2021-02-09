@@ -4,18 +4,21 @@ require 'tomograph/api_blueprint/json_schema'
 require 'tomograph/api_blueprint/drafter_4/yaml'
 require 'tomograph/api_blueprint/crafter/yaml'
 require 'tomograph/openapi/openapi2'
+require 'tomograph/openapi/openapi3'
 
 module Tomograph
   class Tomogram
     extend Gem::Deprecate
 
-    def initialize(prefix: '', drafter_yaml_path: nil, tomogram_json_path: nil, crafter_yaml_path: nil, openapi2_json_path: nil)
+    def initialize(prefix: '', drafter_yaml_path: nil, tomogram_json_path: nil, crafter_yaml_path: nil, openapi2_json_path: nil, openapi3_yaml_path: nil)
       @documentation = if tomogram_json_path
                          Tomograph::ApiBlueprint::JsonSchema.new(prefix, tomogram_json_path)
                        elsif crafter_yaml_path
                          Tomograph::ApiBlueprint::Crafter::Yaml.new(prefix, crafter_yaml_path)
                        elsif openapi2_json_path
                          Tomograph::OpenApi::OpenApi2.new(prefix, openapi2_json_path)
+                       elsif openapi3_yaml_path
+                         Tomograph::OpenApi::OpenApi3.new(prefix, openapi3_yaml_path)
                        else
                          Tomograph::ApiBlueprint::Drafter4::Yaml.new(prefix, drafter_yaml_path)
                        end
