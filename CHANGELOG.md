@@ -1,5 +1,10 @@
 # Change log
 
+### 3.1.1 - 2021-02-10
+
+* setting
+  * improve gemspec summary and description
+
 ### 3.1.0 - 2021-02-09
 
 * features
