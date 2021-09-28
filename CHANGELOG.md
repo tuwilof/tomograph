@@ -1,5 +1,10 @@
 # Change log
 
+### 3.1.2 - 2021-09-28
+
+* bug fixes
+  * fix parser last crafter version
+
 ### 3.1.1 - 2021-02-10
 
 * setting
