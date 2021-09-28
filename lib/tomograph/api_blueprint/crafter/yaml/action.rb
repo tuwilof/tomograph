@@ -33,7 +33,7 @@ module Tomograph
 
           def json_schema(actions)
             schema_node = actions.find do |action|
-              action && action['element'] == 'asset' && action['attributes']['contentType']['content'] == 'application/schema+json'
+              action && action.fetch('element', nil) == 'asset' && action.fetch('attributes', {}).fetch('contentType', {}).fetch('content', nil) == 'application/schema+json'
             end
             return {} unless schema_node
 
