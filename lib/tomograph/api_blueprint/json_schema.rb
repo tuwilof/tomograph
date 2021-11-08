@@ -12,11 +12,12 @@ module Tomograph
         @tomogram ||= @documentation.inject([]) do |result, action|
           result.push(Tomograph::Tomogram::Action.new(
                         path: "#{@prefix}#{action['path']}",
-                        method:  action['method'],
+                        method: action['method'],
                         content_type: action['content-type'],
                         requests: action['requests'],
                         responses: action['responses'],
-                        resource: action['resource']))
+                        resource: action['resource']
+                      ))
         end
       end
 

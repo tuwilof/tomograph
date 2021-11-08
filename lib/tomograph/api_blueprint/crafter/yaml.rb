@@ -24,6 +24,7 @@ module Tomograph
 
         def group?(group)
           return false if group['element'] == 'resource'
+
           group['element'] != 'copy' && # Element is a human readable text
             group['meta']['classes']['content'][0]['content'] == 'resourceGroup' # skip Data Structures
         end
@@ -31,7 +32,9 @@ module Tomograph
         def resources
           @resources ||= groups.inject([]) do |result_groups, group|
             result_groups.push(group['content'].each_with_object([]) do |resource, result_resources|
-              result_resources.push('resource' => resource, 'resource_path' => resource_path(resource)) if resource?(resource)
+              if resource?(resource)
+                result_resources.push('resource' => resource, 'resource_path' => resource_path(resource))
+              end
             end)
           end.flatten
         end
@@ -46,9 +49,12 @@ module Tomograph
 
         def transitions
           @transitions ||= resources.inject([]) do |result_resources, resource|
-            result_resources.push(resource['resource']['content'].each_with_object([]) do |transition, result_transitions|
-              result_transitions.push(transition_hash(transition, resource)) if transition?(transition)
-            end)
+            result_resources.push(resource['resource']['content']
+                            .each_with_object([]) do |transition, result_transitions|
+                                    if transition?(transition)
+                                      result_transitions.push(transition_hash(transition, resource))
+                                    end
+                                  end)
           end.flatten
         end
 
@@ -65,18 +71,22 @@ module Tomograph
         end
 
         def transition_path(transition, resource_path)
-          transition['attributes'] && transition['attributes']['href'] && transition['attributes']['href']['content'] || resource_path
+          transition['attributes'] && transition['attributes']['href'] &&
+            transition['attributes']['href']['content'] || resource_path
         end
 
         def without_group_actions
           transitions.inject([]) do |result_transition, transition|
-            result_transition.push(transition['transition']['content'].each_with_object([]) do |content, result_contents|
-              result_contents.push(Tomograph::ApiBlueprint::Crafter::Yaml::Action.new(
-                                     content['content'],
-                                     transition['transition_path'],
-                                     transition['resource']
-              )) if action?(content)
-            end)
+            result_transition.push(transition['transition']['content']
+                             .each_with_object([]) do |content, result_contents|
+                                     next unless action?(content)
+
+                                     result_contents.push(Tomograph::ApiBlueprint::Crafter::Yaml::Action.new(
+                                                            content['content'],
+                                                            transition['transition_path'],
+                                                            transition['resource']
+                                                          ))
+                                   end)
           end
         end
 

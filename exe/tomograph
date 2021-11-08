@@ -7,12 +7,15 @@ require 'methadone'
 require 'tomograph'
 require 'tomograph/version'
 
+# rubocop:disable Style/MixinUsage
 include Methadone::Main
 include Methadone::CLILogging
+# rubocop:enable Style/MixinUsage
 
 version Tomograph::VERSION
 description 'Converts API Blueprint to JSON Schema'
-on('-d DRAFTER_VERSION', '--drafter', 'Choose drafter version: crafter or 4, or OpenAPI version: openapi2 or openapi3. Default: use drafter v.4.')
+on('-d DRAFTER_VERSION', '--drafter', 'Choose drafter version: crafter or 4,
+    or OpenAPI version: openapi2 or openapi3. Default: use drafter v.4.')
 on('--exclude-description', 'Exclude "description" keys.')
 on('--split', 'Split output into files by method.')
 arg :input, 'path/to/doc.yaml (API Elements)'
@@ -47,7 +50,7 @@ end
 def write_split_json(actions, output)
   FileUtils.mkdir_p(output)
   actions.clone.each do |action|
-    json_name = "#{action.delete("path").to_s} #{action.delete("method")}.json"
+    json_name = "#{action.delete('path')} #{action.delete('method')}.json"
     [['/', '#'],
      ['{', '('],
      ['}', ')']].each do |pattern, replacement|
@@ -67,11 +70,11 @@ end
 main do |input, output|
   version = choose_drafter(options['drafter'])
   format_key = {
-                  crafter:   :crafter_yaml_path,
-                  drafter_4: :drafter_yaml_path,
-                  openapi2: :openapi2_json_path,
-                  openapi3: :openapi3_yaml_path
-               }[version]
+    crafter: :crafter_yaml_path,
+    drafter_4: :drafter_yaml_path,
+    openapi2: :openapi2_json_path,
+    openapi3: :openapi3_yaml_path
+  }[version]
 
   tomogram = Tomograph::Tomogram.new(format_key => input)
   actions = tomogram.to_a.map(&:to_hash)

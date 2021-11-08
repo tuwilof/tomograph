@@ -32,7 +32,7 @@ module Tomograph
     end
 
     def ==(other)
-      other.instance_of? self.class and other.path == path
+      other.instance_of?(self.class) && (other.path == path)
     end
 
     private

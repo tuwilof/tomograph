@@ -12,7 +12,7 @@ RSpec.describe 'tomograph' do
   end
 
   def run_tests_with_file
-    Tempfile.open('') do |output|
+    Tempfile.open('') do |_output|
       expect(run_tomograph).to be_truthy
       expect(IO.read(output_path)).to eq(IO.read(expected_path))
     end
