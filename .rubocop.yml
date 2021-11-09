@@ -1,7 +1,7 @@
 AllCops:
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 2.4
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 120
 
 Style/Documentation:
@@ -12,3 +12,21 @@ Style/FrozenStringLiteralComment:
 
 Metrics/BlockLength:
   Enabled: false
+
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
+Lint/DisjunctiveAssignmentInConstructor:
+  Enabled: false
+
+Metrics/ParameterLists:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 40
+
+Metrics/AbcSize:
+  Max: 90
+
+Metrics/ClassLength:
+  Max: 150

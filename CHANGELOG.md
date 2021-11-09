@@ -1,5 +1,10 @@
 # Change log
 
+### 3.1.3 - 2021-10-08
+
+* features
+  * rubocop style
+
 ### 3.1.2 - 2021-09-28
 
 * bug fixes

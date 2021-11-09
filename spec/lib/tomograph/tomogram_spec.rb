@@ -236,8 +236,14 @@ RSpec.describe Tomograph::Tomogram do
       end
 
       context 'if found in the tomogram' do
-        let(:request1) { double(method: 'POST', path: double(match: true, to_s: '/status'), content_type: 'application/json') }
-        let(:request2) { double(method: 'DELETE', path: double(match: true, to_s: '/status/{id}/test/{tid}.json'), content_type: 'application/json') }
+        let(:request1) do
+          double(method: 'POST', path: double(match: true, to_s: '/status'),
+                 content_type: 'application/json')
+        end
+        let(:request2) do
+          double(method: 'DELETE', path: double(match: true, to_s: '/status/{id}/test/{tid}.json'),
+                 content_type: 'application/json')
+        end
         let(:tomogram) do
           [
             # Should not find these
@@ -373,8 +379,14 @@ RSpec.describe Tomograph::Tomogram do
       end
 
       context 'if found in the tomogram' do
-        let(:request1) { double(method: 'POST', path: double(match: true, to_s: '/status'), content_type: 'application/json') }
-        let(:request2) { double(method: 'DELETE', path: double(match: true, to_s: '/status/{id}/test/{tid}.json'), content_type: 'application/json') }
+        let(:request1) do
+          double(method: 'POST', path: double(match: true, to_s: '/status'),
+                 content_type: 'application/json')
+        end
+        let(:request2) do
+          double(method: 'DELETE', path: double(match: true, to_s: '/status/{id}/test/{tid}.json'),
+                 content_type: 'application/json')
+        end
         let(:tomogram) do
           [
             # Should not find these
@@ -726,22 +738,28 @@ RSpec.describe Tomograph::Tomogram do
       context 'if not found in the tomogram' do
         it 'returns nil' do
           expect(subject.find_request_with_content_type(method: method,
-            path: path,
-            content_type: content_type)).to eq(nil)
+                                                        path: path,
+                                                        content_type: content_type)).to eq(nil)
         end
       end
 
       context 'without path' do
         it 'returns nil' do
           expect(subject.find_request_with_content_type(method: method,
-            path: nil,
-            content_type: content_type)).to eq(nil)
+                                                        path: nil,
+                                                        content_type: content_type)).to eq(nil)
         end
       end
 
       context 'if found in the tomogram' do
-        let(:request1) { double(method: 'POST', path: double(match: true, to_s: '/status'), content_type: 'application/json') }
-        let(:request2) { double(method: 'DELETE', path: double(match: true, to_s: '/status/{id}/test/{tid}.json'), content_type: 'application/json') }
+        let(:request1) do
+          double(method: 'POST', path: double(match: true, to_s: '/status'),
+                 content_type: 'application/json')
+        end
+        let(:request2) do
+          double(method: 'DELETE', path: double(match: true, to_s: '/status/{id}/test/{tid}.json'),
+                 content_type: 'application/json')
+        end
         let(:tomogram) do
           [
             # Should not find these
@@ -760,8 +778,8 @@ RSpec.describe Tomograph::Tomogram do
 
           it 'return path withoud slash at the end' do
             expect(subject.find_request_with_content_type(method: method,
-              path: path,
-              content_type: content_type)).to eq(request1)
+                                                          path: path,
+                                                          content_type: content_type)).to eq(request1)
           end
         end
 
@@ -770,16 +788,16 @@ RSpec.describe Tomograph::Tomogram do
 
           it 'ignores query parameters' do
             expect(subject.find_request_with_content_type(method: method,
-              path: path,
-              content_type: content_type)).to eq(request1)
+                                                          path: path,
+                                                          content_type: content_type)).to eq(request1)
           end
         end
 
         context 'without parameters' do
           it 'return path' do
             expect(subject.find_request_with_content_type(method: method,
-              path: path,
-              content_type: content_type)).to eq(request1)
+                                                          path: path,
+                                                          content_type: content_type)).to eq(request1)
           end
         end
 
@@ -789,8 +807,8 @@ RSpec.describe Tomograph::Tomogram do
 
           it 'returns the modified path' do
             expect(subject.find_request_with_content_type(method: method,
-              path: path,
-              content_type: content_type)).to eq(request2)
+                                                          path: path,
+                                                          content_type: content_type)).to eq(request2)
           end
         end
       end
@@ -838,8 +856,8 @@ RSpec.describe Tomograph::Tomogram do
 
         it 'returns the modified path' do
           expect(subject.find_request_with_content_type(method: method,
-            path: path,
-            content_type: content_type)).to eq(request3)
+                                                        path: path,
+                                                        content_type: content_type)).to eq(request3)
         end
       end
     end
@@ -877,8 +895,14 @@ RSpec.describe Tomograph::Tomogram do
       end
 
       context 'if found in the tomogram' do
-        let(:request1) { double(method: 'POST', path: double(match: true, to_s: '/status'), content_type: 'application/json') }
-        let(:request2) { double(method: 'DELETE', path: double(match: true, to_s: '/status/{id}/test/{tid}.json'), content_type: 'application/json') }
+        let(:request1) do
+          double(method: 'POST', path: double(match: true, to_s: '/status'),
+                 content_type: 'application/json')
+        end
+        let(:request2) do
+          double(method: 'DELETE', path: double(match: true, to_s: '/status/{id}/test/{tid}.json'),
+                 content_type: 'application/json')
+        end
         let(:tomogram) do
           [
             # Should not find these
@@ -1003,10 +1027,10 @@ RSpec.describe Tomograph::Tomogram do
     describe '#to_json' do
       subject do
         JSON.parse(
-            described_class.new(
-                openapi2_json_path: File.expand_path("spec/fixtures/openapi2/#{documentation}"),
-                prefix: ''
-            ).to_json
+          described_class.new(
+            openapi2_json_path: File.expand_path("spec/fixtures/openapi2/#{documentation}"),
+            prefix: ''
+          ).to_json
         )
       end
       let(:parsed) { JSON.parse(File.read(json_schema)) }
@@ -1027,10 +1051,10 @@ RSpec.describe Tomograph::Tomogram do
     describe '#to_json' do
       subject do
         JSON.parse(
-            described_class.new(
-                openapi3_yaml_path: File.expand_path("spec/fixtures/openapi3/#{documentation}"),
-                prefix: ''
-            ).to_json
+          described_class.new(
+            openapi3_yaml_path: File.expand_path("spec/fixtures/openapi3/#{documentation}"),
+            prefix: ''
+          ).to_json
         )
       end
       let(:parsed) { JSON.parse(File.read(json_schema)) }
@@ -1045,12 +1069,12 @@ RSpec.describe Tomograph::Tomogram do
           #   file.write(JSON.pretty_generate(subject))
           # end
           expect(subject).to eq(parsed)
-          #puts JSON.dump(subject[0]['responses'][0]['body'])
+          # puts JSON.dump(subject[0]['responses'][0]['body'])
           subject.each do |sub|
             sub['responses'].each do |response|
-              expect {
+              expect do
                 JSON::Validator.fully_validate(response['body'], {})
-              }.not_to raise_exception
+              end.not_to raise_exception
             end
           end
         end
