@@ -197,6 +197,15 @@ RSpec.describe Tomograph::Tomogram do
           expect(subject).to eq(parsed)
         end
       end
+
+      context 'oneOf' do
+        let(:json_schema) { 'spec/fixtures/tomogram/api_oneOf.json' }
+        let(:documentation) { 'api_oneOf.yaml' }
+
+        it 'parses documents' do
+          expect(subject).to eq(parsed)
+        end
+      end
     end
 
     describe '#find_request_with_content_type' do
