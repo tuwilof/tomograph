@@ -1046,8 +1046,8 @@ RSpec.describe Tomograph::Tomogram do
       let(:documentation) { nil }
 
       context 'if one action' do
-        let(:json_schema) { 'spec/fixtures/tomogram/chatwoot.json' }
-        let(:documentation) { 'chatwoot.json' }
+        let(:json_schema) { 'spec/fixtures/tomogram/chatwoot20201024.json' }
+        let(:documentation) { 'chatwoot20201024.json' }
 
         it 'parses documents' do
           expect(subject).to eq(parsed)

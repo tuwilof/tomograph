@@ -11,6 +11,7 @@ module Tomograph
       def to_tomogram
         @tomogram ||= @documentation['paths'].each_with_object([]) do |action, result|
           action[1].keys.each do |method|
+            next result if method == 'parameters'
             result.push(Tomograph::Tomogram::Action.new(
                           path: "#{@prefix}#{action[0]}",
                           method: method.upcase,
