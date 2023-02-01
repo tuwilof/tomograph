@@ -1,5 +1,10 @@
 # Change log
 
+### 3.1.4 - 2023-02-01
+
+* bug fixes
+  * fix parser parameters for openapi version 2
+
 ### 3.1.3 - 2021-11-09
 
 * features

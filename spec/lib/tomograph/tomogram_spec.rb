@@ -1045,9 +1045,18 @@ RSpec.describe Tomograph::Tomogram do
       let(:parsed) { JSON.parse(File.read(json_schema)) }
       let(:documentation) { nil }
 
-      context 'if one action' do
-        let(:json_schema) { 'spec/fixtures/tomogram/chatwoot.json' }
-        let(:documentation) { 'chatwoot.json' }
+      context 'if chatwoot20201024' do
+        let(:json_schema) { 'spec/fixtures/tomogram/chatwoot20201024.json' }
+        let(:documentation) { 'chatwoot20201024.json' }
+
+        it 'parses documents' do
+          expect(subject).to eq(parsed)
+        end
+      end
+
+      context 'if chatwoot20230201' do
+        let(:json_schema) { 'spec/fixtures/tomogram/chatwoot20230201.json' }
+        let(:documentation) { 'chatwoot20230201.json' }
 
         it 'parses documents' do
           expect(subject).to eq(parsed)
