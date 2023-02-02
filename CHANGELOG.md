@@ -1,5 +1,10 @@
 # Change log
 
+### 3.1.5 - 2023-02-02
+
+* bug fixes
+  * fix keys for openapi 2 and 3 version
+
 ### 3.1.4 - 2023-02-01
 
 * bug fixes

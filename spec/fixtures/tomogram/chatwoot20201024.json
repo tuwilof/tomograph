@@ -3,7 +3,9 @@
     "path": "/accounts/{account_id}/inboxes",
     "method": "POST",
     "content-type": "",
-    "requests": [],
+    "requests": [
+
+    ],
     "responses": [
       {
         "status": "200",
@@ -69,17 +71,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       },
       {
         "status": "403",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -88,7 +92,9 @@
     "path": "/accounts/{account_id}/inboxes/{id}",
     "method": "PATCH",
     "content-type": "",
-    "requests": [],
+    "requests": [
+
+    ],
     "responses": [
       {
         "status": "200",
@@ -154,17 +160,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       },
       {
         "status": "403",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -173,22 +181,27 @@
     "path": "/accounts/{account_id}/inboxes/{id}/set_agent_bot",
     "method": "POST",
     "content-type": "",
-    "requests": [],
+    "requests": [
+
+    ],
     "responses": [
       {
         "status": "204",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       },
       {
         "status": "404",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       },
       {
         "status": "403",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -197,7 +210,9 @@
     "path": "/agent_bots",
     "method": "GET",
     "content-type": "",
-    "requests": [],
+    "requests": [
+
+    ],
     "responses": [
       {
         "status": "200",
@@ -227,17 +242,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       },
       {
         "status": "403",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -246,7 +263,9 @@
     "path": "/accounts/{account_id}/conversations",
     "method": "GET",
     "content-type": "",
-    "requests": [],
+    "requests": [
+
+    ],
     "responses": [
       {
         "status": "200",
@@ -424,7 +443,7 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "400",
@@ -462,12 +481,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "description",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -476,7 +496,9 @@
     "path": "/accounts/{account_id}/conversations",
     "method": "POST",
     "content-type": "",
-    "requests": [],
+    "requests": [
+
+    ],
     "responses": [
       {
         "status": "200",
@@ -497,12 +519,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -511,7 +534,9 @@
     "path": "/accounts/{account_id}/conversations/{id}",
     "method": "GET",
     "content-type": "",
-    "requests": [],
+    "requests": [
+
+    ],
     "responses": [
       {
         "status": "200",
@@ -662,17 +687,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       },
       {
         "status": "403",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -681,7 +708,9 @@
     "path": "/accounts/{account_id}/conversations/{id}/toggle_status",
     "method": "POST",
     "content-type": "",
-    "requests": [],
+    "requests": [
+
+    ],
     "responses": [
       {
         "status": "200",
@@ -716,17 +745,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       },
       {
         "status": "403",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -735,7 +766,9 @@
     "path": "/accounts/{account_id}/conversations/{id}/messages",
     "method": "GET",
     "content-type": "",
-    "requests": [],
+    "requests": [
+
+    ],
     "responses": [
       {
         "status": "200",
@@ -812,17 +845,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       },
       {
         "status": "403",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -831,7 +866,9 @@
     "path": "/accounts/{account_id}/conversations/{id}/messages",
     "method": "POST",
     "content-type": "",
-    "requests": [],
+    "requests": [
+
+    ],
     "responses": [
       {
         "status": "200",
@@ -908,17 +945,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       },
       {
         "status": "403",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -927,7 +966,9 @@
     "path": "/accounts/{account_id}/conversations/{id}/labels",
     "method": "GET",
     "content-type": "",
-    "requests": [],
+    "requests": [
+
+    ],
     "responses": [
       {
         "status": "200",
@@ -948,17 +989,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       },
       {
         "status": "403",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -967,7 +1010,9 @@
     "path": "/accounts/{account_id}/conversations/{id}/labels",
     "method": "POST",
     "content-type": "",
-    "requests": [],
+    "requests": [
+
+    ],
     "responses": [
       {
         "status": "200",
@@ -988,17 +1033,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       },
       {
         "status": "403",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -1007,7 +1054,9 @@
     "path": "/accounts/{account_id}/conversations/{id}/assignments",
     "method": "POST",
     "content-type": "",
-    "requests": [],
+    "requests": [
+
+    ],
     "responses": [
       {
         "status": "200",
@@ -1079,17 +1128,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       },
       {
         "status": "403",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -1098,7 +1149,9 @@
     "path": "/accounts/{account_id}/contacts",
     "method": "GET",
     "content-type": "",
-    "requests": [],
+    "requests": [
+
+    ],
     "responses": [
       {
         "status": "200",
@@ -1160,7 +1213,7 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "400",
@@ -1198,7 +1251,7 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -1207,7 +1260,9 @@
     "path": "/accounts/{account_id}/contacts",
     "method": "POST",
     "content-type": "",
-    "requests": [],
+    "requests": [
+
+    ],
     "responses": [
       {
         "status": "200",
@@ -1271,7 +1326,7 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "400",
@@ -1309,7 +1364,7 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -1318,7 +1373,9 @@
     "path": "/accounts/{account_id}/contacts/{id}",
     "method": "GET",
     "content-type": "",
-    "requests": [],
+    "requests": [
+
+    ],
     "responses": [
       {
         "status": "200",
@@ -1382,17 +1439,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       },
       {
         "status": "403",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -1401,7 +1460,9 @@
     "path": "/accounts/{account_id}/contacts/{id}",
     "method": "PUT",
     "content-type": "",
-    "requests": [],
+    "requests": [
+
+    ],
     "responses": [
       {
         "status": "204",
@@ -1459,17 +1520,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       },
       {
         "status": "403",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -1478,7 +1541,9 @@
     "path": "/accounts/{account_id}/contacts/{id}/conversations",
     "method": "GET",
     "content-type": "",
-    "requests": [],
+    "requests": [
+
+    ],
     "responses": [
       {
         "status": "200",
@@ -1629,17 +1694,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       },
       {
         "status": "403",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -1648,7 +1715,9 @@
     "path": "/accounts/{account_id}/contacts/search",
     "method": "GET",
     "content-type": "",
-    "requests": [],
+    "requests": [
+
+    ],
     "responses": [
       {
         "status": "200",
@@ -1676,7 +1745,7 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
@@ -1714,7 +1783,7 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -1723,7 +1792,9 @@
     "path": "/accounts/{account_id}/contacts/{id}/contact_inboxes",
     "method": "POST",
     "content-type": "",
-    "requests": [],
+    "requests": [
+
+    ],
     "responses": [
       {
         "status": "200",
@@ -1801,7 +1872,7 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
@@ -1839,12 +1910,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "422",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -1853,7 +1925,9 @@
     "path": "/profile",
     "method": "GET",
     "content-type": "",
-    "requests": [],
+    "requests": [
+
+    ],
     "responses": [
       {
         "status": "200",
@@ -1925,12 +1999,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
-        "body": {},
-        "content-type": ""
+        "body": {
+        },
+        "content-type": "application/json"
       }
     ],
     "resource": ""

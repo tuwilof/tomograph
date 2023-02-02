@@ -27,13 +27,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -66,19 +66,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -111,13 +111,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -134,19 +134,19 @@
         "status": "200",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -182,13 +182,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -219,13 +219,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -242,19 +242,19 @@
         "status": "200",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -303,13 +303,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -354,13 +354,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -405,19 +405,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -462,13 +462,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -485,19 +485,19 @@
         "status": "200",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -584,13 +584,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -677,19 +677,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -776,13 +776,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -799,19 +799,19 @@
         "status": "200",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -835,19 +835,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -937,19 +937,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -994,13 +994,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -1045,19 +1045,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -1102,13 +1102,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -1205,13 +1205,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -1259,13 +1259,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -1329,13 +1329,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -1403,13 +1403,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -1473,13 +1473,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -1528,13 +1528,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -1579,13 +1579,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -1630,19 +1630,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -1687,13 +1687,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -1710,19 +1710,19 @@
         "status": "200",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -1799,13 +1799,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -1878,13 +1878,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -1957,19 +1957,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -1986,19 +1986,19 @@
         "status": "200",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -2043,13 +2043,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -2090,13 +2090,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -2137,19 +2137,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -2166,19 +2166,19 @@
         "status": "200",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -2243,13 +2243,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -2310,13 +2310,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -2377,19 +2377,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -2450,19 +2450,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -2479,19 +2479,19 @@
         "status": "200",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -2572,7 +2572,7 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "400",
@@ -2610,7 +2610,7 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -2693,7 +2693,7 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "400",
@@ -2731,7 +2731,7 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -2814,19 +2814,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -2903,19 +2903,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -2932,19 +2932,19 @@
         "status": "200",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -3121,19 +3121,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -3172,7 +3172,7 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
@@ -3210,7 +3210,7 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -3291,7 +3291,7 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "400",
@@ -3329,7 +3329,7 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -3418,7 +3418,7 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
@@ -3456,13 +3456,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "422",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -3551,7 +3551,7 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
@@ -3589,13 +3589,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "422",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -3681,13 +3681,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -3769,13 +3769,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -3857,19 +3857,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -3951,19 +3951,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -3980,19 +3980,19 @@
         "status": "200",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -4029,7 +4029,7 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "400",
@@ -4067,7 +4067,7 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -4274,7 +4274,7 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "400",
@@ -4312,7 +4312,7 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -4344,13 +4344,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -4557,7 +4557,7 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "400",
@@ -4595,7 +4595,7 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -4772,19 +4772,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -4830,19 +4830,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -4929,19 +4929,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -4973,19 +4973,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -5017,19 +5017,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -5110,19 +5110,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -5199,19 +5199,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -5288,19 +5288,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -5377,19 +5377,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -5434,19 +5434,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -5463,19 +5463,19 @@
         "status": "204",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -5552,19 +5552,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -5581,25 +5581,25 @@
         "status": "200",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "422",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -5676,25 +5676,25 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "422",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -5771,25 +5771,25 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "422",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -5881,19 +5881,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -5981,19 +5981,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -6010,19 +6010,19 @@
         "status": "200",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -6082,19 +6082,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -6147,13 +6147,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -6206,13 +6206,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -6229,19 +6229,19 @@
         "status": "200",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -6328,13 +6328,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -6387,13 +6387,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -6442,13 +6442,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -6497,19 +6497,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -6558,13 +6558,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -6581,19 +6581,19 @@
         "status": "200",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -6670,19 +6670,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -6759,25 +6759,25 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "422",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -6854,25 +6854,25 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "422",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -6889,25 +6889,25 @@
         "status": "200",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "422",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -6967,13 +6967,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -7029,13 +7029,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -7091,19 +7091,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -7159,13 +7159,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -7182,19 +7182,19 @@
         "status": "200",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -7250,13 +7250,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -7308,13 +7308,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -7366,13 +7366,13 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -7389,19 +7389,19 @@
         "status": "200",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "401",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -7431,19 +7431,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -7509,19 +7509,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -7551,19 +7551,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
@@ -7618,19 +7618,19 @@
             }
           }
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       },
       {
         "status": "403",
         "body": {
         },
-        "content-type": ""
+        "content-type": "application/json"
       }
     ],
     "resource": ""
