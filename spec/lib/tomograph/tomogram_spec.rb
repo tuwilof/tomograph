@@ -1050,6 +1050,9 @@ RSpec.describe Tomograph::Tomogram do
         let(:documentation) { 'chatwoot20201024.json' }
 
         it 'parses documents' do
+          # File.open('spec/fixtures/tomogram/chatwoot20201024.json', 'w') do |file|
+          #   file.write(JSON.pretty_generate(subject))
+          # end
           expect(subject).to eq(parsed)
         end
       end
@@ -1059,6 +1062,9 @@ RSpec.describe Tomograph::Tomogram do
         let(:documentation) { 'chatwoot20230201.json' }
 
         it 'parses documents' do
+          # File.open('spec/fixtures/tomogram/chatwoot20230201.json', 'w') do |file|
+          #   file.write(JSON.pretty_generate(subject))
+          # end
           expect(subject).to eq(parsed)
         end
       end

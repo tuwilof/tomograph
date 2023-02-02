@@ -28,15 +28,15 @@ module Tomograph
         resp.inject([]) do |result, reponse|
           if reponse[1]['schema']
             result.push(
-              status: reponse[0],
-              body: schema(reponse[1]['schema'], defi),
-              'content-type': ''
+              'status' => reponse[0],
+              'body' => schema(reponse[1]['schema'], defi),
+              'content-type' => 'application/json'
             )
           else
             result.push(
-              status: reponse[0],
-              body: {},
-              'content-type': ''
+              'status' => reponse[0],
+              'body' => {},
+              'content-type' => 'application/json'
             )
           end
         end
