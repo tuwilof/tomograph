@@ -28,15 +28,15 @@ module Tomograph
           if response[1]['content'].nil?
             # TODO: 403Forbidden
             result.push(
-              status: response[0],
-              body: {},
-              'content-type': ''
+              'status' => response[0],
+              'body' => {},
+              'content-type' => 'application/json'
             )
           elsif response[1]['content'].values[0]['schema']
             result.push(
-              status: response[0],
-              body: schema(response[1]['content'].values[0]['schema'], defi),
-              'content-type': ''
+              'status' => response[0],
+              'body' => schema(response[1]['content'].values[0]['schema'], defi),
+              'content-type' => 'application/json'
             )
           else
             result.push(
