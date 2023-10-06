@@ -1,5 +1,10 @@
 # Change log
 
+### 3.1.6 - 2023-10-06
+
+* patch
+  * change home page
+
 ### 3.1.5 - 2023-02-02
 
 * bug fixes
