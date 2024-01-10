@@ -1,0 +1,76 @@
+[
+  {
+    "path": "/accounts/{accountId}",
+    "method": "GET",
+    "content-type": "",
+    "requests": [
+    ],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/Account",
+          "components": {
+            "schemas": {
+              "Account": {
+                "description": "Account data",
+                "type": "object",
+                "parameters": {
+                  "id": {
+                    "type": "integer",
+                    "required": true,
+                    "example": 1
+                  },
+                  "name": {
+                    "type": "string",
+                    "required": true,
+                    "example": "Jane Doe"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": "application/json"
+      },
+      {
+        "status": "403",
+        "body": {
+          "type": "object",
+          "parameters": {
+            "error": {
+              "type": "string",
+              "required": true,
+              "example": "Access denied"
+            }
+          }
+        },
+        "content-type": "application/json"
+      },
+      {
+        "status": "404",
+        "body": {
+          "$ref": "#/components/schemas/NotFound",
+          "components": {
+            "schemas": {
+              "NotFound": {
+                "description": "Not found error",
+                "type": "object",
+                "parameters": {
+                  "error": {
+                    "type": "string",
+                    "required": true,
+                    "default": "Account not found",
+                    "example": "Account not found"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": "application/json"
+      }
+    ],
+    "resource": ""
+  }
+]

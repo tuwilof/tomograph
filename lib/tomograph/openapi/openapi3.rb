@@ -24,27 +24,26 @@ module Tomograph
       end
 
       def responses(responses_definitions)
-        responses_definitions.inject([]) do |result, (response_code, response)|
-          if response['content'].nil?
-            # TODO: 403Forbidden
-            result.push(
-              'status' => response_code,
-              'body' => {},
-              'content-type' => 'application/json'
-            )
-          elsif response['content'].values[0]['schema']
-            result.push(
-              'status' => response_code,
-              'body' => schema(response['content'].values[0]['schema']),
-              'content-type' => 'application/json'
-            )
-          else
-            result.push(
-              status: response_code,
-              body: {},
-              'content-type': ''
-            )
+        result = []
+        responses_definitions.each do |(response_code, response)|
+          # response can be either Response Object or Reference Object
+          if response.key?('$ref')
+            response_description_path = response['$ref'].split('/')[1..] # first one is a '#'
+            response['content'] = @documentation.dig(*response_description_path)['content']
           end
+
+          result += responses_by_content_types(response['content'], response_code)
+        end
+        result
+      end
+
+      def responses_by_content_types(content_types, response_code)
+        content_types.map do |content_type, media_type_obj|
+          {
+            'status' => response_code,
+            'body' => schema(media_type_obj['schema']),
+            'content-type' => content_type
+          }
         end
       end
 

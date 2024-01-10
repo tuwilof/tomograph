@@ -1,0 +1,44 @@
+[
+  {
+    "path": "/accounts/{accountId}",
+    "method": "GET",
+    "content-type": "",
+    "requests": [
+    ],
+    "responses": [
+      {
+        "status": "200",
+        "body": {
+          "$ref": "#/components/schemas/Account",
+          "components": {
+            "schemas": {
+              "Account": {
+                "description": "Account data",
+                "type": "object",
+                "parameters": {
+                  "id": {
+                    "type": "integer",
+                    "required": true
+                  },
+                  "name": {
+                    "type": "string",
+                    "required": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "content-type": "application/json"
+      },
+      {
+        "status": "200",
+        "body": {
+          "type": "string"
+        },
+        "content-type": "text/plain"
+      }
+    ],
+    "resource": ""
+  }
+]

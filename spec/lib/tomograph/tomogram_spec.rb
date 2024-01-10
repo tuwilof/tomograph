@@ -1103,6 +1103,33 @@ RSpec.describe Tomograph::Tomogram do
           end
         end
       end
+
+      context 'if one response is a ref, others are described inline with and without schema ref' do
+        let(:json_schema) { 'spec/fixtures/openapi3/response_as_ref_and_plain.json' }
+        let(:documentation) { 'response_as_ref_and_plain.yml' }
+
+        it 'parses documents right' do
+          expect(subject).to eq(parsed)
+        end
+      end
+
+      context 'if action has two responses with one code and different content-types' do
+        let(:json_schema) { 'spec/fixtures/openapi3/one_code_two_content_types.json' }
+        let(:documentation) { 'one_code_two_content_types.yml' }
+
+        it 'parses documents right' do
+          expect(subject).to eq(parsed)
+        end
+
+        context 'and response is defined in components/responses section' do
+          let(:json_schema) { 'spec/fixtures/openapi3/response_is_a_ref.json' }
+          let(:documentation) { "response_is_a_ref.yml" }
+
+          it 'parses documents right' do
+            expect(subject).to eq(parsed)
+          end
+        end
+      end
     end
   end
 end
