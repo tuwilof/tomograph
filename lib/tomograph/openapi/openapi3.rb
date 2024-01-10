@@ -9,38 +9,38 @@ module Tomograph
       end
 
       def to_tomogram
-        @tomogram ||= @documentation['paths'].each_with_object([]) do |action, result|
-          action[1].keys.each do |method|
+        @tomogram ||= @documentation['paths'].each_with_object([]) do |(path, action_definition), result|
+          action_definition.keys.each do |method|
             result.push(Tomograph::Tomogram::Action.new(
-                          path: "#{@prefix}#{action[0]}",
+                          path: "#{@prefix}#{path}",
                           method: method.upcase,
                           content_type: '',
                           requests: [],
-                          responses: responses(action[1][method]['responses']),
+                          responses: responses(action_definition[method]['responses']),
                           resource: ''
                         ))
           end
         end
       end
 
-      def responses(resp)
-        resp.inject([]) do |result, response|
-          if response[1]['content'].nil?
+      def responses(responses_definitions)
+        responses_definitions.inject([]) do |result, (response_code, response)|
+          if response['content'].nil?
             # TODO: 403Forbidden
             result.push(
-              'status' => response[0],
+              'status' => response_code,
               'body' => {},
               'content-type' => 'application/json'
             )
-          elsif response[1]['content'].values[0]['schema']
+          elsif response['content'].values[0]['schema']
             result.push(
-              'status' => response[0],
-              'body' => schema(response[1]['content'].values[0]['schema']),
+              'status' => response_code,
+              'body' => schema(response['content'].values[0]['schema']),
               'content-type' => 'application/json'
             )
           else
             result.push(
-              status: response[0],
+              status: response_code,
               body: {},
               'content-type': ''
             )
