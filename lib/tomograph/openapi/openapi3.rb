@@ -16,14 +16,14 @@ module Tomograph
                           method: method.upcase,
                           content_type: '',
                           requests: [],
-                          responses: responses(action[1][method]['responses'], @documentation['components']['schemas']),
+                          responses: responses(action[1][method]['responses']),
                           resource: ''
                         ))
           end
         end
       end
 
-      def responses(resp, defi)
+      def responses(resp)
         resp.inject([]) do |result, response|
           if response[1]['content'].nil?
             # TODO: 403Forbidden
@@ -35,7 +35,7 @@ module Tomograph
           elsif response[1]['content'].values[0]['schema']
             result.push(
               'status' => response[0],
-              'body' => schema(response[1]['content'].values[0]['schema'], defi),
+              'body' => schema(response[1]['content'].values[0]['schema']),
               'content-type' => 'application/json'
             )
           else
@@ -48,7 +48,8 @@ module Tomograph
         end
       end
 
-      def schema(sche, defi)
+      def schema(sche)
+        defi = @documentation['components']['schemas']
         if sche.keys.include?('$ref')
           sche.merge!('components' => {})
           sche['components'].merge!('schemas' => {})
