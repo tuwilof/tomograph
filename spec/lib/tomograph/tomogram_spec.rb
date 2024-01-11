@@ -1113,6 +1113,15 @@ RSpec.describe Tomograph::Tomogram do
         end
       end
 
+      context 'if response has an empty body' do
+        let(:json_schema) { 'spec/fixtures/openapi3/response_with_empty_body.json' }
+        let(:documentation) { 'response_with_empty_body.yml' }
+
+        it 'parses documents right' do
+          expect(subject).to eq(parsed)
+        end
+      end
+
       context 'if action has two responses with one code and different content-types' do
         let(:json_schema) { 'spec/fixtures/openapi3/one_code_two_content_types.json' }
         let(:documentation) { 'one_code_two_content_types.yml' }

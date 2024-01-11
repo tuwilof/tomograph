@@ -1,0 +1,34 @@
+openapi: 3.1.3
+servers:
+  - url: 'http://localhost:3000/api/v2/storefront'
+info:
+  version: 2.0.0
+  title: Test API
+  description: API for testing specs. Response have an empty body
+
+paths:
+  /accounts/{accountId}:
+    get:
+      summary: Get account data
+      parameters:
+        - name: accountId
+          in: query
+          schema:
+            type: integer
+          required: true
+      responses:
+        '404':
+          description: Account not found
+
+components:
+  schemas:
+    Account:
+      type: object
+      description: Account data
+      parameters:
+        id:
+          type: integer
+          required: true
+        name:
+          type: string
+          required: true

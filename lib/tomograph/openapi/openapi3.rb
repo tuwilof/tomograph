@@ -32,7 +32,16 @@ module Tomograph
             response['content'] = @documentation.dig(*response_description_path)['content']
           end
 
-          result += responses_by_content_types(response['content'], response_code)
+          # Content can be nil if response body is not provided
+          if response['content'].nil?
+            result.push(
+              'status' => response_code,
+              'body'=> {},
+              'content-type' => ''
+            )
+          else
+            result += responses_by_content_types(response['content'], response_code)
+          end
         end
         result
       end
