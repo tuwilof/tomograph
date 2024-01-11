@@ -174,13 +174,20 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "403",
         "body": {
+          "properties": {
+            "error": {
+              "type": "string",
+              "default": "You are not authorized to access this page.",
+              "example": "You are not authorized to access this page."
+            }
+          }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -360,7 +367,7 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "422",
@@ -381,7 +388,7 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -561,7 +568,7 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "422",
@@ -582,7 +589,7 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -682,13 +689,20 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "403",
         "body": {
+          "properties": {
+            "error": {
+              "type": "string",
+              "default": "You are not authorized to access this page.",
+              "example": "You are not authorized to access this page."
+            }
+          }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -788,13 +802,20 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "403",
         "body": {
+          "properties": {
+            "error": {
+              "type": "string",
+              "default": "You are not authorized to access this page.",
+              "example": "You are not authorized to access this page."
+            }
+          }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -894,13 +915,20 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "403",
         "body": {
+          "properties": {
+            "error": {
+              "type": "string",
+              "default": "You are not authorized to access this page.",
+              "example": "You are not authorized to access this page."
+            }
+          }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -1051,13 +1079,20 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "403",
         "body": {
+          "properties": {
+            "error": {
+              "type": "string",
+              "default": "You are not authorized to access this page.",
+              "example": "You are not authorized to access this page."
+            }
+          }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -1207,13 +1242,20 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "403",
         "body": {
+          "properties": {
+            "error": {
+              "type": "string",
+              "default": "You are not authorized to access this page.",
+              "example": "You are not authorized to access this page."
+            }
+          }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -1919,13 +1961,20 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "403",
         "body": {
+          "properties": {
+            "error": {
+              "type": "string",
+              "default": "You are not authorized to access this page.",
+              "example": "You are not authorized to access this page."
+            }
+          }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -2629,13 +2678,20 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "403",
         "body": {
+          "properties": {
+            "error": {
+              "type": "string",
+              "default": "You are not authorized to access this page.",
+              "example": "You are not authorized to access this page."
+            }
+          }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -3344,8 +3400,15 @@
       {
         "status": "404",
         "body": {
+          "properties": {
+            "error": {
+              "type": "string",
+              "default": "The resource you were looking for could not be found.",
+              "example": "The resource you were looking for could not be found."
+            }
+          }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -4049,7 +4112,7 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -4753,13 +4816,20 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "404",
         "body": {
+          "properties": {
+            "error": {
+              "type": "string",
+              "default": "The resource you were looking for could not be found.",
+              "example": "The resource you were looking for could not be found."
+            }
+          }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -5463,13 +5533,20 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "404",
         "body": {
+          "properties": {
+            "error": {
+              "type": "string",
+              "default": "The resource you were looking for could not be found.",
+              "example": "The resource you were looking for could not be found."
+            }
+          }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -6173,7 +6250,7 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "422",
@@ -6194,7 +6271,7 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -6898,13 +6975,20 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "404",
         "body": {
+          "properties": {
+            "error": {
+              "type": "string",
+              "default": "The resource you were looking for could not be found.",
+              "example": "The resource you were looking for could not be found."
+            }
+          }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -7608,13 +7692,20 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "404",
         "body": {
+          "properties": {
+            "error": {
+              "type": "string",
+              "default": "The resource you were looking for could not be found.",
+              "example": "The resource you were looking for could not be found."
+            }
+          }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -8318,7 +8409,7 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "422",
@@ -8339,7 +8430,7 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -9043,7 +9134,7 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "422",
@@ -9064,7 +9155,7 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -9161,13 +9252,20 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "404",
         "body": {
+          "properties": {
+            "error": {
+              "type": "string",
+              "default": "The resource you were looking for could not be found.",
+              "example": "The resource you were looking for could not be found."
+            }
+          }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -9871,7 +9969,7 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "422",
@@ -9892,13 +9990,20 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "404",
         "body": {
+          "properties": {
+            "error": {
+              "type": "string",
+              "default": "The resource you were looking for could not be found.",
+              "example": "The resource you were looking for could not be found."
+            }
+          }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -10602,7 +10707,7 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "422",
@@ -10623,13 +10728,20 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "404",
         "body": {
+          "properties": {
+            "error": {
+              "type": "string",
+              "default": "The resource you were looking for could not be found.",
+              "example": "The resource you were looking for could not be found."
+            }
+          }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -11333,7 +11445,7 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "422",
@@ -11354,13 +11466,20 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "404",
         "body": {
+          "properties": {
+            "error": {
+              "type": "string",
+              "default": "The resource you were looking for could not be found.",
+              "example": "The resource you were looking for could not be found."
+            }
+          }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -12064,7 +12183,7 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "422",
@@ -12085,13 +12204,20 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "404",
         "body": {
+          "properties": {
+            "error": {
+              "type": "string",
+              "default": "The resource you were looking for could not be found.",
+              "example": "The resource you were looking for could not be found."
+            }
+          }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -12795,7 +12921,7 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "422",
@@ -12816,13 +12942,20 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "404",
         "body": {
+          "properties": {
+            "error": {
+              "type": "string",
+              "default": "The resource you were looking for could not be found.",
+              "example": "The resource you were looking for could not be found."
+            }
+          }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -13526,7 +13659,7 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "422",
@@ -13547,13 +13680,20 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "404",
         "body": {
+          "properties": {
+            "error": {
+              "type": "string",
+              "default": "The resource you were looking for could not be found.",
+              "example": "The resource you were looking for could not be found."
+            }
+          }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -13617,13 +13757,20 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "404",
         "body": {
+          "properties": {
+            "error": {
+              "type": "string",
+              "default": "The resource you were looking for could not be found.",
+              "example": "The resource you were looking for could not be found."
+            }
+          }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -13849,13 +13996,20 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "404",
         "body": {
+          "properties": {
+            "error": {
+              "type": "string",
+              "default": "The resource you were looking for could not be found.",
+              "example": "The resource you were looking for could not be found."
+            }
+          }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -14604,7 +14758,7 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -15300,13 +15454,20 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "404",
         "body": {
+          "properties": {
+            "error": {
+              "type": "string",
+              "default": "The resource you were looking for could not be found.",
+              "example": "The resource you were looking for could not be found."
+            }
+          }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -15795,7 +15956,7 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -16231,13 +16392,20 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "404",
         "body": {
+          "properties": {
+            "error": {
+              "type": "string",
+              "default": "The resource you were looking for could not be found.",
+              "example": "The resource you were looking for could not be found."
+            }
+          }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -16351,7 +16519,7 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -16486,13 +16654,20 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       },
       {
         "status": "404",
         "body": {
+          "properties": {
+            "error": {
+              "type": "string",
+              "default": "The resource you were looking for could not be found.",
+              "example": "The resource you were looking for could not be found."
+            }
+          }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
@@ -16627,7 +16802,7 @@
             }
           }
         },
-        "content-type": "application/json"
+        "content-type": "application/vnd.api+json"
       }
     ],
     "resource": ""
