@@ -1,5 +1,15 @@
 # Change log
 
+### 3.2.0 - 2024-01-13
+
+* features
+  * support multiple content types for response with one code for OpenAPI 3.0
+* bug fixes
+  * allow responses with empty bodies for OpenAPI 3.0
+* refactoring
+  * small renamings for easier reading for OpenAPI 3.0
+  * do not pass around documentation schemas object for OpenAPI 3.0
+
 ### 3.1.6 - 2023-10-06
 
 * patch
