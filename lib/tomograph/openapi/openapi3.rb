@@ -9,46 +9,55 @@ module Tomograph
       end
 
       def to_tomogram
-        @tomogram ||= @documentation['paths'].each_with_object([]) do |action, result|
-          action[1].keys.each do |method|
+        @tomogram ||= @documentation['paths'].each_with_object([]) do |(path, action_definition), result|
+          action_definition.keys.each do |method|
             result.push(Tomograph::Tomogram::Action.new(
-                          path: "#{@prefix}#{action[0]}",
+                          path: "#{@prefix}#{path}",
                           method: method.upcase,
                           content_type: '',
                           requests: [],
-                          responses: responses(action[1][method]['responses'], @documentation['components']['schemas']),
+                          responses: responses(action_definition[method]['responses']),
                           resource: ''
                         ))
           end
         end
       end
 
-      def responses(resp, defi)
-        resp.inject([]) do |result, response|
-          if response[1]['content'].nil?
-            # TODO: 403Forbidden
+      def responses(responses_definitions)
+        result = []
+        responses_definitions.each do |(response_code, response)|
+          # response can be either Response Object or Reference Object
+          if response.key?('$ref')
+            response_description_path = response['$ref'].split('/')[1..] # first one is a '#'
+            response['content'] = @documentation.dig(*response_description_path)['content']
+          end
+
+          # Content can be nil if response body is not provided
+          if response['content'].nil?
             result.push(
-              'status' => response[0],
-              'body' => {},
-              'content-type' => 'application/json'
-            )
-          elsif response[1]['content'].values[0]['schema']
-            result.push(
-              'status' => response[0],
-              'body' => schema(response[1]['content'].values[0]['schema'], defi),
-              'content-type' => 'application/json'
+              'status' => response_code,
+              'body'=> {},
+              'content-type' => ''
             )
           else
-            result.push(
-              status: response[0],
-              body: {},
-              'content-type': ''
-            )
+            result += responses_by_content_types(response['content'], response_code)
           end
+        end
+        result
+      end
+
+      def responses_by_content_types(content_types, response_code)
+        content_types.map do |content_type, media_type_obj|
+          {
+            'status' => response_code,
+            'body' => schema(media_type_obj['schema']),
+            'content-type' => content_type
+          }
         end
       end
 
-      def schema(sche, defi)
+      def schema(sche)
+        defi = @documentation['components']['schemas']
         if sche.keys.include?('$ref')
           sche.merge!('components' => {})
           sche['components'].merge!('schemas' => {})
