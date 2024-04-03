@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary        = 'Convert API Blueprint, Swagger and OpenAPI to Tomogram'
   spec.description    = 'Convert API Blueprint, Swagger and OpenAPI to routes and JSON-Schemas'
-  spec.homepage       = 'https://github.com/matchtechnologies/tomograph'
+  spec.homepage       = 'https://github.com/tuwilof/tomograph'
   spec.license        = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
