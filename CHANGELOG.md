@@ -1,5 +1,10 @@
 # Change log
 
+### 3.2.2 - 2024-05-14
+
+* bug fixes
+  * allow doc without components for OpenAPI 3.0
+
 ### 3.2.1 - 2024-04-03
 
 * patch
