@@ -57,7 +57,7 @@ module Tomograph
       end
 
       def schema(sche)
-        defi = @documentation['components']['schemas']
+        defi = @documentation['components']['schemas'] if @documentation['components']
         if sche.keys.include?('$ref')
           sche.merge!('components' => {})
           sche['components'].merge!('schemas' => {})
