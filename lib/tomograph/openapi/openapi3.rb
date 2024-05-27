@@ -57,7 +57,11 @@ module Tomograph
       end
 
       def schema(sche)
-        defi = @documentation['components']['schemas'] if @documentation['components']
+        if @documentation['components']
+          defi = @documentation['components']['schemas']
+        elsif @documentation['definitions']
+          defi = @documentation['definitions']
+        end
         if sche.keys.include?('$ref')
           sche.merge!('components' => {})
           sche['components'].merge!('schemas' => {})
@@ -91,7 +95,7 @@ module Tomograph
           res = sche.merge('definitions' => {})
           keys = sche.to_s.split('"').find_all { |word| word.include?('definitions') }
           keys.each do |key|
-            res['definitions'].merge!({ key[21..-1] => defi[key[21..-1]] })
+            res['definitions'].merge!({ key.split('/')[-1] => defi[key.split('/')[-1]] })
           end
           res
         else
