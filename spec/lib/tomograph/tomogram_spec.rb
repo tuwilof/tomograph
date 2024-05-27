@@ -1139,6 +1139,16 @@ RSpec.describe Tomograph::Tomogram do
           end
         end
       end
+
+      context 'if definitions' do
+        let(:json_schema) { 'spec/fixtures/openapi3/definitions.json' }
+        let(:documentation) { 'definitions.yaml' }
+
+        it 'parses documents right' do
+          puts JSON.dump(subject)
+          expect(subject).to eq(parsed)
+        end
+      end
     end
   end
 end

@@ -1,0 +1,818 @@
+[
+    {
+        "path": "/owner/event",
+        "method": "POST",
+        "content-type": "",
+        "requests": [],
+        "responses": [
+            {
+                "status": "200",
+                "body": {
+                    "type": "object",
+                    "oneOf": [
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "ok"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ]
+                        }
+                    ]
+                },
+                "content-type": "application/json"
+            }
+        ],
+        "resource": ""
+    },
+    {
+        "path": "/owner/event",
+        "method": "PUT",
+        "content-type": "",
+        "requests": [],
+        "responses": [
+            {
+                "status": "200",
+                "body": {
+                    "type": "object",
+                    "oneOf": [
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "ok"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ]
+                        },
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "notAuth"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ]
+                        }
+                    ]
+                },
+                "content-type": "application/json"
+            }
+        ],
+        "resource": ""
+    },
+    {
+        "path": "/owner/event",
+        "method": "GET",
+        "content-type": "",
+        "requests": [],
+        "responses": [
+            {
+                "status": "200",
+                "body": {
+                    "type": "object",
+                    "oneOf": [
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "ok"
+                                    ]
+                                },
+                                "result": {
+                                    "type": "object",
+                                    "properties": {
+                                        "date": {
+                                            "type": "number",
+                                            "example": "127621347872"
+                                        },
+                                        "point_lat": {
+                                            "type": "number",
+                                            "example": "50.12"
+                                        },
+                                        "point_long": {
+                                            "type": "number",
+                                            "example": "56.43"
+                                        },
+                                        "viewed": {
+                                            "type": "number",
+                                            "example": 123
+                                        },
+                                        "liked": {
+                                            "type": "number",
+                                            "example": 123
+                                        },
+                                        "opened": {
+                                            "type": "number",
+                                            "example": 123
+                                        }
+                                    },
+                                    "required": [
+                                        "date",
+                                        "point_lat",
+                                        "point_long",
+                                        "viewed",
+                                        "liked",
+                                        "opened"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status",
+                                "result"
+                            ]
+                        },
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "notAuth"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ]
+                        }
+                    ]
+                },
+                "content-type": "application/json"
+            }
+        ],
+        "resource": ""
+    },
+    {
+        "path": "/owner/event",
+        "method": "DELETE",
+        "content-type": "",
+        "requests": [],
+        "responses": [
+            {
+                "status": "200",
+                "body": {
+                    "type": "object",
+                    "oneOf": [
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "ok"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ]
+                        },
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "notAuth"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ]
+                        }
+                    ]
+                },
+                "content-type": "application/json"
+            }
+        ],
+        "resource": ""
+    },
+    {
+        "path": "/owner/user",
+        "method": "PUT",
+        "content-type": "",
+        "requests": [],
+        "responses": [
+            {
+                "status": "200",
+                "body": {
+                    "type": "object",
+                    "oneOf": [
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "ok"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ]
+                        },
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "notAuth"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ]
+                        }
+                    ]
+                },
+                "content-type": "application/json"
+            }
+        ],
+        "resource": ""
+    },
+    {
+        "path": "/owner/user",
+        "method": "GET",
+        "content-type": "",
+        "requests": [],
+        "responses": [
+            {
+                "status": "200",
+                "body": {
+                    "type": "object",
+                    "oneOf": [
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "ok"
+                                    ]
+                                },
+                                "result": {
+                                    "type": "object",
+                                    "properties": {
+                                        "join_group": {
+                                            "type": "bool",
+                                            "example": true
+                                        },
+                                        "save_favourite": {
+                                            "type": "bool",
+                                            "example": true
+                                        },
+                                        "save_display": {
+                                            "type": "bool",
+                                            "example": true
+                                        }
+                                    },
+                                    "required": [
+                                        "join_group",
+                                        "save_favourite",
+                                        "save_display"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status",
+                                "result"
+                            ]
+                        },
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "notAuth"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ]
+                        }
+                    ]
+                },
+                "content-type": "application/json"
+            }
+        ],
+        "resource": ""
+    },
+    {
+        "path": "/guest/user",
+        "method": "POST",
+        "content-type": "",
+        "requests": [],
+        "responses": [
+            {
+                "status": "200",
+                "body": {
+                    "type": "object",
+                    "oneOf": [
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "ok"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ]
+                        }
+                    ]
+                },
+                "content-type": "application/json"
+            }
+        ],
+        "resource": ""
+    },
+    {
+        "path": "/guest/user",
+        "method": "PUT",
+        "content-type": "",
+        "requests": [],
+        "responses": [
+            {
+                "status": "200",
+                "body": {
+                    "type": "object",
+                    "oneOf": [
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "ok"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ]
+                        },
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "notAuth"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ]
+                        }
+                    ]
+                },
+                "content-type": "application/json"
+            }
+        ],
+        "resource": ""
+    },
+    {
+        "path": "/guest/user",
+        "method": "GET",
+        "content-type": "",
+        "requests": [],
+        "responses": [
+            {
+                "status": "200",
+                "body": {
+                    "type": "object",
+                    "oneOf": [
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "ok"
+                                    ]
+                                },
+                                "result": {
+                                    "type": "object",
+                                    "properties": {
+                                        "point_lat": {
+                                            "type": "number",
+                                            "example": "50.12"
+                                        },
+                                        "point_long": {
+                                            "type": "number",
+                                            "example": "56.43"
+                                        },
+                                        "join_group": {
+                                            "type": "bool",
+                                            "example": true
+                                        },
+                                        "save_favourite": {
+                                            "type": "bool",
+                                            "example": true
+                                        },
+                                        "save_display": {
+                                            "type": "bool",
+                                            "example": true
+                                        }
+                                    },
+                                    "required": [
+                                        "point_lat",
+                                        "point_long",
+                                        "join_group",
+                                        "save_favourite",
+                                        "save_display"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status",
+                                "result"
+                            ]
+                        },
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "notAuth"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ]
+                        }
+                    ]
+                },
+                "content-type": "application/json"
+            }
+        ],
+        "resource": ""
+    },
+    {
+        "path": "/guest/user",
+        "method": "DELETE",
+        "content-type": "",
+        "requests": [],
+        "responses": [
+            {
+                "status": "200",
+                "body": {
+                    "type": "object",
+                    "oneOf": [
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "ok"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ]
+                        },
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "notAuth"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ]
+                        }
+                    ]
+                },
+                "content-type": "application/json"
+            }
+        ],
+        "resource": ""
+    },
+    {
+        "path": "/guest/reaction",
+        "method": "POST",
+        "content-type": "",
+        "requests": [],
+        "responses": [
+            {
+                "status": "200",
+                "body": {
+                    "type": "object",
+                    "oneOf": [
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "ok"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ]
+                        },
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "notAuth"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ]
+                        }
+                    ]
+                },
+                "content-type": "application/json"
+            }
+        ],
+        "resource": ""
+    },
+    {
+        "path": "/guest/event",
+        "method": "GET",
+        "content-type": "",
+        "requests": [],
+        "responses": [
+            {
+                "status": "200",
+                "body": {
+                    "type": "object",
+                    "oneOf": [
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "ok"
+                                    ]
+                                },
+                                "result": {
+                                    "type": "object",
+                                    "properties": {
+                                        "date": {
+                                            "type": "number",
+                                            "example": "127621347872"
+                                        },
+                                        "distantion": {
+                                            "type": "number",
+                                            "example": 123
+                                        },
+                                        "group_id": {
+                                            "type": "number",
+                                            "example": 123
+                                        }
+                                    },
+                                    "required": [
+                                        "date",
+                                        "distantion",
+                                        "group_id"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status",
+                                "result"
+                            ]
+                        },
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "notAuth"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ]
+                        },
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "notFound"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ]
+                        },
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "userPointNotFound"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ]
+                        }
+                    ]
+                },
+                "content-type": "application/json"
+            }
+        ],
+        "resource": ""
+    },
+    {
+        "path": "/admin/suspect",
+        "method": "GET",
+        "content-type": "",
+        "requests": [],
+        "responses": [
+            {
+                "status": "200",
+                "body": {
+                    "type": "object",
+                    "oneOf": [
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "ok"
+                                    ]
+                                },
+                                "result": {
+                                    "type": "object",
+                                    "properties": {
+                                        "date": {
+                                            "type": "number",
+                                            "example": "127621347872"
+                                        },
+                                        "group_id": {
+                                            "type": "number",
+                                            "example": 123
+                                        },
+                                        "state": {
+                                            "type": "string",
+                                            "example": "active"
+                                        },
+                                        "point_lat": {
+                                            "type": "number",
+                                            "example": 56.12
+                                        },
+                                        "point_long": {
+                                            "type": "number",
+                                            "example": 48.13
+                                        },
+                                        "start_date": {
+                                            "type": "number",
+                                            "example": 123
+                                        },
+                                        "end_date": {
+                                            "type": "number",
+                                            "example": 123
+                                        },
+                                        "join_group": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "save_favorite": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "save_display": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "suspect_count": {
+                                            "type": "number",
+                                            "example": 123
+                                        },
+                                        "viewed_count": {
+                                            "type": "number",
+                                            "example": 123
+                                        },
+                                        "liked_count": {
+                                            "type": "number",
+                                            "example": 123
+                                        },
+                                        "opened_count": {
+                                            "type": "number",
+                                            "example": 123
+                                        }
+                                    },
+                                    "required": [
+                                        "date",
+                                        "group_id",
+                                        "state",
+                                        "point_lat",
+                                        "point_long",
+                                        "start_date",
+                                        "end_date",
+                                        "join_group",
+                                        "save_favorite",
+                                        "save_display",
+                                        "suspect_count",
+                                        "viewed_count",
+                                        "liked_count",
+                                        "opened_count"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status",
+                                "result"
+                            ]
+                        },
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "notAuth"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ]
+                        }
+                    ]
+                },
+                "content-type": "application/json"
+            }
+        ],
+        "resource": ""
+    },
+    {
+        "path": "/admin/suspect",
+        "method": "PUT",
+        "content-type": "",
+        "requests": [],
+        "responses": [
+            {
+                "status": "200",
+                "body": {
+                    "type": "object",
+                    "oneOf": [
+                        {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "ok"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ]
+                        },
+                        {
+                            "$ref": "#/definitions/notAuth"
+                        }
+                    ],
+                    "definitions": {
+                        "notAuth": {
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "notAuth"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ]
+                        }
+                    }
+                },
+                "content-type": "application/json"
+            }
+        ],
+        "resource": ""
+    }
+]

@@ -1,5 +1,10 @@
 # Change log
 
+### 3.2.3 - 2024-05-28
+
+* bug fixes
+  * improve parsing definitions for openapi3 [#60](https://github.com/funbox/tomograph/issues/60)
+
 ### 3.2.2 - 2024-05-14
 
 * bug fixes
