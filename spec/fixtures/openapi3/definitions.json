@@ -2,7 +2,7 @@
     {
         "path": "/owner/event",
         "method": "POST",
-        "content-type": "",
+        "content-type": "application/json",
         "requests": [],
         "responses": [
             {
@@ -33,7 +33,7 @@
     {
         "path": "/owner/event",
         "method": "PUT",
-        "content-type": "",
+        "content-type": "application/json",
         "requests": [],
         "responses": [
             {
@@ -203,7 +203,7 @@
     {
         "path": "/owner/user",
         "method": "PUT",
-        "content-type": "",
+        "content-type": "application/json",
         "requests": [],
         "responses": [
             {
@@ -314,7 +314,7 @@
     {
         "path": "/guest/user",
         "method": "POST",
-        "content-type": "",
+        "content-type": "application/json",
         "requests": [],
         "responses": [
             {
@@ -345,7 +345,7 @@
     {
         "path": "/guest/user",
         "method": "PUT",
-        "content-type": "",
+        "content-type": "application/json",
         "requests": [],
         "responses": [
             {
@@ -510,7 +510,7 @@
     {
         "path": "/guest/reaction",
         "method": "POST",
-        "content-type": "",
+        "content-type": "application/json",
         "requests": [],
         "responses": [
             {
@@ -769,7 +769,7 @@
     {
         "path": "/admin/suspect",
         "method": "PUT",
-        "content-type": "",
+        "content-type": "application/json",
         "requests": [],
         "responses": [
             {

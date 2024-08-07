@@ -14,7 +14,7 @@ module Tomograph
             result.push(Tomograph::Tomogram::Action.new(
                           path: "#{@prefix}#{path}",
                           method: method.upcase,
-                          content_type: '',
+                          content_type: action_definition[method]['requestBody'] && action_definition[method]['requestBody']['content'].keys[0] == 'application/json' ? action_definition[method]['requestBody']['content'].keys[0] : '',
                           requests: [],
                           responses: responses(action_definition[method]['responses']),
                           resource: ''

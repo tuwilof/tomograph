@@ -1,5 +1,10 @@
 # Change log
 
+### 3.2.4 - 2024-08-08
+
+* bug fixes
+  * fix content type for open api for request
+
 ### 3.2.3 - 2024-05-28
 
 * bug fixes
