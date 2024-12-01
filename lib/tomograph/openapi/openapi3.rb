@@ -11,18 +11,23 @@ module Tomograph
       def to_tomogram
         @tomogram ||= @documentation['paths'].each_with_object([]) do |(path, action_definition), result|
           action_definition.keys.each do |method|
-            aj = action_definition[method]['requestBody']['content']['application/json']
+            ajj = valuekey(action_definition[method]['requestBody'], 'content')
+            aj = valuekey(ajj, 'application/json')
 
             result.push(Tomograph::Tomogram::Action.new(
                           path: "#{@prefix}#{path}",
                           method: method.upcase,
                           content_type: action_definition[method]['requestBody'] && action_definition[method]['requestBody']['content'].keys[0] == 'application/json' ? action_definition[method]['requestBody']['content'].keys[0] : '',
-                          requests: [schema_new(aj.present? ? aj['schema'] : nil, @documentation['definitions'])],
+                          requests: [schema_new(valuekey(aj, 'schema'), @documentation['definitions'])].compact,
                           responses: responses(action_definition[method]['responses']),
                           resource: ''
                         ))
           end
         end
+      end
+
+      def valuekey(value, key)
+        value.nil? ? nil : value[key]
       end
 
       def schema_new(sche, defi)
