@@ -11,15 +11,40 @@ module Tomograph
       def to_tomogram
         @tomogram ||= @documentation['paths'].each_with_object([]) do |(path, action_definition), result|
           action_definition.keys.each do |method|
+            aj = action_definition[method]['requestBody']['content']['application/json']
+
             result.push(Tomograph::Tomogram::Action.new(
                           path: "#{@prefix}#{path}",
                           method: method.upcase,
                           content_type: action_definition[method]['requestBody'] && action_definition[method]['requestBody']['content'].keys[0] == 'application/json' ? action_definition[method]['requestBody']['content'].keys[0] : '',
-                          requests: [],
+                          requests: [schema_new(aj.present? ? aj['schema'] : nil, @documentation['definitions'])],
                           responses: responses(action_definition[method]['responses']),
                           resource: ''
                         ))
           end
+        end
+      end
+
+      def schema_new(sche, defi)
+        return sche unless sche
+        if sche.keys.include?('$ref')
+          res = sche.merge('definitions' => { sche['$ref'][14..-1] => defi[sche['$ref'][14..-1]] })
+          if defi[sche['$ref'][14..-1]].to_s.include?('$ref')
+            keys = defi[sche['$ref'][14..-1]].to_s.split('"').find_all { |word| word.include?('definitions') }
+            keys.each do |key|
+              res['definitions'].merge!({ key[14..-1] => defi[key[14..-1]] })
+            end
+          end
+          res
+        elsif sche.to_s.include?('$ref')
+          res = sche.merge('definitions' => {})
+          keys = sche.to_s.split('"').find_all { |word| word.include?('definitions') }
+          keys.each do |key|
+            res['definitions'].merge!({ key[14..-1] => defi[key[14..-1]] })
+          end
+          res
+        else
+          sche
         end
       end
 
