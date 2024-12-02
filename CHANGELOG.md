@@ -1,5 +1,10 @@
 # Change log
 
+### 3.2.5 - 2024-12-02
+
+* bug fixes
+  * fix request json schema definitions for OpenAPI 3
+
 ### 3.2.4 - 2024-08-08
 
 * bug fixes
