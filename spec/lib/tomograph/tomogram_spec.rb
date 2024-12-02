@@ -1132,7 +1132,7 @@ RSpec.describe Tomograph::Tomogram do
 
         context 'and response is defined in components/responses section' do
           let(:json_schema) { 'spec/fixtures/openapi3/response_is_a_ref.json' }
-          let(:documentation) { "response_is_a_ref.yml" }
+          let(:documentation) { 'response_is_a_ref.yml' }
 
           it 'parses documents right' do
             expect(subject).to eq(parsed)
@@ -1145,7 +1145,6 @@ RSpec.describe Tomograph::Tomogram do
         let(:documentation) { 'definitions.yaml' }
 
         it 'parses documents right' do
-          puts JSON.dump(subject)
           expect(subject).to eq(parsed)
         end
       end
