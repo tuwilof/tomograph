@@ -182,8 +182,8 @@
           "properties": {
             "error": {
               "type": "string",
-              "default": "You are not authorized to access this page.",
-              "example": "You are not authorized to access this page."
+              "example": "You are not authorized to access this page.",
+              "default": "You are not authorized to access this page."
             }
           }
         },
@@ -195,7 +195,7 @@
   {
     "path": "/account",
     "method": "POST",
-    "content-type": null,
+    "content-type": "application/vnd.api+json",
     "requests": [
 
     ],
@@ -396,7 +396,7 @@
   {
     "path": "/account",
     "method": "PATCH",
-    "content-type": null,
+    "content-type": "application/vnd.api+json",
     "requests": [
 
     ],
@@ -697,8 +697,8 @@
           "properties": {
             "error": {
               "type": "string",
-              "default": "You are not authorized to access this page.",
-              "example": "You are not authorized to access this page."
+              "example": "You are not authorized to access this page.",
+              "default": "You are not authorized to access this page."
             }
           }
         },
@@ -710,7 +710,7 @@
   {
     "path": "/account/addresses",
     "method": "POST",
-    "content-type": null,
+    "content-type": "application/vnd.api+json",
     "requests": [
 
     ],
@@ -810,8 +810,8 @@
           "properties": {
             "error": {
               "type": "string",
-              "default": "You are not authorized to access this page.",
-              "example": "You are not authorized to access this page."
+              "example": "You are not authorized to access this page.",
+              "default": "You are not authorized to access this page."
             }
           }
         },
@@ -823,7 +823,7 @@
   {
     "path": "/account/addresses/{id}",
     "method": "PATCH",
-    "content-type": null,
+    "content-type": "application/vnd.api+json",
     "requests": [
 
     ],
@@ -923,8 +923,8 @@
           "properties": {
             "error": {
               "type": "string",
-              "default": "You are not authorized to access this page.",
-              "example": "You are not authorized to access this page."
+              "example": "You are not authorized to access this page.",
+              "default": "You are not authorized to access this page."
             }
           }
         },
@@ -1087,8 +1087,8 @@
           "properties": {
             "error": {
               "type": "string",
-              "default": "You are not authorized to access this page.",
-              "example": "You are not authorized to access this page."
+              "example": "You are not authorized to access this page.",
+              "default": "You are not authorized to access this page."
             }
           }
         },
@@ -1250,8 +1250,8 @@
           "properties": {
             "error": {
               "type": "string",
-              "default": "You are not authorized to access this page.",
-              "example": "You are not authorized to access this page."
+              "example": "You are not authorized to access this page.",
+              "default": "You are not authorized to access this page."
             }
           }
         },
@@ -1969,8 +1969,8 @@
           "properties": {
             "error": {
               "type": "string",
-              "default": "You are not authorized to access this page.",
-              "example": "You are not authorized to access this page."
+              "example": "You are not authorized to access this page.",
+              "default": "You are not authorized to access this page."
             }
           }
         },
@@ -2686,8 +2686,8 @@
           "properties": {
             "error": {
               "type": "string",
-              "default": "You are not authorized to access this page.",
-              "example": "You are not authorized to access this page."
+              "example": "You are not authorized to access this page.",
+              "default": "You are not authorized to access this page."
             }
           }
         },
@@ -3403,8 +3403,8 @@
           "properties": {
             "error": {
               "type": "string",
-              "default": "The resource you were looking for could not be found.",
-              "example": "The resource you were looking for could not be found."
+              "example": "The resource you were looking for could not be found.",
+              "default": "The resource you were looking for could not be found."
             }
           }
         },
@@ -4824,8 +4824,8 @@
           "properties": {
             "error": {
               "type": "string",
-              "default": "The resource you were looking for could not be found.",
-              "example": "The resource you were looking for could not be found."
+              "example": "The resource you were looking for could not be found.",
+              "default": "The resource you were looking for could not be found."
             }
           }
         },
@@ -4837,7 +4837,7 @@
   {
     "path": "/cart/add_item",
     "method": "POST",
-    "content-type": null,
+    "content-type": "application/vnd.api+json",
     "requests": [
 
     ],
@@ -5541,8 +5541,8 @@
           "properties": {
             "error": {
               "type": "string",
-              "default": "The resource you were looking for could not be found.",
-              "example": "The resource you were looking for could not be found."
+              "example": "The resource you were looking for could not be found.",
+              "default": "The resource you were looking for could not be found."
             }
           }
         },
@@ -5554,7 +5554,7 @@
   {
     "path": "/cart/set_quantity",
     "method": "PATCH",
-    "content-type": null,
+    "content-type": "application/vnd.api+json",
     "requests": [
 
     ],
@@ -6983,8 +6983,8 @@
           "properties": {
             "error": {
               "type": "string",
-              "default": "The resource you were looking for could not be found.",
-              "example": "The resource you were looking for could not be found."
+              "example": "The resource you were looking for could not be found.",
+              "default": "The resource you were looking for could not be found."
             }
           }
         },
@@ -7700,8 +7700,8 @@
           "properties": {
             "error": {
               "type": "string",
-              "default": "The resource you were looking for could not be found.",
-              "example": "The resource you were looking for could not be found."
+              "example": "The resource you were looking for could not be found.",
+              "default": "The resource you were looking for could not be found."
             }
           }
         },
@@ -7713,7 +7713,7 @@
   {
     "path": "/cart/apply_coupon_code",
     "method": "PATCH",
-    "content-type": null,
+    "content-type": "application/vnd.api+json",
     "requests": [
 
     ],
@@ -9260,8 +9260,8 @@
           "properties": {
             "error": {
               "type": "string",
-              "default": "The resource you were looking for could not be found.",
-              "example": "The resource you were looking for could not be found."
+              "example": "The resource you were looking for could not be found.",
+              "default": "The resource you were looking for could not be found."
             }
           }
         },
@@ -9273,7 +9273,7 @@
   {
     "path": "/checkout",
     "method": "PATCH",
-    "content-type": null,
+    "content-type": "application/vnd.api+json",
     "requests": [
 
     ],
@@ -9998,8 +9998,8 @@
           "properties": {
             "error": {
               "type": "string",
-              "default": "The resource you were looking for could not be found.",
-              "example": "The resource you were looking for could not be found."
+              "example": "The resource you were looking for could not be found.",
+              "default": "The resource you were looking for could not be found."
             }
           }
         },
@@ -10736,8 +10736,8 @@
           "properties": {
             "error": {
               "type": "string",
-              "default": "The resource you were looking for could not be found.",
-              "example": "The resource you were looking for could not be found."
+              "example": "The resource you were looking for could not be found.",
+              "default": "The resource you were looking for could not be found."
             }
           }
         },
@@ -11474,8 +11474,8 @@
           "properties": {
             "error": {
               "type": "string",
-              "default": "The resource you were looking for could not be found.",
-              "example": "The resource you were looking for could not be found."
+              "example": "The resource you were looking for could not be found.",
+              "default": "The resource you were looking for could not be found."
             }
           }
         },
@@ -12212,8 +12212,8 @@
           "properties": {
             "error": {
               "type": "string",
-              "default": "The resource you were looking for could not be found.",
-              "example": "The resource you were looking for could not be found."
+              "example": "The resource you were looking for could not be found.",
+              "default": "The resource you were looking for could not be found."
             }
           }
         },
@@ -12950,8 +12950,8 @@
           "properties": {
             "error": {
               "type": "string",
-              "default": "The resource you were looking for could not be found.",
-              "example": "The resource you were looking for could not be found."
+              "example": "The resource you were looking for could not be found.",
+              "default": "The resource you were looking for could not be found."
             }
           }
         },
@@ -13688,8 +13688,8 @@
           "properties": {
             "error": {
               "type": "string",
-              "default": "The resource you were looking for could not be found.",
-              "example": "The resource you were looking for could not be found."
+              "example": "The resource you were looking for could not be found.",
+              "default": "The resource you were looking for could not be found."
             }
           }
         },
@@ -13765,8 +13765,8 @@
           "properties": {
             "error": {
               "type": "string",
-              "default": "The resource you were looking for could not be found.",
-              "example": "The resource you were looking for could not be found."
+              "example": "The resource you were looking for could not be found.",
+              "default": "The resource you were looking for could not be found."
             }
           }
         },
@@ -14004,8 +14004,8 @@
           "properties": {
             "error": {
               "type": "string",
-              "default": "The resource you were looking for could not be found.",
-              "example": "The resource you were looking for could not be found."
+              "example": "The resource you were looking for could not be found.",
+              "default": "The resource you were looking for could not be found."
             }
           }
         },
@@ -15462,8 +15462,8 @@
           "properties": {
             "error": {
               "type": "string",
-              "default": "The resource you were looking for could not be found.",
-              "example": "The resource you were looking for could not be found."
+              "example": "The resource you were looking for could not be found.",
+              "default": "The resource you were looking for could not be found."
             }
           }
         },
@@ -16400,8 +16400,8 @@
           "properties": {
             "error": {
               "type": "string",
-              "default": "The resource you were looking for could not be found.",
-              "example": "The resource you were looking for could not be found."
+              "example": "The resource you were looking for could not be found.",
+              "default": "The resource you were looking for could not be found."
             }
           }
         },
@@ -16662,8 +16662,8 @@
           "properties": {
             "error": {
               "type": "string",
-              "default": "The resource you were looking for could not be found.",
-              "example": "The resource you were looking for could not be found."
+              "example": "The resource you were looking for could not be found.",
+              "default": "The resource you were looking for could not be found."
             }
           }
         },
