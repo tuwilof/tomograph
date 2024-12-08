@@ -1,5 +1,10 @@
 # Change log
 
+### 3.2.6 - 2024-12-08
+
+* bug fixes
+  * fix null content-type for request OpenAPI 3
+
 ### 3.2.5 - 2024-12-02
 
 * bug fixes
