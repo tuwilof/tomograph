@@ -129,7 +129,7 @@
     {
       "path": "/owner/event",
       "method": "GET",
-      "content-type": "",
+      "content-type": null,
       "requests": [
   
       ],
@@ -213,7 +213,7 @@
     {
       "path": "/owner/event",
       "method": "DELETE",
-      "content-type": "",
+      "content-type": null,
       "requests": [
   
       ],
@@ -331,7 +331,7 @@
     {
       "path": "/owner/user",
       "method": "GET",
-      "content-type": "",
+      "content-type": null,
       "requests": [
   
       ],
@@ -542,7 +542,7 @@
     {
       "path": "/guest/user",
       "method": "GET",
-      "content-type": "",
+      "content-type": null,
       "requests": [
   
       ],
@@ -621,7 +621,7 @@
     {
       "path": "/guest/user",
       "method": "DELETE",
-      "content-type": "",
+      "content-type": null,
       "requests": [
   
       ],
@@ -728,7 +728,7 @@
     {
       "path": "/guest/event",
       "method": "GET",
-      "content-type": "",
+      "content-type": null,
       "requests": [
   
       ],
@@ -823,7 +823,7 @@
     {
       "path": "/admin/suspect",
       "method": "GET",
-      "content-type": "",
+      "content-type": null,
       "requests": [
   
       ],

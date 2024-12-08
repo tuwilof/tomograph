@@ -17,7 +17,7 @@ module Tomograph
             result.push(Tomograph::Tomogram::Action.new(
                           path: "#{@prefix}#{path}",
                           method: method.upcase,
-                          content_type: action_definition[method]['requestBody'] && action_definition[method]['requestBody']['content'].keys[0] == 'application/json' ? action_definition[method]['requestBody']['content'].keys[0] : '',
+                          content_type: action_definition[method]['requestBody'] && action_definition[method]['requestBody']['content'].keys[0] == 'application/json' ? action_definition[method]['requestBody']['content'].keys[0] : nil,
                           requests: [schema_new(valuekey(aj, 'schema'), @documentation['definitions'])].compact,
                           responses: responses(action_definition[method]['responses']),
                           resource: ''
@@ -67,7 +67,7 @@ module Tomograph
             result.push(
               'status' => response_code,
               'body'=> {},
-              'content-type' => ''
+              'content-type' => nil
             )
           else
             result += responses_by_content_types(response['content'], response_code)
