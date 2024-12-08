@@ -2,7 +2,7 @@
   {
     "path": "/accounts/{accountId}",
     "method": "GET",
-    "content-type": "",
+    "content-type": null,
     "requests": [
     ],
     "responses": [
@@ -10,7 +10,7 @@
         "status": "404",
         "body": {
         },
-        "content-type": ""
+        "content-type": null
       }
     ],
     "resource": ""

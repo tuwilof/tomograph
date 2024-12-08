@@ -2,7 +2,7 @@
   {
     "path": "/account",
     "method": "GET",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -195,7 +195,7 @@
   {
     "path": "/account",
     "method": "POST",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -396,7 +396,7 @@
   {
     "path": "/account",
     "method": "PATCH",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -597,7 +597,7 @@
   {
     "path": "/account/addresses",
     "method": "GET",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -710,7 +710,7 @@
   {
     "path": "/account/addresses",
     "method": "POST",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -823,7 +823,7 @@
   {
     "path": "/account/addresses/{id}",
     "method": "PATCH",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -936,7 +936,7 @@
   {
     "path": "/account/credit_cards",
     "method": "GET",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -1100,7 +1100,7 @@
   {
     "path": "/account/credit_cards/default",
     "method": "GET",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -1263,7 +1263,7 @@
   {
     "path": "/account/orders",
     "method": "GET",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -1982,7 +1982,7 @@
   {
     "path": "/account/orders/{number}",
     "method": "GET",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -2699,7 +2699,7 @@
   {
     "path": "/order_status/{number}",
     "method": "GET",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -3416,7 +3416,7 @@
   {
     "path": "/cart",
     "method": "POST",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -4120,7 +4120,7 @@
   {
     "path": "/cart",
     "method": "GET",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -4837,7 +4837,7 @@
   {
     "path": "/cart/add_item",
     "method": "POST",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -5554,7 +5554,7 @@
   {
     "path": "/cart/set_quantity",
     "method": "PATCH",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -6279,7 +6279,7 @@
   {
     "path": "/cart/remove_line_item/{line_item_id}",
     "method": "DELETE",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -6996,7 +6996,7 @@
   {
     "path": "/cart/empty",
     "method": "PATCH",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -7713,7 +7713,7 @@
   {
     "path": "/cart/apply_coupon_code",
     "method": "PATCH",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -8438,7 +8438,7 @@
   {
     "path": "/cart/remove_coupon_code/{coupon_code}",
     "method": "DELETE",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -9163,7 +9163,7 @@
   {
     "path": "/cart/estimate_shipping_rates",
     "method": "GET",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -9273,7 +9273,7 @@
   {
     "path": "/checkout",
     "method": "PATCH",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -10011,7 +10011,7 @@
   {
     "path": "/checkout/next",
     "method": "PATCH",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -10749,7 +10749,7 @@
   {
     "path": "/checkout/advance",
     "method": "PATCH",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -11487,7 +11487,7 @@
   {
     "path": "/checkout/complete",
     "method": "PATCH",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -12225,7 +12225,7 @@
   {
     "path": "/checkout/add_store_credit",
     "method": "POST",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -12963,7 +12963,7 @@
   {
     "path": "/checkout/remove_store_credit",
     "method": "POST",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -13701,7 +13701,7 @@
   {
     "path": "/checkout/payment_methods",
     "method": "GET",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -13778,7 +13778,7 @@
   {
     "path": "/checkout/shipping_rates",
     "method": "GET",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -14017,7 +14017,7 @@
   {
     "path": "/products",
     "method": "GET",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -14766,7 +14766,7 @@
   {
     "path": "/products/{id}",
     "method": "GET",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -15475,7 +15475,7 @@
   {
     "path": "/taxons",
     "method": "GET",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -15964,7 +15964,7 @@
   {
     "path": "/taxons/{id}",
     "method": "GET",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -16413,7 +16413,7 @@
   {
     "path": "/countries",
     "method": "GET",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -16527,7 +16527,7 @@
   {
     "path": "/countries/{iso}",
     "method": "GET",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
@@ -16675,7 +16675,7 @@
   {
     "path": "/countries/default",
     "method": "GET",
-    "content-type": "",
+    "content-type": null,
     "requests": [
 
     ],
