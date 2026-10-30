@@ -1,0 +1,24 @@
+openapi: 3.0.3
+info:
+  title: Nullable fields
+  version: 1.0.0
+paths:
+  /audit:
+    get:
+      responses:
+        '200':
+          description: ok
+          x-empty-body: true
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  email:
+                    type: string
+                    nullable: true
+                  name:
+                    type: string
+                required:
+                  - email
+                  - name
