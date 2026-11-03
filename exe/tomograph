@@ -17,6 +17,7 @@ description 'Converts API Blueprint to JSON Schema'
 on('-d DRAFTER_VERSION', '--drafter', 'Choose drafter version: crafter or 4,
     or OpenAPI version: openapi2 or openapi3. Default: use drafter v.4.')
 on('--exclude-description', 'Exclude "description" keys.')
+on('--json-schema-draft4', 'Add "$schema": draft-04 to every non-empty request and response body.')
 on('--split', 'Split output into files by method.')
 arg :input, 'path/to/doc.yaml (API Elements)'
 arg :output, 'path/to/doc.json or path/to/dir if --split is used.'
@@ -27,6 +28,21 @@ def prune!(obj, unwanted_key)
     obj.each_value { |value| prune!(value, unwanted_key) }
   elsif obj.is_a?(Array)
     obj.each { |value| prune!(value, unwanted_key) }
+  end
+end
+
+JSON_SCHEMA_DRAFT4 = 'http://json-schema.org/draft-04/schema#'.freeze
+
+def with_draft4(schema)
+  return schema unless schema.is_a?(Hash) && !schema.empty?
+
+  { '$schema' => JSON_SCHEMA_DRAFT4 }.merge(schema)
+end
+
+def add_draft4!(actions)
+  actions.each do |action|
+    action['requests'] = action['requests'].map { |request| with_draft4(request) }
+    action['responses'].each { |response| response['body'] = with_draft4(response['body']) }
   end
 end
 
@@ -80,6 +96,7 @@ main do |input, output|
   actions = tomogram.to_a.map(&:to_hash)
 
   prune!(actions, 'description') if options['exclude-description']
+  add_draft4!(actions) if options['json-schema-draft4']
 
   if options['split']
     write_split_json(actions, output)

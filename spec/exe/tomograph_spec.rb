@@ -35,6 +35,20 @@ RSpec.describe 'tomograph' do
     end
   end
 
+  context 'with --json-schema-draft4' do
+    let(:input_path) { 'spec/fixtures/openapi3/nullable.yml' }
+    let(:options) { '-d openapi3 --json-schema-draft4' }
+
+    it 'adds draft-04 $schema to non-empty bodies only' do
+      expect(run_tomograph).to be_truthy
+      bodies = JSON.parse(IO.read(output_path)).first['responses'].map { |response| response['body'] }
+
+      expect(bodies.first['$schema']).to eq('http://json-schema.org/draft-04/schema#')
+      expect(bodies.first.dig('properties', 'email', 'type')).to eq(%w[string null])
+      expect(bodies.last).to eq({})
+    end
+  end
+
   def json_read(*path)
     JSON.parse(IO.read(File.join(*path)))
   end

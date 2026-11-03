@@ -371,6 +371,15 @@ Exclude "description" keys from json-schemas.
 tomograph -d 4 apielemetns.yaml doc.json --exclude-description
 ```
 
+#### json-schema-draft4
+
+Add `"$schema": "http://json-schema.org/draft-04/schema#"` to every non-empty request and response body.
+Empty bodies stay `{}`.
+
+```bash
+tomograph -d openapi3 openapi3.yaml doc.json --json-schema-draft4
+```
+
 #### split
 
 Split output into files by method. Output in dir path.

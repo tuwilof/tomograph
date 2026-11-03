@@ -1,0 +1,45 @@
+UserRole:
+  type: string
+  enum:
+    - salesManager
+User:
+  type: object
+  properties:
+    role:
+      $ref: '#/UserRole'
+  required:
+    - role
+LoginRequest:
+  type: object
+  properties:
+    email:
+      type: string
+  required:
+    - email
+LoginSuccess:
+  type: object
+  properties:
+    result:
+      $ref: '#/User'
+  required:
+    - result
+NotFoundError:
+  type: object
+  properties:
+    status:
+      type: string
+      enum:
+        - notFound
+TimeZone:
+  type: string
+CreateCampaignForm:
+  type: object
+  properties:
+    timeZone:
+      $ref: '#/TimeZone'
+    file:
+      type: string
+      format: binary
+  required:
+    - timeZone
+    - file

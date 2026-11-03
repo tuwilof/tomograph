@@ -1,0 +1,22 @@
+post:
+  operationId: login
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas.yaml#/LoginRequest
+  responses:
+    '200':
+      description: ok
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: ../components/schemas.yaml#/LoginSuccess
+              - $ref: ../components/schemas.yaml#/NotFoundError
+delete:
+  operationId: logout
+  responses:
+    '401':
+      $ref: ../components/responses.yaml#/Unauthorized

@@ -1,0 +1,20 @@
+parameters:
+  - name: id
+    in: query
+    schema:
+      type: string
+post:
+  operationId: create-campaign
+  requestBody:
+    required: true
+    content:
+      multipart/form-data:
+        schema:
+          $ref: ../components/schemas.yaml#/CreateCampaignForm
+  responses:
+    '200':
+      description: ok
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas.yaml#/NotFoundError

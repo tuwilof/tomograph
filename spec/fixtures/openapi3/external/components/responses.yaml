@@ -1,0 +1,6 @@
+Unauthorized:
+  description: unauthorized
+  content:
+    application/json:
+      schema:
+        $ref: ./schemas.yaml#/NotFoundError

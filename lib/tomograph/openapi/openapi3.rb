@@ -1,25 +1,33 @@
 require 'tomograph/tomogram/action'
+require 'tomograph/openapi/external_ref_resolver'
 
 module Tomograph
   module OpenApi
     class OpenApi3
+      HTTP_METHODS = %w[get put post delete options head patch trace].freeze
+      REQUEST_SCHEMA_TYPES = ['application/json', 'multipart/form-data', 'application/x-www-form-urlencoded'].freeze
+
       def initialize(prefix, openapi3_yaml_path)
         @prefix = prefix
-        @documentation = YAML.safe_load(File.read(openapi3_yaml_path))
+        @documentation = ExternalRefResolver.load(openapi3_yaml_path)
       end
 
       def to_tomogram
         @tomogram ||= @documentation['paths'].each_with_object([]) do |(path, action_definition), result|
-          action_definition.keys.each do |method|
-            ajj = valuekey(action_definition[method]['requestBody'], 'content')
-            aj = valuekey(ajj, 'application/json')
+          next unless action_definition.is_a?(Hash)
 
+          action_definition.each do |method, operation|
+            next unless HTTP_METHODS.include?(method)
+            next unless operation.is_a?(Hash)
+
+            request_body = operation['requestBody']
+            content = valuekey(request_body, 'content')
             result.push(Tomograph::Tomogram::Action.new(
                           path: "#{@prefix}#{path}",
                           method: method.upcase,
-                          content_type: action_definition[method]['requestBody'].nil? ? nil : action_definition[method]['requestBody']['content'].keys[0],
-                          requests: [schema_new(valuekey(aj, 'schema'), @documentation['definitions'])].compact,
-                          responses: responses(action_definition[method]['responses']),
+                          content_type: request_body.nil? ? nil : content&.keys&.first,
+                          requests: [request_schema(content)].compact,
+                          responses: responses(operation['responses']),
                           resource: ''
                         ))
           end
@@ -30,7 +38,27 @@ module Tomograph
         value.nil? ? nil : value[key]
       end
 
+      def request_schema(content)
+        return if content.nil?
+
+        type = REQUEST_SCHEMA_TYPES.find { |item| content.key?(item) }
+        return if type.nil?
+
+        node = valuekey(content[type], 'schema')
+        return if node.nil?
+
+        if node.to_s.include?('#/components/schemas/')
+          schema(node)
+        else
+          schema_new(node, @documentation['definitions'])
+        end
+      end
+
       def schema_new(sche, defi)
+        json_schema(schema_new_raw(sche, defi))
+      end
+
+      def schema_new_raw(sche, defi)
         return sche unless sche
         if sche.keys.include?('$ref')
           res = sche.merge('definitions' => { sche['$ref'][14..-1] => defi[sche['$ref'][14..-1]] })
@@ -72,6 +100,16 @@ module Tomograph
           else
             result += responses_by_content_types(response['content'], response_code)
           end
+
+          # API Blueprint allowed a second response with the same status and an
+          # empty body. Fitting treats that pair as an optional schema.
+          if response['x-empty-body']
+            result.push(
+              'status' => response_code,
+              'body' => {},
+              'content-type' => 'application/json'
+            )
+          end
         end
         result
       end
@@ -87,6 +125,12 @@ module Tomograph
       end
 
       def schema(sche)
+        json_schema(schema_raw(sche))
+      end
+
+      def schema_raw(sche)
+        return sche unless sche.is_a?(Hash)
+
         if @documentation['components']
           defi = @documentation['components']['schemas']
         elsif @documentation['definitions']
@@ -122,15 +166,85 @@ module Tomograph
           sche
 
         elsif sche.to_s.include?('$ref')
-          res = sche.merge('definitions' => {})
-          keys = sche.to_s.split('"').find_all { |word| word.include?('definitions') }
-          keys.each do |key|
-            res['definitions'].merge!({ key.split('/')[-1] => defi[key.split('/')[-1]] })
-          end
-          res
+          res = attach_definitions(sche, defi)
+          attach_component_schemas(res)
         else
           sche
         end
+      end
+
+      def attach_definitions(sche, defi)
+        keys = sche.to_s.split('"').find_all { |word| word.include?('definitions') }
+        return sche if keys.empty?
+
+        res = sche.merge('definitions' => {})
+        keys.each do |key|
+          name = key.split('/')[-1]
+          res['definitions'].merge!(name => defi[name])
+        end
+        res
+      end
+
+      def attach_component_schemas(sche)
+        schemas = @documentation.dig('components', 'schemas')
+        return sche unless schemas
+
+        copied = {}
+        seen = {}
+        copy_component_schemas(copied, seen, component_ref_names(sche), schemas)
+        return sche if copied.empty?
+
+        previous = (sche['components'] || {})
+        schemas = (previous['schemas'] || {}).merge(copied)
+        sche.merge('components' => previous.merge('schemas' => schemas))
+      end
+
+      def copy_component_schemas(copied, seen, names, schemas)
+        names.each do |name|
+          next if seen[name]
+          next unless schemas[name]
+
+          seen[name] = true
+          copied[name] = schemas[name]
+          copy_component_schemas(copied, seen, component_ref_names(schemas[name]), schemas)
+        end
+      end
+
+      def component_ref_names(schema)
+        schema.to_s.split('"').find_all { |word| word.include?('#/components/schemas/') }
+              .map { |word| word[21..-1] }
+              .uniq
+      end
+
+      # OpenAPI 3 `nullable: true` is not a JSON Schema keyword. Draft-04, which
+      # the tomogram is validated against, allows null only via the type list.
+      def json_schema(node)
+        case node
+        when Hash
+          converted = {}
+          node.each { |key, value| converted[key] = json_schema(value) }
+          nullable_to_type(converted)
+        when Array
+          node.map { |value| json_schema(value) }
+        else
+          node
+        end
+      end
+
+      def nullable_to_type(schema)
+        return schema unless schema.key?('nullable')
+
+        nullable = schema.delete('nullable')
+        return schema unless nullable
+
+        case schema['type']
+        when String
+          schema['type'] = [schema['type'], 'null']
+        when Array
+          schema['type'] = schema['type'].dup
+          schema['type'] << 'null' unless schema['type'].include?('null')
+        end
+        schema
       end
 
       def search_hash(hash, key)

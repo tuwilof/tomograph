@@ -1,0 +1,15 @@
+openapi: 3.0.3
+info:
+  title: External refs
+  version: 1.0.0
+paths:
+  /auth:
+    $ref: ./paths/auth.yaml
+  /campaigns:
+    $ref: ./paths/campaigns.yaml
+components:
+  securitySchemes:
+    accessToken:
+      type: apiKey
+      in: cookie
+      name: access_token
