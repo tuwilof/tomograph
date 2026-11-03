@@ -60,6 +60,7 @@ module Tomograph
 
       def schema_new_raw(sche, defi)
         return sche unless sche
+
         if sche.keys.include?('$ref')
           res = sche.merge('definitions' => { sche['$ref'][14..-1] => defi[sche['$ref'][14..-1]] })
           if defi[sche['$ref'][14..-1]].to_s.include?('$ref')
@@ -94,7 +95,7 @@ module Tomograph
           if response['content'].nil?
             result.push(
               'status' => response_code,
-              'body'=> {},
+              'body' => {},
               'content-type' => nil
             )
           else
