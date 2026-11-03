@@ -5,8 +5,8 @@ require 'tomograph/version'
 Gem::Specification.new do |spec|
   spec.name           = 'tomograph'
   spec.version        = Tomograph::VERSION
-  spec.authors        = ['d.efimov']
-  spec.email          = ['d.efimov@fun-box.ru']
+  spec.authors        = ['Dmitry Efimov']
+  spec.email          = ['tuwilof@gmail.com']
 
   spec.summary        = 'Convert API Blueprint, Swagger and OpenAPI to Tomogram'
   spec.description    = 'Convert API Blueprint, Swagger and OpenAPI to routes and JSON-Schemas'
