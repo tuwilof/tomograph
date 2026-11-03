@@ -5,8 +5,8 @@ require 'tomograph/version'
 Gem::Specification.new do |spec|
   spec.name           = 'tomograph'
   spec.version        = Tomograph::VERSION
-  spec.authors        = ['d.efimov']
-  spec.email          = ['d.efimov@fun-box.ru']
+  spec.authors        = ['Dmitry Efimov']
+  spec.email          = ['tuwilof@gmail.com']
 
   spec.summary        = 'Convert API Blueprint, Swagger and OpenAPI to Tomogram'
   spec.description    = 'Convert API Blueprint, Swagger and OpenAPI to routes and JSON-Schemas'
@@ -25,5 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.10', '>= 3.10.0'
   spec.add_development_dependency 'rubocop', '~> 0.81', '>= 0.81.0'
   spec.add_development_dependency 'simplecov', '~> 0.21', '>= 0.21.2'
-  spec.required_ruby_version = '>= 2.4.0'
+  spec.required_ruby_version = '>= 3.0.0'
 end

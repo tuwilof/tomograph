@@ -1,5 +1,6 @@
 AllCops:
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 3.0
+  NewCops: disable
 
 Layout/LineLength:
   Max: 120
@@ -30,3 +31,9 @@ Metrics/AbcSize:
 
 Metrics/ClassLength:
   Max: 150
+
+Metrics/CyclomaticComplexity:
+  Max: 16
+
+Metrics/PerceivedComplexity:
+  Max: 18

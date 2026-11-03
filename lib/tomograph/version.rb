@@ -1,3 +1,3 @@
 module Tomograph
-  VERSION = '3.2.7'.freeze
+  VERSION = '4.0.0'.freeze
 end

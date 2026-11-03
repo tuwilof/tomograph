@@ -1,5 +1,21 @@
 # Change log
 
+### 4.0.0 - 2026-11-03
+
+* breaking changes
+  * require Ruby 3.0 or newer; Ruby 2.x is no longer supported
+* features
+  * resolve external OpenAPI 3 path and component references
+  * support multipart and form-urlencoded request schemas
+* bug fixes
+  * include referenced component schemas in composed response schemas
+  * convert OpenAPI nullable fields to JSON Schema null types
+  * ignore path-level parameters when collecting operations
+  * preserve optional empty response bodies through `x-empty-body`
+* maintenance
+  * align local Ruby version managers and CI on Ruby 3.0.2
+  * update RuboCop target Ruby version and complexity limits
+
 ### 3.2.7 - 2024-12-08
 
 * bug fixes
